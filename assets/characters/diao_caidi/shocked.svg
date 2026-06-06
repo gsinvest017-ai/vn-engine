@@ -1,86 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800" width="400" height="800">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800">
   <defs>
-    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#1e2830"/>
-      <stop offset="100%" stop-color="#141820"/>
-    </linearGradient>
-    <radialGradient id="face" cx="50%" cy="30%" r="50%">
-      <stop offset="0%"  stop-color="#d8c0a0"/>
-      <stop offset="100%" stop-color="#b09878"/>
+    <radialGradient id="skin" cx="44%" cy="36%" r="56%">
+      <stop offset="0%" stop-color="#e0b880"/>
+      <stop offset="100%" stop-color="#a87848"/>
     </radialGradient>
-    <linearGradient id="rim_r" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#c07820" stop-opacity="0"/>
-      <stop offset="65%"  stop-color="#c07820" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#c07820" stop-opacity="0.38"/>
+    <linearGradient id="shirt" x1="0.1" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#1c2838"/>
+      <stop offset="100%" stop-color="#101820"/>
     </linearGradient>
-    <linearGradient id="shadow_l" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#080818" stop-opacity="0.44"/>
-      <stop offset="36%"  stop-color="#080818" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    <linearGradient id="pants" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1e2c"/>
+      <stop offset="100%" stop-color="#0e1018"/>
     </linearGradient>
   </defs>
 
-  <ellipse cx="200" cy="790" rx="85" ry="11" fill="#000" opacity="0.4"/>
-  <path d="M 125,310 L 75,720 L 325,720 L 275,310 Z" fill="url(#shirt)"/>
-  <!-- Shirt fold lines — distorted from shock movement -->
-  <line x1="168" y1="338" x2="130" y2="682" stroke="#141a22" stroke-width="2" opacity="0.52"/>
-  <path d="M 272,316 Q 290,518 326,716" stroke="#2a3840" stroke-width="2" fill="none" opacity="0.42"/>
-  <path d="M 175,308 L 165,360 L 200,345 L 235,360 L 225,308 Z" fill="#1a2228"/>
+  <ellipse cx="200" cy="788" rx="90" ry="10" fill="#000" opacity="0.26"/>
+  <path d="M 148,530 L 102,762 L 178,762 L 200,640 L 222,762 L 298,762 L 252,530 Z" fill="url(#pants)"/>
+  <line x1="160" y1="550" x2="140" y2="762" stroke="#0c0e16" stroke-width="1.5" opacity="0.5"/>
+  <line x1="240" y1="550" x2="260" y2="762" stroke="#0c0e16" stroke-width="1.5" opacity="0.5"/>
+  <path d="M 128,296 C 110,308 86,360 78,536 L 322,536 C 314,360 290,308 272,296 Z" fill="url(#shirt)"/>
+  <path d="M 272,296 C 294,322 316,390 320,536 L 322,536 C 314,360 290,308 272,296 Z" fill="#2e4060" opacity="0.45"/>
+  <path d="M 181,290 L 178,316 L 200,308 L 222,316 L 219,290 C 213,286 187,286 181,290 Z" fill="#162030"/>
+  <path d="M 181,290 L 200,300 L 219,290" stroke="#0e1828" stroke-width="1.5" fill="none"/>
+  <line x1="200" y1="308" x2="200" y2="535" stroke="#162030" stroke-width="2" opacity="0.55"/>
+  <path d="M 154,318 C 144,422 136,510 134,538" stroke="#101e2e" stroke-width="1.5" fill="none" opacity="0.45"/>
+  <path d="M 246,318 C 256,422 264,510 266,538" stroke="#101e2e" stroke-width="1.5" fill="none" opacity="0.45"/>
 
-  <!-- Arms thrown back/outward (shock recoil) -->
-  <path d="M 125,320 L 50,490 L 76,500 L 150,332 Z" fill="#c0a882"/>
-  <path d="M 275,320 L 350,490 L 324,500 L 250,332 Z" fill="#c0a882"/>
-  <!-- Arm muscle lines -->
-  <path d="M 125,330 Q 88,414 54,490" stroke="#a89070" stroke-width="1.5" fill="none" opacity="0.35"/>
-  <path d="M 275,330 Q 312,414 346,490" stroke="#a89070" stroke-width="1.5" fill="none" opacity="0.35"/>
-  <ellipse cx="62"  cy="503" rx="16" ry="11" fill="#c8b090"/>
-  <ellipse cx="338" cy="503" rx="16" ry="11" fill="#c8b090"/>
+  <!-- arms thrown outward in shock -->
+  <path d="M 128,302 C 102,318 66,390 44,460 L 64,470 C 84,404 116,332 140,316 Z" fill="#101828"/>
+  <rect x="48" y="432" width="36" height="14" rx="3" fill="#1e3048" opacity="0.7"/>
+  <path d="M 50,445 C 38,468 34,490 38,506 L 60,510 C 58,494 60,474 68,456 Z" fill="#c8a07a"/>
+  <path d="M 38,506 C 26,516 24,530 32,536 C 40,542 56,536 62,524 L 60,510 Z" fill="#c8a07a"/>
 
-  <rect x="186" y="248" width="28" height="64" fill="#b8a080" rx="5"/>
+  <path d="M 272,302 C 298,318 334,390 356,460 L 336,470 C 316,404 284,332 260,316 Z" fill="#101828"/>
+  <rect x="316" y="432" width="36" height="14" rx="3" fill="#1e3048" opacity="0.7"/>
+  <path d="M 350,445 C 362,468 366,490 362,506 L 340,510 C 342,494 340,474 332,456 Z" fill="#c8a07a"/>
+  <path d="M 362,506 C 374,516 376,530 368,536 C 360,542 344,536 338,524 L 340,510 Z" fill="#c8a07a"/>
 
-  <!-- Head slightly back/up (shock recoil) — face lightened (pale with shock) -->
-  <ellipse cx="200" cy="220" rx="75" ry="84" fill="url(#face)"/>
-  <ellipse cx="200" cy="155" rx="76" ry="44" fill="#1a1018"/>
-  <path d="M 126,172 Q 113,218 123,254 L 133,249 Q 124,216 135,174 Z" fill="#1a1018"/>
-  <path d="M 274,172 Q 287,218 277,254 L 267,249 Q 276,216 265,174 Z" fill="#1a1018"/>
-  <!-- Messy hair (disturbed by shock recoil) -->
-  <path d="M 153,155 Q 160,138 171,154" fill="none" stroke="#1a1018" stroke-width="3.5"/>
-  <path d="M 190,151 Q 198,134 208,150" fill="none" stroke="#1a1018" stroke-width="3.5"/>
-  <path d="M 226,155 Q 233,139 242,154" fill="none" stroke="#1a1018" stroke-width="3.5"/>
-  <!-- Extra tousled strand -->
-  <path d="M 174,148 Q 180,134 187,148" fill="none" stroke="#1a1018" stroke-width="2.5"/>
+  <path d="M 183,258 L 181,296 L 219,296 L 217,258 C 211,253 189,253 183,258 Z" fill="#c8a07a"/>
 
-  <!-- Shocked eyes: very wide open, lots of white visible -->
-  <ellipse cx="174" cy="216" rx="15" ry="14" fill="#2a1e12"/>
-  <ellipse cx="226" cy="216" rx="15" ry="14" fill="#2a1e12"/>
-  <ellipse cx="174" cy="215" rx="8"  ry="8" fill="#0a0808"/>
-  <ellipse cx="226" cy="215" rx="8"  ry="8" fill="#0a0808"/>
-  <!-- Large highlight dots (wide open = more reflected light) -->
-  <ellipse cx="178" cy="212" rx="3.5" ry="3.5" fill="#f0e4d0" opacity="0.90"/>
-  <ellipse cx="230" cy="212" rx="3.5" ry="3.5" fill="#f0e4d0" opacity="0.90"/>
-  <!-- White sclera rim visible (eyes fully open) -->
-  <ellipse cx="174" cy="216" rx="15" ry="14" fill="none" stroke="#c8b090" stroke-width="1.5"/>
-  <ellipse cx="226" cy="216" rx="15" ry="14" fill="none" stroke="#c8b090" stroke-width="1.5"/>
+  <!-- head: slightly tipped back (recoil) -->
+  <path d="M 136,195 C 134,153 146,122 163,110 C 175,100 186,96 200,96 C 214,96 225,100 237,110 C 254,122 266,153 264,195 C 266,230 262,258 252,277 C 242,300 224,310 200,311 C 176,310 158,300 148,277 C 138,258 134,230 136,195 Z" fill="url(#skin)"/>
+  <!-- face slightly paler/shocked pallor -->
+  <ellipse cx="200" cy="195" rx="60" ry="70" fill="#ffffff" opacity="0.06"/>
+  <path d="M 136,195 C 134,158 143,128 158,114 C 148,126 142,152 142,195 C 142,228 146,256 154,274 C 144,256 136,232 136,195 Z" fill="#6e3c1e" opacity="0.32"/>
+  <path d="M 264,195 C 266,158 257,128 242,114 C 252,126 258,152 258,195 C 258,228 254,256 246,274 C 256,256 264,232 264,195 Z" fill="#c87030" opacity="0.28"/>
 
-  <!-- Shocked brows: raised as high as possible -->
-  <path d="M 157,197 Q 173,188 189,195" fill="none" stroke="#1a1018" stroke-width="4" stroke-linecap="round"/>
-  <path d="M 211,195 Q 227,188 243,197" fill="none" stroke="#1a1018" stroke-width="4" stroke-linecap="round"/>
+  <!-- hair (more tousled from shock) -->
+  <path d="M 136,195 C 134,153 146,122 163,110 C 175,100 186,96 200,96 C 214,96 225,100 237,110 C 254,122 266,153 264,195 C 258,163 250,136 236,123 C 222,110 211,106 200,106 C 189,106 178,110 164,123 C 150,136 142,163 136,195 Z" fill="#0c0918"/>
+  <path d="M 136,193 C 134,213 135,232 137,254 C 139,236 142,216 146,198 Z" fill="#0a0816"/>
+  <path d="M 264,193 C 266,213 265,232 263,254 C 261,236 258,216 254,198 Z" fill="#0a0816"/>
+  <!-- messy tousled strands (shock) -->
+  <path d="M 168,102 C 158,86 150,76 156,92" stroke="#0c0918" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M 185,97 C 180,79 174,68 180,84" stroke="#0c0918" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <path d="M 204,96 C 202,77 200,66 206,81" stroke="#0c0918" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 220,98 C 224,80 228,70 224,86" stroke="#0c0918" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 235,104 C 244,88 250,80 244,96" stroke="#0c0918" stroke-width="4" fill="none" stroke-linecap="round"/>
 
-  <path d="M 196,232 Q 200,245 204,232" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
+  <!-- LEFT EYE: WIDE OPEN — whites visible all around iris -->
+  <ellipse cx="177" cy="202" rx="24" ry="18" fill="#8a5030" opacity="0.12"/>
+  <!-- extra white area showing -->
+  <path d="M 155,202 C 157,188 166,181 177,182 C 188,181 197,188 199,202 C 197,216 188,223 177,223 C 166,223 157,216 155,202 Z" fill="#ecddc8"/>
+  <!-- minimal upper lid — eyes wide open -->
+  <path d="M 155,201 C 157,188 166,181 177,182 C 188,181 197,188 199,201 C 192,194 177,193 155,201 Z" fill="#18122a"/>
+  <!-- bottom lid also visible low -->
+  <circle cx="177" cy="202" r="10" fill="#281c10"/>
+  <circle cx="177" cy="202" r="6" fill="#080808"/>
+  <!-- large highlights (shock = shiny) -->
+  <circle cx="172" cy="198" r="3" fill="#ecddc8" opacity="0.95"/>
+  <circle cx="182" cy="207" r="1.5" fill="#ecddc8" opacity="0.5"/>
+  <path d="M 155,208 C 163,215 170,220 177,221" stroke="#b07848" stroke-width="1.5" fill="none" opacity="0.6"/>
 
-  <!-- Shocked mouth: open, jaw dropped — dark interior visible -->
-  <ellipse cx="200" cy="263" rx="17" ry="13" fill="#5a3a28" opacity="0.70"/>
-  <!-- teeth hint -->
-  <rect x="190" y="255" width="20" height="5" fill="#d8c8b0" opacity="0.35" rx="2"/>
-  <path d="M 183,256 Q 200,276 217,256" fill="none" stroke="#8a6a4a" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- RIGHT EYE: WIDE OPEN -->
+  <ellipse cx="223" cy="202" rx="24" ry="18" fill="#8a5030" opacity="0.12"/>
+  <path d="M 201,202 C 203,188 212,181 223,182 C 234,181 243,188 245,202 C 243,216 234,223 223,223 C 212,223 203,216 201,202 Z" fill="#ecddc8"/>
+  <path d="M 201,201 C 203,188 212,181 223,182 C 234,181 243,188 245,201 C 238,194 223,193 201,201 Z" fill="#18122a"/>
+  <circle cx="223" cy="202" r="10" fill="#281c10"/>
+  <circle cx="223" cy="202" r="6" fill="#080808"/>
+  <circle cx="218" cy="198" r="3" fill="#ecddc8" opacity="0.95"/>
+  <circle cx="228" cy="207" r="1.5" fill="#ecddc8" opacity="0.5"/>
+  <path d="M 201,208 C 209,215 216,220 223,221" stroke="#b07848" stroke-width="1.5" fill="none" opacity="0.6"/>
 
-  <!-- Atmospheric overlays -->
-  <rect x="0" y="0" width="400" height="800" fill="url(#rim_r)"/>
-  <rect x="0" y="0" width="400" height="800" fill="url(#shadow_l)"/>
-  <!-- Both arms spread wide — right arm rim strongly lit -->
-  <ellipse cx="340" cy="408" rx="20" ry="52" fill="#c07020" opacity="0.11"/>
-  <!-- Face rim crescent (pallor + lamp = stark contrast) -->
-  <ellipse cx="258" cy="212" rx="38" ry="64" fill="#d08030" opacity="0.10"/>
+  <!-- eyebrows: RAISED VERY HIGH — shock -->
+  <path d="M 152,176 Q 165,167 184,170" stroke="#16101e" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M 196,176 Q 210,167 228,170" stroke="#16101e" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- forehead worry lines (shock) -->
+  <path d="M 178,184 C 182,180 200,180 222,184" stroke="#9a6030" stroke-width="1" fill="none" opacity="0.3"/>
+  <path d="M 175,176 C 180,172 200,172 225,176" stroke="#9a6030" stroke-width="1" fill="none" opacity="0.2"/>
 
-  <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">diao_caidi/shocked</text>
+  <path d="M 195,228 C 193,238 194,244 200,248 C 206,244 207,238 205,228" fill="none" stroke="#9a6840" stroke-width="1.4" opacity="0.58"/>
+
+  <!-- mouth: OPEN O shape — gasp -->
+  <ellipse cx="200" cy="292" rx="18" ry="13" fill="#5a2810" opacity="0.9"/>
+  <ellipse cx="200" cy="290" rx="14" ry="9" fill="#2a0e08"/>
+  <!-- upper teeth hint -->
+  <path d="M 188,285 C 192,283 208,283 212,285" stroke="#d8c8a8" stroke-width="2" fill="none" opacity="0.7"/>
+
+  <path d="M 136,200 C 132,190 132,216 136,224 L 142,218 C 139,210 139,194 142,192 Z" fill="#b88862"/>
+  <path d="M 264,200 C 268,190 268,216 264,224 L 258,218 C 261,210 261,194 258,192 Z" fill="#b88862"/>
 </svg>

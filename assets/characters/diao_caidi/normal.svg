@@ -1,86 +1,115 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800" width="400" height="800">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800">
   <defs>
-    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#1e2830"/>
-      <stop offset="100%" stop-color="#141820"/>
-    </linearGradient>
-    <radialGradient id="face" cx="50%" cy="30%" r="50%">
-      <stop offset="0%"  stop-color="#c8b090"/>
-      <stop offset="100%" stop-color="#a08870"/>
+    <radialGradient id="skin" cx="44%" cy="36%" r="56%">
+      <stop offset="0%" stop-color="#d8b07a"/>
+      <stop offset="100%" stop-color="#a07848"/>
     </radialGradient>
-    <linearGradient id="rim_r" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#c07820" stop-opacity="0"/>
-      <stop offset="65%"  stop-color="#c07820" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#c07820" stop-opacity="0.32"/>
+    <linearGradient id="shirt" x1="0.1" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#1c2838"/>
+      <stop offset="100%" stop-color="#101820"/>
     </linearGradient>
-    <linearGradient id="shadow_l" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#080818" stop-opacity="0.46"/>
-      <stop offset="36%"  stop-color="#080818" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    <linearGradient id="pants" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1e2c"/>
+      <stop offset="100%" stop-color="#0e1018"/>
     </linearGradient>
   </defs>
 
-  <ellipse cx="200" cy="790" rx="85" ry="11" fill="#000" opacity="0.4"/>
+  <ellipse cx="200" cy="788" rx="90" ry="10" fill="#000" opacity="0.26"/>
 
-  <!-- Body: short-sleeved casual shirt -->
-  <path d="M 125,310 L 75,720 L 325,720 L 275,310 Z" fill="url(#shirt)"/>
-  <!-- Shirt fold lines -->
-  <line x1="165" y1="335" x2="138" y2="678" stroke="#141a22" stroke-width="2" opacity="0.55"/>
-  <line x1="220" y1="338" x2="238" y2="680" stroke="#141a22" stroke-width="1.5" opacity="0.40"/>
-  <path d="M 272,316 Q 285,518 321,716" stroke="#2a3840" stroke-width="2" fill="none" opacity="0.42"/>
-  <!-- shirt collar -->
-  <path d="M 175,308 L 165,360 L 200,345 L 235,360 L 225,308 Z" fill="#1a2228"/>
-  <!-- collar button suggestion -->
-  <ellipse cx="200" cy="316" rx="3" ry="3" fill="#0e1820" opacity="0.8"/>
+  <!-- pants/trousers (visible from shirt hem to feet) -->
+  <path d="M 148,530 L 102,762 L 178,762 L 200,640 L 222,762 L 298,762 L 252,530 Z" fill="url(#pants)"/>
+  <!-- pant crease -->
+  <line x1="160" y1="550" x2="140" y2="762" stroke="#0c0e16" stroke-width="1.5" opacity="0.5"/>
+  <line x1="240" y1="550" x2="260" y2="762" stroke="#0c0e16" stroke-width="1.5" opacity="0.5"/>
 
-  <!-- Arms (bare skin — warm tone) -->
-  <path d="M 125,320 L 60,530 L 85,538 L 150,332 Z" fill="#c0a882"/>
-  <path d="M 275,320 L 340,530 L 315,538 L 250,332 Z" fill="#c0a882"/>
-  <!-- Arm muscle shadow lines -->
-  <path d="M 125,330 Q 90,440 65,530" stroke="#a89070" stroke-width="1.5" fill="none" opacity="0.4"/>
-  <path d="M 275,330 Q 310,440 335,530" stroke="#a89070" stroke-width="1.5" fill="none" opacity="0.4"/>
-  <ellipse cx="72"  cy="543" rx="16" ry="11" fill="#c8b090"/>
-  <ellipse cx="328" cy="543" rx="16" ry="11" fill="#c8b090"/>
+  <!-- shirt body (shorter than narrator coat, ends ~y=535) -->
+  <path d="M 128,296 C 110,308 86,360 78,536 L 322,536 C 314,360 290,308 272,296 Z" fill="url(#shirt)"/>
+  <!-- shirt right edge highlight -->
+  <path d="M 272,296 C 294,322 316,390 320,536 L 322,536 C 314,360 290,308 272,296 Z" fill="#2e4060" opacity="0.45"/>
+  <!-- shirt collar: mandarin style (not wide lapels) -->
+  <path d="M 181,290 L 178,316 L 200,308 L 222,316 L 219,290 C 213,286 187,286 181,290 Z" fill="#162030"/>
+  <path d="M 181,290 L 200,300 L 219,290" stroke="#0e1828" stroke-width="1.5" fill="none"/>
+  <!-- shirt pocket (left chest) -->
+  <rect x="138" y="338" width="36" height="28" rx="2" fill="#162030" opacity="0.55"/>
+  <line x1="138" y1="348" x2="174" y2="348" stroke="#0c1828" stroke-width="1" opacity="0.5"/>
+  <!-- shirt button line -->
+  <line x1="200" y1="308" x2="200" y2="535" stroke="#162030" stroke-width="2" opacity="0.55"/>
+  <!-- shirt fold lines -->
+  <path d="M 154,318 C 148,420 142,510 140,538" stroke="#101e2e" stroke-width="1.5" fill="none" opacity="0.45"/>
+  <path d="M 246,318 C 252,420 258,510 260,538" stroke="#101e2e" stroke-width="1.5" fill="none" opacity="0.45"/>
 
-  <!-- Neck (stockier build) -->
-  <rect x="186" y="250" width="28" height="62" fill="#b8a080" rx="5"/>
+  <!-- LEFT arm (bare forearm — rolled sleeve) -->
+  <path d="M 128,302 C 108,326 82,430 74,525 L 96,530 C 104,440 124,340 142,316 Z" fill="#101828"/>
+  <!-- rolled sleeve cuff at mid-arm -->
+  <rect x="82" y="455" width="36" height="14" rx="3" fill="#1e3048" opacity="0.7"/>
+  <!-- bare left forearm -->
+  <path d="M 85,468 C 76,498 72,524 74,542 L 96,548 C 96,530 98,506 106,480 Z" fill="#c8a07a"/>
+  <!-- arm muscle line -->
+  <path d="M 84,472 C 82,494 81,515 83,535" stroke="#a87858" stroke-width="1.2" fill="none" opacity="0.35"/>
 
-  <!-- Head (rounder face) -->
-  <ellipse cx="200" cy="225" rx="74" ry="82" fill="url(#face)"/>
+  <!-- RIGHT arm -->
+  <path d="M 272,302 C 292,326 318,430 326,525 L 304,530 C 296,440 276,340 258,316 Z" fill="#101828"/>
+  <rect x="282" y="455" width="36" height="14" rx="3" fill="#1e3048" opacity="0.7"/>
+  <path d="M 315,468 C 324,498 328,524 326,542 L 304,548 C 304,530 302,506 294,480 Z" fill="#c8a07a"/>
+  <path d="M 316,472 C 318,494 319,515 317,535" stroke="#a87858" stroke-width="1.2" fill="none" opacity="0.35"/>
 
-  <!-- Hair (shorter, slightly messy) -->
-  <ellipse cx="200" cy="162" rx="75" ry="42" fill="#1a1018"/>
-  <path d="M 127,178 Q 114,222 124,258 L 134,253 Q 125,220 136,180 Z" fill="#1a1018"/>
-  <path d="M 273,178 Q 286,222 276,258 L 266,253 Q 275,220 264,180 Z" fill="#1a1018"/>
-  <!-- Messy hair strands -->
-  <path d="M 158,157 Q 163,144 173,157" fill="none" stroke="#1a1018" stroke-width="3"/>
-  <path d="M 192,154 Q 198,139 206,153" fill="none" stroke="#1a1018" stroke-width="3"/>
-  <path d="M 223,158 Q 230,146 238,158" fill="none" stroke="#1a1018" stroke-width="2.5"/>
+  <!-- hands -->
+  <path d="M 74,542 C 60,552 56,568 64,573 C 72,578 88,574 96,563 L 96,548 Z" fill="#c8a07a"/>
+  <path d="M 326,542 C 340,552 344,568 336,573 C 328,578 312,574 304,563 L 304,548 Z" fill="#c8a07a"/>
 
-  <!-- Eyes (alert, curious) -->
-  <ellipse cx="174" cy="222" rx="13" ry="10" fill="#2a1e12"/>
-  <ellipse cx="226" cy="222" rx="13" ry="10" fill="#2a1e12"/>
-  <ellipse cx="174" cy="221" rx="6"  ry="6" fill="#0a0808"/>
-  <ellipse cx="226" cy="221" rx="6"  ry="6" fill="#0a0808"/>
-  <ellipse cx="177" cy="219" rx="2.5" ry="2.5" fill="#e8dcc8" opacity="0.75"/>
-  <ellipse cx="229" cy="219" rx="2.5" ry="2.5" fill="#e8dcc8" opacity="0.75"/>
+  <!-- neck (stockier) -->
+  <path d="M 183,258 L 181,296 L 219,296 L 217,258 C 211,253 189,253 183,258 Z" fill="#c8a07a"/>
 
-  <!-- Brows (slightly raised, inquisitive) -->
-  <path d="M 161,206 Q 174,202 188,206" fill="none" stroke="#1a1018" stroke-width="3" stroke-linecap="round"/>
-  <path d="M 212,206 Q 226,202 239,206" fill="none" stroke="#1a1018" stroke-width="3" stroke-linecap="round"/>
+  <!-- HEAD: rounder face, younger -->
+  <path d="M 138,198 C 136,158 147,128 163,116 C 175,106 186,102 200,102 C 214,102 225,106 237,116 C 253,128 264,158 262,198 C 264,232 260,260 251,278 C 241,300 224,310 200,311 C 176,310 159,300 149,278 C 140,260 136,232 138,198 Z" fill="url(#skin)"/>
+  <!-- left shadow -->
+  <path d="M 138,198 C 136,163 144,134 159,120 C 149,132 143,157 143,198 C 143,230 147,257 155,275 C 146,258 138,234 138,198 Z" fill="#6e3c1e" opacity="0.35"/>
+  <!-- right rim -->
+  <path d="M 262,198 C 264,163 256,134 241,120 C 251,132 257,157 257,198 C 257,230 253,257 245,275 C 254,258 262,234 262,198 Z" fill="#c87030" opacity="0.28"/>
 
-  <path d="M 196,234 Q 200,248 204,234" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
+  <!-- hair: short, slightly messy/brushed - younger style -->
+  <path d="M 138,198 C 136,158 147,128 163,116 C 175,106 186,102 200,102 C 214,102 225,106 237,116 C 253,128 264,158 262,198 C 256,168 249,142 236,130 C 222,118 211,113 200,113 C 189,113 178,118 164,130 C 151,142 144,168 138,198 Z" fill="#0c0918"/>
+  <path d="M 138,196 C 136,215 137,234 139,256 C 141,238 144,218 148,200 Z" fill="#0a0816"/>
+  <path d="M 262,196 C 264,215 263,234 261,256 C 259,238 256,218 252,200 Z" fill="#0a0816"/>
+  <!-- messy spiky strands on top -->
+  <path d="M 172,108 C 166,96 158,88 162,100" stroke="#0c0918" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 190,104 C 188,90 184,82 188,95" stroke="#0c0918" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 210,103 C 210,88 208,80 212,93" stroke="#0c0918" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M 228,108 C 232,94 238,88 234,102" stroke="#0c0918" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <!-- hair highlight (young, slight sheen) -->
+  <path d="M 182,112 C 181,124 182,138 184,150" stroke="#2e2448" stroke-width="2" fill="none" opacity="0.4"/>
 
-  <!-- Neutral slight smile (more expressive than narrator) -->
-  <path d="M 184,258 Q 200,266 216,258" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
+  <!-- LEFT EYE: alert, slightly wider than narrator -->
+  <ellipse cx="177" cy="208" rx="22" ry="14" fill="#8a5030" opacity="0.14"/>
+  <path d="M 157,208 C 159,198 167,193 177,194 C 187,193 195,198 197,208 C 195,218 187,224 177,224 C 167,224 159,218 157,208 Z" fill="#ecddc8"/>
+  <path d="M 157,207 C 159,198 167,193 177,194 C 187,193 195,198 197,207 C 189,200 177,199 157,207 Z" fill="#18122a"/>
+  <circle cx="177" cy="208" r="9" fill="#281c10"/>
+  <circle cx="177" cy="208" r="5" fill="#080808"/>
+  <circle cx="173" cy="205" r="2.5" fill="#ecddc8" opacity="0.92"/>
+  <circle cx="180" cy="212" r="1.1" fill="#ecddc8" opacity="0.45"/>
+  <path d="M 157,211 C 164,218 170,222 177,223" stroke="#b07848" stroke-width="1.2" fill="none" opacity="0.55"/>
 
-  <!-- Atmospheric overlays -->
-  <rect x="0" y="0" width="400" height="800" fill="url(#rim_r)"/>
-  <rect x="0" y="0" width="400" height="800" fill="url(#shadow_l)"/>
-  <!-- Face rim crescent (warmer skin = more visible rim) -->
-  <ellipse cx="256" cy="216" rx="38" ry="62" fill="#d08030" opacity="0.10"/>
-  <!-- Right arm rim highlight -->
-  <ellipse cx="328" cy="435" rx="18" ry="60" fill="#c07020" opacity="0.09"/>
+  <!-- RIGHT EYE -->
+  <ellipse cx="223" cy="208" rx="22" ry="14" fill="#8a5030" opacity="0.14"/>
+  <path d="M 203,208 C 205,198 213,193 223,194 C 233,193 241,198 243,208 C 241,218 233,224 223,224 C 213,224 205,218 203,208 Z" fill="#ecddc8"/>
+  <path d="M 203,207 C 205,198 213,193 223,194 C 233,193 241,198 243,207 C 235,200 223,199 203,207 Z" fill="#18122a"/>
+  <circle cx="223" cy="208" r="9" fill="#281c10"/>
+  <circle cx="223" cy="208" r="5" fill="#080808"/>
+  <circle cx="219" cy="205" r="2.5" fill="#ecddc8" opacity="0.92"/>
+  <circle cx="226" cy="212" r="1.1" fill="#ecddc8" opacity="0.45"/>
+  <path d="M 203,211 C 210,218 216,222 223,223" stroke="#b07848" stroke-width="1.2" fill="none" opacity="0.55"/>
 
-  <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">diao_caidi/normal</text>
+  <!-- eyebrows: relaxed, slightly raised — alert/curious -->
+  <path d="M 154,190 Q 166,184 184,188" stroke="#16101e" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M 196,190 Q 210,184 228,188" stroke="#16101e" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+  <!-- nose (fuller, rounder) -->
+  <path d="M 196,232 C 194,242 195,248 200,252 C 205,248 206,242 204,232" fill="none" stroke="#9a6840" stroke-width="1.4" opacity="0.58"/>
+
+  <!-- mouth: slight smile, youthful energy -->
+  <path d="M 183,278 Q 200,286 217,278" fill="none" stroke="#8a4c30" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- ears (rounder) -->
+  <path d="M 138,203 C 134,193 134,218 138,226 L 144,220 C 141,212 141,197 144,194 Z" fill="#b88862"/>
+  <path d="M 262,203 C 266,193 266,218 262,226 L 256,220 C 259,212 259,197 256,194 Z" fill="#b88862"/>
 </svg>

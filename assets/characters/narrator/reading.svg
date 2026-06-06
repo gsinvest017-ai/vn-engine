@@ -1,96 +1,93 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800" width="400" height="800">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800">
   <defs>
-    <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#1a1420"/>
-      <stop offset="100%" stop-color="#0e0c12"/>
-    </linearGradient>
-    <radialGradient id="face_light" cx="50%" cy="30%" r="50%">
-      <stop offset="0%"  stop-color="#c8a880"/>
-      <stop offset="100%" stop-color="#9a7a5a"/>
+    <radialGradient id="skin" cx="42%" cy="38%" r="58%">
+      <stop offset="0%" stop-color="#d4a87a"/>
+      <stop offset="100%" stop-color="#9a6e48"/>
     </radialGradient>
-    <linearGradient id="book_cover" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#3a2a1a"/>
-      <stop offset="100%" stop-color="#1e160a"/>
+    <linearGradient id="coat" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#1c1830"/>
+      <stop offset="100%" stop-color="#0e0c1c"/>
     </linearGradient>
-    <linearGradient id="rim_r" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#c07820" stop-opacity="0"/>
-      <stop offset="68%"  stop-color="#c07820" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#c07820" stop-opacity="0.38"/>
-    </linearGradient>
-    <linearGradient id="shadow_l" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#080818" stop-opacity="0.52"/>
-      <stop offset="36%"  stop-color="#080818" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
-    </linearGradient>
-    <!-- Warm lamp glow on document pages -->
-    <radialGradient id="doc_glow" cx="50%" cy="30%" r="60%">
-      <stop offset="0%"   stop-color="#c8a050" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#c8a050" stop-opacity="0"/>
+    <radialGradient id="docGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#e0d4a8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#c8b880" stop-opacity="0.7"/>
     </radialGradient>
   </defs>
 
-  <ellipse cx="200" cy="790" rx="90" ry="12" fill="#000" opacity="0.4"/>
-  <path d="M 130,320 L 80,760 L 320,760 L 270,320 Z" fill="url(#coat)"/>
-  <!-- Coat fold lines -->
-  <line x1="162" y1="346" x2="134" y2="712" stroke="#0a0810" stroke-width="2" opacity="0.48"/>
-  <path d="M 268,326 Q 282,542 317,755" stroke="#38264a" stroke-width="2" fill="none" opacity="0.44"/>
-  <path d="M 175,320 L 155,400 L 200,380 L 245,400 L 225,320 Z" fill="#241c2c"/>
-  <path d="M 175,310 L 160,340 L 200,330 L 240,340 L 225,310 Z" fill="#1e1828"/>
+  <ellipse cx="200" cy="788" rx="94" ry="10" fill="#000" opacity="0.28"/>
+  <path d="M 114,284 C 94,302 62,362 54,762 L 346,762 C 338,362 306,302 286,284 Z" fill="url(#coat)"/>
+  <path d="M 286,284 C 310,316 338,400 344,762 L 346,762 C 338,362 306,302 286,284 Z" fill="#362848" opacity="0.55"/>
+  <path d="M 200,284 L 160,338 L 146,380 L 200,360 L 254,380 L 240,338 Z" fill="#1e1a30"/>
+  <path d="M 200,284 L 188,336 L 200,326 L 212,336 Z" fill="#c0b89e" opacity="0.68"/>
+  <path d="M 163,277 L 147,314 L 179,306 L 200,299 L 221,306 L 253,314 L 237,277 Z" fill="#181328"/>
+  <!-- both arms forward holding document -->
+  <path d="M 114,291 C 96,318 80,380 76,440 L 102,440 C 106,390 116,334 134,308 Z" fill="#100e1c"/>
+  <path d="M 286,291 C 304,318 320,380 324,440 L 298,440 C 294,390 284,334 266,308 Z" fill="#100e1c"/>
+  <!-- forearms in / document held -->
+  <path d="M 80,438 C 76,460 74,490 78,512 L 322,512 C 326,490 324,460 320,438 Z" fill="#100e1c"/>
+  <!-- document / paper -->
+  <rect x="95" y="468" width="210" height="148" rx="4" fill="url(#docGlow)"/>
+  <rect x="95" y="468" width="210" height="148" rx="4" fill="none" stroke="#a89860" stroke-width="1.5"/>
+  <!-- document text lines -->
+  <line x1="112" y1="486" x2="288" y2="486" stroke="#8a7840" stroke-width="1.2" opacity="0.6"/>
+  <line x1="112" y1="498" x2="288" y2="498" stroke="#8a7840" stroke-width="1.2" opacity="0.6"/>
+  <line x1="112" y1="510" x2="260" y2="510" stroke="#8a7840" stroke-width="1.2" opacity="0.6"/>
+  <line x1="112" y1="522" x2="288" y2="522" stroke="#8a7840" stroke-width="1" opacity="0.5"/>
+  <line x1="112" y1="534" x2="270" y2="534" stroke="#8a7840" stroke-width="1" opacity="0.5"/>
+  <line x1="112" y1="546" x2="288" y2="546" stroke="#8a7840" stroke-width="1" opacity="0.45"/>
+  <!-- document seal/stamp mark -->
+  <ellipse cx="258" cy="570" rx="22" ry="18" fill="none" stroke="#b84830" stroke-width="2" opacity="0.6"/>
+  <ellipse cx="258" cy="570" rx="14" ry="11" fill="#b84830" opacity="0.25"/>
+  <!-- hands gripping sides of doc -->
+  <path d="M 80,508 C 68,514 64,528 70,534 C 76,540 90,536 98,526 L 102,510 Z" fill="#b88e6c"/>
+  <path d="M 320,508 C 332,514 336,528 330,534 C 324,540 310,536 302,526 L 298,510 Z" fill="#b88e6c"/>
+  <!-- arm shadow line -->
+  <path d="M 147,308 C 143,376 136,430 130,766" stroke="#0c0a18" stroke-width="1.5" fill="none" opacity="0.40"/>
+  <path d="M 253,308 C 257,376 264,430 270,766" stroke="#0c0a18" stroke-width="1.5" fill="none" opacity="0.40"/>
+  <path d="M 182,256 L 180,284 L 220,284 L 218,256 C 212,252 188,252 182,256 Z" fill="#bf9070"/>
 
-  <!-- Arms holding document/book -->
-  <path d="M 130,330 L 100,560 L 125,565 L 155,345 Z" fill="#1a1420"/>
-  <path d="M 270,330 L 300,560 L 275,565 L 245,345 Z" fill="#1a1420"/>
+  <path d="M 141,168 C 139,130 149,104 163,94 C 174,86 185,83 200,83 C 215,83 226,86 237,94 C 251,104 261,130 259,168 C 261,200 257,227 249,245 C 239,267 222,276 200,277 C 178,276 161,267 151,245 C 143,227 139,200 141,168 Z" fill="url(#skin)"/>
+  <path d="M 141,168 C 139,135 147,108 161,97 C 151,109 145,132 145,168 C 145,198 149,224 156,242 C 148,227 141,203 141,168 Z" fill="#6e3c1e" opacity="0.35"/>
+  <path d="M 259,168 C 261,135 253,108 239,97 C 249,109 255,132 255,168 C 255,198 251,224 244,242 C 252,227 259,203 259,168 Z" fill="#c87030" opacity="0.30"/>
+  <!-- warm doc reflection on chin/lower face -->
+  <ellipse cx="200" cy="258" rx="32" ry="16" fill="#d4b860" opacity="0.14"/>
 
-  <!-- Old case file / document (yellowed, aged) -->
-  <rect x="100" y="540" width="200" height="150" fill="url(#book_cover)" rx="3"/>
-  <!-- aged page surface -->
-  <rect x="108" y="542" width="184" height="140" fill="#c8b87a" opacity="0.12" rx="2"/>
-  <!-- page lines (yellowed archival text) -->
-  <rect x="112" y="550" width="176" height="2" fill="#c8a860" opacity="0.35"/>
-  <rect x="112" y="560" width="176" height="2" fill="#c8a860" opacity="0.28"/>
-  <rect x="112" y="570" width="160" height="2" fill="#c8a860" opacity="0.28"/>
-  <rect x="112" y="580" width="176" height="2" fill="#c8a860" opacity="0.25"/>
-  <rect x="112" y="590" width="148" height="2" fill="#c8a860" opacity="0.22"/>
-  <rect x="112" y="600" width="172" height="2" fill="#c8a860" opacity="0.20"/>
-  <rect x="112" y="610" width="140" height="2" fill="#c8a860" opacity="0.18"/>
-  <!-- page corner fold (top right) -->
-  <path d="M 288,542 L 300,554 L 288,554 Z" fill="#2a1e0e" opacity="0.7"/>
-  <!-- document stamp / seal suggestion -->
-  <ellipse cx="260" cy="632" rx="18" ry="18" fill="none" stroke="#8a1010" stroke-width="1" opacity="0.25"/>
-  <!-- book spine (dark leather) -->
-  <rect x="100" y="540" width="10" height="150" fill="#2a1a08"/>
-  <line x1="105" y1="548" x2="105" y2="680" stroke="#3e2810" stroke-width="1" opacity="0.6"/>
-  <!-- Document warm glow from lamp light -->
-  <rect x="100" y="540" width="200" height="150" fill="url(#doc_glow)"/>
+  <path d="M 141,168 C 139,130 149,104 163,94 C 174,86 185,83 200,83 C 215,83 226,86 237,94 C 251,104 261,130 259,168 C 253,140 247,116 235,105 C 223,95 212,91 200,91 C 188,91 177,95 165,105 C 153,116 147,140 141,168 Z" fill="#0c0918"/>
+  <path d="M 141,166 C 139,184 139,204 141,225 C 142,208 144,190 148,174 Z" fill="#0a0816"/>
+  <path d="M 259,166 C 261,184 261,204 259,225 C 258,208 256,190 252,174 Z" fill="#0a0816"/>
+  <path d="M 172,88 C 168,100 167,117 169,132" stroke="#0a0816" stroke-width="2.5" fill="none" opacity="0.82"/>
+  <path d="M 188,83 C 186,97 186,114 188,129" stroke="#0a0816" stroke-width="2" fill="none" opacity="0.72"/>
+  <path d="M 210,84 C 210,97 210,113 210,128" stroke="#161228" stroke-width="1.8" fill="none" opacity="0.6"/>
 
-  <rect x="188" y="255" width="24" height="65" fill="#b89870" rx="4"/>
-  <ellipse cx="200" cy="228" rx="68" ry="80" fill="url(#face_light)"/>
-  <ellipse cx="200" cy="168" rx="70" ry="45" fill="#1a1018"/>
-  <path d="M 132,183 Q 120,228 130,263 L 140,258 Q 132,223 142,186 Z" fill="#1a1018"/>
-  <path d="M 268,183 Q 280,228 270,263 L 260,258 Q 268,223 258,186 Z" fill="#1a1018"/>
+  <!-- LEFT EYE: looking down-forward at document -->
+  <ellipse cx="177" cy="180" rx="21" ry="13" fill="#8a5030" opacity="0.16"/>
+  <path d="M 158,180 C 160,171 168,166 177,167 C 186,166 194,171 196,180 C 194,189 186,195 177,195 C 168,195 160,189 158,180 Z" fill="#ecddc8"/>
+  <!-- lid slightly more closed, reading squint -->
+  <path d="M 158,179 C 160,171 168,166 177,167 C 186,166 194,171 196,179 C 188,174 176,175 158,183 Z" fill="#18122a"/>
+  <!-- iris angled down -->
+  <circle cx="177" cy="182" r="8" fill="#281c10"/>
+  <circle cx="177" cy="183" r="4.5" fill="#080808"/>
+  <circle cx="173" cy="180" r="2" fill="#ecddc8" opacity="0.85"/>
+  <path d="M 158,183 C 165,190 171,193 177,194" stroke="#b07848" stroke-width="1.2" fill="none" opacity="0.55"/>
 
-  <!-- Reading eyes: focused downward -->
-  <ellipse cx="175" cy="235" rx="12" ry="7" fill="#2a1e10"/>
-  <ellipse cx="225" cy="235" rx="12" ry="7" fill="#2a1e10"/>
-  <ellipse cx="175" cy="237" rx="5"  ry="4" fill="#0a0808"/>
-  <ellipse cx="225" cy="237" rx="5"  ry="4" fill="#0a0808"/>
-  <!-- weighted lids, focused -->
-  <path d="M 163,230 Q 175,227 187,230" fill="#1a1018" stroke="none"/>
-  <path d="M 213,230 Q 225,227 237,230" fill="#1a1018" stroke="none"/>
+  <!-- RIGHT EYE: same, reading -->
+  <ellipse cx="223" cy="180" rx="21" ry="13" fill="#8a5030" opacity="0.16"/>
+  <path d="M 204,180 C 206,171 214,166 223,167 C 232,166 240,171 242,180 C 240,189 232,195 223,195 C 214,195 206,189 204,180 Z" fill="#ecddc8"/>
+  <path d="M 204,179 C 206,171 214,166 223,167 C 232,166 240,171 242,179 C 234,174 222,175 204,183 Z" fill="#18122a"/>
+  <circle cx="223" cy="182" r="8" fill="#281c10"/>
+  <circle cx="223" cy="183" r="4.5" fill="#080808"/>
+  <circle cx="219" cy="180" r="2" fill="#ecddc8" opacity="0.85"/>
+  <path d="M 204,183 C 211,190 217,193 223,194" stroke="#b07848" stroke-width="1.2" fill="none" opacity="0.55"/>
 
-  <path d="M 163,218 Q 175,216 188,218" fill="none" stroke="#1a1018" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M 212,218 Q 224,216 238,218" fill="none" stroke="#1a1018" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- eyebrows: slightly raised, reading concentration -->
+  <path d="M 154,159 Q 165,153 183,157" stroke="#16101e" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M 197,159 Q 211,153 227,157" stroke="#16101e" stroke-width="3.5" stroke-linecap="round" fill="none"/>
 
-  <path d="M 196,245 Q 200,258 204,245" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
-  <path d="M 187,265 Q 200,263 213,265" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 196,207 C 195,216 196,222 200,226 C 204,222 205,216 204,207" fill="none" stroke="#9a6840" stroke-width="1.3" opacity="0.55"/>
 
-  <!-- Atmospheric overlays -->
-  <rect x="0" y="0" width="400" height="800" fill="url(#rim_r)"/>
-  <rect x="0" y="0" width="400" height="800" fill="url(#shadow_l)"/>
-  <!-- Face rim crescent -->
-  <ellipse cx="252" cy="225" rx="36" ry="60" fill="#d08030" opacity="0.09"/>
-  <!-- Document reflects warm light upward onto face (below chin glow) -->
-  <ellipse cx="200" cy="340" rx="80" ry="30" fill="#c8a040" opacity="0.06"/>
+  <!-- mouth: neutral/slightly open, concentrating on text -->
+  <path d="M 185,248 C 192,251 208,251 215,248" fill="none" stroke="#8a4c30" stroke-width="2" stroke-linecap="round"/>
 
-  <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">narrator/reading</text>
+  <path d="M 141,173 C 137,164 137,187 141,194 L 147,189 C 144,182 144,168 147,166 Z" fill="#b88862"/>
+  <path d="M 259,173 C 263,164 263,187 259,194 L 253,189 C 256,182 256,168 253,166 Z" fill="#b88862"/>
 </svg>

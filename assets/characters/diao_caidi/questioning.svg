@@ -1,78 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800" width="400" height="800">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800">
   <defs>
-    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#1e2830"/>
-      <stop offset="100%" stop-color="#141820"/>
-    </linearGradient>
-    <radialGradient id="face" cx="50%" cy="30%" r="50%">
-      <stop offset="0%"  stop-color="#c8b090"/>
-      <stop offset="100%" stop-color="#a08870"/>
+    <radialGradient id="skin" cx="44%" cy="36%" r="56%">
+      <stop offset="0%" stop-color="#d8b07a"/>
+      <stop offset="100%" stop-color="#a07848"/>
     </radialGradient>
-    <linearGradient id="rim_r" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#c07820" stop-opacity="0"/>
-      <stop offset="65%"  stop-color="#c07820" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#c07820" stop-opacity="0.34"/>
+    <linearGradient id="shirt" x1="0.1" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#1c2838"/>
+      <stop offset="100%" stop-color="#101820"/>
     </linearGradient>
-    <linearGradient id="shadow_l" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#080818" stop-opacity="0.48"/>
-      <stop offset="36%"  stop-color="#080818" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    <linearGradient id="pants" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1e2c"/>
+      <stop offset="100%" stop-color="#0e1018"/>
     </linearGradient>
   </defs>
 
-  <ellipse cx="200" cy="790" rx="85" ry="11" fill="#000" opacity="0.4"/>
-  <path d="M 125,310 L 75,720 L 325,720 L 275,310 Z" fill="url(#shirt)"/>
-  <!-- Shirt fold lines -->
-  <line x1="165" y1="335" x2="138" y2="678" stroke="#141a22" stroke-width="2" opacity="0.50"/>
-  <path d="M 272,316 Q 285,518 321,716" stroke="#2a3840" stroke-width="2" fill="none" opacity="0.40"/>
-  <path d="M 175,308 L 165,360 L 200,345 L 235,360 L 225,308 Z" fill="#1a2228"/>
+  <ellipse cx="200" cy="788" rx="90" ry="10" fill="#000" opacity="0.26"/>
+  <path d="M 148,530 L 102,762 L 178,762 L 200,640 L 222,762 L 298,762 L 252,530 Z" fill="url(#pants)"/>
+  <line x1="160" y1="550" x2="140" y2="762" stroke="#0c0e16" stroke-width="1.5" opacity="0.5"/>
+  <line x1="240" y1="550" x2="260" y2="762" stroke="#0c0e16" stroke-width="1.5" opacity="0.5"/>
+  <path d="M 128,296 C 110,308 86,360 78,536 L 322,536 C 314,360 290,308 272,296 Z" fill="url(#shirt)"/>
+  <path d="M 272,296 C 294,322 316,390 320,536 L 322,536 C 314,360 290,308 272,296 Z" fill="#2e4060" opacity="0.45"/>
+  <path d="M 181,290 L 178,316 L 200,308 L 222,316 L 219,290 C 213,286 187,286 181,290 Z" fill="#162030"/>
+  <path d="M 181,290 L 200,300 L 219,290" stroke="#0e1828" stroke-width="1.5" fill="none"/>
+  <rect x="138" y="338" width="36" height="28" rx="2" fill="#162030" opacity="0.55"/>
+  <line x1="138" y1="348" x2="174" y2="348" stroke="#0c1828" stroke-width="1" opacity="0.5"/>
+  <line x1="200" y1="308" x2="200" y2="535" stroke="#162030" stroke-width="2" opacity="0.55"/>
+  <path d="M 154,318 C 148,420 142,510 140,538" stroke="#101e2e" stroke-width="1.5" fill="none" opacity="0.45"/>
+  <path d="M 246,318 C 252,420 258,510 260,538" stroke="#101e2e" stroke-width="1.5" fill="none" opacity="0.45"/>
 
-  <!-- One arm at rest, one raised (questioning gesture, palm up) -->
-  <path d="M 125,320 L 60,530 L 85,538 L 150,332 Z" fill="#c0a882"/>
-  <path d="M 275,320 L 330,490 L 355,482 L 295,312 Z" fill="#c0a882"/>
-  <ellipse cx="72"  cy="543" rx="16" ry="11" fill="#c8b090"/>
-  <!-- Open hand gesture (palm facing up, catching light from right) -->
-  <ellipse cx="346" cy="478" rx="18" ry="14" fill="#c8b896"/>
-  <!-- Fingers suggestion (open hand) -->
-  <path d="M 334,470 Q 338,462 342,470" fill="none" stroke="#b8a880" stroke-width="1.5"/>
-  <path d="M 342,468 Q 347,460 352,468" fill="none" stroke="#b8a880" stroke-width="1.5"/>
-  <path d="M 350,470 Q 355,463 358,471" fill="none" stroke="#b8a880" stroke-width="1.5"/>
+  <!-- left arm — elbow slightly out (questioning stance) -->
+  <path d="M 128,302 C 105,330 76,432 68,527 L 90,532 C 98,440 122,342 140,318 Z" fill="#101828"/>
+  <rect x="74" y="456" width="36" height="14" rx="3" fill="#1e3048" opacity="0.7"/>
+  <path d="M 76,469 C 66,500 62,526 64,544 L 86,550 C 86,532 88,508 96,482 Z" fill="#c8a07a"/>
+  <!-- right arm — slightly raised, shrug/question gesture -->
+  <path d="M 272,302 C 296,324 324,418 330,510 L 308,516 C 302,430 278,334 260,316 Z" fill="#101828"/>
+  <rect x="290" y="448" width="36" height="14" rx="3" fill="#1e3048" opacity="0.7"/>
+  <path d="M 319,461 C 330,490 334,516 332,532 L 310,538 C 310,520 308,496 300,470 Z" fill="#c8a07a"/>
+  <!-- right hand slightly raised/open (questioning gesture) -->
+  <path d="M 332,532 C 348,538 354,552 346,558 C 338,564 322,558 314,547 L 310,538 Z" fill="#c8a07a"/>
+  <path d="M 64,544 C 50,554 46,570 54,575 C 62,580 78,576 86,565 L 86,550 Z" fill="#c8a07a"/>
+  <path d="M 147,308 C 143,420 138,510 136,538" stroke="#0c0a18" stroke-width="1.5" fill="none" opacity="0.45"/>
+  <path d="M 253,308 C 258,410 264,500 266,538" stroke="#0c0a18" stroke-width="1.5" fill="none" opacity="0.45"/>
+  <path d="M 183,258 L 181,296 L 219,296 L 217,258 C 211,253 189,253 183,258 Z" fill="#c8a07a"/>
 
-  <rect x="186" y="250" width="28" height="62" fill="#b8a080" rx="5"/>
-  <ellipse cx="200" cy="225" rx="74" ry="82" fill="url(#face)"/>
-  <ellipse cx="200" cy="162" rx="75" ry="42" fill="#1a1018"/>
-  <path d="M 127,178 Q 114,222 124,258 L 134,253 Q 125,220 136,180 Z" fill="#1a1018"/>
-  <path d="M 273,178 Q 286,222 276,258 L 266,253 Q 275,220 264,180 Z" fill="#1a1018"/>
-  <path d="M 158,157 Q 163,144 173,157" fill="none" stroke="#1a1018" stroke-width="3"/>
-  <path d="M 192,154 Q 198,139 206,153" fill="none" stroke="#1a1018" stroke-width="3"/>
+  <path d="M 138,198 C 136,158 147,128 163,116 C 175,106 186,102 200,102 C 214,102 225,106 237,116 C 253,128 264,158 262,198 C 264,232 260,260 251,278 C 241,300 224,310 200,311 C 176,310 159,300 149,278 C 140,260 136,232 138,198 Z" fill="url(#skin)"/>
+  <path d="M 138,198 C 136,163 144,134 159,120 C 149,132 143,157 143,198 C 143,230 147,257 155,275 C 146,258 138,234 138,198 Z" fill="#6e3c1e" opacity="0.35"/>
+  <path d="M 262,198 C 264,163 256,134 241,120 C 251,132 257,157 257,198 C 257,230 253,257 245,275 C 254,258 262,234 262,198 Z" fill="#c87030" opacity="0.28"/>
 
-  <!-- Questioning eyes: widened, one slightly higher (head tilted) -->
-  <ellipse cx="174" cy="220" rx="13" ry="11" fill="#2a1e12"/>
-  <ellipse cx="226" cy="220" rx="13" ry="10" fill="#2a1e12"/>
-  <ellipse cx="174" cy="219" rx="6"  ry="6" fill="#0a0808"/>
-  <ellipse cx="226" cy="219" rx="6"  ry="5" fill="#0a0808"/>
-  <ellipse cx="177" cy="217" rx="2.5" ry="2.5" fill="#e8dcc8" opacity="0.75"/>
-  <ellipse cx="229" cy="217" rx="2.5" ry="2.5" fill="#e8dcc8" opacity="0.75"/>
+  <path d="M 138,198 C 136,158 147,128 163,116 C 175,106 186,102 200,102 C 214,102 225,106 237,116 C 253,128 264,158 262,198 C 256,168 249,142 236,130 C 222,118 211,113 200,113 C 189,113 178,118 164,130 C 151,142 144,168 138,198 Z" fill="#0c0918"/>
+  <path d="M 138,196 C 136,215 137,234 139,256 C 141,238 144,218 148,200 Z" fill="#0a0816"/>
+  <path d="M 262,196 C 264,215 263,234 261,256 C 259,238 256,218 252,200 Z" fill="#0a0816"/>
+  <path d="M 172,108 C 166,96 158,88 162,100" stroke="#0c0918" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 190,104 C 188,90 184,82 188,95" stroke="#0c0918" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 210,103 C 210,88 208,80 212,93" stroke="#0c0918" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M 228,108 C 232,94 238,88 234,102" stroke="#0c0918" stroke-width="3.5" fill="none" stroke-linecap="round"/>
 
-  <!-- Questioning brows: left raised high, right lower (asymmetric) -->
-  <path d="M 160,204 Q 173,197 188,202" fill="none" stroke="#1a1018" stroke-width="3" stroke-linecap="round"/>
-  <path d="M 212,207 Q 226,203 240,207" fill="none" stroke="#1a1018" stroke-width="3" stroke-linecap="round"/>
+  <!-- LEFT EYE: normal (the lower eyebrow side) -->
+  <ellipse cx="177" cy="208" rx="22" ry="14" fill="#8a5030" opacity="0.14"/>
+  <path d="M 157,208 C 159,198 167,193 177,194 C 187,193 195,198 197,208 C 195,218 187,224 177,224 C 167,224 159,218 157,208 Z" fill="#ecddc8"/>
+  <path d="M 157,207 C 159,198 167,193 177,194 C 187,193 195,198 197,207 C 189,200 177,199 157,207 Z" fill="#18122a"/>
+  <circle cx="177" cy="208" r="9" fill="#281c10"/>
+  <circle cx="177" cy="208" r="5" fill="#080808"/>
+  <circle cx="173" cy="205" r="2.5" fill="#ecddc8" opacity="0.92"/>
+  <path d="M 157,211 C 164,218 170,222 177,223" stroke="#b07848" stroke-width="1.2" fill="none" opacity="0.55"/>
 
-  <path d="M 196,234 Q 200,248 204,234" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
+  <!-- RIGHT EYE: wider open (raised brow side) -->
+  <ellipse cx="223" cy="206" rx="22" ry="15" fill="#8a5030" opacity="0.14"/>
+  <path d="M 203,206 C 205,195 213,190 223,191 C 233,190 241,195 243,206 C 241,217 233,223 223,223 C 213,223 205,217 203,206 Z" fill="#ecddc8"/>
+  <path d="M 203,205 C 205,195 213,190 223,191 C 233,190 241,195 243,205 C 235,198 223,197 203,205 Z" fill="#18122a"/>
+  <circle cx="223" cy="206" r="9" fill="#281c10"/>
+  <circle cx="223" cy="206" r="5" fill="#080808"/>
+  <circle cx="219" cy="203" r="2.5" fill="#ecddc8" opacity="0.92"/>
+  <path d="M 203,209 C 210,216 216,220 223,221" stroke="#b07848" stroke-width="1.2" fill="none" opacity="0.55"/>
 
-  <!-- Questioning mouth: slight open, lower lip dropped -->
-  <path d="M 186,256 Q 200,262 214,256" fill="#b89870" opacity="0.25"/>
-  <path d="M 186,256 Q 200,265 214,256" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
+  <!-- eyebrows: LEFT flat/normal, RIGHT raised high — asymmetric questioning -->
+  <path d="M 154,192 Q 166,188 184,190" stroke="#16101e" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- right brow significantly higher -->
+  <path d="M 196,182 Q 210,174 228,178" stroke="#16101e" stroke-width="3.8" stroke-linecap="round" fill="none"/>
 
-  <!-- Atmospheric overlays -->
-  <rect x="0" y="0" width="400" height="800" fill="url(#rim_r)"/>
-  <rect x="0" y="0" width="400" height="800" fill="url(#shadow_l)"/>
-  <!-- Raised hand catches lamp light strongly (palm up = more surface area to lamp) -->
-  <ellipse cx="346" cy="472" rx="32" ry="26" fill="#d08030" opacity="0.14"/>
-  <!-- Right arm rim -->
-  <ellipse cx="334" cy="398" rx="20" ry="55" fill="#c07020" opacity="0.09"/>
-  <!-- Face rim crescent -->
-  <ellipse cx="256" cy="216" rx="38" ry="62" fill="#d08030" opacity="0.09"/>
+  <path d="M 196,232 C 194,242 195,248 200,252 C 205,248 206,242 204,232" fill="none" stroke="#9a6840" stroke-width="1.4" opacity="0.58"/>
 
-  <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">diao_caidi/questioning</text>
+  <!-- mouth: smirk/slight puzzled — corner up on one side -->
+  <path d="M 183,280 C 191,283 208,282 217,278" fill="none" stroke="#8a4c30" stroke-width="2.2" stroke-linecap="round"/>
+
+  <path d="M 138,203 C 134,193 134,218 138,226 L 144,220 C 141,212 141,197 144,194 Z" fill="#b88862"/>
+  <path d="M 262,203 C 266,193 266,218 262,226 L 256,220 C 259,212 259,197 256,194 Z" fill="#b88862"/>
 </svg>
