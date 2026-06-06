@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="tunnel_bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#020208"/>
+      <stop offset="100%" stop-color="#060418"/>
+    </linearGradient>
+    <radialGradient id="water_glow" cx="50%" cy="80%" r="50%">
+      <stop offset="0%"  stop-color="#1a3a5c" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#1a3a5c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#tunnel_bg)"/>
+
+  <!-- Tunnel arch -->
+  <ellipse cx="960" cy="0" rx="700" ry="350" fill="none" stroke="#1a1428" stroke-width="60"/>
+  <ellipse cx="960" cy="0" rx="640" ry="310" fill="#020208"/>
+
+  <!-- Brick texture (arch walls) simplified -->
+  <rect x="0"    y="0" width="260" height="1080" fill="#0a0810"/>
+  <rect x="1660" y="0" width="260" height="1080" fill="#0a0810"/>
+
+  <!-- Underground water surface -->
+  <ellipse cx="960" cy="900" rx="800" ry="80" fill="#0a1e30" opacity="0.8"/>
+  <rect x="160" y="880" width="1600" height="200" fill="#060e1c" opacity="0.9"/>
+
+  <!-- Water glow -->
+  <rect x="0" y="700" width="1920" height="380" fill="url(#water_glow)"/>
+
+  <!-- Water ripples -->
+  <ellipse cx="960" cy="890" rx="600" ry="20" fill="none" stroke="#1a3a5c" stroke-width="2" opacity="0.4"/>
+  <ellipse cx="960" cy="890" rx="400" ry="13" fill="none" stroke="#1a3a5c" stroke-width="1.5" opacity="0.3"/>
+  <ellipse cx="960" cy="890" rx="200" ry="7" fill="none" stroke="#1a3a5c" stroke-width="1" opacity="0.25"/>
+
+  <!-- Boat silhouette -->
+  <path d="M 720,860 Q 770,840 960,838 Q 1150,840 1200,860 L 1180,875 L 740,875 Z" fill="#080610" opacity="0.85"/>
+  <!-- Boat oar/pole -->
+  <line x1="1160" y1="800" x2="1200" y2="880" stroke="#0c0a10" stroke-width="5"/>
+
+  <!-- Dripping water from ceiling -->
+  <line x1="300"  y1="300" x2="300"  y2="600" stroke="#0c1830" stroke-width="1.5" opacity="0.3"/>
+  <line x1="650"  y1="200" x2="650"  y2="550" stroke="#0c1830" stroke-width="1.5" opacity="0.25"/>
+  <line x1="1270" y1="250" x2="1270" y2="580" stroke="#0c1830" stroke-width="1.5" opacity="0.25"/>
+  <line x1="1620" y1="310" x2="1620" y2="620" stroke="#0c1830" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Faint bioluminescence on water -->
+  <ellipse cx="500"  cy="890" rx="50" ry="8" fill="#1a3a5c" opacity="0.25"/>
+  <ellipse cx="1400" cy="888" rx="40" ry="7" fill="#1a3a5c" opacity="0.22"/>
+
+  <text x="30" y="50" font-family="monospace" font-size="18" fill="rgba(100,140,200,0.35)">BG: underground_river [placeholder]</text>
+</svg>

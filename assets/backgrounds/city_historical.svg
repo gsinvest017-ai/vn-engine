@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="aged_bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#1a1408"/>
+      <stop offset="40%"  stop-color="#2a1e0c"/>
+      <stop offset="100%" stop-color="#140e08"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Old paper / sepia background -->
+  <rect width="1920" height="1080" fill="url(#aged_bg)"/>
+
+  <!-- Paper texture overlay -->
+  <rect width="1920" height="1080" fill="#e8c870" opacity="0.06"/>
+
+  <!-- Ink-wash river map illustration (stylized) -->
+  <!-- Main river (横流) -->
+  <path d="M 0,500 Q 300,470 500,520 Q 700,570 900,510 Q 1100,450 1300,520 Q 1500,580 1920,540"
+        fill="none" stroke="#c8aa60" stroke-width="28" opacity="0.35"/>
+  <!-- Secondary branch -->
+  <path d="M 400,520 Q 450,620 380,750 Q 320,850 280,1080"
+        fill="none" stroke="#c8aa60" stroke-width="16" opacity="0.25"/>
+  <!-- Branch 2 -->
+  <path d="M 900,510 Q 950,600 880,720 Q 820,840 800,1080"
+        fill="none" stroke="#c8aa60" stroke-width="14" opacity="0.22"/>
+  <!-- Branch 3 -->
+  <path d="M 1300,520 Q 1280,640 1240,780 Q 1200,920 1180,1080"
+        fill="none" stroke="#c8aa60" stroke-width="12" opacity="0.20"/>
+
+  <!-- Temple markers (dots with circles) -->
+  <circle cx="480"  cy="515" r="16" fill="#c8aa60" opacity="0.55"/>
+  <circle cx="480"  cy="515" r="24" fill="none" stroke="#c8aa60" stroke-width="2" opacity="0.35"/>
+  <circle cx="900"  cy="508" r="16" fill="#c8aa60" opacity="0.55"/>
+  <circle cx="900"  cy="508" r="24" fill="none" stroke="#c8aa60" stroke-width="2" opacity="0.35"/>
+  <circle cx="1300" cy="518" r="16" fill="#c8aa60" opacity="0.55"/>
+  <circle cx="1300" cy="518" r="24" fill="none" stroke="#c8aa60" stroke-width="2" opacity="0.35"/>
+
+  <!-- Chinese map annotation text (stylized strokes) -->
+  <text x="460" y="490" font-family="serif" font-size="22" fill="#c8aa60" opacity="0.6" transform="rotate(-5,460,490)">翰溪庄</text>
+  <text x="870" y="485" font-family="serif" font-size="22" fill="#c8aa60" opacity="0.6" transform="rotate(-3,870,485)">律川</text>
+  <text x="1260" y="495" font-family="serif" font-size="22" fill="#c8aa60" opacity="0.6" transform="rotate(-4,1260,495)">樂承宮</text>
+
+  <!-- Directional label -->
+  <text x="1800" y="100" font-family="serif" font-size="28" fill="#c8aa60" opacity="0.4">北</text>
+  <line x1="1820" y1="60" x2="1820" y2="110" stroke="#c8aa60" stroke-width="2" opacity="0.4"/>
+  <polygon points="1820,55 1813,72 1827,72" fill="#c8aa60" opacity="0.4"/>
+
+  <!-- Paper fold lines -->
+  <line x1="640"  y1="0" x2="640"  y2="1080" stroke="#8a7040" stroke-width="1" opacity="0.15"/>
+  <line x1="1280" y1="0" x2="1280" y2="1080" stroke="#8a7040" stroke-width="1" opacity="0.15"/>
+  <line x1="0"    y1="360" x2="1920" y2="360" stroke="#8a7040" stroke-width="1" opacity="0.12"/>
+  <line x1="0"    y1="720" x2="1920" y2="720" stroke="#8a7040" stroke-width="1" opacity="0.12"/>
+
+  <!-- Aged spots -->
+  <circle cx="200"  cy="200"  r="40" fill="#6a5020" opacity="0.08"/>
+  <circle cx="1600" cy="800"  r="55" fill="#6a5020" opacity="0.07"/>
+  <circle cx="1000" cy="900"  r="35" fill="#6a5020" opacity="0.06"/>
+
+  <!-- Era annotation -->
+  <text x="80" y="180" font-family="serif" font-size="20" fill="#c8aa60" opacity="0.5">乾隆十八年　翰溪庄附近水路圖</text>
+
+  <text x="30" y="50" font-family="monospace" font-size="18" fill="rgba(200,180,100,0.35)">BG: city_historical [placeholder]</text>
+</svg>

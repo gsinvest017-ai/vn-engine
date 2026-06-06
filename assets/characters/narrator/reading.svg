@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800" width="400" height="800">
+  <defs>
+    <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#1a1420"/>
+      <stop offset="100%" stop-color="#0e0c12"/>
+    </linearGradient>
+    <radialGradient id="face_light" cx="50%" cy="30%" r="50%">
+      <stop offset="0%"  stop-color="#c8a880"/>
+      <stop offset="100%" stop-color="#9a7a5a"/>
+    </radialGradient>
+    <linearGradient id="book_cover" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#3a2a1a"/>
+      <stop offset="100%" stop-color="#1e160a"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="200" cy="790" rx="90" ry="12" fill="#000" opacity="0.4"/>
+  <path d="M 130,320 L 80,760 L 320,760 L 270,320 Z" fill="url(#coat)"/>
+  <path d="M 175,320 L 155,400 L 200,380 L 245,400 L 225,320 Z" fill="#241c2c"/>
+  <path d="M 175,310 L 160,340 L 200,330 L 240,340 L 225,310 Z" fill="#1e1828"/>
+
+  <!-- Arms holding document/book -->
+  <path d="M 130,330 L 100,560 L 125,565 L 155,345 Z" fill="#1a1420"/>
+  <path d="M 270,330 L 300,560 L 275,565 L 245,345 Z" fill="#1a1420"/>
+
+  <!-- Book/document (old file) -->
+  <rect x="100" y="540" width="200" height="150" fill="url(#book_cover)" rx="3"/>
+  <!-- page lines (yellowed) -->
+  <rect x="108" y="548" width="184" height="2" fill="#c8a860" opacity="0.3"/>
+  <rect x="108" y="558" width="184" height="2" fill="#c8a860" opacity="0.25"/>
+  <rect x="108" y="568" width="170" height="2" fill="#c8a860" opacity="0.25"/>
+  <rect x="108" y="578" width="184" height="2" fill="#c8a860" opacity="0.25"/>
+  <rect x="108" y="588" width="150" height="2" fill="#c8a860" opacity="0.2"/>
+  <!-- page right fold -->
+  <path d="M 290,540 L 300,550 L 290,550 Z" fill="#2a1e0e" opacity="0.6"/>
+  <!-- book spine -->
+  <rect x="100" y="540" width="8" height="150" fill="#2a1a08"/>
+
+  <rect x="188" y="255" width="24" height="65" fill="#b89870" rx="4"/>
+  <ellipse cx="200" cy="228" rx="68" ry="80" fill="url(#face_light)"/>
+  <ellipse cx="200" cy="168" rx="70" ry="45" fill="#1a1018"/>
+  <path d="M 132,183 Q 120,228 130,263 L 140,258 Q 132,223 142,186 Z" fill="#1a1018"/>
+  <path d="M 268,183 Q 280,228 270,263 L 260,258 Q 268,223 258,186 Z" fill="#1a1018"/>
+
+  <!-- Reading eyes: focused downward -->
+  <ellipse cx="175" cy="235" rx="12" ry="7" fill="#2a1e10"/>
+  <ellipse cx="225" cy="235" rx="12" ry="7" fill="#2a1e10"/>
+  <ellipse cx="175" cy="237" rx="5"  ry="4" fill="#0a0808"/>
+  <ellipse cx="225" cy="237" rx="5"  ry="4" fill="#0a0808"/>
+  <!-- weighted lids -->
+  <path d="M 163,230 Q 175,227 187,230" fill="#1a1018" stroke="none"/>
+  <path d="M 213,230 Q 225,227 237,230" fill="#1a1018" stroke="none"/>
+
+  <path d="M 163,218 Q 175,216 188,218" fill="none" stroke="#1a1018" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 212,218 Q 224,216 238,218" fill="none" stroke="#1a1018" stroke-width="2.5" stroke-linecap="round"/>
+
+  <path d="M 196,245 Q 200,258 204,245" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
+  <path d="M 187,265 Q 200,263 213,265" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
+
+  <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">narrator/reading</text>
+</svg>

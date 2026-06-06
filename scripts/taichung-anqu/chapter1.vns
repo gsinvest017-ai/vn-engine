@@ -1,0 +1,128 @@
+# 暗渠之書 — 第一章
+
+@chapter 第一章　河流被埋進城市之後
+
+@scene bg=old_city_dusk transition=none
+@bgm play=ambient_old_city fade=2000
+@weather rain=drizzle wind=0.2
+
+黃昏落在舊城區時，總有一種潮濕的重量。
+
+@wait 900
+
+從第三市場往東走，穿過幾條被機車與鐵窗占滿的小巷，空氣會慢慢變得不同。那不是氣味，而更像某種長年積存在牆壁裡的呼吸。水泥、香灰、機油、腐爛木頭，以及夏季河水將滿未滿時浮出的土腥味，彼此疊壓，像一段始終沒有真正結束的年代。
+
+@fade out duration=700
+@scene bg=shrine_interior transition=none
+@fade in duration=1100
+@weather rain=light
+
+我坐在翰溪庄附近一間老舊的道壇裡。
+
+@char show=narrator pos=right expr=tired
+@effect vignette intensity=0.4
+
+屋頂很低。午後下過雨，濕氣沿著牆角向上蔓延，牆面浮出大片灰白色的鹽斑，像人體皮膚無法癒合的舊傷。我低頭看著自己的手。那不是我熟悉的手。指節粗大，掌紋深陷，皮膚裡彷彿積著長久未曾排出的疲憊。
+
+有時我會忘記自己究竟是誰。
+
+@wait 600
+
+@char expr=narrator:troubled
+
+徐尋尋。廖啟祥。或者更早以前，另一個名字。
+
+@effect flicker count=2
+
+記憶在我腦中並不連續。它們像被暴雨沖散後重新堆積的河砂。某些片段異常清晰：祖父年老後在鳳原租屋處反覆誦念的觀音咒；律川整治工程期間深夜不停運轉的抽水機；某份刑案卷宗裡一張失焦的黑白照片。可更多時候，我只感覺到一種漫長而模糊的下沉。
+
+@char show=diao_caidi pos=left expr=normal
+
+對面的刁才弟忽然問我：
+
+[diao_caidi] 你最近是不是又沒睡？
+
+@char expr=narrator:silent
+
+我沒有回答。
+
+@sfx play=market_closing volume=0.45
+
+窗外的市場正逐漸收攤。鐵門拉下的聲音此起彼落，像某種緩慢的金屬潮汐。有人踩過積水，塑膠拖鞋啪地濺起污水。我忽然想起很久以前看過的一句話：
+
+@wait 700
+@char expr=diao_caidi:questioning
+
+> 城市不是建在土地上，而是建在被掩埋的事物上。
+
+@char hide=diao_caidi
+@fade out duration=600
+@scene bg=city_historical transition=none
+@fade in duration=900
+@weather rain=none
+@effect dim level=0.15
+
+乾隆十八年，翰溪庄建廟時，這裡原本仍有河道。
+
+那時候的水還看得見。
+
+@wait 500
+@fade out duration=500
+@scene bg=shrine_interior transition=none
+@fade in duration=800
+@weather rain=light
+
+後來日本人來了，後來又有新的政府，新的都市計畫，新的道路與市場。河流一條條被截短、填平、導入地下。它們從地圖上消失，但並沒有真正離開。
+
+@sfx play=water_distant volume=0.28 loop=true
+@effect dim level=0.2
+
+有些夜裡，特別是颱風前夕，我總覺得仍能聽見水聲。
+
+不是現在的水聲。
+
+@wait 500
+
+而是更久以前的。
+
+@sfx stop=water_distant fade=2500
+@char expr=narrator:reading
+
+我從桌下翻出那本舊檔案。封面受潮變形，紙頁邊緣呈現長久浸水後特有的深褐色。翻開時，一股陳年的霉味慢慢散開。我忽然產生一種奇異的錯覺：
+
+@wait 500
+@effect dim level=0.45
+
+彷彿不是我正在閱讀它，而是它正在閱讀我。
+
+@sfx play=paper_rustle volume=0.5
+
+@wait 400
+
+檔案裡最早的文字寫於乾隆年間。
+
+字跡斷斷續續，像有人在極度不安之中留下的紀錄：
+
+@wait 600
+@effect dim level=0.55
+
+> 「……庄民掘地見異物，其形不可辨。夜半聞水下有聲，如舟行暗河。其後數月，庄中多夢者……」
+
+@wait 1200
+@effect dim level=0.2
+
+後面的內容殘缺得厲害。
+
+唯獨「暗河」兩字，被反覆提及。
+
+@wait 700
+@char expr=narrator:thoughtful
+
+我忽然意識到，也許真正留下來的，不是某種怪異之物，而是一個地方無法被說出口的記憶。
+
+而河流，替它記得。
+
+@bgm stop fade=3500
+@fade out duration=1800
+
+@chapter_end

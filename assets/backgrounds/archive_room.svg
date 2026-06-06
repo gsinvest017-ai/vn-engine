@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#080810"/>
+      <stop offset="100%" stop-color="#12100e"/>
+    </linearGradient>
+    <radialGradient id="desk_lamp" cx="40%" cy="60%" r="35%">
+      <stop offset="0%"  stop-color="#e8c870" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#e8c870" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+
+  <!-- Shelves back wall -->
+  <!-- shelf units left -->
+  <rect x="0"   y="100" width="380" height="900" fill="#0c0c14" opacity="0.95"/>
+  <rect x="10"  y="100" width="360" height="16"  fill="#0a0a12"/>
+  <rect x="10"  y="240" width="360" height="14"  fill="#0a0a12"/>
+  <rect x="10"  y="380" width="360" height="14"  fill="#0a0a12"/>
+  <rect x="10"  y="520" width="360" height="14"  fill="#0a0a12"/>
+  <rect x="10"  y="650" width="360" height="14"  fill="#0a0a12"/>
+  <rect x="10"  y="780" width="360" height="14"  fill="#0a0a12"/>
+  <!-- books on shelves (left) -->
+  <rect x="20"  y="120" width="22" height="115" fill="#1a1530"/>
+  <rect x="44"  y="130" width="18" height="105" fill="#2a1810"/>
+  <rect x="64"  y="118" width="24" height="117" fill="#1e1420"/>
+  <rect x="90"  y="125" width="16" height="110" fill="#302010"/>
+  <rect x="108" y="120" width="20" height="115" fill="#151830"/>
+  <rect x="130" y="128" width="18" height="107" fill="#281812"/>
+  <rect x="150" y="116" width="26" height="119" fill="#1c1428"/>
+  <rect x="178" y="122" width="14" height="113" fill="#32200e"/>
+  <rect x="194" y="120" width="22" height="115" fill="#1a1530"/>
+  <rect x="218" y="132" width="18" height="103" fill="#241a0e"/>
+  <rect x="238" y="118" width="20" height="117" fill="#1e1820"/>
+  <rect x="260" y="126" width="24" height="109" fill="#2a1610"/>
+  <rect x="286" y="120" width="16" height="115" fill="#161530"/>
+  <rect x="304" y="128" width="22" height="107" fill="#281a14"/>
+  <rect x="328" y="116" width="18" height="119" fill="#1c1628"/>
+  <!-- second shelf row (left) -->
+  <rect x="20"  y="258" width="20" height="116" fill="#281612"/>
+  <rect x="42"  y="265" width="24" height="109" fill="#1a1530"/>
+  <rect x="68"  y="258" width="16" height="116" fill="#32200e"/>
+  <rect x="86"  y="262" width="22" height="112" fill="#1e1820"/>
+  <rect x="110" y="254" width="18" height="120" fill="#241a0e"/>
+  <rect x="130" y="260" width="26" height="114" fill="#151830"/>
+  <rect x="158" y="256" width="14" height="118" fill="#2a1810"/>
+  <rect x="174" y="262" width="22" height="112" fill="#1c1428"/>
+  <rect x="198" y="258" width="20" height="116" fill="#281612"/>
+
+  <!-- shelf units right -->
+  <rect x="1540" y="100" width="380" height="900" fill="#0c0c14" opacity="0.95"/>
+  <rect x="1550" y="100" width="360" height="16"  fill="#0a0a12"/>
+  <rect x="1550" y="240" width="360" height="14"  fill="#0a0a12"/>
+  <rect x="1550" y="380" width="360" height="14"  fill="#0a0a12"/>
+  <rect x="1550" y="520" width="360" height="14"  fill="#0a0a12"/>
+  <rect x="1550" y="650" width="360" height="14"  fill="#0a0a12"/>
+  <rect x="1550" y="780" width="360" height="14"  fill="#0a0a12"/>
+  <!-- books right (abbreviated) -->
+  <rect x="1560" y="120" width="22" height="115" fill="#2a1810"/>
+  <rect x="1584" y="130" width="18" height="105" fill="#1a1530"/>
+  <rect x="1604" y="118" width="24" height="117" fill="#301e0e"/>
+  <rect x="1630" y="125" width="20" height="110" fill="#1e1820"/>
+  <rect x="1652" y="120" width="16" height="115" fill="#281612"/>
+  <rect x="1670" y="128" width="26" height="107" fill="#151830"/>
+  <rect x="1698" y="116" width="18" height="119" fill="#241a0e"/>
+  <rect x="1718" y="122" width="22" height="113" fill="#1c1428"/>
+  <rect x="1742" y="120" width="20" height="115" fill="#32200e"/>
+  <rect x="1764" y="132" width="14" height="103" fill="#1a1530"/>
+  <rect x="1780" y="118" width="24" height="117" fill="#2a1810"/>
+  <rect x="1806" y="126" width="16" height="109" fill="#1e1428"/>
+  <rect x="1824" y="120" width="22" height="115" fill="#281612"/>
+  <rect x="1848" y="128" width="18" height="107" fill="#151830"/>
+  <rect x="1868" y="116" width="22" height="119" fill="#241a0e"/>
+
+  <!-- Desk lamp glow (center-left) -->
+  <ellipse cx="600" cy="700" rx="340" ry="220" fill="url(#desk_lamp)"/>
+
+  <!-- Desk surface -->
+  <rect x="300" y="720" width="700" height="40"  fill="#1a1408" opacity="0.95"/>
+  <rect x="280" y="760" width="740" height="320" fill="#130f06" opacity="0.98"/>
+
+  <!-- Papers on desk -->
+  <rect x="340" y="680" width="280" height="40"  fill="#e8dcc8" opacity="0.55" transform="rotate(-3,480,700)"/>
+  <rect x="380" y="672" width="260" height="38"  fill="#ddd0b4" opacity="0.50" transform="rotate(2,510,691)"/>
+  <rect x="500" y="678" width="200" height="36"  fill="#e8dcc8" opacity="0.45" transform="rotate(-1,600,696)"/>
+
+  <!-- Floor -->
+  <rect x="0" y="900" width="1920" height="180" fill="#0a0908" opacity="0.95"/>
+
+  <!-- Ambient dust/haze -->
+  <rect x="0" y="0" width="1920" height="1080" fill="#c17a24" opacity="0.015"/>
+
+  <text x="30" y="50" font-family="monospace" font-size="18" fill="rgba(200,180,100,0.35)">BG: archive_room [placeholder]</text>
+</svg>

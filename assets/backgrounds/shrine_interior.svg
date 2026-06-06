@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="ceiling" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#060408"/>
+      <stop offset="100%" stop-color="#0e0a0c"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#0e0a0c"/>
+      <stop offset="100%" stop-color="#1a1214"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#1a1010"/>
+      <stop offset="100%" stop-color="#0d0808"/>
+    </linearGradient>
+    <radialGradient id="incense_glow" cx="50%" cy="30%" r="40%">
+      <stop offset="0%"  stop-color="#c17a24" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#c17a24" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lamp_glow" cx="50%" cy="0%" r="60%">
+      <stop offset="0%"  stop-color="#e8a840" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#e8a840" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background wall -->
+  <rect width="1920" height="1080" fill="url(#wall)"/>
+
+  <!-- Ceiling (low) -->
+  <rect width="1920" height="220" fill="url(#ceiling)"/>
+
+  <!-- Ceiling beams -->
+  <rect x="0"    y="60"  width="1920" height="18" fill="#0a0608" opacity="0.8"/>
+  <rect x="0"    y="120" width="1920" height="12" fill="#0a0608" opacity="0.6"/>
+  <rect x="0"    y="170" width="1920" height="10" fill="#0a0608" opacity="0.5"/>
+  <rect x="0"    y="208" width="1920" height="8"  fill="#080408" opacity="0.7"/>
+
+  <!-- Vertical beams -->
+  <rect x="320"  y="0" width="20" height="1080" fill="#080408" opacity="0.6"/>
+  <rect x="760"  y="0" width="16" height="1080" fill="#080408" opacity="0.5"/>
+  <rect x="1160" y="0" width="16" height="1080" fill="#080408" opacity="0.5"/>
+  <rect x="1600" y="0" width="20" height="1080" fill="#080408" opacity="0.6"/>
+
+  <!-- Ambient incense glow -->
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#incense_glow)"/>
+
+  <!-- Lamp glow from above -->
+  <ellipse cx="960" cy="0" rx="400" ry="250" fill="#e8a840" opacity="0.12"/>
+
+  <!-- Back wall altar silhouette -->
+  <rect x="720" y="240" width="480" height="400" fill="#0c0810" opacity="0.9"/>
+  <rect x="800" y="200" width="320" height="50"  fill="#0c0810" opacity="0.85"/>
+  <!-- altar glow -->
+  <ellipse cx="960" cy="440" rx="150" ry="60" fill="#c17a24" opacity="0.12"/>
+
+  <!-- Wall salt stains (patches) -->
+  <ellipse cx="150"  cy="450" rx="90"  ry="130" fill="#e8dcc8" opacity="0.025"/>
+  <ellipse cx="380"  cy="380" rx="60"  ry="90"  fill="#e8dcc8" opacity="0.02"/>
+  <ellipse cx="1550" cy="430" rx="80"  ry="110" fill="#e8dcc8" opacity="0.025"/>
+  <ellipse cx="1750" cy="350" rx="50"  ry="70"  fill="#e8dcc8" opacity="0.02"/>
+
+  <!-- Side walls panels -->
+  <rect x="0"    y="220" width="280" height="660" fill="#0c0a0c" opacity="0.8"/>
+  <rect x="1640" y="220" width="280" height="660" fill="#0c0a0c" opacity="0.8"/>
+
+  <!-- Window (right) — faint light from outside -->
+  <rect x="1650" y="280" width="160" height="200" fill="#2a1a0c" opacity="0.5"/>
+  <line x1="1730" y1="280" x2="1730" y2="480" stroke="#1a1008" stroke-width="4"/>
+  <line x1="1650" y1="380" x2="1810" y2="380" stroke="#1a1008" stroke-width="4"/>
+  <!-- rain light through window -->
+  <rect x="1650" y="280" width="160" height="200" fill="#e8923a" opacity="0.04"/>
+
+  <!-- Floor -->
+  <rect x="0" y="820" width="1920" height="260" fill="url(#floor)"/>
+  <!-- floor seams -->
+  <line x1="0" y1="880" x2="1920" y2="880" stroke="#0a0808" stroke-width="2" opacity="0.5"/>
+  <line x1="0" y1="950" x2="1920" y2="950" stroke="#0a0808" stroke-width="2" opacity="0.4"/>
+
+  <!-- Desk shadow bottom left -->
+  <rect x="0" y="900" width="420" height="180" fill="#080608" opacity="0.85"/>
+  <rect x="30" y="860" width="360" height="50"  fill="#0c0a0c" opacity="0.9"/>
+
+  <!-- Vignette -->
+  <rect x="0" y="0" width="1920" height="1080" fill="none"
+    style="fill:radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(0,0,0,0.6) 100%)"/>
+
+  <text x="30" y="50" font-family="monospace" font-size="18" fill="rgba(200,180,100,0.35)">BG: shrine_interior [placeholder]</text>
+</svg>

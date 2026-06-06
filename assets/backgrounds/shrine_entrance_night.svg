@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="night_sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#020208"/>
+      <stop offset="60%"  stop-color="#06050e"/>
+      <stop offset="100%" stop-color="#0e0a0c"/>
+    </linearGradient>
+    <radialGradient id="city_glow" cx="50%" cy="80%" r="55%">
+      <stop offset="0%"  stop-color="#c17a24" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#c17a24" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="convenience_store" cx="85%" cy="50%" r="15%">
+      <stop offset="0%"  stop-color="#00cc44" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00cc44" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Night sky -->
+  <rect width="1920" height="1080" fill="url(#night_sky)"/>
+
+  <!-- City ambient glow from below -->
+  <rect width="1920" height="1080" fill="url(#city_glow)"/>
+
+  <!-- Distant buildings (very dark) -->
+  <rect x="0"    y="400" width="80"  height="680" fill="#080608"/>
+  <rect x="60"   y="350" width="100" height="730" fill="#080608"/>
+  <rect x="140"  y="420" width="70"  height="660" fill="#080608"/>
+  <rect x="190"  y="370" width="120" height="710" fill="#080608"/>
+  <rect x="290"  y="390" width="90"  height="690" fill="#080608"/>
+  <rect x="1500" y="360" width="110" height="720" fill="#080608"/>
+  <rect x="1590" y="400" width="80"  height="680" fill="#080608"/>
+  <rect x="1650" y="350" width="130" height="730" fill="#080608"/>
+  <rect x="1760" y="380" width="100" height="700" fill="#080608"/>
+  <rect x="1840" y="420" width="80"  height="660" fill="#080608"/>
+
+  <!-- A few lit windows in distance -->
+  <rect x="75"   y="420" width="8" height="10" fill="#e8c870" opacity="0.25"/>
+  <rect x="100"  y="400" width="8" height="10" fill="#e8c870" opacity="0.20"/>
+  <rect x="210"  y="440" width="8" height="10" fill="#e8c870" opacity="0.22"/>
+  <rect x="1580" y="410" width="8" height="10" fill="#e8c870" opacity="0.20"/>
+  <rect x="1700" y="380" width="8" height="10" fill="#e8c870" opacity="0.25"/>
+
+  <!-- Shrine gate (torii-like / traditional gate silhouette) -->
+  <rect x="700"  y="280" width="520" height="25"  fill="#060408"/>
+  <rect x="680"  y="265" width="560" height="18"  fill="#060408"/>
+  <rect x="730"  y="305" width="30"  height="500" fill="#060408"/>
+  <rect x="1160" y="305" width="30"  height="500" fill="#060408"/>
+  <!-- gate cross beams -->
+  <rect x="720"  y="340" width="480" height="14"  fill="#060408"/>
+
+  <!-- Main shrine facade -->
+  <rect x="500"  y="480" width="920" height="600" fill="#060408"/>
+  <!-- shrine roof -->
+  <polygon points="480,480 960,320 1440,480" fill="#050307"/>
+  <!-- roof ridge -->
+  <rect x="480"  y="476" width="960" height="10"  fill="#040206"/>
+
+  <!-- Shrine doors (slightly lighter) -->
+  <rect x="820"  y="700" width="140" height="380" fill="#0e0a0c"/>
+  <rect x="960"  y="700" width="140" height="380" fill="#0e0a0c"/>
+  <line x1="960" y1="700" x2="960" y2="1080" stroke="#060408" stroke-width="3"/>
+
+  <!-- Lantern glow above door -->
+  <ellipse cx="890"  cy="680" rx="30" ry="35" fill="#060408"/>
+  <ellipse cx="1030" cy="680" rx="30" ry="35" fill="#060408"/>
+  <ellipse cx="890"  cy="680" rx="20" ry="24" fill="#c17a24" opacity="0.35"/>
+  <ellipse cx="1030" cy="680" rx="20" ry="24" fill="#c17a24" opacity="0.35"/>
+  <!-- lantern glow -->
+  <ellipse cx="890"  cy="700" rx="70" ry="50" fill="#c17a24" opacity="0.1"/>
+  <ellipse cx="1030" cy="700" rx="70" ry="50" fill="#c17a24" opacity="0.1"/>
+
+  <!-- Convenience store glow (far right) -->
+  <rect width="1920" height="1080" fill="url(#convenience_store)"/>
+  <rect x="1650" y="500" width="180" height="200" fill="#001a08" opacity="0.7"/>
+  <rect x="1650" y="495" width="180" height="14"  fill="#00aa33" opacity="0.6"/>
+
+  <!-- Ground / wet pavement -->
+  <rect x="0" y="900" width="1920" height="180" fill="#060406"/>
+  <!-- puddle reflections -->
+  <ellipse cx="500"  cy="960" rx="120" ry="18" fill="#c17a24" opacity="0.06"/>
+  <ellipse cx="960"  cy="940" rx="160" ry="22" fill="#c17a24" opacity="0.05"/>
+  <ellipse cx="1400" cy="955" rx="100" ry="16" fill="#c17a24" opacity="0.06"/>
+
+  <!-- Power failure darkness overlay -->
+  <rect width="1920" height="1080" fill="#000" opacity="0.35"/>
+
+  <text x="30" y="50" font-family="monospace" font-size="18" fill="rgba(200,180,100,0.3)">BG: shrine_entrance_night [placeholder]</text>
+</svg>

@@ -1,0 +1,84 @@
+# 暗渠之書 — 第二章
+
+@chapter 第二章　關於側寫師與地方志
+
+@scene bg=shrine_interior transition=none
+@bgm play=ambient_shrine fade=1500
+@fade in duration=1000
+@weather rain=light
+
+@char show=narrator pos=right expr=thoughtful
+
+我曾經是犯罪側寫師。
+
+那幾年，我長時間閱讀人的殘缺。閱讀暴力留下的痕跡、閱讀失蹤者最後停留的路線、閱讀一個人在崩潰之前，如何逐漸偏離原本的人生。
+
+後來我才明白，城市其實也有自己的側寫。
+
+@wait 600
+
+> 一條被填平的河。
+> 一座遷移過數次的廟。
+> 一段沒有人再提起的地名。
+
+@effect dim level=0.1
+
+所有被覆蓋的東西，都還留在那裡。
+
+只是換了形式。
+
+@char expr=narrator:reading
+
+我開始查閱地方志。從清代的墾拓紀錄，到日治時期的市區改正計畫，再到戰後的排水工程圖。我愈讀愈感到不安。那些文件之間彷彿存在某種隱約一致的沉默。
+
+每一份紀錄，都小心地避開了某件事。
+
+@effect dim level=0.25
+
+像有人曾試圖把一段歷史徹底埋進地底。
+
+@fade out duration=700
+@scene bg=archive_room transition=none
+@fade in duration=1000
+@effect dim level=0.1
+@weather rain=drizzle
+
+有一天深夜，我在仲央公園管理處舊檔室找到一張發黃的手繪水路圖。
+
+@sfx play=paper_rustle volume=0.4
+
+圖面上，今日早已消失的支流仍清楚可見。它們彼此纏繞，最後流向同一處低地。
+
+@char expr=narrator:troubled
+@wait 500
+
+而那個位置，正是如今的樂承宮。
+
+@wait 800
+@effect dim level=0.35
+
+我突然感到一陣難以形容的寒意。
+
+@wait 600
+@effect flicker count=2
+@sfx play=water_distant volume=0.2 loop=true
+
+因為我發現：
+
+@wait 800
+
+> 這座城市所有被掩埋的水，最後都流向同一個地方。
+
+@wait 1000
+
+像記憶。
+
+@wait 400
+
+也像罪。
+
+@sfx stop=water_distant fade=3000
+@bgm stop fade=3000
+@fade out duration=1800
+
+@chapter_end

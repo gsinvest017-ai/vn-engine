@@ -1,0 +1,37 @@
+title: 暗渠之書
+subtitle: 台中舊城的記憶
+author: 測試文本
+chapters:
+  - chapter1.vns
+  - chapter2.vns
+  - chapter3.vns
+
+characters:
+  narrator:
+    name: （旁白）
+    expressions: [normal, tired, troubled, thoughtful, silent, reading]
+  diao_caidi:
+    name: 刁才弟
+    expressions: [normal, questioning, shocked]
+
+backgrounds:
+  - old_city_dusk
+  - shrine_interior
+  - city_historical
+  - archive_room
+  - shrine_entrance_night
+  - underground_river
+
+audio:
+  bgm:
+    - ambient_old_city
+    - ambient_shrine
+    - ambient_rain_night
+  sfx:
+    - market_closing
+    - footsteps_puddle
+    - paper_rustle
+    - oar_creak
+    - water_distant
+    - rain_heavy
+    - power_failure

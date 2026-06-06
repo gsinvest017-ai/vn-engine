@@ -1,0 +1,156 @@
+{
+  "_note": "Auto-generated asset manifest. Run tools/gen_manifest.py to regenerate.",
+  "_story": "taichung-anqu",
+  "backgrounds": {
+    "old_city_dusk": {
+      "file": "backgrounds/old_city_dusk.svg",
+      "status": "ready",
+      "description": "台中舊城區黃昏，第三市場附近，橙紅色天空，電線桿剪影",
+      "ai_prompt": "台中舊城區黃昏街景, 第三市場附近老舊巷弄, 傍晚橙紅漸層天空, 舊式建築與電線桿剪影, 潮濕地面反光, 台灣街頭油畫風格, 16:9橫向構圖, 暗色調"
+    },
+    "shrine_interior": {
+      "file": "backgrounds/shrine_interior.svg",
+      "status": "ready",
+      "description": "老舊道壇內部，低矮天花板，牆壁鹽斑，香爐微光",
+      "ai_prompt": "台灣傳統道壇/神壇室內, 低矮天花板, 磚牆有灰白鹽斑與潮濕水漬, 昏暗香爐燈光, 木質神桌, 暗沉陰鬱氛圍, 16:9橫向, 黑暗水墨寫實風格"
+    },
+    "city_historical": {
+      "file": "backgrounds/city_historical.svg",
+      "status": "ready",
+      "description": "泛黃古地圖，清代翰溪庄水路圖",
+      "ai_prompt": "清代台灣古地圖（泛黃宣紙質感）, 翰溪庄附近水路圖, 毛筆手繪水流標示, 廟宇位置標記, 年代久遠斑痕, 16:9橫向, 歷史文件風格"
+    },
+    "archive_room": {
+      "file": "backgrounds/archive_room.svg",
+      "status": "ready",
+      "description": "舊檔案室，昏黃桌燈，滿架文件",
+      "ai_prompt": "台灣舊式政府檔案室深夜, 木製書架堆滿老舊文件, 昏黃桌燈, 灰塵漂浮, 窗外黑暗, 壓迫感, 16:9橫向, 黑色電影光影風格"
+    },
+    "shrine_entrance_night": {
+      "file": "backgrounds/shrine_entrance_night.svg",
+      "status": "ready",
+      "description": "深夜暴雨中的道壇入口，停電，遠處便利商店綠光",
+      "ai_prompt": "台灣舊城區道壇/廟門口深夜暴雨, 停電後黑暗, 只有遠方便利商店綠色招牌微弱發光, 鐵皮屋頂雨聲視覺化, 積水地面反光, 恐怖寂靜氛圍, 16:9橫向"
+    },
+    "underground_river": {
+      "file": "backgrounds/underground_river.svg",
+      "status": "ready",
+      "description": "地下暗渠，拱形磚隧道，幽暗水道，舊船",
+      "ai_prompt": "台灣日治時代地下暗渠/排水隧道, 拱形磚造結構, 幽暗水面微弱磷光, 遠處一艘木製舟筏, 滴水聲視覺化, 神秘陰暗, 16:9橫向, 黑暗寫實風格"
+    }
+  },
+  "characters": {
+    "narrator": {
+      "expressions": {
+        "normal": {
+          "file": "characters/narrator/normal.svg",
+          "status": "ready"
+        },
+        "tired": {
+          "file": "characters/narrator/tired.svg",
+          "status": "ready"
+        },
+        "troubled": {
+          "file": "characters/narrator/troubled.svg",
+          "status": "ready"
+        },
+        "silent": {
+          "file": "characters/narrator/silent.svg",
+          "status": "ready"
+        },
+        "thoughtful": {
+          "file": "characters/narrator/thoughtful.svg",
+          "status": "ready"
+        },
+        "reading": {
+          "file": "characters/narrator/reading.svg",
+          "status": "ready"
+        }
+      },
+      "ai_prompt_base": "中年男性, 偵探/側寫師, 穿深色長風衣, 眼神疲憊而深邃, 台灣人面孔, 寫實黑色電影立繪風格, 透明背景, 直立正面或四分之三角度, 800x1600px"
+    },
+    "diao_caidi": {
+      "expressions": {
+        "normal": {
+          "file": "characters/diao_caidi/normal.svg",
+          "status": "ready"
+        },
+        "questioning": {
+          "file": "characters/diao_caidi/questioning.svg",
+          "status": "ready"
+        },
+        "shocked": {
+          "file": "characters/diao_caidi/shocked.svg",
+          "status": "ready"
+        }
+      },
+      "ai_prompt_base": "中年男性, 略胖身材, 台灣本土臉孔, 穿休閒短袖, 好奇而直率的表情, 寫實視覺小說立繪風格, 透明背景, 直立正面, 800x1600px"
+    }
+  },
+  "audio": {
+    "bgm": {
+      "ambient_old_city": {
+        "file": "audio/bgm/ambient_old_city.ogg",
+        "status": "missing",
+        "description": "台中舊城區環境音，潮濕，偶有遠方車聲與人聲",
+        "sfx_prompt": "環境音樂：台灣老舊市場附近夜晚，遠方機車聲、鐵皮建築風聲、潮濕空氣感，無旋律ambient，70-80 BPM，偏低沉"
+      },
+      "ambient_shrine": {
+        "file": "audio/bgm/ambient_shrine.ogg",
+        "status": "missing",
+        "description": "道壇環境音，香爐靜謐，偶有木魚或鐘聲",
+        "sfx_prompt": "環境音樂：台灣廟宇/神壇室內，燃香靜謐，偶有遠方宗教敲擊聲，低頻drone，神秘氛圍"
+      },
+      "ambient_rain_night": {
+        "file": "audio/bgm/ambient_rain_night.ogg",
+        "status": "missing",
+        "description": "暴雨夜間環境音，雷聲遠，城市底噪",
+        "sfx_prompt": "環境音樂：台灣城市深夜暴雨，強烈雨聲底層，遠方雷聲，停電前後的電氣感，緊張壓迫"
+      }
+    },
+    "sfx": {
+      "market_closing": {
+        "file": "audio/sfx/market_closing.ogg",
+        "status": "missing",
+        "description": "傳統市場收攤聲，鐵門拉下",
+        "sfx_prompt": "傳統市場鐵捲門拉下金屬聲，數聲交疊，漸遠"
+      },
+      "footsteps_puddle": {
+        "file": "audio/sfx/footsteps_puddle.ogg",
+        "status": "missing",
+        "description": "踩水聲，塑膠拖鞋啪地",
+        "sfx_prompt": "塑膠拖鞋踩過積水一聲，輕快啪嗒"
+      },
+      "paper_rustle": {
+        "file": "audio/sfx/paper_rustle.ogg",
+        "status": "missing",
+        "description": "翻閱舊紙張聲",
+        "sfx_prompt": "輕微紙張翻動聲，舊紙質感，一到三聲"
+      },
+      "oar_creak": {
+        "file": "audio/sfx/oar_creak.ogg",
+        "status": "missing",
+        "description": "木櫓撥水聲，緩慢遙遠",
+        "sfx_prompt": "木製船槳/櫓划水聲，非常緩慢有規律，水聲沉悶，像從遠處地下傳來"
+      },
+      "water_distant": {
+        "file": "audio/sfx/water_distant.ogg",
+        "status": "missing",
+        "description": "遠方水流聲，地下暗渠",
+        "sfx_prompt": "遙遠低沉的水流聲，像從地下洞穴傳來，帶有迴響，循環播放"
+      },
+      "rain_heavy": {
+        "file": "audio/sfx/rain_heavy.ogg",
+        "status": "missing",
+        "description": "暴雨聲，鐵皮屋頂",
+        "sfx_prompt": "台灣暴雨打在鐵皮屋頂聲，密集大聲，帶有建築共鳴，循環播放"
+      },
+      "power_failure": {
+        "file": "audio/sfx/power_failure.ogg",
+        "status": "missing",
+        "description": "停電瞬間，電氣消失聲",
+        "sfx_prompt": "停電瞬間：電器嗡嗡聲突然消失，一聲低沉的電氣切斷聲"
+      }
+    }
+  }
+}

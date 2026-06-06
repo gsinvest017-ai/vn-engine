@@ -1,0 +1,86 @@
+# 暗渠之書 — 第三章
+
+@chapter 第三章　夜行
+
+@scene bg=shrine_entrance_night transition=none
+@bgm play=ambient_rain_night fade=1000
+@fade in duration=1200
+@weather rain=heavy wind=0.4
+
+那晚暴雨來得極快。
+
+@char show=narrator pos=center expr=troubled
+@effect vignette intensity=0.5
+
+停電發生時，我正站在道壇門口。整條巷子瞬間陷入黑暗，只剩遠處便利商店的綠色招牌仍微弱亮著。雨水從鐵皮屋頂傾瀉而下，聲音大得近乎失真。
+
+@sfx play=rain_heavy volume=0.7 loop=true
+@sfx play=power_failure volume=0.8
+@effect flash color=rgba(200,220,255,0.4) duration=100
+@effect dim level=0.65
+@effect flicker count=3
+
+然後，我聽見了。
+
+不是雨聲。
+
+@wait 1200
+
+是櫓聲。
+
+@sfx play=oar_creak volume=0.35 loop=true
+@wait 600
+
+非常緩慢，非常遙遠，像有人正在看不見的地下水道裡撐船。
+
+@char show=diao_caidi pos=left expr=normal
+@wait 400
+
+刁才弟顯然也聽見了。他的表情第一次真正變了。
+
+@char expr=diao_caidi:shocked
+
+[diao_caidi] 下面有人？
+
+@char expr=narrator:silent
+
+我沒有回答。
+
+@char expr=narrator:troubled
+@effect dim level=0.7
+
+因為我忽然明白，那不可能是人。
+
+聲音是從城市更深的地方傳來的——從那些被填平的河道、被遺忘的井、被封死的暗渠深處，一點一點浮上來。
+
+@weather rain=storm wind=0.6
+@sfx play=rain_heavy volume=0.9 loop=true
+@effect shake intensity=0.2 duration=600
+
+雨愈下愈大。
+
+整座舊城像正在緩慢下沉。
+
+@sfx stop=oar_creak fade=4000
+@char hide=diao_caidi
+@effect dim level=0.8
+
+而我忽然有一種極其清晰的感覺：
+
+@wait 1000
+@effect dim level=0.9
+
+有些東西，並不是死去。
+
+@wait 800
+
+> 它只是長久地，被埋在我們腳下。
+
+@wait 1500
+@sfx stop=rain_heavy fade=4000
+@bgm stop fade=4000
+@weather rain=none
+@effect dim level=1.0
+@fade out color=black duration=2500
+
+@end

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800" width="400" height="800">
+  <defs>
+    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#1e2830"/>
+      <stop offset="100%" stop-color="#141820"/>
+    </linearGradient>
+    <radialGradient id="face" cx="50%" cy="30%" r="50%">
+      <stop offset="0%"  stop-color="#c8b090"/>
+      <stop offset="100%" stop-color="#a08870"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="200" cy="790" rx="85" ry="11" fill="#000" opacity="0.4"/>
+  <path d="M 125,310 L 75,720 L 325,720 L 275,310 Z" fill="url(#shirt)"/>
+  <path d="M 175,308 L 165,360 L 200,345 L 235,360 L 225,308 Z" fill="#1a2228"/>
+
+  <!-- One arm slightly raised (questioning gesture) -->
+  <path d="M 125,320 L 60,530 L 85,538 L 150,332 Z" fill="#c8b090"/>
+  <path d="M 275,320 L 330,490 L 355,482 L 295,312 Z" fill="#c8b090"/>
+  <ellipse cx="72"  cy="543" rx="16" ry="11" fill="#c8b090"/>
+  <!-- Open hand gesture -->
+  <ellipse cx="346" cy="478" rx="18" ry="14" fill="#c8b090"/>
+
+  <rect x="186" y="250" width="28" height="62" fill="#b8a080" rx="5"/>
+  <ellipse cx="200" cy="225" rx="74" ry="82" fill="url(#face)"/>
+  <ellipse cx="200" cy="162" rx="75" ry="42" fill="#1a1018"/>
+  <path d="M 127,178 Q 114,222 124,258 L 134,253 Q 125,220 136,180 Z" fill="#1a1018"/>
+  <path d="M 273,178 Q 286,222 276,258 L 266,253 Q 275,220 264,180 Z" fill="#1a1018"/>
+  <path d="M 160,158 Q 165,145 175,158" fill="none" stroke="#1a1018" stroke-width="3"/>
+  <path d="M 195,155 Q 200,140 208,154" fill="none" stroke="#1a1018" stroke-width="3"/>
+
+  <!-- Questioning eyes: one raised, concerned look -->
+  <ellipse cx="174" cy="220" rx="13" ry="11" fill="#2a1e12"/>
+  <ellipse cx="226" cy="220" rx="13" ry="10" fill="#2a1e12"/>
+  <ellipse cx="174" cy="219" rx="6"  ry="6" fill="#0a0808"/>
+  <ellipse cx="226" cy="219" rx="6"  ry="5" fill="#0a0808"/>
+  <ellipse cx="177" cy="217" rx="2.5" ry="2.5" fill="#e8dcc8" opacity="0.75"/>
+  <ellipse cx="229" cy="217" rx="2.5" ry="2.5" fill="#e8dcc8" opacity="0.75"/>
+
+  <!-- Questioning brows: one raised higher -->
+  <path d="M 160,204 Q 173,198 188,203" fill="none" stroke="#1a1018" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 212,207 Q 226,203 240,207" fill="none" stroke="#1a1018" stroke-width="3" stroke-linecap="round"/>
+
+  <path d="M 196,234 Q 200,248 204,234" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
+
+  <!-- Questioning mouth: slight open -->
+  <path d="M 186,256 Q 200,262 214,256" fill="#b89870" opacity="0.3"/>
+  <path d="M 186,256 Q 200,265 214,256" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
+
+  <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">diao_caidi/questioning</text>
+</svg>

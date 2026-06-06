@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800" width="400" height="800">
+  <defs>
+    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#1e2830"/>
+      <stop offset="100%" stop-color="#141820"/>
+    </linearGradient>
+    <radialGradient id="face" cx="50%" cy="30%" r="50%">
+      <stop offset="0%"  stop-color="#d0b898"/>
+      <stop offset="100%" stop-color="#a89078"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="200" cy="790" rx="85" ry="11" fill="#000" opacity="0.4"/>
+  <path d="M 125,310 L 75,720 L 325,720 L 275,310 Z" fill="url(#shirt)"/>
+  <path d="M 175,308 L 165,360 L 200,345 L 235,360 L 225,308 Z" fill="#1a2228"/>
+
+  <!-- Arms thrown back slightly (shock) -->
+  <path d="M 125,320 L 50,490 L 76,500 L 150,332 Z" fill="#c8b090"/>
+  <path d="M 275,320 L 350,490 L 324,500 L 250,332 Z" fill="#c8b090"/>
+  <ellipse cx="62"  cy="503" rx="16" ry="11" fill="#c8b090"/>
+  <ellipse cx="338" cy="503" rx="16" ry="11" fill="#c8b090"/>
+
+  <rect x="186" y="248" width="28" height="64" fill="#b8a080" rx="5"/>
+
+  <!-- Head slightly back (shock) -->
+  <ellipse cx="200" cy="220" rx="75" ry="84" fill="url(#face)"/>
+  <ellipse cx="200" cy="155" rx="76" ry="44" fill="#1a1018"/>
+  <path d="M 126,172 Q 113,218 123,254 L 133,249 Q 124,216 135,174 Z" fill="#1a1018"/>
+  <path d="M 274,172 Q 287,218 277,254 L 267,249 Q 276,216 265,174 Z" fill="#1a1018"/>
+  <path d="M 155,156 Q 162,140 172,155" fill="none" stroke="#1a1018" stroke-width="3.5"/>
+  <path d="M 192,152 Q 200,136 210,151" fill="none" stroke="#1a1018" stroke-width="3.5"/>
+  <path d="M 228,156 Q 235,141 244,155" fill="none" stroke="#1a1018" stroke-width="3.5"/>
+
+  <!-- Shocked eyes: wide open -->
+  <ellipse cx="174" cy="216" rx="15" ry="14" fill="#2a1e12"/>
+  <ellipse cx="226" cy="216" rx="15" ry="14" fill="#2a1e12"/>
+  <ellipse cx="174" cy="215" rx="8"  ry="8" fill="#0a0808"/>
+  <ellipse cx="226" cy="215" rx="8"  ry="8" fill="#0a0808"/>
+  <!-- large highlights -->
+  <ellipse cx="178" cy="212" rx="3.5" ry="3.5" fill="#e8dcc8" opacity="0.85"/>
+  <ellipse cx="230" cy="212" rx="3.5" ry="3.5" fill="#e8dcc8" opacity="0.85"/>
+  <!-- white around eye -->
+  <ellipse cx="174" cy="216" rx="15" ry="14" fill="none" stroke="#c8b090" stroke-width="1"/>
+  <ellipse cx="226" cy="216" rx="15" ry="14" fill="none" stroke="#c8b090" stroke-width="1"/>
+
+  <!-- Shocked brows: raised high -->
+  <path d="M 158,198 Q 173,190 189,196" fill="none" stroke="#1a1018" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M 211,196 Q 227,190 242,198" fill="none" stroke="#1a1018" stroke-width="3.5" stroke-linecap="round"/>
+
+  <path d="M 196,232 Q 200,245 204,232" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
+
+  <!-- Shocked mouth: open -->
+  <ellipse cx="200" cy="265" rx="16" ry="11" fill="#7a5a40" opacity="0.6"/>
+  <path d="M 184,258 Q 200,275 216,258" fill="none" stroke="#8a6a4a" stroke-width="2.5" stroke-linecap="round"/>
+
+  <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">diao_caidi/shocked</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 800" width="400" height="800">
+  <defs>
+    <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#1a1420"/>
+      <stop offset="100%" stop-color="#0e0c12"/>
+    </linearGradient>
+    <radialGradient id="face_light" cx="48%" cy="30%" r="50%">
+      <stop offset="0%"  stop-color="#c8a880"/>
+      <stop offset="100%" stop-color="#9a7a5a"/>
+    </radialGradient>
+  </defs>
+
+  <ellipse cx="200" cy="790" rx="90" ry="12" fill="#000" opacity="0.4"/>
+  <path d="M 130,320 L 80,760 L 320,760 L 270,320 Z" fill="url(#coat)"/>
+  <path d="M 175,320 L 155,400 L 200,380 L 245,400 L 225,320 Z" fill="#241c2c"/>
+  <path d="M 175,310 L 160,340 L 200,330 L 240,340 L 225,310 Z" fill="#1e1828"/>
+
+  <!-- Arms: one slightly raised, hand to chin -->
+  <path d="M 130,330 L 60,560 L 85,565 L 155,350 Z" fill="#1a1420"/>
+  <path d="M 270,330 L 305,460 L 330,455 L 290,325 Z" fill="#1a1420"/>
+  <ellipse cx="72"  cy="570" rx="14" ry="10" fill="#9a7a5a"/>
+  <!-- Hand at chin -->
+  <ellipse cx="320" cy="452" rx="15" ry="12" fill="#9a7a5a"/>
+
+  <rect x="188" y="255" width="24" height="65" fill="#b89870" rx="4"/>
+  <ellipse cx="200" cy="228" rx="68" ry="80" fill="url(#face_light)"/>
+  <ellipse cx="200" cy="168" rx="70" ry="45" fill="#1a1018"/>
+  <path d="M 132,183 Q 120,228 130,263 L 140,258 Q 132,223 142,186 Z" fill="#1a1018"/>
+  <path d="M 268,183 Q 280,228 270,263 L 260,258 Q 268,223 258,186 Z" fill="#1a1018"/>
+
+  <!-- Thoughtful: one eye slightly squinted, head tilted -->
+  <ellipse cx="174" cy="222" rx="12" ry="9" fill="#2a1e10"/>
+  <ellipse cx="226" cy="224" rx="12" ry="7" fill="#2a1e10"/>
+  <ellipse cx="174" cy="221" rx="5" ry="5" fill="#0a0808"/>
+  <ellipse cx="226" cy="224" rx="5" ry="4" fill="#0a0808"/>
+  <ellipse cx="177" cy="219" rx="2" ry="2" fill="#e8dcc8" opacity="0.6"/>
+  <!-- slight squint right eye -->
+  <path d="M 213,219 Q 225,216 237,219" fill="#1a1018" stroke="none"/>
+
+  <!-- Brows: one raised, one neutral -->
+  <path d="M 162,206 Q 174,202 188,206" fill="none" stroke="#1a1018" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 213,209 Q 225,207 238,210" fill="none" stroke="#1a1018" stroke-width="2.5" stroke-linecap="round"/>
+
+  <path d="M 196,234 Q 200,247 204,234" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
+
+  <!-- Thoughtful mouth: slight wry curve -->
+  <path d="M 187,258 Q 202,263 215,257" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
+
+  <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">narrator/thoughtful</text>
+</svg>
