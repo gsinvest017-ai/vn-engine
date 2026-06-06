@@ -1,299 +1,421 @@
 """
-gen_map_realistic.py
-Generate a photorealistic grayscale historical map PNG for city_historical.
-Output: assets/backgrounds/city_historical.png (1920x1080)
+gen_map_realistic.py  —  v2: hand-drawn Qing-dynasty survey map
+Output: assets/backgrounds/city_historical.png (1920x1080 grayscale)
 
-Style: Qing-dynasty hand-survey map, ink on fibrous paper
-  - Aged paper base with stains and water damage
-  - Dense street/block grid with building hatching
-  - Waterway system with shaded riverbanks
-  - Temple and landmark symbols
-  - Calligraphic labels
-  - Full grayscale — matches character B&W style
+Techniques:
+  - Wobbly line drawing (small-step jitter → no ruler-straight lines)
+  - Ink-bleed text (Gaussian blur + slight displacement on text layer)
+  - Heavy paper grain + water damage + foxing spots
+  - River drawn as brush-stroke with multi-pass width variation
+  - Building blocks with cross-hatch at varied angles
+  - Turbulence displacement on final image for organic overall warp
 """
 from pathlib import Path
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
+from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance, ImageChops
 
 W, H = 1920, 1080
 OUT = Path(r'C:\Users\User\vn-engine\assets\backgrounds\city_historical.png')
-
 rng = np.random.default_rng(42)
 
-# ── Canvas ────────────────────────────────────────────────────────────────────
-img = Image.new('RGB', (W, H), (210, 202, 185))
+# ────────────────────────────────────────────────────────────────────────────
+# Utility: wobbly line (hand-drawn segments with pressure jitter)
+# ────────────────────────────────────────────────────────────────────────────
+def wobbly_line(draw, x0, y0, x1, y1, fill, base_width=2, jitter=2.5, steps=None):
+    dist = ((x1-x0)**2 + (y1-y0)**2) ** 0.5
+    steps = steps or max(6, int(dist / 12))
+    prev = (x0, y0)
+    for i in range(1, steps + 1):
+        t = i / steps
+        cx = x0 + t * (x1 - x0)
+        cy = y0 + t * (y1 - y0)
+        if 0 < i < steps:
+            cx += rng.normal(0, jitter * 0.6)
+            cy += rng.normal(0, jitter * 0.6)
+        # Ink pressure: width varies slightly per segment
+        w = max(1, base_width + int(rng.integers(-1, 2)))
+        draw.line([prev, (int(cx), int(cy))], fill=fill, width=w)
+        prev = (int(cx), int(cy))
+
+def wobbly_path(pts, draw, fill, base_width=2, jitter=1.5):
+    for i in range(len(pts) - 1):
+        x0, y0 = pts[i]
+        x1, y1 = pts[i+1]
+        wobbly_line(draw, x0, y0, x1, y1, fill, base_width, jitter)
+
+# ────────────────────────────────────────────────────────────────────────────
+# Paper base — heavy grain + age stains
+# ────────────────────────────────────────────────────────────────────────────
+base_tone = (208, 198, 178)
+img = Image.new('RGB', (W, H), base_tone)
+
+# Multi-octave noise for paper texture
+for oct_scale, oct_amp in [(0.5, 28), (0.25, 14), (0.1, 8)]:
+    nh, nw = max(4, int(H * oct_scale)), max(4, int(W * oct_scale))
+    n = rng.integers(0, 255, (nh, nw, 3), dtype=np.uint8)
+    n_img = Image.fromarray(n).resize((W, H), Image.BILINEAR)
+    arr = np.array(img).astype(np.int16)
+    narr = np.array(n_img).astype(np.int16)
+    arr = np.clip(arr + (narr - 127) * oct_amp // 127, 0, 255).astype(np.uint8)
+    img = Image.fromarray(arr)
+
+# Fiber direction lines
+fiber = Image.new('RGB', (W, H), (0, 0, 0))
+fd = ImageDraw.Draw(fiber)
+for y in range(0, H, 2):
+    tone = int(rng.integers(185, 218))
+    fd.line([(0, y), (W, y)], fill=(tone, tone, tone), width=1)
+img = Image.blend(img, fiber, 0.08)
 draw = ImageDraw.Draw(img)
 
-# ── Paper base texture (layered noise) ────────────────────────────────────────
-noise = rng.integers(0, 22, (H, W, 3), dtype=np.uint8)
-base_arr = np.array(img).astype(np.int16)
-base_arr = np.clip(base_arr + noise - 11, 0, 255).astype(np.uint8)
-img = Image.fromarray(base_arr)
-draw = ImageDraw.Draw(img)
-
-# Paper fiber lines (horizontal, low opacity)
-fiber_overlay = Image.new('RGB', (W, H), (0, 0, 0))
-fd = ImageDraw.Draw(fiber_overlay)
-for y in range(0, H, 3):
-    tone = rng.integers(190, 215)
-    offset = int(rng.normal(0, 1.2))
-    fd.line([(0, y + offset), (W, y + offset)], fill=(tone, tone, tone), width=1)
-img = Image.blend(img, fiber_overlay, 0.06)
-draw = ImageDraw.Draw(img)
-
-# ── Water damage + age stains ─────────────────────────────────────────────────
-stain_img = Image.new('RGBA', (W, H), (0, 0, 0, 0))
-sd = ImageDraw.Draw(stain_img)
-stains = [
-    # (cx, cy, rx, ry, intensity)
-    (340, 720, 180, 120, 18),
-    (1540, 840, 220, 140, 14),
-    (890, 420, 100, 70, 12),
-    (1680, 320, 140, 100, 16),
-    (120, 280, 90, 65, 10),
-    (1820, 600, 80, 55, 8),
-    (620, 90, 120, 50, 12),
+# Water damage patches
+water_layer = Image.new('RGBA', (W, H), (0,0,0,0))
+wd = ImageDraw.Draw(water_layer)
+water_patches = [
+    (380, 740, 200, 130, 22),
+    (1560, 860, 240, 150, 18),
+    (920, 440, 110, 75, 14),
+    (1710, 330, 160, 110, 20),
+    (130, 300, 100, 70, 12),
+    (660, 90, 135, 55, 14),
+    (1850, 620, 90, 60, 10),
+    (420, 480, 80, 55, 10),
 ]
-for cx, cy, rx, ry, alpha in stains:
-    sd.ellipse([(cx - rx, cy - ry), (cx + rx, cy + ry)],
-               fill=(148, 128, 95, alpha))
-# Foxing spots
-for _ in range(45):
-    x = int(rng.integers(60, W - 60))
-    y = int(rng.integers(60, H - 60))
-    r = int(rng.integers(3, 14))
-    a = int(rng.integers(12, 35))
-    sd.ellipse([(x - r, y - r), (x + r, y + r)], fill=(110, 90, 55, a))
+for cx, cy, rx, ry, a in water_patches:
+    wd.ellipse([(cx-rx, cy-ry), (cx+rx, cy+ry)], fill=(145,125,90,a))
 
-stain_blur = stain_img.filter(ImageFilter.GaussianBlur(radius=18))
-img = Image.alpha_composite(img.convert('RGBA'), stain_blur).convert('RGB')
+# Foxing (age spots)
+for _ in range(65):
+    x = int(rng.integers(50, W-50))
+    y = int(rng.integers(50, H-50))
+    r = int(rng.integers(4, 18))
+    a = int(rng.integers(15, 45))
+    wd.ellipse([(x-r, y-r), (x+r, y+r)], fill=(105,85,48,a))
+
+wl_blur = water_layer.filter(ImageFilter.GaussianBlur(22))
+img = Image.alpha_composite(img.convert('RGBA'), wl_blur).convert('RGB')
 draw = ImageDraw.Draw(img)
 
-# ── Map border (double frame) ─────────────────────────────────────────────────
-ink = (55, 48, 38)
-mid = (90, 80, 60)
-draw.rectangle([52, 52, W - 52, H - 52], outline=ink, width=4)
-draw.rectangle([60, 60, W - 60, H - 60], outline=mid, width=2)
-draw.rectangle([44, 44, W - 44, H - 44], outline=(110, 100, 75), width=1)
-# Corner ornaments
-for cx, cy in [(60, 60), (W - 60, 60), (60, H - 60), (W - 60, H - 60)]:
-    draw.line([(cx - 20, cy), (cx + 20, cy)], fill=ink, width=2)
-    draw.line([(cx, cy - 20), (cx, cy + 20)], fill=ink, width=2)
+# ────────────────────────────────────────────────────────────────────────────
+# Map border — double frame, uneven wobbly lines
+# ────────────────────────────────────────────────────────────────────────────
+ink     = (45, 38, 28)
+ink_mid = (75, 65, 50)
+margin  = 55
+# Outer double frame (4 sides, each drawn as wobbly segments)
+for x0, y0, x1, y1, c, w in [
+    (margin, margin, W-margin, margin, ink, 3),
+    (W-margin, margin, W-margin, H-margin, ink, 3),
+    (W-margin, H-margin, margin, H-margin, ink, 3),
+    (margin, H-margin, margin, margin, ink, 3),
+    (margin+10, margin+10, W-margin-10, margin+10, ink_mid, 1),
+    (W-margin-10, margin+10, W-margin-10, H-margin-10, ink_mid, 1),
+    (W-margin-10, H-margin-10, margin+10, H-margin-10, ink_mid, 1),
+    (margin+10, H-margin-10, margin+10, margin+10, ink_mid, 1),
+]:
+    wobbly_line(draw, x0, y0, x1, y1, c, base_width=w, jitter=2.0)
 
-# ── Main waterway: 翰溪 (horizontal river) ────────────────────────────────────
-def wavy_path(x0, y0, x1, y1, steps=160, amplitude=12, seed=0):
+# Corner ornaments (hand-drawn cross marks)
+for cx, cy in [(margin+5,margin+5),(W-margin-5,margin+5),(margin+5,H-margin-5),(W-margin-5,H-margin-5)]:
+    wobbly_line(draw, cx-18, cy, cx+18, cy, ink, 2, 1)
+    wobbly_line(draw, cx, cy-18, cx, cy+18, ink, 2, 1)
+    draw.ellipse([(cx-3,cy-3),(cx+3,cy+3)], fill=ink)
+
+# ────────────────────────────────────────────────────────────────────────────
+# River system — brush-stroke style
+# ────────────────────────────────────────────────────────────────────────────
+def make_river_pts(x0, y0, x1, y1, n=180, amp=22, seed=1):
     local = np.random.default_rng(seed)
     pts = []
-    for i in range(steps + 1):
-        t = i / steps
-        x = x0 + t * (x1 - x0)
-        y = y0 + t * (y1 - y0) + local.normal(0, amplitude) * np.sin(t * np.pi)
+    for i in range(n+1):
+        t = i / n
+        x = x0 + t*(x1-x0)
+        y = y0 + t*(y1-y0)
+        # Sinusoidal meandering + individual noise
+        y += np.sin(t * 4.8 * np.pi + seed) * amp * 0.6
+        x += local.normal(0, amp * 0.25) * np.sin(t*np.pi)
+        y += local.normal(0, amp * 0.18)
         pts.append((int(x), int(y)))
     return pts
 
-river_pts = wavy_path(140, 345, W - 140, 385, steps=200, amplitude=18, seed=1)
-# River body fill (multi-pass for realistic width)
-for width, alpha_val in [(24, 80), (18, 110), (10, 140), (5, 90)]:
-    riv_layer = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+river_pts = make_river_pts(145, 348, W-145, 392, n=220, amp=22, seed=7)
+
+# Multi-pass brush-stroke river (different widths + opacities)
+for pass_w, pass_a in [(28, 60), (20, 85), (12, 105), (6, 120), (3, 70)]:
+    riv_layer = Image.new('RGBA', (W, H), (0,0,0,0))
     rd = ImageDraw.Draw(riv_layer)
-    rd.line(river_pts, fill=(68, 90, 110, alpha_val), width=width)
-    img = Image.alpha_composite(img.convert('RGBA'), riv_layer.filter(ImageFilter.GaussianBlur(2))).convert('RGB')
+    riv_col = (52, 72, 95, pass_a)
+    for i in range(len(river_pts)-1):
+        # Slight width variation per segment (brush pressure)
+        w_var = max(1, pass_w + int(rng.integers(-2, 3)))
+        rd.line([river_pts[i], river_pts[i+1]], fill=riv_col, width=w_var)
+    riv_blur = riv_layer.filter(ImageFilter.GaussianBlur(max(1, pass_w//4)))
+    img = Image.alpha_composite(img.convert('RGBA'), riv_blur).convert('RGB')
+
 draw = ImageDraw.Draw(img)
-draw.line(river_pts, fill=(105, 128, 148), width=2)
+# Thin highlight on river
+for i in range(len(river_pts)-1):
+    draw.line([river_pts[i], river_pts[i+1]], fill=(145,165,175), width=1)
 
-# ── Secondary channels ────────────────────────────────────────────────────────
-def draw_channel(pts, w=6, a=70):
-    ch = Image.new('RGBA', (W, H), (0, 0, 0, 0))
-    cd = ImageDraw.Draw(ch)
-    cd.line(pts, fill=(68, 90, 110, a), width=w)
-    return Image.alpha_composite(img.convert('RGBA'), ch.filter(ImageFilter.GaussianBlur(1))).convert('RGB')
-
-channels = [
-    wavy_path(620, 345, 580, 80,  steps=60, amplitude=8, seed=2),
-    wavy_path(820, 370, 830, 660, steps=80, amplitude=9, seed=3),
-    wavy_path(1010, 380, 1080, 720, steps=90, amplitude=8, seed=4),
-    wavy_path(1400, 390, 1450, 680, steps=70, amplitude=7, seed=5),
-    wavy_path(480, 355, 450, 600, steps=60, amplitude=6, seed=6),
-    wavy_path(1200, 368, 1240, 200, steps=50, amplitude=6, seed=7),
+# Secondary channels
+channel_defs = [
+    (make_river_pts(618, 348, 575, 75, n=60, amp=9, seed=2), 7, 72),
+    (make_river_pts(815, 368, 828, 665, n=75, amp=10, seed=3), 7, 72),
+    (make_river_pts(1015, 382, 1078, 728, n=85, amp=9, seed=4), 6, 68),
+    (make_river_pts(1405, 388, 1452, 685, n=68, amp=8, seed=5), 6, 68),
+    (make_river_pts(490, 358, 462, 605, n=58, amp=7, seed=6), 5, 62),
+    (make_river_pts(1205, 370, 1245, 195, n=48, amp=7, seed=8), 5, 62),
 ]
-for ch_pts in channels:
-    img = draw_channel(ch_pts, w=7, a=75)
+for ch_pts, ch_w, ch_a in channel_defs:
+    for i in range(len(ch_pts)-1):
+        ch_lay = Image.new('RGBA', (W, H), (0,0,0,0))
+        cd = ImageDraw.Draw(ch_lay)
+        cd.line([ch_pts[i], ch_pts[i+1]], fill=(55,78,100,ch_a), width=ch_w)
+        img = Image.alpha_composite(img.convert('RGBA'),
+              ch_lay.filter(ImageFilter.GaussianBlur(1))).convert('RGB')
 draw = ImageDraw.Draw(img)
-# Thin labels on main river
-for pts in channels:
-    # Draw thin highlight line
-    draw.line(pts, fill=(145, 165, 175), width=1)
+for ch_pts, _, _ in channel_defs:
+    for i in range(len(ch_pts)-1):
+        draw.line([ch_pts[i], ch_pts[i+1]], fill=(145,160,170), width=1)
 
-# ── City grid — street blocks ─────────────────────────────────────────────────
-# Main grid zone: 200-1720 x: 140-700 y (above river) + 420-960 y (below)
-street_c = (60, 52, 42)
-minor_c  = (100, 88, 72)
-alley_c  = (140, 128, 108)
+# ────────────────────────────────────────────────────────────────────────────
+# Street grid — wobbly, uneven, varying width
+# ────────────────────────────────────────────────────────────────────────────
+ink_st  = (65, 55, 42)
+ink_mn  = (100, 88, 70)
+ink_al  = (138, 125, 108)
 
-# Major N-S arteries (lighter, hand-drawn feel)
-for x in range(200, 1750, 110):
-    jitter = int(rng.integers(-6, 6))
-    draw.line([(x + jitter, 140), (x + jitter, H - 140)], fill=(88, 78, 62), width=2)
-# Major E-W streets (above river)
-for y in range(145, 345, 42):
-    jitter = int(rng.integers(-3, 3))
-    draw.line([(145, y + jitter), (W - 145, y + jitter)], fill=(88, 78, 62), width=2)
-# Major E-W streets (below river)
-for y in range(415, H - 145, 45):
-    jitter = int(rng.integers(-3, 3))
-    draw.line([(145, y + jitter), (W - 145, y + jitter)], fill=(88, 78, 62), width=2)
+# N-S arteries (spaced ~110px, each slightly off-vertical)
+for xi, x in enumerate(range(200, 1750, 112)):
+    jx = int(rng.integers(-8, 8))
+    jx2 = int(rng.integers(-8, 8))
+    wobbly_line(draw, x+jx, margin+12, x+jx2, H-margin-12, ink_st, base_width=2, jitter=2)
 
-# Minor alleys (subdivide blocks — very light)
-for x in range(255, 1700, 110):
-    jitter = int(rng.integers(-4, 4))
-    draw.line([(x + jitter, 145), (x + jitter, H - 145)], fill=(130, 118, 100), width=1)
-for y in range(162, 345, 42):
-    jitter = int(rng.integers(-2, 2))
-    draw.line([(145, y + jitter), (W - 145, y + jitter)], fill=(148, 135, 115), width=1)
-for y in range(460, H - 145, 45):
-    jitter = int(rng.integers(-2, 2))
-    draw.line([(145, y + jitter), (W - 145, y + jitter)], fill=(148, 135, 115), width=1)
+# E-W streets above river (~42px spacing)
+for y in range(margin+14, 340, 44):
+    jy = int(rng.integers(-4, 4))
+    wobbly_line(draw, margin+12, y+jy, W-margin-12, y+jy, ink_st, base_width=2, jitter=1.5)
 
-# ── Building hatching in blocks ───────────────────────────────────────────────
-hatch_layer = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+# E-W streets below river
+for y in range(415, H-margin-14, 46):
+    jy = int(rng.integers(-4, 4))
+    wobbly_line(draw, margin+12, y+jy, W-margin-12, y+jy, ink_st, base_width=2, jitter=1.5)
+
+# Minor alleys N-S (lighter, narrower)
+for x in enumerate(range(256, 1710, 112)):
+    _, x = x
+    jx = int(rng.integers(-5, 5))
+    wobbly_line(draw, x+jx, margin+14, x+jx, H-margin-14, ink_mn, base_width=1, jitter=1.5)
+
+# Minor alleys E-W above
+for y in range(margin+36, 340, 44):
+    jy = int(rng.integers(-3, 3))
+    wobbly_line(draw, margin+14, y+jy, W-margin-14, y+jy, ink_al, base_width=1, jitter=1)
+
+# Minor alleys E-W below
+for y in range(460, H-margin-14, 46):
+    jy = int(rng.integers(-3, 3))
+    wobbly_line(draw, margin+14, y+jy, W-margin-14, y+jy, ink_al, base_width=1, jitter=1)
+
+# ────────────────────────────────────────────────────────────────────────────
+# Building hatching — irregular cross-hatch inside blocks
+# ────────────────────────────────────────────────────────────────────────────
+hatch_layer = Image.new('RGBA', (W, H), (0,0,0,0))
 hd = ImageDraw.Draw(hatch_layer)
 
-def hatch_block(x0, y0, x1, y1, density=8, opacity=35):
-    for ox in range(0, (x1 - x0) + (y1 - y0), density):
-        hd.line([(max(x0, x0 + ox - (y1 - y0)), min(y1, y0 + ox)),
-                 (min(x1, x0 + ox), max(y0, y1 - ((x1 - x0) - (ox - (y1 - y0))))  )],
-                fill=(42, 35, 28, opacity), width=1)
+def hatch_block(x0, y0, x1, y1, density=10, opacity=28, angle_deg=45):
+    ang = np.radians(angle_deg)
+    ca, sa = np.cos(ang), np.sin(ang)
+    diag = int(((x1-x0)**2 + (y1-y0)**2)**0.5)
+    for d in range(-diag, diag*2, density):
+        # Line in rotated coords clipped to block
+        ax = x0 + d * ca - diag * sa
+        ay = y0 + d * sa + diag * ca
+        bx = ax + diag * 2 * sa
+        by = ay - diag * 2 * ca
+        hd.line([(int(ax), int(ay)), (int(bx), int(by))],
+                fill=(38,30,22,opacity), width=1)
 
-# Sample building blocks in a few cells
-block_cells = [
-    (200, 145, 310, 210), (310, 145, 420, 210), (420, 145, 530, 210),
-    (640, 145, 750, 210), (750, 145, 860, 210), (970, 145, 1080, 210),
-    (1190, 145, 1300, 210), (1410, 145, 1520, 210), (1520, 145, 1630, 210),
-    (200, 250, 310, 305), (530, 250, 640, 305), (860, 250, 970, 305),
-    (1080, 250, 1190, 305), (1300, 250, 1410, 305), (1630, 250, 1740, 305),
-    (200, 430, 310, 488), (420, 430, 530, 488), (640, 430, 750, 488),
-    (860, 430, 970, 488), (1080, 430, 1190, 488), (1300, 430, 1410, 488),
-    (200, 545, 310, 600), (310, 545, 420, 600), (750, 545, 860, 600),
-    (1190, 545, 1300, 600), (1520, 545, 1630, 600), (1630, 545, 1740, 600),
-    (200, 658, 310, 713), (530, 658, 640, 713), (970, 658, 1080, 713),
-    (1410, 658, 1520, 713), (200, 770, 310, 825), (750, 770, 860, 825),
-    (1080, 770, 1190, 825), (1300, 770, 1410, 825), (1630, 770, 1740, 825),
-    (200, 883, 310, 938), (420, 883, 530, 938), (860, 883, 970, 938),
-    (1190, 883, 1300, 938), (1520, 883, 1630, 938),
+blocks = [
+    (202,147,310,212), (312,147,422,212), (424,147,532,212),
+    (644,147,752,212), (754,147,862,212), (974,147,1082,212),
+    (1194,147,1302,212), (1414,147,1522,212), (1524,147,1634,212),
+    (202,252,310,308), (534,252,642,308), (864,252,972,308),
+    (1084,252,1192,308), (1304,252,1412,308), (1636,252,1744,308),
+    (202,432,310,490), (424,432,532,490), (644,432,752,490),
+    (864,432,972,490), (1084,432,1192,490), (1304,432,1412,490),
+    (202,548,310,604), (314,548,422,604), (754,548,862,604),
+    (1194,548,1302,604), (1524,548,1634,604), (1636,548,1744,604),
+    (202,660,310,716), (534,660,642,716), (974,660,1082,716),
+    (1414,660,1522,716), (202,774,310,830), (754,774,862,830),
+    (1084,774,1192,830), (1304,774,1412,830), (1636,774,1744,830),
+    (202,886,310,942), (424,886,532,942), (864,886,972,942),
+    (1194,886,1302,942), (1524,886,1634,942),
 ]
-for cell in block_cells:
-    hatch_block(*cell, density=9, opacity=30)
+for bi, b in enumerate(blocks):
+    # Alternate hatch angle per block for variety
+    angle = 42 + (bi % 3) * 15 + rng.integers(-5, 5)
+    hatch_block(*b, density=10 + int(rng.integers(0, 4)), opacity=25, angle_deg=int(angle))
 
 img = Image.alpha_composite(img.convert('RGBA'), hatch_layer).convert('RGB')
 draw = ImageDraw.Draw(img)
 
-# ── Landmark symbols ──────────────────────────────────────────────────────────
+# ────────────────────────────────────────────────────────────────────────────
+# Landmark symbols — wobbly hand-drawn
+# ────────────────────────────────────────────────────────────────────────────
 def temple_symbol(draw, cx, cy, r=14):
-    # Triangle roof + rectangle body
-    draw.polygon([(cx, cy - r), (cx - r, cy), (cx + r, cy)], fill=(50, 42, 30), outline=None)
-    draw.rectangle([(cx - r + 3, cy), (cx + r - 3, cy + r)], fill=(50, 42, 30), outline=None)
+    pts_t = [(cx, cy-r), (cx-r, cy), (cx+r, cy)]
+    wobbly_path(pts_t + [pts_t[0]], draw, ink, base_width=2, jitter=1.5)
+    wobbly_line(draw, cx-r+4, cy, cx+r-4, cy+r, ink, 2, 1.5)
+    wobbly_line(draw, cx+r-4, cy, cx-r+4, cy+r, ink, 2, 1.5)
+    wobbly_line(draw, cx-r+4, cy, cx+r-4, cy+r, ink, 2, 1.5)
 
-def settle_symbol(draw, cx, cy, r=12):
-    draw.rectangle([(cx - r, cy - r), (cx + r, cy + r)], outline=(50, 42, 30), width=2)
-    draw.line([(cx - r, cy - r), (cx + r, cy + r)], fill=(50, 42, 30), width=1)
-    draw.line([(cx + r, cy - r), (cx - r, cy + r)], fill=(50, 42, 30), width=1)
+def settle_symbol(draw, cx, cy, r=11):
+    corners = [(cx-r,cy-r),(cx+r,cy-r),(cx+r,cy+r),(cx-r,cy+r),(cx-r,cy-r)]
+    wobbly_path(corners, draw, ink, base_width=2, jitter=1.5)
+    # Cross inside
+    wobbly_line(draw, cx-r, cy-r, cx+r, cy+r, ink, 1, 1.2)
+    wobbly_line(draw, cx+r, cy-r, cx-r, cy+r, ink, 1, 1.2)
 
-# Temples
-temple_symbol(draw, 968, 500)
-temple_symbol(draw, 1198, 248)
-temple_symbol(draw, 448, 688)
-temple_symbol(draw, 1648, 758)
-# Settlements
-settle_symbol(draw, 728, 600)
-settle_symbol(draw, 458, 200)
-settle_symbol(draw, 1358, 550)
-settle_symbol(draw, 888, 820)
+temple_symbol(draw, 968, 508)
+temple_symbol(draw, 1198, 255)
+temple_symbol(draw, 452, 695)
+temple_symbol(draw, 1652, 762)
+settle_symbol(draw, 730, 605)
+settle_symbol(draw, 462, 205)
+settle_symbol(draw, 1362, 558)
+settle_symbol(draw, 892, 828)
 
-# ── Text labels (Chinese serif) ───────────────────────────────────────────────
+# ────────────────────────────────────────────────────────────────────────────
+# Text labels — ink-bleed effect (draw on separate layer, blur, composite)
+# ────────────────────────────────────────────────────────────────────────────
 try:
-    font_lg  = ImageFont.truetype("C:/Windows/Fonts/simsun.ttc",  28)
-    font_md  = ImageFont.truetype("C:/Windows/Fonts/simsun.ttc",  20)
-    font_sm  = ImageFont.truetype("C:/Windows/Fonts/simsun.ttc",  16)
-    font_xs  = ImageFont.truetype("C:/Windows/Fonts/simsun.ttc",  14)
-    font_ti  = ImageFont.truetype("C:/Windows/Fonts/simsun.ttc",  32)
+    # Use KaiTi or SimSun — traditional Chinese serif feels more like brush
+    for fname in ['kaiu.ttf', 'KAIU.TTF', 'mingliu.ttc', 'simsun.ttc']:
+        try:
+            font_ti = ImageFont.truetype(f'C:/Windows/Fonts/{fname}', 34)
+            font_lg = ImageFont.truetype(f'C:/Windows/Fonts/{fname}', 25)
+            font_md = ImageFont.truetype(f'C:/Windows/Fonts/{fname}', 19)
+            font_sm = ImageFont.truetype(f'C:/Windows/Fonts/{fname}', 15)
+            font_xs = ImageFont.truetype(f'C:/Windows/Fonts/{fname}', 13)
+            break
+        except Exception:
+            continue
 except Exception:
-    font_lg = font_md = font_sm = font_xs = font_ti = ImageFont.load_default()
+    font_ti = font_lg = font_md = font_sm = font_xs = ImageFont.load_default()
 
-ink_text = (32, 26, 18)
-dim_text = (75, 65, 50)
+def ink_text(img, x, y, text, font, color=(32,25,15), bleed=1.4, jitter_px=1):
+    """Draw text with ink-bleed: render on separate layer, blur, then composite."""
+    txt_layer = Image.new('RGBA', (W, H), (0,0,0,0))
+    td = ImageDraw.Draw(txt_layer)
+    # Slight position jitter
+    jx = rng.integers(-jitter_px, jitter_px+1)
+    jy = rng.integers(-jitter_px, jitter_px+1)
+    td.text((x + jx, y + jy), text, font=font,
+            fill=(color[0], color[1], color[2], 240))
+    # Ink bleed: blur the text slightly
+    blurred = txt_layer.filter(ImageFilter.GaussianBlur(radius=bleed))
+    # Composite: blend slightly lighter version (halo) + sharp original
+    img_rgba = img.convert('RGBA')
+    img_rgba = Image.alpha_composite(img_rgba, blurred)
+    # Sharp overprint
+    sharp = txt_layer.filter(ImageFilter.GaussianBlur(radius=0.3))
+    img_rgba = Image.alpha_composite(img_rgba, sharp)
+    return img_rgba.convert('RGB')
 
-# Map title
-draw.text((760, 78),  '翰溪庄水路圖', font=font_ti, fill=ink_text)
-draw.text((920, 118), '乾隆十八年　繪', font=font_sm, fill=dim_text)
+ink_col  = (25, 18, 10)
+dim_col  = (68, 55, 38)
 
-# River label
-draw.text((900, 360), '翰溪', font=font_md, fill=ink_text)
-
-# Settlements + temples
-draw.text((688, 625), '翰溪庄', font=font_lg, fill=ink_text)
-draw.text((928, 530), '福德祠', font=font_md, fill=dim_text)
-draw.text((1158, 275), '水仙宮', font=font_md, fill=dim_text)
-draw.text((420, 715), '三角庄', font=font_md, fill=dim_text)
-draw.text((548, 225), '頂庄',   font=font_sm, fill=dim_text)
-draw.text((1318, 578), '東庄',  font=font_sm, fill=dim_text)
-draw.text((1608, 785), '下庄',  font=font_sm, fill=dim_text)
-draw.text((848, 850),  '舊市場', font=font_sm, fill=dim_text)
-
-# Annotations (scattered handwriting)
-annotations = [
-    (198, 175, '水深三尺'),
-    (1108, 720, '舊渡口'),
-    (300, 475, '農田水利'),
-    (1510, 665, '廢渠跡'),
-    (638, 245, '此段已淤'),
-    (870, 665, '支渠引灌'),
-    (1612, 308, '地勢低窪'),
-    (155, 468, '水圳'),
-    (1760, 455, '旱田'),
-    (490, 840, '舊址'),
-    (1100, 160, '大道'),
+img = ink_text(img, 740, 74,  '翰溪庄水路圖', font_ti, ink_col, bleed=1.8)
+img = ink_text(img, 905, 118, '乾隆十八年　繪', font_sm, dim_col, bleed=1.2)
+img = ink_text(img, 898, 356, '翰溪', font_md, ink_col, bleed=1.5)
+img = ink_text(img, 685, 628, '翰溪庄', font_lg, ink_col, bleed=1.6)
+img = ink_text(img, 928, 535, '福德祠', font_md, dim_col, bleed=1.4)
+img = ink_text(img, 1155, 278, '水仙宮', font_md, dim_col, bleed=1.4)
+img = ink_text(img, 418, 718, '三角庄', font_md, dim_col, bleed=1.4)
+img = ink_text(img, 548, 228, '頂庄', font_sm, dim_col, bleed=1.2)
+img = ink_text(img, 1318, 580, '東庄', font_sm, dim_col, bleed=1.2)
+img = ink_text(img, 1608, 788, '下庄', font_sm, dim_col, bleed=1.2)
+img = ink_text(img, 848, 855, '舊市場', font_sm, dim_col, bleed=1.2)
+# Scattered annotations — slightly slanted
+annots = [
+    (200, 175, '水深三尺'), (1108, 722, '舊渡口'),
+    (302, 478, '農田水利'), (1512, 668, '廢渠跡'),
+    (640, 248, '此段已淤'), (872, 668, '支渠引灌'),
+    (1615, 310, '地勢低窪'), (158, 472, '水圳'),
+    (1762, 458, '旱田'), (492, 845, '舊址'),
+    (1102, 162, '大道'),
 ]
-for ax, ay, atext in annotations:
-    draw.text((ax, ay), atext, font=font_xs, fill=(88, 75, 55))
+for ax, ay, atext in annots:
+    img = ink_text(img, ax, ay, atext, font_xs, (80,65,45), bleed=0.9, jitter_px=2)
 
-# Legend box
-draw.rectangle([1478, 185, 1700, 275], outline=dim_text, width=1)
-draw.text((1488, 195), '□ 庄社', font=font_sm, fill=dim_text)
-draw.text((1488, 220), '▲ 廟祠', font=font_sm, fill=dim_text)
-draw.text((1488, 245), '～ 水路', font=font_sm, fill=dim_text)
+draw = ImageDraw.Draw(img)
 
-# Compass
-draw.line([(1720, 145), (1720, 225)], fill=ink_text, width=2)
-draw.line([(1680, 185), (1760, 185)], fill=ink_text, width=2)
-draw.polygon([(1720, 145), (1713, 165), (1727, 165)], fill=ink_text)
-draw.text((1715, 122), '北', font=font_sm, fill=ink_text)
-draw.text((1715, 228), '南', font=font_xs, fill=dim_text)
-draw.text((1762, 180), '東', font=font_xs, fill=dim_text)
-draw.text((1668, 180), '西', font=font_xs, fill=dim_text)
+# Legend box (wobbly border)
+lx0, ly0, lx1, ly1 = 1478, 182, 1710, 278
+for bpts in [
+    [(lx0,ly0),(lx1,ly0),(lx1,ly1),(lx0,ly1),(lx0,ly0)],
+]:
+    wobbly_path(bpts, draw, dim_col, base_width=1, jitter=1.5)
+img = ink_text(img, 1490, 192, '□ 庄社', font_sm, dim_col, bleed=1.0)
+img = ink_text(img, 1490, 218, '▲ 廟祠', font_sm, dim_col, bleed=1.0)
+img = ink_text(img, 1490, 244, '～ 水路', font_sm, dim_col, bleed=1.0)
+
+# Compass — hand-drawn
+draw = ImageDraw.Draw(img)
+wobbly_line(draw, 1722, 140, 1722, 228, ink_col, 2, 1)
+wobbly_line(draw, 1682, 184, 1762, 184, ink_col, 2, 1)
+# Arrow head (wobbly polygon)
+wobbly_path([(1722,140),(1714,164),(1730,164),(1722,140)], draw, ink_col, 2, 1)
+img = ink_text(img, 1716, 118, '北', font_sm, ink_col, bleed=1.2)
+img = ink_text(img, 1716, 230, '南', font_xs, dim_col, bleed=1.0)
+img = ink_text(img, 1764, 179, '東', font_xs, dim_col, bleed=1.0)
+img = ink_text(img, 1670, 179, '西', font_xs, dim_col, bleed=1.0)
 
 # Scale bar
-draw.line([(1478, 295), (1698, 295)], fill=dim_text, width=2)
-draw.line([(1478, 288), (1478, 302)], fill=dim_text, width=2)
-draw.line([(1698, 288), (1698, 302)], fill=dim_text, width=2)
-draw.text((1568, 300), '一里', font=font_xs, fill=dim_text)
+draw = ImageDraw.Draw(img)
+wobbly_line(draw, 1480, 292, 1706, 292, dim_col, 2, 1)
+wobbly_line(draw, 1480, 286, 1480, 300, dim_col, 2, 1)
+wobbly_line(draw, 1706, 286, 1706, 300, dim_col, 2, 1)
+img = ink_text(img, 1570, 296, '一里', font_xs, dim_col, bleed=0.9)
 
-# ── Vignette edge darkening ───────────────────────────────────────────────────
-vig = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+# ────────────────────────────────────────────────────────────────────────────
+# Global turbulence displacement — makes everything feel hand-drawn
+# ────────────────────────────────────────────────────────────────────────────
+arr = np.array(img).astype(np.float32)
+# Generate smooth displacement field via low-res noise upscaled
+dfield_h, dfield_w = H // 20, W // 20
+dx_field = rng.normal(0, 2.2, (dfield_h, dfield_w))
+dy_field = rng.normal(0, 2.2, (dfield_h, dfield_w))
+dx_img = np.array(Image.fromarray(dx_field.astype(np.float32)).resize((W, H), Image.BICUBIC))
+dy_img = np.array(Image.fromarray(dy_field.astype(np.float32)).resize((W, H), Image.BICUBIC))
+
+# Remap pixels
+ys, xs = np.indices((H, W))
+xs_d = np.clip(xs + dx_img, 0, W-1).astype(np.int32)
+ys_d = np.clip(ys + dy_img, 0, H-1).astype(np.int32)
+arr_d = arr[ys_d, xs_d]
+img = Image.fromarray(arr_d.astype(np.uint8))
+
+# ────────────────────────────────────────────────────────────────────────────
+# Vignette + final adjustments
+# ────────────────────────────────────────────────────────────────────────────
+vig = Image.new('RGBA', (W, H), (0,0,0,0))
 vd = ImageDraw.Draw(vig)
-for ring in range(0, 120, 4):
-    a = int((ring / 120) * 90)
-    vd.rectangle([ring, ring, W - ring, H - ring], outline=(0, 0, 0, a), width=4)
-vig_blur = vig.filter(ImageFilter.GaussianBlur(radius=28))
-img = Image.alpha_composite(img.convert('RGBA'), vig_blur).convert('RGB')
+for ring in range(0, 130, 4):
+    a = int((ring / 130) * 100)
+    vd.rectangle([ring, ring, W-ring, H-ring], outline=(0,0,0,a), width=4)
+img = Image.alpha_composite(img.convert('RGBA'),
+      vig.filter(ImageFilter.GaussianBlur(32))).convert('RGB')
 
-# ── Final grayscale conversion ────────────────────────────────────────────────
+# Final grayscale + contrast
 from PIL import ImageOps
 img = ImageOps.grayscale(img).convert('RGB')
-# Boost contrast slightly for map legibility
-img = ImageEnhance.Contrast(img).enhance(1.18)
-img = ImageEnhance.Brightness(img).enhance(0.96)
+img = ImageEnhance.Contrast(img).enhance(1.15)
+img = ImageEnhance.Brightness(img).enhance(1.02)
+# Very slight final blur to unify everything (real paper absorbs ink)
+img = img.filter(ImageFilter.GaussianBlur(0.4))
 
-# ── Save ──────────────────────────────────────────────────────────────────────
 OUT.parent.mkdir(parents=True, exist_ok=True)
 img.save(OUT, 'PNG', optimize=True)
-print(f'Done: {OUT}  ({W}x{H} grayscale)')
+print(f'Done: {OUT}  ({W}x{H} hand-drawn grayscale map)')
