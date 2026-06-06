@@ -6,7 +6,7 @@ import io, sys
 from pathlib import Path
 import numpy as np
 from rembg import remove
-from PIL import Image, ImageEnhance, ImageOps
+from PIL import Image, ImageEnhance, ImageOps, ImageFilter
 
 SRC = Path(r'C:\Users\User\vn-engine\tools\vrm\diao_caidi.jpg')
 OUT = Path(r'C:\Users\User\vn-engine\assets\characters\diao_caidi')
@@ -55,6 +55,20 @@ rgb = Image.merge('RGB', (r, g, b))
 gray_rgb = ImageOps.grayscale(rgb).convert('RGB')
 base = Image.merge('RGBA', (*gray_rgb.split(), a))
 print("  done: converted to B&W")
+
+# Step 3b: Feather edges
+def feather_edges(img_rgba, feather=5):
+    r, g, b, a = img_rgba.split()
+    a_np   = np.array(a, dtype=np.float32)
+    a_blur = np.array(a.filter(ImageFilter.GaussianBlur(radius=feather)),
+                      dtype=np.float32)
+    boundary = (a_np > 8) & (a_np < 248)
+    result   = np.where(boundary, a_blur * 0.75 + a_np * 0.25, a_np)
+    result   = np.clip(result, 0, 255).astype(np.uint8)
+    return Image.merge('RGBA', (r, g, b, Image.fromarray(result)))
+
+base = feather_edges(base, feather=5)
+print("  edge feathering done (5px)")
 
 # Step 4: Expression colour grades
 def grade(img, bright=1.0, contrast=1.0, tint=None, crush=0.0):

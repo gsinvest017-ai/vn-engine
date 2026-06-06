@@ -50,6 +50,23 @@ base = Image.new('RGBA', (W, H), (0, 0, 0, 0))
 base.paste(scaled, ((W - nw) // 2, H - nh), scaled)
 print(f"  完成：縮放 {sw}×{sh} → {nw}×{nh}，貼於底部中央")
 
+# ── Step 2b: Feather edges (soften harsh rembg cutout) ────────────
+def feather_edges(img_rgba, feather=5):
+    """Blur only the alpha boundary zone to create soft, filmic edges."""
+    r, g, b, a = img_rgba.split()
+    a_np   = np.array(a, dtype=np.float32)
+    a_blur = np.array(a.filter(ImageFilter.GaussianBlur(radius=feather)),
+                      dtype=np.float32)
+    # Only feather transition pixels (not solid opaque interior)
+    boundary = (a_np > 8) & (a_np < 248)
+    result   = np.where(boundary, a_blur * 0.75 + a_np * 0.25, a_np)
+    result   = np.clip(result, 0, 255).astype(np.uint8)
+    return Image.merge('RGBA', (r, g, b, Image.fromarray(result)))
+
+from PIL import ImageFilter
+base = feather_edges(base, feather=5)
+print("  邊緣軟化完成（feather=5px）")
+
 # ── Step 3: Expression colour grades ──────────────────────────────
 def grade(img, bright=1.0, contrast=1.0, tint=None, crush=0.0):
     r, g, b, a = img.split()
