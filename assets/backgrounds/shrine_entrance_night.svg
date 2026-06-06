@@ -1,88 +1,206 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
-  <defs>
-    <linearGradient id="night_sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#020208"/>
-      <stop offset="60%"  stop-color="#06050e"/>
-      <stop offset="100%" stop-color="#0e0a0c"/>
-    </linearGradient>
-    <radialGradient id="city_glow" cx="50%" cy="80%" r="55%">
-      <stop offset="0%"  stop-color="#c17a24" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#c17a24" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="convenience_store" cx="85%" cy="50%" r="15%">
-      <stop offset="0%"  stop-color="#00cc44" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#00cc44" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"  stop-color="#020208"/>
+    <stop offset="55%" stop-color="#050510"/>
+    <stop offset="100%" stop-color="#08070e"/>
+  </linearGradient>
+  <linearGradient id="ground_g" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"  stop-color="#0a0910"/>
+    <stop offset="100%" stop-color="#040408"/>
+  </linearGradient>
+  <!-- Distant 7-11 green glow -->
+  <radialGradient id="cvs_glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#00c040" stop-opacity="0.55"/>
+    <stop offset="35%"  stop-color="#00a030" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#004010" stop-opacity="0.0"/>
+  </radialGradient>
+  <!-- Puddle reflection of green light -->
+  <radialGradient id="puddle_g" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#00b838" stop-opacity="0.22"/>
+    <stop offset="100%" stop-color="#004010" stop-opacity="0.0"/>
+  </radialGradient>
+  <radialGradient id="vign_n" cx="50%" cy="50%" r="70%">
+    <stop offset="0%"   stop-color="#000" stop-opacity="0.0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.72"/>
+  </radialGradient>
+  <filter id="cvs_soft" x="-200%" y="-200%" width="500%" height="500%">
+    <feGaussianBlur stdDeviation="35"/>
+  </filter>
+  <filter id="rain_blur">
+    <feGaussianBlur stdDeviation="0.4"/>
+  </filter>
+</defs>
 
-  <!-- Night sky -->
-  <rect width="1920" height="1080" fill="url(#night_sky)"/>
+<!-- Near-black sky -->
+<rect width="1920" height="1080" fill="url(#sky)"/>
 
-  <!-- City ambient glow from below -->
-  <rect width="1920" height="1080" fill="url(#city_glow)"/>
+<!-- Distant convenience store glow (far right, lower) -->
+<ellipse cx="1688" cy="625" rx="260" ry="180" fill="url(#cvs_glow)" filter="url(#cvs_soft)"/>
+<ellipse cx="1688" cy="625" rx="100" ry="70"  fill="#00c040" opacity="0.12" filter="url(#cvs_soft)"/>
 
-  <!-- Distant buildings (very dark) -->
-  <rect x="0"    y="400" width="80"  height="680" fill="#080608"/>
-  <rect x="60"   y="350" width="100" height="730" fill="#080608"/>
-  <rect x="140"  y="420" width="70"  height="660" fill="#080608"/>
-  <rect x="190"  y="370" width="120" height="710" fill="#080608"/>
-  <rect x="290"  y="390" width="90"  height="690" fill="#080608"/>
-  <rect x="1500" y="360" width="110" height="720" fill="#080608"/>
-  <rect x="1590" y="400" width="80"  height="680" fill="#080608"/>
-  <rect x="1650" y="350" width="130" height="730" fill="#080608"/>
-  <rect x="1760" y="380" width="100" height="700" fill="#080608"/>
-  <rect x="1840" y="420" width="80"  height="660" fill="#080608"/>
+<!-- Convenience store sign structure (distant, small) -->
+<rect x="1630" y="590" width="118" height="55" rx="3" fill="#003818" opacity="0.85"/>
+<rect x="1633" y="593" width="112" height="49" rx="2" fill="#005828" opacity="0.75"/>
+<!-- Lit sign face -->
+<rect x="1635" y="595" width="108" height="45" rx="1" fill="#00a032" opacity="0.65"/>
+<!-- Sign text illusion (glowing bars) -->
+<rect x="1642" y="600" width="94" height="8"  rx="1" fill="#00ff60" opacity="0.55"/>
+<rect x="1648" y="612" width="82" height="7"  rx="1" fill="#00dd50" opacity="0.45"/>
+<rect x="1644" y="623" width="90" height="6"  rx="1" fill="#00ff60" opacity="0.40"/>
+<rect x="1650" y="633" width="76" height="5"  rx="1" fill="#00dd50" opacity="0.35"/>
 
-  <!-- A few lit windows in distance -->
-  <rect x="75"   y="420" width="8" height="10" fill="#e8c870" opacity="0.25"/>
-  <rect x="100"  y="400" width="8" height="10" fill="#e8c870" opacity="0.20"/>
-  <rect x="210"  y="440" width="8" height="10" fill="#e8c870" opacity="0.22"/>
-  <rect x="1580" y="410" width="8" height="10" fill="#e8c870" opacity="0.20"/>
-  <rect x="1700" y="380" width="8" height="10" fill="#e8c870" opacity="0.25"/>
+<!-- Power outage: dark building silhouettes (no windows lit) -->
+<!-- Left side buildings -->
+<rect x="0"   y="480" width="220" height="600" fill="#030308"/>
+<rect x="200" y="520" width="160" height="560" fill="#040409"/>
+<rect x="340" y="490" width="120" height="590" fill="#030308"/>
+<!-- Right side buildings -->
+<rect x="1480" y="505" width="130" height="575" fill="#030308"/>
+<rect x="1590" y="475" width="160" height="605" fill="#040409"/>
+<rect x="1730" y="510" width="190" height="570" fill="#030308"/>
 
-  <!-- Shrine gate (torii-like / traditional gate silhouette) -->
-  <rect x="700"  y="280" width="520" height="25"  fill="#060408"/>
-  <rect x="680"  y="265" width="560" height="18"  fill="#060408"/>
-  <rect x="730"  y="305" width="30"  height="500" fill="#060408"/>
-  <rect x="1160" y="305" width="30"  height="500" fill="#060408"/>
-  <!-- gate cross beams -->
-  <rect x="720"  y="340" width="480" height="14"  fill="#060408"/>
+<!-- Traditional shrine gate / pailou silhouette (center) -->
+<!-- Main gate structure -->
+<!-- Left column -->
+<rect x="612" y="295" width="42" height="520" fill="#030308"/>
+<!-- Right column -->
+<rect x="1266" y="295" width="42" height="520" fill="#030308"/>
+<!-- Cross beam / lintel -->
+<rect x="580" y="280" width="760" height="32" fill="#030308"/>
+<!-- Roof ridge on lintel -->
+<path d="M 575,280 Q 720,250 960,242 Q 1200,250 1345,280 L 1340,280 Q 1195,252 960,244 Q 725,252 580,280 Z"
+      fill="#030308"/>
+<!-- Curved roof end caps -->
+<path d="M 575,280 Q 545,295 540,310 L 580,308 Z" fill="#030308"/>
+<path d="M 1345,280 Q 1375,295 1380,310 L 1340,308 Z" fill="#030308"/>
+<!-- Gate arch between columns -->
+<path d="M 612,540 Q 612,440 654,415 Q 770,380 960,375 Q 1150,380 1266,415 Q 1308,440 1308,540"
+      stroke="#030308" stroke-width="30" fill="none"/>
+<!-- Small secondary roof decorations -->
+<path d="M 580,270 Q 620,258 660,265 L 658,278 Q 620,272 582,282 Z" fill="#030308"/>
+<path d="M 1340,270 Q 1300,258 1260,265 L 1262,278 Q 1300,272 1338,282 Z" fill="#030308"/>
+<!-- Inner gate details -->
+<rect x="654"  y="415" width="25" height="125" fill="#030308" opacity="0.8"/>
+<rect x="1241" y="415" width="25" height="125" fill="#030308" opacity="0.8"/>
 
-  <!-- Main shrine facade -->
-  <rect x="500"  y="480" width="920" height="600" fill="#060408"/>
-  <!-- shrine roof -->
-  <polygon points="480,480 960,320 1440,480" fill="#050307"/>
-  <!-- roof ridge -->
-  <rect x="480"  y="476" width="960" height="10"  fill="#040206"/>
+<!-- Wooden gate doors (slightly ajar, ominous) -->
+<rect x="679"  y="480" width="130" height="295" rx="3" fill="#040409"/>
+<rect x="1111" y="480" width="130" height="295" rx="3" fill="#040409"/>
+<!-- Door panels -->
+<rect x="683"  y="485" width="60"  height="142" rx="1" fill="#030307" opacity="0.7"/>
+<rect x="747"  y="485" width="58"  height="142" rx="1" fill="#030307" opacity="0.7"/>
+<rect x="1115" y="485" width="58"  height="142" rx="1" fill="#030307" opacity="0.7"/>
+<rect x="1177" y="485" width="60"  height="142" rx="1" fill="#030307" opacity="0.7"/>
+<!-- Crack of darkness through slightly open gate (green light hint through it) -->
+<rect x="808" y="480" width="18" height="295" fill="#001808" opacity="0.95"/>
+<!-- Faint green glow bleeding through crack from beyond -->
+<rect x="810" y="490" width="14" height="275" fill="#00a030" opacity="0.03"/>
 
-  <!-- Shrine doors (slightly lighter) -->
-  <rect x="820"  y="700" width="140" height="380" fill="#0e0a0c"/>
-  <rect x="960"  y="700" width="140" height="380" fill="#0e0a0c"/>
-  <line x1="960" y1="700" x2="960" y2="1080" stroke="#060408" stroke-width="3"/>
+<!-- Ground — wet dark asphalt / cobblestone -->
+<rect x="0" y="760" width="1920" height="320" fill="url(#ground_g)"/>
 
-  <!-- Lantern glow above door -->
-  <ellipse cx="890"  cy="680" rx="30" ry="35" fill="#060408"/>
-  <ellipse cx="1030" cy="680" rx="30" ry="35" fill="#060408"/>
-  <ellipse cx="890"  cy="680" rx="20" ry="24" fill="#c17a24" opacity="0.35"/>
-  <ellipse cx="1030" cy="680" rx="20" ry="24" fill="#c17a24" opacity="0.35"/>
-  <!-- lantern glow -->
-  <ellipse cx="890"  cy="700" rx="70" ry="50" fill="#c17a24" opacity="0.1"/>
-  <ellipse cx="1030" cy="700" rx="70" ry="50" fill="#c17a24" opacity="0.1"/>
+<!-- Puddles on ground (reflecting green glow) -->
+<ellipse cx="1688" cy="855" rx="280" ry="50"  fill="url(#puddle_g)" opacity="0.6"/>
+<ellipse cx="1550" cy="880" rx="120" ry="22"  fill="#00b838" opacity="0.06"/>
+<ellipse cx="1780" cy="870" rx="95"  ry="18"  fill="#00b838" opacity="0.05"/>
+<ellipse cx="780"  cy="840" rx="90"  ry="16"  fill="#060610"  opacity="0.5"/>
+<ellipse cx="480"  cy="860" rx="70"  ry="13"  fill="#060610"  opacity="0.5"/>
+<ellipse cx="1150" cy="850" rx="80"  ry="14"  fill="#060610"  opacity="0.5"/>
+<!-- Light reflections in puddles -->
+<ellipse cx="780"  cy="840" rx="20" ry="4" fill="#c0c0d0" opacity="0.05"/>
 
-  <!-- Convenience store glow (far right) -->
-  <rect width="1920" height="1080" fill="url(#convenience_store)"/>
-  <rect x="1650" y="500" width="180" height="200" fill="#001a08" opacity="0.7"/>
-  <rect x="1650" y="495" width="180" height="14"  fill="#00aa33" opacity="0.6"/>
+<!-- Heavy rain streaks (much more prominent than dusk scene) -->
+<g opacity="0.22" stroke="#8ab8d0" stroke-width="1.0" filter="url(#rain_blur)">
+  <!-- Dense rain rows -->
+  <line x1="58"  y1="0" x2="18"  y2="600"/>
+  <line x1="110" y1="0" x2="70"  y2="600"/>
+  <line x1="162" y1="0" x2="122" y2="600"/>
+  <line x1="214" y1="0" x2="174" y2="600"/>
+  <line x1="266" y1="0" x2="226" y2="600"/>
+  <line x1="318" y1="0" x2="278" y2="600"/>
+  <line x1="370" y1="0" x2="330" y2="600"/>
+  <line x1="422" y1="0" x2="382" y2="600"/>
+  <line x1="474" y1="0" x2="434" y2="600"/>
+  <line x1="526" y1="0" x2="486" y2="600"/>
+  <line x1="578" y1="0" x2="538" y2="600"/>
+  <line x1="630" y1="0" x2="590" y2="600"/>
+  <line x1="682" y1="0" x2="642" y2="600"/>
+  <line x1="734" y1="0" x2="694" y2="600"/>
+  <line x1="786" y1="0" x2="746" y2="600"/>
+  <line x1="838" y1="0" x2="798" y2="600"/>
+  <line x1="890" y1="0" x2="850" y2="600"/>
+  <line x1="942" y1="0" x2="902" y2="600"/>
+  <line x1="994" y1="0" x2="954" y2="600"/>
+  <line x1="1046" y1="0" x2="1006" y2="600"/>
+  <line x1="1098" y1="0" x2="1058" y2="600"/>
+  <line x1="1150" y1="0" x2="1110" y2="600"/>
+  <line x1="1202" y1="0" x2="1162" y2="600"/>
+  <line x1="1254" y1="0" x2="1214" y2="600"/>
+  <line x1="1306" y1="0" x2="1266" y2="600"/>
+  <line x1="1358" y1="0" x2="1318" y2="600"/>
+  <line x1="1410" y1="0" x2="1370" y2="600"/>
+  <line x1="1462" y1="0" x2="1422" y2="600"/>
+  <line x1="1514" y1="0" x2="1474" y2="600"/>
+  <line x1="1566" y1="0" x2="1526" y2="600"/>
+  <line x1="1618" y1="0" x2="1578" y2="600"/>
+  <line x1="1670" y1="0" x2="1630" y2="600"/>
+  <line x1="1722" y1="0" x2="1682" y2="600"/>
+  <line x1="1774" y1="0" x2="1734" y2="600"/>
+  <line x1="1826" y1="0" x2="1786" y2="600"/>
+  <line x1="1878" y1="0" x2="1838" y2="600"/>
+  <!-- Second rain pass (offset) -->
+  <line x1="84"  y1="600" x2="44"  y2="1080"/>
+  <line x1="136" y1="600" x2="96"  y2="1080"/>
+  <line x1="188" y1="600" x2="148" y2="1080"/>
+  <line x1="240" y1="600" x2="200" y2="1080"/>
+  <line x1="292" y1="600" x2="252" y2="1080"/>
+  <line x1="344" y1="600" x2="304" y2="1080"/>
+  <line x1="396" y1="600" x2="356" y2="1080"/>
+  <line x1="448" y1="600" x2="408" y2="1080"/>
+  <line x1="500" y1="600" x2="460" y2="1080"/>
+  <line x1="552" y1="600" x2="512" y2="1080"/>
+  <line x1="604" y1="600" x2="564" y2="1080"/>
+  <line x1="656" y1="600" x2="616" y2="1080"/>
+  <line x1="708" y1="600" x2="668" y2="1080"/>
+  <line x1="760" y1="600" x2="720" y2="1080"/>
+  <line x1="812" y1="600" x2="772" y2="1080"/>
+  <line x1="864" y1="600" x2="824" y2="1080"/>
+  <line x1="916" y1="600" x2="876" y2="1080"/>
+  <line x1="968" y1="600" x2="928" y2="1080"/>
+  <line x1="1020" y1="600" x2="980" y2="1080"/>
+  <line x1="1072" y1="600" x2="1032" y2="1080"/>
+  <line x1="1124" y1="600" x2="1084" y2="1080"/>
+  <line x1="1176" y1="600" x2="1136" y2="1080"/>
+  <line x1="1228" y1="600" x2="1188" y2="1080"/>
+  <line x1="1280" y1="600" x2="1240" y2="1080"/>
+  <line x1="1332" y1="600" x2="1292" y2="1080"/>
+  <line x1="1384" y1="600" x2="1344" y2="1080"/>
+  <line x1="1436" y1="600" x2="1396" y2="1080"/>
+  <line x1="1488" y1="600" x2="1448" y2="1080"/>
+  <line x1="1540" y1="600" x2="1500" y2="1080"/>
+  <line x1="1592" y1="600" x2="1552" y2="1080"/>
+  <line x1="1644" y1="600" x2="1604" y2="1080"/>
+  <line x1="1696" y1="600" x2="1656" y2="1080"/>
+  <line x1="1748" y1="600" x2="1708" y2="1080"/>
+  <line x1="1800" y1="600" x2="1760" y2="1080"/>
+  <line x1="1852" y1="600" x2="1812" y2="1080"/>
+  <line x1="1904" y1="600" x2="1864" y2="1080"/>
+</g>
 
-  <!-- Ground / wet pavement -->
-  <rect x="0" y="900" width="1920" height="180" fill="#060406"/>
-  <!-- puddle reflections -->
-  <ellipse cx="500"  cy="960" rx="120" ry="18" fill="#c17a24" opacity="0.06"/>
-  <ellipse cx="960"  cy="940" rx="160" ry="22" fill="#c17a24" opacity="0.05"/>
-  <ellipse cx="1400" cy="955" rx="100" ry="16" fill="#c17a24" opacity="0.06"/>
+<!-- Power lines (barely visible, just outlines in near darkness) -->
+<g stroke="#080810" fill="none" opacity="0.8">
+  <path d="M 0,310 Q 960,345 1920,318" stroke-width="1.5"/>
+  <path d="M 0,332 Q 960,364 1920,338" stroke-width="1.2"/>
+</g>
 
-  <!-- Power failure darkness overlay -->
-  <rect width="1920" height="1080" fill="#000" opacity="0.35"/>
+<!-- Very dark foreground area below gate (puddle-covered ground) -->
+<rect x="0" y="770" width="1920" height="310" fill="#030408" opacity="0.7"/>
 
-  <text x="30" y="50" font-family="monospace" font-size="18" fill="rgba(200,180,100,0.3)">BG: shrine_entrance_night [placeholder]</text>
+<!-- Vignette (very strong, darkness closing in) -->
+<rect width="1920" height="1080" fill="url(#vign_n)"/>
+<rect x="0"    y="0" width="350"  height="1080" fill="#000" opacity="0.65"/>
+<rect x="1570" y="0" width="350"  height="1080" fill="#000" opacity="0.65"/>
+<rect x="0"    y="0" width="1920" height="120"  fill="#000" opacity="0.72"/>
+<rect x="0"  y="960" width="1920" height="120"  fill="#000" opacity="0.68"/>
 </svg>

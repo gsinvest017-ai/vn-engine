@@ -1,63 +1,193 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
-  <defs>
-    <linearGradient id="aged_bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#1a1408"/>
-      <stop offset="40%"  stop-color="#2a1e0c"/>
-      <stop offset="100%" stop-color="#140e08"/>
-    </linearGradient>
-  </defs>
+<defs>
+  <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%"   stop-color="#d8c89a"/>
+    <stop offset="30%"  stop-color="#c8b880"/>
+    <stop offset="70%"  stop-color="#d2be8c"/>
+    <stop offset="100%" stop-color="#c0a870"/>
+  </linearGradient>
+  <radialGradient id="paper_edge" cx="50%" cy="50%" r="70%">
+    <stop offset="0%"   stop-color="#c8b880" stop-opacity="0.0"/>
+    <stop offset="100%" stop-color="#7a5820" stop-opacity="0.28"/>
+  </radialGradient>
+  <filter id="paper_tx" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" result="noise"/>
+    <feColorMatrix type="saturate" values="0.15" in="noise" result="gray"/>
+    <feBlend in="SourceGraphic" in2="gray" mode="multiply"/>
+  </filter>
+  <filter id="brush" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="2" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="ink_b">
+    <feGaussianBlur stdDeviation="0.9"/>
+  </filter>
+</defs>
 
-  <!-- Old paper / sepia background -->
-  <rect width="1920" height="1080" fill="url(#aged_bg)"/>
+<!-- Aged paper background -->
+<rect width="1920" height="1080" fill="url(#paper)"/>
+<rect width="1920" height="1080" fill="url(#paper)" filter="url(#paper_tx)" opacity="0.35"/>
 
-  <!-- Paper texture overlay -->
-  <rect width="1920" height="1080" fill="#e8c870" opacity="0.06"/>
+<!-- Map border double lines -->
+<rect x="58"  y="58"  width="1804" height="964" fill="none" stroke="#605040" stroke-width="3.5" opacity="0.55"/>
+<rect x="68"  y="68"  width="1784" height="944" fill="none" stroke="#706040" stroke-width="1.5" opacity="0.38"/>
+<rect x="52"  y="52"  width="1816" height="976" fill="none" stroke="#504030" stroke-width="1"   opacity="0.28"/>
 
-  <!-- Ink-wash river map illustration (stylized) -->
-  <!-- Main river (横流) -->
-  <path d="M 0,500 Q 300,470 500,520 Q 700,570 900,510 Q 1100,450 1300,520 Q 1500,580 1920,540"
-        fill="none" stroke="#c8aa60" stroke-width="28" opacity="0.35"/>
-  <!-- Secondary branch -->
-  <path d="M 400,520 Q 450,620 380,750 Q 320,850 280,1080"
-        fill="none" stroke="#c8aa60" stroke-width="16" opacity="0.25"/>
-  <!-- Branch 2 -->
-  <path d="M 900,510 Q 950,600 880,720 Q 820,840 800,1080"
-        fill="none" stroke="#c8aa60" stroke-width="14" opacity="0.22"/>
-  <!-- Branch 3 -->
-  <path d="M 1300,520 Q 1280,640 1240,780 Q 1200,920 1180,1080"
-        fill="none" stroke="#c8aa60" stroke-width="12" opacity="0.20"/>
+<!-- Age spots and foxing scattered on paper -->
+<g fill="#8a6030" opacity="0.14">
+  <circle cx="118" cy="145" r="8"/>
+  <circle cx="375" cy="88"  r="5"/>
+  <circle cx="672" cy="118" r="7"/>
+  <circle cx="1195" cy="78" r="6"/>
+  <circle cx="1598" cy="138" r="9"/>
+  <circle cx="1798" cy="248" r="5"/>
+  <circle cx="98"  cy="498" r="10"/>
+  <circle cx="198" cy="798" r="7"/>
+  <circle cx="448" cy="948" r="8"/>
+  <circle cx="898" cy="998" r="6"/>
+  <circle cx="1498" cy="898" r="9"/>
+  <circle cx="1748" cy="698" r="7"/>
+  <circle cx="1848" cy="498" r="5"/>
+  <circle cx="348" cy="348" r="5"/>
+  <circle cx="1248" cy="248" r="6"/>
+  <circle cx="798"  cy="148" r="4"/>
+  <circle cx="1548" cy="548" r="6"/>
+  <circle cx="498"  cy="648" r="5"/>
+  <circle cx="1148" cy="848" r="7"/>
+  <circle cx="748"  cy="448" r="4"/>
+</g>
+<!-- Larger age blotches -->
+<g fill="#604020" opacity="0.07">
+  <ellipse cx="298" cy="598" rx="28" ry="18"/>
+  <ellipse cx="1598" cy="498" rx="22" ry="32"/>
+  <ellipse cx="798" cy="198" rx="20" ry="13"/>
+  <ellipse cx="1298" cy="348" rx="35" ry="20"/>
+  <ellipse cx="648"  cy="748" rx="18" ry="28"/>
+</g>
+<!-- Water damage patches -->
+<ellipse cx="1398" cy="798" rx="155" ry="105" fill="#b0a070" opacity="0.10"/>
+<ellipse cx="248"  cy="698" rx="125" ry="82"  fill="#a89060" opacity="0.08"/>
+<ellipse cx="898"  cy="398" rx="82"  ry="52"  fill="#b8a870" opacity="0.07"/>
+<ellipse cx="1648" cy="648" rx="68"  ry="45"  fill="#a89060" opacity="0.06"/>
 
-  <!-- Temple markers (dots with circles) -->
-  <circle cx="480"  cy="515" r="16" fill="#c8aa60" opacity="0.55"/>
-  <circle cx="480"  cy="515" r="24" fill="none" stroke="#c8aa60" stroke-width="2" opacity="0.35"/>
-  <circle cx="900"  cy="508" r="16" fill="#c8aa60" opacity="0.55"/>
-  <circle cx="900"  cy="508" r="24" fill="none" stroke="#c8aa60" stroke-width="2" opacity="0.35"/>
-  <circle cx="1300" cy="518" r="16" fill="#c8aa60" opacity="0.55"/>
-  <circle cx="1300" cy="518" r="24" fill="none" stroke="#c8aa60" stroke-width="2" opacity="0.35"/>
+<!-- Main river: 翰溪 -->
+<path d="M 180,305 Q 295,282 405,318 Q 510,352 615,328 Q 730,300 808,338 Q 912,372 1012,350 Q 1118,328 1198,360 Q 1298,396 1398,374 Q 1498,352 1598,390 Q 1698,428 1820,405"
+      stroke="#4a6a90" stroke-width="14" fill="none" opacity="0.48" filter="url(#brush)"/>
+<path d="M 180,305 Q 295,282 405,318 Q 510,352 615,328 Q 730,300 808,338 Q 912,372 1012,350 Q 1118,328 1198,360 Q 1298,396 1398,374 Q 1498,352 1598,390 Q 1698,428 1820,405"
+      stroke="#7aaac8" stroke-width="5" fill="none" opacity="0.28" filter="url(#brush)"/>
+<text x="925" y="388" font-family="serif" font-size="17" fill="#2a3a52" opacity="0.78"
+      transform="rotate(-4,925,388)" filter="url(#ink_b)">翰溪</text>
 
-  <!-- Chinese map annotation text (stylized strokes) -->
-  <text x="460" y="490" font-family="serif" font-size="22" fill="#c8aa60" opacity="0.6" transform="rotate(-5,460,490)">翰溪庄</text>
-  <text x="870" y="485" font-family="serif" font-size="22" fill="#c8aa60" opacity="0.6" transform="rotate(-3,870,485)">律川</text>
-  <text x="1260" y="495" font-family="serif" font-size="22" fill="#c8aa60" opacity="0.6" transform="rotate(-4,1260,495)">樂承宮</text>
+<!-- Secondary water channels -->
+<path d="M 615,328 Q 592,255 568,198 Q 545,148 522,96"
+      stroke="#5a7a9a" stroke-width="6" fill="none" opacity="0.38" filter="url(#brush)"/>
+<path d="M 808,338 Q 828,428 818,508 Q 808,588 828,658 Q 848,728 808,808"
+      stroke="#5a7a9a" stroke-width="6" fill="none" opacity="0.38" filter="url(#brush)"/>
+<path d="M 1012,350 Q 1032,448 1062,528 Q 1092,608 1068,688 Q 1048,768 1082,858"
+      stroke="#5a7a9a" stroke-width="5" fill="none" opacity="0.33" filter="url(#brush)"/>
+<path d="M 1398,374 Q 1438,468 1418,558 Q 1398,648 1438,738"
+      stroke="#5a7a9a" stroke-width="5" fill="none" opacity="0.33" filter="url(#brush)"/>
+<path d="M 498,342 Q 478,458 488,568 Q 498,658 468,748"
+      stroke="#5a7a9a" stroke-width="4" fill="none" opacity="0.28" filter="url(#brush)"/>
+<!-- Small irrigation ditches -->
+<path d="M 808,338 Q 748,308 698,328 Q 648,348 598,318"
+      stroke="#5a7a9a" stroke-width="3" fill="none" opacity="0.25" filter="url(#brush)"/>
+<path d="M 1198,360 Q 1238,298 1278,318 Q 1318,338 1358,308"
+      stroke="#5a7a9a" stroke-width="3" fill="none" opacity="0.25" filter="url(#brush)"/>
 
-  <!-- Directional label -->
-  <text x="1800" y="100" font-family="serif" font-size="28" fill="#c8aa60" opacity="0.4">北</text>
-  <line x1="1820" y1="60" x2="1820" y2="110" stroke="#c8aa60" stroke-width="2" opacity="0.4"/>
-  <polygon points="1820,55 1813,72 1827,72" fill="#c8aa60" opacity="0.4"/>
+<!-- Settlement markers -->
+<!-- 翰溪庄 (main) -->
+<g transform="translate(728,568)">
+  <rect x="-18" y="-18" width="36" height="36" fill="#6a3820" opacity="0.48"/>
+  <line x1="-18" y1="-18" x2="18" y2="18" stroke="#6a3820" stroke-width="1.5" opacity="0.35"/>
+  <line x1="18"  y1="-18" x2="-18" y2="18" stroke="#6a3820" stroke-width="1.5" opacity="0.35"/>
+  <rect x="-14" y="-14" width="28" height="28" fill="none" stroke="#6a3820" stroke-width="1" opacity="0.38"/>
+</g>
+<text x="688" y="628" font-family="serif" font-size="19" fill="#3a2010" opacity="0.82"
+      filter="url(#ink_b)">翰溪庄</text>
 
-  <!-- Paper fold lines -->
-  <line x1="640"  y1="0" x2="640"  y2="1080" stroke="#8a7040" stroke-width="1" opacity="0.15"/>
-  <line x1="1280" y1="0" x2="1280" y2="1080" stroke="#8a7040" stroke-width="1" opacity="0.15"/>
-  <line x1="0"    y1="360" x2="1920" y2="360" stroke="#8a7040" stroke-width="1" opacity="0.12"/>
-  <line x1="0"    y1="720" x2="1920" y2="720" stroke="#8a7040" stroke-width="1" opacity="0.12"/>
+<!-- Temple: 福德祠 -->
+<g transform="translate(968,488)">
+  <path d="M 0,-24 L -18,8 L 18,8 Z" fill="#6a2010" opacity="0.48"/>
+  <rect x="-12" y="8" width="24" height="16" fill="#6a2010" opacity="0.42"/>
+</g>
+<text x="928" y="548" font-family="serif" font-size="16" fill="#3a1808" opacity="0.72"
+      filter="url(#ink_b)">福德祠</text>
 
-  <!-- Aged spots -->
-  <circle cx="200"  cy="200"  r="40" fill="#6a5020" opacity="0.08"/>
-  <circle cx="1600" cy="800"  r="55" fill="#6a5020" opacity="0.07"/>
-  <circle cx="1000" cy="900"  r="35" fill="#6a5020" opacity="0.06"/>
+<!-- 三角庄 -->
+<g transform="translate(458,728)">
+  <rect x="-14" y="-14" width="28" height="28" fill="#6a3820" opacity="0.42"/>
+  <rect x="-10" y="-10" width="20" height="20" fill="none" stroke="#6a3820" stroke-width="1" opacity="0.38"/>
+</g>
+<text x="418" y="788" font-family="serif" font-size="16" fill="#3a2010" opacity="0.72"
+      filter="url(#ink_b)">三角庄</text>
 
-  <!-- Era annotation -->
-  <text x="80" y="180" font-family="serif" font-size="20" fill="#c8aa60" opacity="0.5">乾隆十八年　翰溪庄附近水路圖</text>
+<!-- 頂庄 -->
+<g transform="translate(588,188)">
+  <rect x="-14" y="-14" width="28" height="28" fill="#6a3820" opacity="0.42"/>
+</g>
+<text x="548" y="248" font-family="serif" font-size="15" fill="#3a2010" opacity="0.72"
+      filter="url(#ink_b)">頂庄</text>
 
-  <text x="30" y="50" font-family="monospace" font-size="18" fill="rgba(200,180,100,0.35)">BG: city_historical [placeholder]</text>
+<!-- 東庄 -->
+<g transform="translate(1358,508)">
+  <rect x="-14" y="-14" width="28" height="28" fill="#6a3820" opacity="0.42"/>
+</g>
+<text x="1318" y="568" font-family="serif" font-size="15" fill="#3a2010" opacity="0.72"
+      filter="url(#ink_b)">東庄</text>
+
+<!-- 水仙宮 temple -->
+<g transform="translate(1198,258)">
+  <path d="M 0,-22 L -16,8 L 16,8 Z" fill="#6a2010" opacity="0.45"/>
+  <rect x="-10" y="8" width="20" height="14" fill="#6a2010" opacity="0.38"/>
+</g>
+<text x="1158" y="312" font-family="serif" font-size="14" fill="#3a1808" opacity="0.68"
+      filter="url(#ink_b)">水仙宮</text>
+
+<!-- Compass rose (top right) -->
+<g transform="translate(1708,185)" opacity="0.48">
+  <line x1="0" y1="-38" x2="0"  y2="38"  stroke="#603820" stroke-width="2"/>
+  <line x1="-38" y1="0" x2="38" y2="0"   stroke="#603820" stroke-width="2"/>
+  <polygon points="0,-38 -8,-16 8,-16" fill="#603820"/>
+  <text x="-5" y="-42" font-family="serif" font-size="14" fill="#3a2010">北</text>
+  <text x="-5" y="54"  font-family="serif" font-size="12" fill="#3a2010">南</text>
+  <text x="42" y="4"   font-family="serif" font-size="12" fill="#3a2010">東</text>
+  <text x="-58" y="4"  font-family="serif" font-size="12" fill="#3a2010">西</text>
+</g>
+
+<!-- Map title box (top center) -->
+<rect x="695" y="78" width="530" height="85" fill="#c0aa7a" opacity="0.28" rx="4"/>
+<rect x="695" y="78" width="530" height="85" fill="none" stroke="#6a4a28" stroke-width="1.5" opacity="0.48" rx="4"/>
+<text x="960" y="132" font-family="serif" font-size="28" fill="#3a2010" opacity="0.88"
+      text-anchor="middle" filter="url(#ink_b)">翰溪庄水路圖</text>
+<text x="960" y="154" font-family="serif" font-size="13" fill="#5a3818" opacity="0.68"
+      text-anchor="middle">乾隆十八年　繪</text>
+
+<!-- Map annotations (scattered handwriting) -->
+<text x="198" y="178" font-family="serif" font-size="12" fill="#4a3018" opacity="0.58"
+      transform="rotate(-2,198,178)" filter="url(#ink_b)">水深三尺</text>
+<text x="1108" y="708" font-family="serif" font-size="11" fill="#4a3018" opacity="0.52"
+      transform="rotate(3,1108,708)" filter="url(#ink_b)">舊渡口</text>
+<text x="298" y="458" font-family="serif" font-size="12" fill="#4a3018" opacity="0.58"
+      transform="rotate(-1,298,458)" filter="url(#ink_b)">農田水利</text>
+<text x="1508" y="658" font-family="serif" font-size="11" fill="#4a3018" opacity="0.52"
+      transform="rotate(2,1508,658)" filter="url(#ink_b)">廢渠跡</text>
+<text x="638"  cy="248" y="248" font-family="serif" font-size="11" fill="#4a3018" opacity="0.50"
+      transform="rotate(-3,638,248)" filter="url(#ink_b)">此段已淤</text>
+<text x="868"  y="658" font-family="serif" font-size="11" fill="#4a3018" opacity="0.50"
+      transform="rotate(1,868,658)" filter="url(#ink_b)">支渠引灌</text>
+<text x="1608" y="308" font-family="serif" font-size="12" fill="#4a3018" opacity="0.52"
+      transform="rotate(-2,1608,308)" filter="url(#ink_b)">地勢低窪</text>
+
+<!-- Legend box (right side) -->
+<rect x="1478" y="188" width="208" height="82" fill="none" stroke="#5a3818" stroke-width="1" opacity="0.35"/>
+<text x="1488" y="208" font-family="serif" font-size="14" fill="#3a2010" opacity="0.62"
+      transform="rotate(-1,1488,208)" filter="url(#ink_b)">□ 庄社</text>
+<text x="1488" y="228" font-family="serif" font-size="14" fill="#3a2010" opacity="0.62"
+      transform="rotate(-1,1488,228)" filter="url(#ink_b)">△ 廟祠</text>
+<text x="1488" y="248" font-family="serif" font-size="14" fill="#3a2010" opacity="0.62"
+      transform="rotate(-1,1488,248)" filter="url(#ink_b)">～ 水路</text>
+
+<!-- Aged paper edge darkening -->
+<rect width="1920" height="1080" fill="url(#paper_edge)"/>
 </svg>

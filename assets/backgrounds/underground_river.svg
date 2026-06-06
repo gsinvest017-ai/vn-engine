@@ -1,51 +1,241 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
-  <defs>
-    <linearGradient id="tunnel_bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#020208"/>
-      <stop offset="100%" stop-color="#060418"/>
-    </linearGradient>
-    <radialGradient id="water_glow" cx="50%" cy="80%" r="50%">
-      <stop offset="0%"  stop-color="#1a3a5c" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#1a3a5c" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+<defs>
+  <!-- Tunnel depth: dark far center, darker near edges -->
+  <radialGradient id="tunnel_depth" cx="50%" cy="60%" r="55%">
+    <stop offset="0%"   stop-color="#0e1520" stop-opacity="1.0"/>
+    <stop offset="50%"  stop-color="#080c12" stop-opacity="1.0"/>
+    <stop offset="100%" stop-color="#020306" stop-opacity="1.0"/>
+  </radialGradient>
+  <!-- Water surface with blue-green phosphorescent shimmer -->
+  <linearGradient id="water_g" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"  stop-color="#0a1e28"/>
+    <stop offset="60%" stop-color="#060e14"/>
+    <stop offset="100%" stop-color="#020608"/>
+  </linearGradient>
+  <!-- Phosphorescent glow from water -->
+  <radialGradient id="phosphor" cx="50%" cy="40%" r="50%">
+    <stop offset="0%"   stop-color="#20d0b0" stop-opacity="0.18"/>
+    <stop offset="35%"  stop-color="#10a888" stop-opacity="0.08"/>
+    <stop offset="100%" stop-color="#006040" stop-opacity="0.0"/>
+  </radialGradient>
+  <!-- Far end of tunnel (lighter, mysterious) -->
+  <radialGradient id="tunnel_end" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#1a3040" stop-opacity="0.7"/>
+    <stop offset="60%"  stop-color="#0a1520" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#000000" stop-opacity="0.0"/>
+  </radialGradient>
+  <!-- Drip glow -->
+  <radialGradient id="drip_g" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"  stop-color="#60e8d0" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#20a080" stop-opacity="0.0"/>
+  </radialGradient>
+  <radialGradient id="vign_t" cx="50%" cy="50%" r="65%">
+    <stop offset="0%"   stop-color="#000" stop-opacity="0.0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.82"/>
+  </radialGradient>
+  <filter id="glow_w" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="18"/>
+  </filter>
+  <filter id="glow_sm" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="moss_t" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="3" result="n"/>
+    <feColorMatrix type="saturate" values="0.4" in="n" result="green_n"/>
+    <feBlend in="SourceGraphic" in2="green_n" mode="multiply"/>
+  </filter>
+  <filter id="water_shimmer" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="turbulence" baseFrequency="0.025" numOctaves="2" seed="3" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <clipPath id="tunnel_clip">
+    <path d="M 0,0 L 1920,0 L 1920,1080 L 0,1080 Z"/>
+  </clipPath>
+</defs>
 
-  <rect width="1920" height="1080" fill="url(#tunnel_bg)"/>
+<!-- Base dark tunnel background -->
+<rect width="1920" height="1080" fill="url(#tunnel_depth)"/>
 
-  <!-- Tunnel arch -->
-  <ellipse cx="960" cy="0" rx="700" ry="350" fill="none" stroke="#1a1428" stroke-width="60"/>
-  <ellipse cx="960" cy="0" rx="640" ry="310" fill="#020208"/>
+<!-- ─── BRICK ARCH TUNNEL IN PERSPECTIVE ─── -->
+<!-- The tunnel recedes to a vanishing point at center (960, 480) -->
 
-  <!-- Brick texture (arch walls) simplified -->
-  <rect x="0"    y="0" width="260" height="1080" fill="#0a0810"/>
-  <rect x="1660" y="0" width="260" height="1080" fill="#0a0810"/>
+<!-- Far end of tunnel (glowing distant light) -->
+<ellipse cx="960" cy="485" rx="140" ry="140" fill="url(#tunnel_end)"/>
+<ellipse cx="960" cy="485" rx="88"  ry="88"  fill="#1a3040" opacity="0.55" filter="url(#glow_w)"/>
+<ellipse cx="960" cy="485" rx="45"  ry="45"  fill="#20506a" opacity="0.35" filter="url(#glow_w)"/>
 
-  <!-- Underground water surface -->
-  <ellipse cx="960" cy="900" rx="800" ry="80" fill="#0a1e30" opacity="0.8"/>
-  <rect x="160" y="880" width="1600" height="200" fill="#060e1c" opacity="0.9"/>
+<!-- Tunnel arch outlines (perspective recession) -->
+<!-- Outermost arch (foreground) -->
+<path d="M 0,200 Q 0,0 200,0 L 1720,0 Q 1920,0 1920,200 L 1920,1080 L 0,1080 Z"
+      fill="#060810" stroke="none"/>
+<!-- Brick arch 1 (foreground edge) -->
+<path d="M 85,260 Q 85,75 268,75 L 1652,75 Q 1835,75 1835,260 L 1835,1080 L 85,1080 Z"
+      fill="#0a0c12"/>
+<!-- Brick arch 2 -->
+<path d="M 225,340 Q 225,175 392,175 L 1528,175 Q 1695,175 1695,340 L 1695,1080 L 225,1080 Z"
+      fill="#0c0e14"/>
+<!-- Brick arch 3 -->
+<path d="M 362,420 Q 362,272 515,272 L 1405,272 Q 1558,272 1558,420 L 1558,1080 L 362,1080 Z"
+      fill="#0e1018"/>
+<!-- Brick arch 4 -->
+<path d="M 492,490 Q 492,365 630,365 L 1290,365 Q 1428,365 1428,490 L 1428,1080 L 492,1080 Z"
+      fill="#10121a"/>
+<!-- Brick arch 5 -->
+<path d="M 610,555 Q 610,448 732,448 L 1188,448 Q 1310,448 1310,555 L 1310,1080 L 610,1080 Z"
+      fill="#12141c"/>
+<!-- Brick arch 6 (inner) -->
+<path d="M 718,612 Q 718,524 828,524 L 1092,524 Q 1202,524 1202,612 L 1202,1080 L 718,1080 Z"
+      fill="#14161e"/>
 
-  <!-- Water glow -->
-  <rect x="0" y="700" width="1920" height="380" fill="url(#water_glow)"/>
+<!-- Brick texture on tunnel walls (horizontal lines suggesting brickwork) -->
+<!-- Left wall bricks -->
+<g stroke="#0c0e14" stroke-width="1.5" fill="none" opacity="0.6">
+  <line x1="85"  y1="350" x2="362" y2="440"/>
+  <line x1="85"  y1="420" x2="362" y2="500"/>
+  <line x1="85"  y1="490" x2="362" y2="558"/>
+  <line x1="85"  y1="560" x2="362" y2="616"/>
+  <line x1="85"  y1="630" x2="362" y2="672"/>
+  <line x1="85"  y1="700" x2="362" y2="730"/>
+  <line x1="85"  y1="770" x2="362" y2="790"/>
+  <line x1="85"  y1="840" x2="362" y2="850"/>
+  <line x1="85"  y1="910" x2="362" y2="910"/>
+  <line x1="85"  y1="980" x2="362" y2="972"/>
+  <line x1="362" y1="440" x2="610" y2="510"/>
+  <line x1="362" y1="510" x2="610" y2="570"/>
+  <line x1="362" y1="580" x2="610" y2="630"/>
+  <line x1="362" y1="650" x2="610" y2="690"/>
+  <line x1="362" y1="720" x2="610" y2="752"/>
+  <line x1="362" y1="790" x2="610" y2="815"/>
+  <line x1="362" y1="860" x2="610" y2="878"/>
+  <line x1="362" y1="930" x2="610" y2="941"/>
+  <line x1="362" y1="1000" x2="610" y2="1004"/>
+  <line x1="610" y1="510" x2="718" y2="545"/>
+  <line x1="610" y1="575" x2="718" y2="600"/>
+  <line x1="610" y1="640" x2="718" y2="658"/>
+  <line x1="610" y1="705" x2="718" y2="718"/>
+  <line x1="610" y1="770" x2="718" y2="778"/>
+  <line x1="610" y1="835" x2="718" y2="840"/>
+  <line x1="610" y1="900" x2="718" y2="900"/>
+</g>
+<!-- Right wall bricks (mirrored) -->
+<g stroke="#0c0e14" stroke-width="1.5" fill="none" opacity="0.6">
+  <line x1="1835" y1="350" x2="1558" y2="440"/>
+  <line x1="1835" y1="420" x2="1558" y2="500"/>
+  <line x1="1835" y1="490" x2="1558" y2="558"/>
+  <line x1="1835" y1="560" x2="1558" y2="616"/>
+  <line x1="1835" y1="630" x2="1558" y2="672"/>
+  <line x1="1835" y1="700" x2="1558" y2="730"/>
+  <line x1="1835" y1="770" x2="1558" y2="790"/>
+  <line x1="1835" y1="840" x2="1558" y2="850"/>
+  <line x1="1835" y1="910" x2="1558" y2="910"/>
+  <line x1="1835" y1="980" x2="1558" y2="972"/>
+  <line x1="1558" y1="440" x2="1310" y2="510"/>
+  <line x1="1558" y1="510" x2="1310" y2="570"/>
+  <line x1="1558" y1="580" x2="1310" y2="630"/>
+  <line x1="1558" y1="650" x2="1310" y2="690"/>
+  <line x1="1558" y1="720" x2="1310" y2="752"/>
+  <line x1="1558" y1="790" x2="1310" y2="815"/>
+  <line x1="1558" y1="860" x2="1310" y2="878"/>
+  <line x1="1558" y1="930" x2="1310" y2="941"/>
+  <line x1="1558" y1="1000" x2="1310" y2="1004"/>
+  <line x1="1310" y1="510" x2="1202" y2="545"/>
+  <line x1="1310" y1="575" x2="1202" y2="600"/>
+  <line x1="1310" y1="640" x2="1202" y2="658"/>
+  <line x1="1310" y1="705" x2="1202" y2="718"/>
+  <line x1="1310" y1="770" x2="1202" y2="778"/>
+  <line x1="1310" y1="835" x2="1202" y2="840"/>
+  <line x1="1310" y1="900" x2="1202" y2="900"/>
+</g>
 
-  <!-- Water ripples -->
-  <ellipse cx="960" cy="890" rx="600" ry="20" fill="none" stroke="#1a3a5c" stroke-width="2" opacity="0.4"/>
-  <ellipse cx="960" cy="890" rx="400" ry="13" fill="none" stroke="#1a3a5c" stroke-width="1.5" opacity="0.3"/>
-  <ellipse cx="960" cy="890" rx="200" ry="7" fill="none" stroke="#1a3a5c" stroke-width="1" opacity="0.25"/>
+<!-- Moss/water stains on upper arch edges (green-grey) -->
+<g filter="url(#moss_t)" opacity="0.12">
+  <ellipse cx="275" cy="175" rx="180" ry="45"  fill="#204828"/>
+  <ellipse cx="960" cy="95"  rx="350" ry="35"  fill="#1a4022"/>
+  <ellipse cx="1645" cy="175" rx="180" ry="45" fill="#204828"/>
+  <ellipse cx="490" cy="272" rx="130" ry="32"  fill="#1e4020"/>
+  <ellipse cx="1430" cy="272" rx="130" ry="32" fill="#1e4020"/>
+</g>
 
-  <!-- Boat silhouette -->
-  <path d="M 720,860 Q 770,840 960,838 Q 1150,840 1200,860 L 1180,875 L 740,875 Z" fill="#080610" opacity="0.85"/>
-  <!-- Boat oar/pole -->
-  <line x1="1160" y1="800" x2="1200" y2="880" stroke="#0c0a10" stroke-width="5"/>
+<!-- ─── WATER SURFACE ─── -->
+<rect x="0" y="760" width="1920" height="320" fill="url(#water_g)"/>
+<!-- Phosphorescent glow on water -->
+<rect x="0" y="760" width="1920" height="320" fill="url(#phosphor)"/>
+<!-- Water shimmer / ripples -->
+<ellipse cx="960"  cy="780" rx="680" ry="35"  fill="#20d8b8" opacity="0.055" filter="url(#glow_w)"/>
+<ellipse cx="960"  cy="800" rx="500" ry="22"  fill="#18c0a0" opacity="0.042" filter="url(#glow_w)"/>
+<ellipse cx="820"  cy="840" rx="200" ry="14"  fill="#20d8b8" opacity="0.038"/>
+<ellipse cx="1180" cy="855" rx="180" ry="12"  fill="#18c0a0" opacity="0.032"/>
+<ellipse cx="560"  cy="870" rx="140" ry="10"  fill="#20d8b8" opacity="0.028"/>
+<ellipse cx="1420" cy="860" rx="155" ry="11"  fill="#18c0a0" opacity="0.030"/>
+<!-- Water ripple lines (subtle) -->
+<g opacity="0.05" stroke="#40e8c8" stroke-width="1.2" fill="none" filter="url(#water_shimmer)">
+  <ellipse cx="960" cy="800" rx="320" ry="18"/>
+  <ellipse cx="960" cy="830" rx="420" ry="22"/>
+  <ellipse cx="960" cy="865" rx="510" ry="26"/>
+  <ellipse cx="960" cy="900" rx="600" ry="30"/>
+</g>
 
-  <!-- Dripping water from ceiling -->
-  <line x1="300"  y1="300" x2="300"  y2="600" stroke="#0c1830" stroke-width="1.5" opacity="0.3"/>
-  <line x1="650"  y1="200" x2="650"  y2="550" stroke="#0c1830" stroke-width="1.5" opacity="0.25"/>
-  <line x1="1270" y1="250" x2="1270" y2="580" stroke="#0c1830" stroke-width="1.5" opacity="0.25"/>
-  <line x1="1620" y1="310" x2="1620" y2="620" stroke="#0c1830" stroke-width="1.5" opacity="0.3"/>
+<!-- ─── OLD WOODEN BOAT (distant, small) ─── -->
+<g transform="translate(960,755)" opacity="0.45">
+  <!-- Boat hull -->
+  <path d="M -55,0 Q -60,18 -45,24 L 45,24 Q 60,18 55,0 Z" fill="#1a1208"/>
+  <!-- Boat interior -->
+  <path d="M -40,0 L 40,0 L 38,18 L -38,18 Z" fill="#140e06" opacity="0.8"/>
+  <!-- Single oar suggestion -->
+  <line x1="42" y1="10" x2="82" y2="35" stroke="#1a1008" stroke-width="3" stroke-linecap="round"/>
+  <!-- Boat mast hint (just a pole leaning) -->
+  <line x1="-8" y1="0" x2="-18" y2="-55" stroke="#160e08" stroke-width="2.5" stroke-linecap="round"/>
+</g>
+<!-- Boat reflection on water -->
+<g transform="translate(960,780)" opacity="0.18" style="transform: scaleY(-0.4) translateY(-5px)">
+  <path d="M -55,0 Q -60,18 -45,24 L 45,24 Q 60,18 55,0 Z" fill="#20d8b8"/>
+</g>
 
-  <!-- Faint bioluminescence on water -->
-  <ellipse cx="500"  cy="890" rx="50" ry="8" fill="#1a3a5c" opacity="0.25"/>
-  <ellipse cx="1400" cy="888" rx="40" ry="7" fill="#1a3a5c" opacity="0.22"/>
+<!-- ─── WATER DRIPS FROM CEILING ─── -->
+<!-- Drip trails from arch above -->
+<g opacity="0.22" stroke="#30c0a0" stroke-width="1" fill="none">
+  <line x1="280"  y1="200" x2="270"  y2="580"/>
+  <line x1="480"  y1="310" x2="472"  y2="640"/>
+  <line x1="680"  y1="390" x2="674"  y2="700"/>
+  <line x1="820"  y1="450" x2="815"  y2="720"/>
+  <line x1="1100" y1="450" x2="1105" y2="720"/>
+  <line x1="1240" y1="390" x2="1246" y2="700"/>
+  <line x1="1440" y1="310" x2="1448" y2="640"/>
+  <line x1="1640" y1="200" x2="1650" y2="580"/>
+</g>
+<!-- Drip droplets (where drops hit the ledge or water) -->
+<g fill="url(#drip_g)" filter="url(#glow_sm)">
+  <circle cx="270"  cy="582" r="4" opacity="0.6"/>
+  <circle cx="472"  cy="642" r="3" opacity="0.5"/>
+  <circle cx="674"  cy="702" r="3" opacity="0.5"/>
+  <circle cx="815"  cy="722" r="3" opacity="0.5"/>
+  <circle cx="1105" cy="722" r="3" opacity="0.5"/>
+  <circle cx="1246" cy="702" r="3" opacity="0.5"/>
+  <circle cx="1448" cy="642" r="3" opacity="0.5"/>
+  <circle cx="1650" cy="582" r="4" opacity="0.6"/>
+</g>
+<!-- Drip ripples on water surface -->
+<g opacity="0.08" stroke="#40e8c8" stroke-width="1" fill="none">
+  <circle cx="815"  cy="778" r="18"/>
+  <circle cx="815"  cy="778" r="32"/>
+  <circle cx="1105" cy="782" r="15"/>
+  <circle cx="1105" cy="782" r="28"/>
+</g>
 
-  <text x="30" y="50" font-family="monospace" font-size="18" fill="rgba(100,140,200,0.35)">BG: underground_river [placeholder]</text>
+<!-- Phosphorescent patches on walls (glowing mold/bacteria) -->
+<ellipse cx="250"  cy="680" rx="30" ry="18" fill="#20c8a0" opacity="0.06" filter="url(#glow_w)"/>
+<ellipse cx="1680" cy="660" rx="28" ry="16" fill="#20c8a0" opacity="0.06" filter="url(#glow_w)"/>
+<ellipse cx="470"  cy="750" rx="20" ry="12" fill="#18c090" opacity="0.05" filter="url(#glow_w)"/>
+<ellipse cx="1460" cy="740" rx="22" ry="13" fill="#18c090" opacity="0.05" filter="url(#glow_w)"/>
+
+<!-- Water surface light path (tunnel of glowing water center) -->
+<ellipse cx="960" cy="810" rx="360" ry="28" fill="#20d8b8" opacity="0.030" filter="url(#glow_w)"/>
+
+<!-- Heavy vignette for claustrophobic feel -->
+<rect width="1920" height="1080" fill="url(#vign_t)"/>
+<rect x="0"    y="0" width="280"  height="1080" fill="#000" opacity="0.62"/>
+<rect x="1640" y="0" width="280"  height="1080" fill="#000" opacity="0.62"/>
+<rect x="0"    y="0" width="1920" height="100"  fill="#000" opacity="0.70"/>
+<rect x="0"  y="980" width="1920" height="100"  fill="#000" opacity="0.65"/>
 </svg>
