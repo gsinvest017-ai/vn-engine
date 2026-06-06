@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暗渠之書 ⌘ Dev Dashboard</title>
+<style>
+/* ── Reset & Variables ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #06060f;
+  --panel:   #0b0b18;
+  --panel2:  #0e0e1e;
+  --border:  #1a1a2e;
+  --border2: #2a2a44;
+  --text:    #b8a888;
+  --dim:     #4a4060;
+  --muted:   #6a5a78;
+  --amber:   #c07820;
+  --amberB:  #e09830;
+  --teal:    #508898;
+  --green:   #508868;
+  --red:     #b03030;
+  --blue:    #4878a0;
+  --info:    #607898;
+  --scrollbar: #1e1e34;
+}
+html, body {
+  height: 100%; background: var(--bg); color: var(--text);
+  font-family: 'Consolas', 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 12.5px; line-height: 1.5; overflow: hidden;
+}
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: var(--bg); }
+::-webkit-scrollbar-thumb  { background: var(--scrollbar); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border2); }
+
+/* ── Top Bar ───────────────────────────────────────────────────── */
+#topbar {
+  height: 38px; background: var(--panel); border-bottom: 1px solid var(--amber);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 14px; flex-shrink: 0; position: relative; z-index: 10;
+}
+#title { font-size: 13px; color: var(--amberB); letter-spacing: 0.04em; }
+#title .dim { color: var(--muted); }
+#topbar .actions { display: flex; align-items: center; gap: 10px; }
+.dot { font-size: 10px; }
+.dot.ok  { color: var(--green); }
+.dot.err { color: var(--red); }
+.btn {
+  background: var(--panel2); border: 1px solid var(--border2); color: var(--text);
+  padding: 3px 10px; font-size: 11.5px; font-family: inherit; cursor: pointer;
+  border-radius: 3px; text-decoration: none; display: inline-block;
+  transition: border-color .15s, color .15s;
+}
+.btn:hover { border-color: var(--amber); color: var(--amberB); }
+.btn.primary { border-color: var(--amber); color: var(--amberB); }
+
+/* ── Main Layout ───────────────────────────────────────────────── */
+#layout {
+  display: grid;
+  grid-template-columns: 220px 1fr 280px;
+  height: calc(100vh - 38px);
+  overflow: hidden;
+}
+
+/* ── Panels ────────────────────────────────────────────────────── */
+.panel {
+  border-bottom: 1px solid var(--border);
+  display: flex; flex-direction: column;
+}
+.panel-hd {
+  font-size: 10px; letter-spacing: .1em; color: var(--amber);
+  padding: 6px 10px 5px; border-bottom: 1px solid var(--border);
+  flex-shrink: 0; display: flex; align-items: center; gap: 6px;
+}
+.panel-body {
+  overflow-y: auto; padding: 0; flex: 1;
+}
+
+/* ── Left Sidebar ──────────────────────────────────────────────── */
+#sidebar-left {
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+#sidebar-left .panel { flex-shrink: 0; }
+#panel-scripts { flex: 0 0 auto; }
+#panel-validate { flex: 0 1 auto; max-height: 220px; }
+#panel-git { flex: 1 1 0; min-height: 80px; }
+
+/* Script list */
+.script-item {
+  padding: 5px 10px; cursor: pointer; border-left: 2px solid transparent;
+  display: flex; flex-direction: column; gap: 2px;
+  border-bottom: 1px solid var(--border);
+  transition: background .1s;
+}
+.script-item:hover   { background: var(--panel2); }
+.script-item.active  { border-left-color: var(--amber); background: var(--panel2); }
+.script-name { color: var(--amberB); font-size: 12px; }
+.script-meta { color: var(--muted); font-size: 10.5px; display: flex; gap: 8px; }
+.script-meta span { white-space: nowrap; }
+
+/* Validate list */
+.issue-item {
+  padding: 4px 10px; border-bottom: 1px solid var(--border);
+  display: flex; gap: 6px; align-items: flex-start;
+  font-size: 11px;
+}
+.issue-icon { flex-shrink: 0; font-size: 10px; margin-top: 1px; }
+.issue-icon.error   { color: var(--red); }
+.issue-icon.warning { color: var(--amber); }
+.issue-icon.info    { color: var(--info); }
+.issue-body { flex: 1; min-width: 0; }
+.issue-loc  { color: var(--muted); font-size: 10px; }
+.issue-msg  { color: var(--text); white-space: normal; word-break: break-word; }
+
+/* Git log */
+.git-item {
+  padding: 4px 10px; border-bottom: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 1px;
+}
+.git-hash { color: var(--teal); font-size: 10.5px; }
+.git-msg  { color: var(--text); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.git-date { color: var(--muted); font-size: 10px; }
+
+/* ── Center: Script Viewer ─────────────────────────────────────── */
+#content {
+  display: flex; flex-direction: column; overflow: hidden;
+  border-right: 1px solid var(--border);
+}
+#script-topbar {
+  height: 32px; background: var(--panel); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 12px; flex-shrink: 0;
+}
+#current-file { color: var(--muted); font-size: 11.5px; }
+#cmd-stats {
+  display: flex; gap: 10px; font-size: 10.5px;
+}
+.stat { color: var(--muted); }
+.stat b { color: var(--text); font-weight: normal; }
+#script-viewer {
+  flex: 1; overflow-y: auto; padding: 6px 0;
+}
+#script-hint {
+  display: flex; align-items: center; justify-content: center;
+  height: 100%; color: var(--dim); font-size: 13px;
+}
+
+/* VNS line coloring */
+.vline {
+  display: flex; align-items: flex-start; gap: 0; min-height: 19px;
+  padding: 0 4px;
+}
+.vline:hover { background: rgba(255,255,255,.03); }
+.vline.has-error   { background: rgba(176,48,48,.08); }
+.vline.has-warning { background: rgba(192,120,32,.06); }
+.vline.has-info    { background: rgba(96,120,152,.06); }
+.ln {
+  min-width: 38px; text-align: right; padding-right: 8px;
+  color: var(--dim); user-select: none; flex-shrink: 0; font-size: 11px;
+  padding-top: 1px;
+}
+.lc { flex: 1; min-width: 0; padding-right: 6px; font-size: 12px; word-break: break-word; }
+.jump-btn {
+  flex-shrink: 0; padding: 0 5px; color: var(--border2); font-size: 10px;
+  text-decoration: none; align-self: center;
+  transition: color .1s;
+}
+.jump-btn:hover { color: var(--amberB); }
+
+/* VNS syntax tokens */
+.t-cmd    { color: var(--amber); }
+.t-key    { color: var(--teal); }
+.t-val    { color: var(--green); }
+.t-char   { color: #70b0c8; }
+.t-dial   { color: #e0d4c0; }
+.t-narr   { color: var(--text); }
+.t-emph   { color: #c8a850; font-style: italic; }
+.t-cmt    { color: var(--dim); }
+.t-blank  {}
+.t-issue  { color: var(--red); font-size: 10px; }
+
+/* ── Right Sidebar ─────────────────────────────────────────────── */
+#sidebar-right {
+  display: flex; flex-direction: column; overflow: hidden;
+}
+#sidebar-right .panel { flex-shrink: 0; }
+#panel-bgs { flex: 0 0 auto; max-height: 280px; }
+#panel-chars { flex: 0 1 auto; max-height: 250px; }
+#panel-audio { flex: 1 1 0; min-height: 60px; }
+
+/* Background grid */
+#bg-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6px; padding: 8px;
+  overflow-y: auto;
+}
+.bg-thumb {
+  position: relative; aspect-ratio: 16/9; overflow: hidden;
+  border: 1px solid var(--border); border-radius: 2px; cursor: pointer;
+  transition: border-color .15s;
+}
+.bg-thumb:hover { border-color: var(--amber); }
+.bg-thumb img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  background: var(--panel2);
+}
+.bg-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(6,6,15,.8); color: var(--muted);
+  font-size: 9.5px; padding: 2px 4px; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.bg-status {
+  position: absolute; top: 3px; right: 3px;
+  font-size: 9px; padding: 1px 4px; border-radius: 2px;
+}
+.s-ready      { background: rgba(80,136,104,.5); color: #90d0b0; }
+.s-procedural { background: rgba(80,80,128,.5);  color: #9090d0; }
+.s-missing    { background: rgba(176,48,48,.5);  color: #e07070; }
+
+/* Character grid */
+#char-grid { overflow-y: auto; padding: 6px; }
+.char-section { margin-bottom: 6px; }
+.char-name {
+  font-size: 10px; color: var(--amber); padding: 3px 4px; margin-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+.expr-row { display: flex; flex-wrap: wrap; gap: 4px; padding: 0 4px; }
+.expr-thumb {
+  position: relative; width: 44px; cursor: pointer;
+  border: 1px solid var(--border); border-radius: 2px; overflow: hidden;
+  transition: border-color .15s;
+}
+.expr-thumb:hover { border-color: var(--teal); }
+.expr-thumb img { width: 100%; display: block; background: var(--panel2); }
+.expr-name {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(6,6,15,.85); color: var(--muted);
+  font-size: 8px; padding: 1px 2px; text-align: center;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* Audio list */
+#audio-list { overflow-y: auto; }
+.audio-section-hd {
+  font-size: 10px; color: var(--muted); padding: 4px 10px 2px;
+  border-bottom: 1px solid var(--border);
+}
+.audio-item {
+  display: flex; align-items: center; gap: 6px;
+  padding: 3px 10px; border-bottom: 1px solid var(--border);
+  font-size: 11px;
+}
+.audio-icon { font-size: 10px; width: 14px; text-align: center; flex-shrink: 0; }
+.audio-icon.ok   { color: var(--green); }
+.audio-icon.proc { color: var(--blue); }
+.audio-icon.miss { color: var(--red); }
+.audio-id   { color: var(--text); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.audio-desc { color: var(--muted); font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px; }
+
+/* ── Lightbox ──────────────────────────────────────────────────── */
+#lightbox {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88);
+  z-index: 100; align-items: center; justify-content: center; flex-direction: column;
+  gap: 10px; cursor: pointer;
+}
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 90vw; max-height: 85vh; border: 1px solid var(--border2); }
+#lightbox-caption { color: var(--muted); font-size: 11px; }
+
+/* ── Misc ───────────────────────────────────────────────────────── */
+.empty { color: var(--dim); font-size: 11px; padding: 8px 10px; }
+.badge {
+  font-size: 9px; padding: 0 5px; border-radius: 10px; margin-left: 2px;
+  background: var(--border); color: var(--muted);
+}
+.badge.red { background: rgba(176,48,48,.3); color: #e07070; }
+</style>
+</head>
+<body>
+
+<header id="topbar">
+  <div>
+    <span id="title">暗渠之書 <span class="dim">⌘ Dev Dashboard</span></span>
+  </div>
+  <div class="actions">
+    <span id="dot" class="dot ok" title="Server OK">●</span>
+    <a class="btn primary" href="/engine/" target="_blank">▶ 開啟遊戲</a>
+    <button class="btn" onclick="refreshAll()">↺ 重整</button>
+  </div>
+</header>
+
+<div id="layout">
+
+  <!-- ═══ Left Sidebar ══════════════════════════════════════════ -->
+  <aside id="sidebar-left">
+    <!-- Scripts -->
+    <div class="panel" id="panel-scripts">
+      <div class="panel-hd">SCRIPTS <span id="script-count" class="badge"></span></div>
+      <div class="panel-body" id="scripts-list">
+        <div class="empty">載入中…</div>
+      </div>
+    </div>
+    <!-- Validate -->
+    <div class="panel" id="panel-validate">
+      <div class="panel-hd">VALIDATE <span id="issue-badge" class="badge"></span></div>
+      <div class="panel-body" id="validate-list">
+        <div class="empty">載入中…</div>
+      </div>
+    </div>
+    <!-- Git -->
+    <div class="panel" id="panel-git">
+      <div class="panel-hd">GIT LOG</div>
+      <div class="panel-body" id="git-list">
+        <div class="empty">載入中…</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══ Center: Script Viewer ════════════════════════════════ -->
+  <main id="content">
+    <div id="script-topbar">
+      <span id="current-file">← 選取腳本</span>
+      <div id="cmd-stats"></div>
+    </div>
+    <div id="script-viewer">
+      <div id="script-hint">← 從左側選取 .vns 腳本</div>
+    </div>
+  </main>
+
+  <!-- ═══ Right Sidebar: Assets ════════════════════════════════ -->
+  <aside id="sidebar-right">
+    <!-- Backgrounds -->
+    <div class="panel" id="panel-bgs">
+      <div class="panel-hd">BACKGROUNDS</div>
+      <div class="panel-body">
+        <div id="bg-grid"><div class="empty">載入中…</div></div>
+      </div>
+    </div>
+    <!-- Characters -->
+    <div class="panel" id="panel-chars">
+      <div class="panel-hd">CHARACTERS</div>
+      <div class="panel-body" id="char-grid">
+        <div class="empty">載入中…</div>
+      </div>
+    </div>
+    <!-- Audio -->
+    <div class="panel" id="panel-audio">
+      <div class="panel-hd">AUDIO</div>
+      <div class="panel-body" id="audio-list">
+        <div class="empty">載入中…</div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- Lightbox for fullsize preview -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lb-img" src="" alt="">
+  <div id="lightbox-caption"></div>
+  <div style="color:var(--dim);font-size:10px">點擊任意處關閉</div>
+</div>
+
+<script>
+// ── State ─────────────────────────────────────────────────────────
+const S = {
+  scripts:   [],
+  manifest:  {},
+  assetMap:  {},
+  issues:    [],
+  gitLog:    [],
+  activeFile: null,
+  content:   null,
+};
+
+// ── Fetch helpers ──────────────────────────────────────────────────
+async function api(path) {
+  try {
+    const r = await fetch(path);
+    if (!r.ok) throw new Error(r.status);
+    return r.json();
+  } catch (e) {
+    console.error('API error', path, e);
+    return null;
+  }
+}
+
+// ── Bootstrap ─────────────────────────────────────────────────────
+async function refreshAll() {
+  document.getElementById('dot').className = 'dot';
+  document.getElementById('dot').title = '載入中…';
+
+  const [scripts, manifest, assetMap, issues, gitLog] = await Promise.all([
+    api('/api/scripts'),
+    api('/api/manifest'),
+    api('/api/assets/check'),
+    api('/api/validate'),
+    api('/api/git/log'),
+  ]);
+
+  if (scripts)   S.scripts  = scripts;
+  if (manifest)  S.manifest = manifest;
+  if (assetMap)  S.assetMap = assetMap;
+  if (issues)    S.issues   = issues;
+  if (gitLog)    S.gitLog   = gitLog;
+
+  document.getElementById('dot').className = 'dot ok';
+  document.getElementById('dot').title = 'Server OK';
+
+  renderScripts();
+  renderValidate();
+  renderGit();
+  renderBackgrounds();
+  renderCharacters();
+  renderAudio();
+
+  // Re-render open file if any
+  if (S.activeFile) loadScript(S.activeFile);
+}
+
+// ── Scripts List ──────────────────────────────────────────────────
+function renderScripts() {
+  const el = document.getElementById('scripts-list');
+  const badge = document.getElementById('script-count');
+  badge.textContent = S.scripts.length;
+  if (!S.scripts.length) { el.innerHTML = '<div class="empty">無 .vns 檔案</div>'; return; }
+
+  el.innerHTML = S.scripts.map(s => {
+    const active = S.activeFile === s.path ? ' active' : '';
+    const total = s.cmds ? Object.values(s.cmds).reduce((a,b)=>a+b,0) : '?';
+    const est   = s.est_min ? `~${s.est_min}min` : '';
+    return `<div class="script-item${active}" onclick="loadScript('${esc(s.path)}')">
+      <span class="script-name">${esc(s.name)}.vns</span>
+      <span class="script-meta">
+        <span>${s.lines} 行</span>
+        <span>${total} 指令</span>
+        <span>${est}</span>
+      </span>
+    </div>`;
+  }).join('');
+}
+
+// ── Load & Render Script ──────────────────────────────────────────
+async function loadScript(path) {
+  S.activeFile = path;
+  renderScripts(); // update active state
+
+  document.getElementById('current-file').textContent = path;
+  document.getElementById('script-viewer').innerHTML = '<div class="empty">載入中…</div>';
+
+  const data = await api(`/api/scripts/content?f=${encodeURIComponent(path)}`);
+  if (!data) {
+    document.getElementById('script-viewer').innerHTML = '<div class="empty" style="color:var(--red)">無法讀取</div>';
+    return;
+  }
+  S.content = data.content;
+
+  // Stats for this file
+  const meta = S.scripts.find(s => s.path === path);
+  if (meta && meta.cmds) {
+    const c = meta.cmds;
+    document.getElementById('cmd-stats').innerHTML = [
+      `<span class="stat">對話 <b>${c.dialogue}</b></span>`,
+      `<span class="stat">旁白 <b>${c.narration}</b></span>`,
+      `<span class="stat">場景 <b>${c.scene}</b></span>`,
+      `<span class="stat">選擇 <b>${c.choice}</b></span>`,
+      meta.est_min ? `<span class="stat">~<b>${meta.est_min}</b>min</span>` : '',
+    ].join('');
+  }
+
+  // Render colorized lines
+  const fileIssues = S.issues.filter(i => i.file === path);
+  const issueMap = {};
+  fileIssues.forEach(i => {
+    if (!issueMap[i.line]) issueMap[i.line] = [];
+    issueMap[i.line].push(i);
+  });
+
+  const lines = data.content.split('\n');
+  const html = lines.map((raw, idx) => {
+    const lineNum = idx + 1;
+    const lineIssues = issueMap[lineNum] || [];
+    const issueCls = lineIssues.length
+      ? ` has-${lineIssues[0].type}` : '';
+
+    const issueTitle = lineIssues.map(i => i.msg).join(' | ');
+    const issueHtml  = lineIssues.length
+      ? `<span class="t-issue" title="${esc(issueTitle)}">${lineIssues[0].type === 'error' ? '✗' : lineIssues[0].type === 'warning' ? '⚠' : 'ℹ'}</span>` : '';
+
+    const content = colorizeVNS(raw);
+    // Jump button for @scene lines
+    let jumpBtn = '';
+    const sceneM = raw.match(/^\s*@scene\b[^=]*bg=(\S+)/);
+    if (sceneM) {
+      const sceneId = sceneM[1];
+      jumpBtn = `<a class="jump-btn" href="/engine/?devScene=${esc(sceneId)}" target="_blank" title="跳至此場景測試">▶</a>`;
+    }
+
+    return `<div class="vline${issueCls}">
+      <span class="ln">${lineNum}</span>
+      <span class="lc">${issueHtml}${content}</span>
+      ${jumpBtn}
+    </div>`;
+  }).join('');
+
+  document.getElementById('script-viewer').innerHTML = html;
+}
+
+// ── VNS Syntax Colorizer ──────────────────────────────────────────
+function colorizeVNS(raw) {
+  const line = raw.trimEnd();
+  if (!line.trim()) return '&nbsp;';
+
+  const s = line.trimStart();
+  const indent = line.length - line.trimStart().length;
+  const pad = indent ? `<span style="opacity:0">${' '.repeat(indent)}</span>` : '';
+
+  if (s.startsWith('#')) {
+    return pad + `<span class="t-cmt">${esc(line.trim())}</span>`;
+  }
+
+  if (s.startsWith('@')) {
+    // Command line: @cmd key=val key=val
+    const colored = s
+      .replace(/^(@\w+)/, (m, cmd) => `<span class="t-cmd">${esc(cmd)}</span>`)
+      .replace(/(\w+)=("([^"]*)"|\S+)/g, (m, k, v) =>
+        `<span class="t-key">${esc(k)}</span>=<span class="t-val">${esc(v)}</span>`
+      );
+    return pad + colored;
+  }
+
+  if (s.startsWith('[')) {
+    // [char_id] dialogue text
+    return pad + s.replace(/^\[([^\]]+)\](.*)/, (m, cid, text) =>
+      `<span class="t-char">[${esc(cid)}]</span><span class="t-dial">${esc(text)}</span>`
+    );
+  }
+
+  if (s.startsWith('>')) {
+    return pad + `<span class="t-emph">${esc(s)}</span>`;
+  }
+
+  return pad + `<span class="t-narr">${esc(s)}</span>`;
+}
+
+// ── Validate ──────────────────────────────────────────────────────
+function renderValidate() {
+  const el    = document.getElementById('validate-list');
+  const badge = document.getElementById('issue-badge');
+  const errors = S.issues.filter(i => i.type === 'error');
+
+  badge.textContent = S.issues.length;
+  if (errors.length) badge.className = 'badge red';
+
+  if (!S.issues.length) {
+    el.innerHTML = '<div class="empty" style="color:var(--green)">✓ 無問題</div>';
+    return;
+  }
+
+  el.innerHTML = S.issues.map(i => {
+    const iconClass = i.type === 'error' ? 'error' : i.type === 'warning' ? 'warning' : 'info';
+    const icon = i.type === 'error' ? '✗' : i.type === 'warning' ? '⚠' : 'ℹ';
+    const fileBase = i.file.split('/').pop();
+    const loc = i.line > 0 ? `${fileBase}:${i.line}` : fileBase;
+    return `<div class="issue-item">
+      <span class="issue-icon ${iconClass}">${icon}</span>
+      <div class="issue-body">
+        <div class="issue-loc">${esc(loc)}</div>
+        <div class="issue-msg">${esc(i.msg)}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Git Log ───────────────────────────────────────────────────────
+function renderGit() {
+  const el = document.getElementById('git-list');
+  if (!S.gitLog.length) { el.innerHTML = '<div class="empty">無記錄</div>'; return; }
+  el.innerHTML = S.gitLog.map(c =>
+    `<div class="git-item">
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="git-hash">${esc(c.hash)}</span>
+        <span class="git-date">${esc(c.date)}</span>
+      </div>
+      <span class="git-msg" title="${esc(c.msg)}">${esc(c.msg)}</span>
+    </div>`
+  ).join('');
+}
+
+// ── Backgrounds ───────────────────────────────────────────────────
+function renderBackgrounds() {
+  const el = document.getElementById('bg-grid');
+  const bgs = S.manifest.backgrounds || {};
+  const ids = Object.keys(bgs);
+  if (!ids.length) { el.innerHTML = '<div class="empty">無背景</div>'; return; }
+
+  el.innerHTML = ids.map(id => {
+    const info   = bgs[id];
+    const assetP = `backgrounds/${id}.svg`;
+    const exists = S.assetMap[assetP];
+    const status = exists ? 'ready' : (info.status || 'missing');
+    const imgSrc = exists ? `/assets/backgrounds/${id}.svg` : '';
+    const badgeCls = status === 'ready' ? 's-ready' : (status === 'procedural' ? 's-procedural' : 's-missing');
+    const badgeTxt = status === 'ready' ? '✓' : (status === 'procedural' ? '⚡' : '✗');
+
+    return `<div class="bg-thumb" onclick="openLightbox('/assets/backgrounds/${id}.svg','${esc(id)}')" title="${esc(info.description || id)}">
+      ${imgSrc ? `<img src="${imgSrc}" alt="${esc(id)}" loading="lazy">` : `<div style="height:100%;background:var(--panel2);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:10px">no img</div>`}
+      <span class="bg-label">${esc(id)}</span>
+      <span class="bg-status ${badgeCls}">${badgeTxt}</span>
+    </div>`;
+  }).join('');
+}
+
+// ── Characters ────────────────────────────────────────────────────
+function renderCharacters() {
+  const el   = document.getElementById('char-grid');
+  const chars = S.manifest.characters || {};
+  const cids  = Object.keys(chars);
+  if (!cids.length) { el.innerHTML = '<div class="empty">無角色</div>'; return; }
+
+  el.innerHTML = cids.map(cid => {
+    const info  = chars[cid];
+    const exprs = Object.keys(info.expressions || {});
+    const exprHtml = exprs.map(expr => {
+      const assetP = `characters/${cid}/${expr}.svg`;
+      const exists = S.assetMap[assetP];
+      const imgSrc = exists ? `/assets/characters/${cid}/${expr}.svg` : '';
+      return `<div class="expr-thumb" onclick="openLightbox('/assets/characters/${cid}/${expr}.svg','${esc(cid)}/${esc(expr)}')" title="${esc(expr)}">
+        ${imgSrc ? `<img src="${imgSrc}" alt="${esc(expr)}" loading="lazy">` : `<div style="height:80px;background:var(--panel2);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:9px">?</div>`}
+        <span class="expr-name">${esc(expr)}</span>
+      </div>`;
+    }).join('');
+    return `<div class="char-section">
+      <div class="char-name">${esc(cid)}</div>
+      <div class="expr-row">${exprHtml}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── Audio ─────────────────────────────────────────────────────────
+function renderAudio() {
+  const el    = document.getElementById('audio-list');
+  const audio = S.manifest.audio || {};
+  const bgms  = Object.entries(audio.bgm  || {});
+  const sfxs  = Object.entries(audio.sfx  || {});
+
+  if (!bgms.length && !sfxs.length) { el.innerHTML = '<div class="empty">無音訊定義</div>'; return; }
+
+  const renderRow = ([id, info]) => {
+    const exists = S.assetMap[info.file?.replace(/^[^/]+\//, '')];
+    const status = info.status || (exists ? 'ready' : 'missing');
+    const icon    = status === 'ready' ? '✓' : (status === 'procedural' ? '⚡' : '✗');
+    const icoCls  = status === 'ready' ? 'ok' : (status === 'procedural' ? 'proc' : 'miss');
+    return `<div class="audio-item">
+      <span class="audio-icon ${icoCls}">${icon}</span>
+      <span class="audio-id">${esc(id)}</span>
+      <span class="audio-desc" title="${esc(info.description||'')}">${esc(info.description||'')}</span>
+    </div>`;
+  };
+
+  el.innerHTML =
+    (bgms.length ? `<div class="audio-section-hd">BGM</div>${bgms.map(renderRow).join('')}` : '') +
+    (sfxs.length ? `<div class="audio-section-hd">SFX</div>${sfxs.map(renderRow).join('')}` : '');
+}
+
+// ── Lightbox ──────────────────────────────────────────────────────
+function openLightbox(src, caption) {
+  if (!src || src.includes('undefined')) return;
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lightbox-caption').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.getElementById('lb-img').src = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// ── Utils ─────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+// ── Init ──────────────────────────────────────────────────────────
+refreshAll();
+</script>
+</body>
+</html>
