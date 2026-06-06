@@ -8,13 +8,28 @@
       <stop offset="0%"  stop-color="#c8a880"/>
       <stop offset="100%" stop-color="#9a7a5a"/>
     </radialGradient>
+    <!-- Directional rim lighting: warm amber right side (candle/lamp) -->
+    <linearGradient id="rim_r" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="68%"  stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#c07820" stop-opacity="0.36"/>
+    </linearGradient>
+    <!-- Left ambient shadow (night sky, cold) -->
+    <linearGradient id="shadow_l" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#080818" stop-opacity="0.52"/>
+      <stop offset="36%"  stop-color="#080818" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    </linearGradient>
   </defs>
 
-  <!-- Shadow under feet -->
   <ellipse cx="200" cy="790" rx="90" ry="12" fill="#000" opacity="0.4"/>
 
   <!-- Long coat body -->
   <path d="M 130,320 L 80,760 L 320,760 L 270,320 Z" fill="url(#coat)"/>
+  <!-- Coat fold lines — left shadow crease, right lit edge -->
+  <line x1="162" y1="346" x2="134" y2="712" stroke="#0a0810" stroke-width="2" opacity="0.55"/>
+  <line x1="222" y1="348" x2="243" y2="714" stroke="#0a0810" stroke-width="1.5" opacity="0.40"/>
+  <path d="M 268,326 Q 282,542 317,755" stroke="#38264a" stroke-width="2" fill="none" opacity="0.50"/>
   <!-- coat lapels -->
   <path d="M 175,320 L 155,400 L 200,380 L 245,400 L 225,320 Z" fill="#241c2c"/>
   <!-- coat collar -->
@@ -24,7 +39,7 @@
   <path d="M 130,330 L 60,560 L 85,565 L 155,350 Z" fill="#1a1420"/>
   <path d="M 270,330 L 340,560 L 315,565 L 245,350 Z" fill="#1a1420"/>
 
-  <!-- Hands (slightly visible) -->
+  <!-- Hands -->
   <ellipse cx="72"  cy="570" rx="14" ry="10" fill="#9a7a5a"/>
   <ellipse cx="328" cy="570" rx="14" ry="10" fill="#9a7a5a"/>
 
@@ -58,6 +73,11 @@
   <!-- Mouth (neutral / closed) -->
   <path d="M 186,260 Q 200,265 214,260" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
 
-  <!-- Label -->
+  <!-- Atmospheric overlays -->
+  <rect x="0" y="0" width="400" height="800" fill="url(#rim_r)"/>
+  <rect x="0" y="0" width="400" height="800" fill="url(#shadow_l)"/>
+  <!-- Right-side face rim crescent (warm candle bounce) -->
+  <ellipse cx="252" cy="218" rx="36" ry="60" fill="#d08030" opacity="0.09"/>
+
   <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">narrator/normal</text>
 </svg>

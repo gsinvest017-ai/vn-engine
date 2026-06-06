@@ -8,20 +8,33 @@
       <stop offset="0%"  stop-color="#c8a880"/>
       <stop offset="100%" stop-color="#9a7a5a"/>
     </radialGradient>
+    <linearGradient id="rim_r" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="68%"  stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#c07820" stop-opacity="0.38"/>
+    </linearGradient>
+    <linearGradient id="shadow_l" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#080818" stop-opacity="0.52"/>
+      <stop offset="36%"  stop-color="#080818" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    </linearGradient>
   </defs>
 
   <ellipse cx="200" cy="790" rx="90" ry="12" fill="#000" opacity="0.4"/>
+  <!-- Body -->
   <path d="M 130,320 L 80,760 L 320,760 L 270,320 Z" fill="url(#coat)"/>
+  <!-- Coat fold lines -->
+  <line x1="162" y1="346" x2="134" y2="712" stroke="#0a0810" stroke-width="2" opacity="0.50"/>
+  <path d="M 268,326 Q 282,542 317,755" stroke="#38264a" stroke-width="2" fill="none" opacity="0.46"/>
   <path d="M 175,320 L 155,400 L 200,380 L 245,400 L 225,320 Z" fill="#241c2c"/>
   <path d="M 175,310 L 160,340 L 200,330 L 240,340 L 225,310 Z" fill="#1e1828"/>
 
-  <!-- One arm raised (troubled gesture) -->
+  <!-- One arm lowered, one raised (troubled gesture) -->
   <path d="M 130,330 L 80,530 L 105,540 L 155,345 Z" fill="#1a1420"/>
-  <!-- raised hand near face -->
   <path d="M 270,330 L 310,480 L 330,475 L 285,325 Z" fill="#1a1420"/>
   <ellipse cx="92"  cy="548" rx="14" ry="10" fill="#9a7a5a"/>
-  <!-- hand near face -->
-  <ellipse cx="320" cy="470" rx="14" ry="12" fill="#9a7a5a"/>
+  <!-- hand near face, catching light -->
+  <ellipse cx="320" cy="470" rx="14" ry="12" fill="#a88060"/>
 
   <rect x="188" y="255" width="24" height="65" fill="#b89870" rx="4"/>
   <ellipse cx="200" cy="230" rx="68" ry="80" fill="url(#face_light)"/>
@@ -40,13 +53,21 @@
   <!-- Furrowed brows (troubled) -->
   <path d="M 162,208 Q 173,203 187,209" fill="none" stroke="#1a1018" stroke-width="3.5" stroke-linecap="round"/>
   <path d="M 213,209 Q 227,203 238,208" fill="none" stroke="#1a1018" stroke-width="3.5" stroke-linecap="round"/>
-  <!-- brow crease -->
-  <line x1="196" y1="205" x2="198" y2="215" stroke="#7a5a40" stroke-width="1.5" opacity="0.5"/>
-  <line x1="202" y1="205" x2="204" y2="215" stroke="#7a5a40" stroke-width="1.5" opacity="0.5"/>
+  <!-- brow crease lines -->
+  <line x1="196" y1="205" x2="198" y2="215" stroke="#7a5a40" stroke-width="1.5" opacity="0.55"/>
+  <line x1="202" y1="205" x2="204" y2="215" stroke="#7a5a40" stroke-width="1.5" opacity="0.55"/>
 
   <path d="M 196,235 Q 200,248 204,235" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
-  <!-- Troubled mouth: tight -->
+  <!-- Troubled mouth: tight, pulled down at corner -->
   <path d="M 187,260 Q 200,256 213,260" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Atmospheric overlays -->
+  <rect x="0" y="0" width="400" height="800" fill="url(#rim_r)"/>
+  <rect x="0" y="0" width="400" height="800" fill="url(#shadow_l)"/>
+  <!-- Raised hand rim glow (catches lamp light from right) -->
+  <ellipse cx="320" cy="460" rx="28" ry="32" fill="#d08030" opacity="0.10"/>
+  <!-- Face rim crescent -->
+  <ellipse cx="252" cy="218" rx="36" ry="60" fill="#d08030" opacity="0.09"/>
 
   <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">narrator/troubled</text>
 </svg>

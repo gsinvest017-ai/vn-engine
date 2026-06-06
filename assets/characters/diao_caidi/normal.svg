@@ -8,23 +8,41 @@
       <stop offset="0%"  stop-color="#c8b090"/>
       <stop offset="100%" stop-color="#a08870"/>
     </radialGradient>
+    <linearGradient id="rim_r" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="65%"  stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#c07820" stop-opacity="0.32"/>
+    </linearGradient>
+    <linearGradient id="shadow_l" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#080818" stop-opacity="0.46"/>
+      <stop offset="36%"  stop-color="#080818" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    </linearGradient>
   </defs>
 
   <ellipse cx="200" cy="790" rx="85" ry="11" fill="#000" opacity="0.4"/>
 
-  <!-- Slightly stockier build -->
-  <!-- Body: short-sleeved shirt / casual -->
+  <!-- Body: short-sleeved casual shirt -->
   <path d="M 125,310 L 75,720 L 325,720 L 275,310 Z" fill="url(#shirt)"/>
+  <!-- Shirt fold lines -->
+  <line x1="165" y1="335" x2="138" y2="678" stroke="#141a22" stroke-width="2" opacity="0.55"/>
+  <line x1="220" y1="338" x2="238" y2="680" stroke="#141a22" stroke-width="1.5" opacity="0.40"/>
+  <path d="M 272,316 Q 285,518 321,716" stroke="#2a3840" stroke-width="2" fill="none" opacity="0.42"/>
   <!-- shirt collar -->
   <path d="M 175,308 L 165,360 L 200,345 L 235,360 L 225,308 Z" fill="#1a2228"/>
+  <!-- collar button suggestion -->
+  <ellipse cx="200" cy="316" rx="3" ry="3" fill="#0e1820" opacity="0.8"/>
 
-  <!-- Arms -->
-  <path d="M 125,320 L 60,530 L 85,538 L 150,332 Z" fill="#c8b090"/>
-  <path d="M 275,320 L 340,530 L 315,538 L 250,332 Z" fill="#c8b090"/>
+  <!-- Arms (bare skin — warm tone) -->
+  <path d="M 125,320 L 60,530 L 85,538 L 150,332 Z" fill="#c0a882"/>
+  <path d="M 275,320 L 340,530 L 315,538 L 250,332 Z" fill="#c0a882"/>
+  <!-- Arm muscle shadow lines -->
+  <path d="M 125,330 Q 90,440 65,530" stroke="#a89070" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M 275,330 Q 310,440 335,530" stroke="#a89070" stroke-width="1.5" fill="none" opacity="0.4"/>
   <ellipse cx="72"  cy="543" rx="16" ry="11" fill="#c8b090"/>
   <ellipse cx="328" cy="543" rx="16" ry="11" fill="#c8b090"/>
 
-  <!-- Neck -->
+  <!-- Neck (stockier build) -->
   <rect x="186" y="250" width="28" height="62" fill="#b8a080" rx="5"/>
 
   <!-- Head (rounder face) -->
@@ -34,9 +52,10 @@
   <ellipse cx="200" cy="162" rx="75" ry="42" fill="#1a1018"/>
   <path d="M 127,178 Q 114,222 124,258 L 134,253 Q 125,220 136,180 Z" fill="#1a1018"/>
   <path d="M 273,178 Q 286,222 276,258 L 266,253 Q 275,220 264,180 Z" fill="#1a1018"/>
-  <!-- Some hair strands -->
-  <path d="M 160,158 Q 165,145 175,158" fill="none" stroke="#1a1018" stroke-width="3"/>
-  <path d="M 195,155 Q 200,140 208,154" fill="none" stroke="#1a1018" stroke-width="3"/>
+  <!-- Messy hair strands -->
+  <path d="M 158,157 Q 163,144 173,157" fill="none" stroke="#1a1018" stroke-width="3"/>
+  <path d="M 192,154 Q 198,139 206,153" fill="none" stroke="#1a1018" stroke-width="3"/>
+  <path d="M 223,158 Q 230,146 238,158" fill="none" stroke="#1a1018" stroke-width="2.5"/>
 
   <!-- Eyes (alert, curious) -->
   <ellipse cx="174" cy="222" rx="13" ry="10" fill="#2a1e12"/>
@@ -52,8 +71,16 @@
 
   <path d="M 196,234 Q 200,248 204,234" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
 
-  <!-- Neutral slight smile -->
-  <path d="M 184,258 Q 200,265 216,258" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Neutral slight smile (more expressive than narrator) -->
+  <path d="M 184,258 Q 200,266 216,258" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Atmospheric overlays -->
+  <rect x="0" y="0" width="400" height="800" fill="url(#rim_r)"/>
+  <rect x="0" y="0" width="400" height="800" fill="url(#shadow_l)"/>
+  <!-- Face rim crescent (warmer skin = more visible rim) -->
+  <ellipse cx="256" cy="216" rx="38" ry="62" fill="#d08030" opacity="0.10"/>
+  <!-- Right arm rim highlight -->
+  <ellipse cx="328" cy="435" rx="18" ry="60" fill="#c07020" opacity="0.09"/>
 
   <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">diao_caidi/normal</text>
 </svg>

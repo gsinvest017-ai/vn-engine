@@ -8,19 +8,35 @@
       <stop offset="0%"  stop-color="#c8a880"/>
       <stop offset="100%" stop-color="#9a7a5a"/>
     </radialGradient>
+    <linearGradient id="rim_r" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="68%"  stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#c07820" stop-opacity="0.38"/>
+    </linearGradient>
+    <linearGradient id="shadow_l" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#080818" stop-opacity="0.50"/>
+      <stop offset="36%"  stop-color="#080818" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    </linearGradient>
   </defs>
 
   <ellipse cx="200" cy="790" rx="90" ry="12" fill="#000" opacity="0.4"/>
   <path d="M 130,320 L 80,760 L 320,760 L 270,320 Z" fill="url(#coat)"/>
+  <!-- Coat fold lines -->
+  <line x1="162" y1="346" x2="134" y2="712" stroke="#0a0810" stroke-width="2" opacity="0.50"/>
+  <path d="M 268,326 Q 282,542 317,755" stroke="#38264a" stroke-width="2" fill="none" opacity="0.46"/>
   <path d="M 175,320 L 155,400 L 200,380 L 245,400 L 225,320 Z" fill="#241c2c"/>
   <path d="M 175,310 L 160,340 L 200,330 L 240,340 L 225,310 Z" fill="#1e1828"/>
 
-  <!-- Arms: one slightly raised, hand to chin -->
+  <!-- Arms: one at rest, one raised hand to chin -->
   <path d="M 130,330 L 60,560 L 85,565 L 155,350 Z" fill="#1a1420"/>
   <path d="M 270,330 L 305,460 L 330,455 L 290,325 Z" fill="#1a1420"/>
   <ellipse cx="72"  cy="570" rx="14" ry="10" fill="#9a7a5a"/>
-  <!-- Hand at chin -->
-  <ellipse cx="320" cy="452" rx="15" ry="12" fill="#9a7a5a"/>
+  <!-- Hand at chin — warm-lit from right, fingers visible -->
+  <ellipse cx="320" cy="452" rx="15" ry="12" fill="#a88868"/>
+  <!-- Finger suggestion -->
+  <path d="M 308,444 Q 312,440 318,444" fill="none" stroke="#9a7860" stroke-width="1.5"/>
+  <path d="M 318,442 Q 323,438 329,442" fill="none" stroke="#9a7860" stroke-width="1.5"/>
 
   <rect x="188" y="255" width="24" height="65" fill="#b89870" rx="4"/>
   <ellipse cx="200" cy="228" rx="68" ry="80" fill="url(#face_light)"/>
@@ -28,7 +44,7 @@
   <path d="M 132,183 Q 120,228 130,263 L 140,258 Q 132,223 142,186 Z" fill="#1a1018"/>
   <path d="M 268,183 Q 280,228 270,263 L 260,258 Q 268,223 258,186 Z" fill="#1a1018"/>
 
-  <!-- Thoughtful: one eye slightly squinted, head tilted -->
+  <!-- Thoughtful: one eye open/normal, one slightly squinted — focusing -->
   <ellipse cx="174" cy="222" rx="12" ry="9" fill="#2a1e10"/>
   <ellipse cx="226" cy="224" rx="12" ry="7" fill="#2a1e10"/>
   <ellipse cx="174" cy="221" rx="5" ry="5" fill="#0a0808"/>
@@ -37,14 +53,22 @@
   <!-- slight squint right eye -->
   <path d="M 213,219 Q 225,216 237,219" fill="#1a1018" stroke="none"/>
 
-  <!-- Brows: one raised, one neutral -->
+  <!-- Brows: left raised (curious), right lower (focused) -->
   <path d="M 162,206 Q 174,202 188,206" fill="none" stroke="#1a1018" stroke-width="3" stroke-linecap="round"/>
   <path d="M 213,209 Q 225,207 238,210" fill="none" stroke="#1a1018" stroke-width="2.5" stroke-linecap="round"/>
 
   <path d="M 196,234 Q 200,247 204,234" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
 
-  <!-- Thoughtful mouth: slight wry curve -->
+  <!-- Thoughtful mouth: slight wry curve at corner -->
   <path d="M 187,258 Q 202,263 215,257" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Atmospheric overlays -->
+  <rect x="0" y="0" width="400" height="800" fill="url(#rim_r)"/>
+  <rect x="0" y="0" width="400" height="800" fill="url(#shadow_l)"/>
+  <!-- Chin/hand area rim glow (hand catches lamp from right) -->
+  <ellipse cx="320" cy="445" rx="30" ry="28" fill="#d08030" opacity="0.11"/>
+  <!-- Face rim crescent -->
+  <ellipse cx="252" cy="218" rx="36" ry="60" fill="#d08030" opacity="0.09"/>
 
   <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">narrator/thoughtful</text>
 </svg>

@@ -12,10 +12,28 @@
       <stop offset="0%"  stop-color="#3a2a1a"/>
       <stop offset="100%" stop-color="#1e160a"/>
     </linearGradient>
+    <linearGradient id="rim_r" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="68%"  stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#c07820" stop-opacity="0.38"/>
+    </linearGradient>
+    <linearGradient id="shadow_l" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#080818" stop-opacity="0.52"/>
+      <stop offset="36%"  stop-color="#080818" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    </linearGradient>
+    <!-- Warm lamp glow on document pages -->
+    <radialGradient id="doc_glow" cx="50%" cy="30%" r="60%">
+      <stop offset="0%"   stop-color="#c8a050" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#c8a050" stop-opacity="0"/>
+    </radialGradient>
   </defs>
 
   <ellipse cx="200" cy="790" rx="90" ry="12" fill="#000" opacity="0.4"/>
   <path d="M 130,320 L 80,760 L 320,760 L 270,320 Z" fill="url(#coat)"/>
+  <!-- Coat fold lines -->
+  <line x1="162" y1="346" x2="134" y2="712" stroke="#0a0810" stroke-width="2" opacity="0.48"/>
+  <path d="M 268,326 Q 282,542 317,755" stroke="#38264a" stroke-width="2" fill="none" opacity="0.44"/>
   <path d="M 175,320 L 155,400 L 200,380 L 245,400 L 225,320 Z" fill="#241c2c"/>
   <path d="M 175,310 L 160,340 L 200,330 L 240,340 L 225,310 Z" fill="#1e1828"/>
 
@@ -23,18 +41,27 @@
   <path d="M 130,330 L 100,560 L 125,565 L 155,345 Z" fill="#1a1420"/>
   <path d="M 270,330 L 300,560 L 275,565 L 245,345 Z" fill="#1a1420"/>
 
-  <!-- Book/document (old file) -->
+  <!-- Old case file / document (yellowed, aged) -->
   <rect x="100" y="540" width="200" height="150" fill="url(#book_cover)" rx="3"/>
-  <!-- page lines (yellowed) -->
-  <rect x="108" y="548" width="184" height="2" fill="#c8a860" opacity="0.3"/>
-  <rect x="108" y="558" width="184" height="2" fill="#c8a860" opacity="0.25"/>
-  <rect x="108" y="568" width="170" height="2" fill="#c8a860" opacity="0.25"/>
-  <rect x="108" y="578" width="184" height="2" fill="#c8a860" opacity="0.25"/>
-  <rect x="108" y="588" width="150" height="2" fill="#c8a860" opacity="0.2"/>
-  <!-- page right fold -->
-  <path d="M 290,540 L 300,550 L 290,550 Z" fill="#2a1e0e" opacity="0.6"/>
-  <!-- book spine -->
-  <rect x="100" y="540" width="8" height="150" fill="#2a1a08"/>
+  <!-- aged page surface -->
+  <rect x="108" y="542" width="184" height="140" fill="#c8b87a" opacity="0.12" rx="2"/>
+  <!-- page lines (yellowed archival text) -->
+  <rect x="112" y="550" width="176" height="2" fill="#c8a860" opacity="0.35"/>
+  <rect x="112" y="560" width="176" height="2" fill="#c8a860" opacity="0.28"/>
+  <rect x="112" y="570" width="160" height="2" fill="#c8a860" opacity="0.28"/>
+  <rect x="112" y="580" width="176" height="2" fill="#c8a860" opacity="0.25"/>
+  <rect x="112" y="590" width="148" height="2" fill="#c8a860" opacity="0.22"/>
+  <rect x="112" y="600" width="172" height="2" fill="#c8a860" opacity="0.20"/>
+  <rect x="112" y="610" width="140" height="2" fill="#c8a860" opacity="0.18"/>
+  <!-- page corner fold (top right) -->
+  <path d="M 288,542 L 300,554 L 288,554 Z" fill="#2a1e0e" opacity="0.7"/>
+  <!-- document stamp / seal suggestion -->
+  <ellipse cx="260" cy="632" rx="18" ry="18" fill="none" stroke="#8a1010" stroke-width="1" opacity="0.25"/>
+  <!-- book spine (dark leather) -->
+  <rect x="100" y="540" width="10" height="150" fill="#2a1a08"/>
+  <line x1="105" y1="548" x2="105" y2="680" stroke="#3e2810" stroke-width="1" opacity="0.6"/>
+  <!-- Document warm glow from lamp light -->
+  <rect x="100" y="540" width="200" height="150" fill="url(#doc_glow)"/>
 
   <rect x="188" y="255" width="24" height="65" fill="#b89870" rx="4"/>
   <ellipse cx="200" cy="228" rx="68" ry="80" fill="url(#face_light)"/>
@@ -47,7 +74,7 @@
   <ellipse cx="225" cy="235" rx="12" ry="7" fill="#2a1e10"/>
   <ellipse cx="175" cy="237" rx="5"  ry="4" fill="#0a0808"/>
   <ellipse cx="225" cy="237" rx="5"  ry="4" fill="#0a0808"/>
-  <!-- weighted lids -->
+  <!-- weighted lids, focused -->
   <path d="M 163,230 Q 175,227 187,230" fill="#1a1018" stroke="none"/>
   <path d="M 213,230 Q 225,227 237,230" fill="#1a1018" stroke="none"/>
 
@@ -56,6 +83,14 @@
 
   <path d="M 196,245 Q 200,258 204,245" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
   <path d="M 187,265 Q 200,263 213,265" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Atmospheric overlays -->
+  <rect x="0" y="0" width="400" height="800" fill="url(#rim_r)"/>
+  <rect x="0" y="0" width="400" height="800" fill="url(#shadow_l)"/>
+  <!-- Face rim crescent -->
+  <ellipse cx="252" cy="225" rx="36" ry="60" fill="#d08030" opacity="0.09"/>
+  <!-- Document reflects warm light upward onto face (below chin glow) -->
+  <ellipse cx="200" cy="340" rx="80" ry="30" fill="#c8a040" opacity="0.06"/>
 
   <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">narrator/reading</text>
 </svg>

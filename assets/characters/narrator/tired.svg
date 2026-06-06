@@ -8,12 +8,26 @@
       <stop offset="0%"  stop-color="#c0a07a"/>
       <stop offset="100%" stop-color="#907058"/>
     </radialGradient>
+    <linearGradient id="rim_r" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="68%"  stop-color="#c07820" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#c07820" stop-opacity="0.32"/>
+    </linearGradient>
+    <linearGradient id="shadow_l" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#080818" stop-opacity="0.56"/>
+      <stop offset="36%"  stop-color="#080818" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000"    stop-opacity="0"/>
+    </linearGradient>
   </defs>
 
   <ellipse cx="200" cy="790" rx="90" ry="12" fill="#000" opacity="0.4"/>
 
   <!-- Body -->
   <path d="M 130,320 L 80,760 L 320,760 L 270,320 Z" fill="url(#coat)"/>
+  <!-- Coat fold lines -->
+  <line x1="162" y1="346" x2="134" y2="712" stroke="#0a0810" stroke-width="2" opacity="0.50"/>
+  <line x1="222" y1="348" x2="243" y2="714" stroke="#0a0810" stroke-width="1.5" opacity="0.38"/>
+  <path d="M 268,326 Q 282,542 317,755" stroke="#38264a" stroke-width="2" fill="none" opacity="0.46"/>
   <path d="M 175,320 L 155,400 L 200,380 L 245,400 L 225,320 Z" fill="#241c2c"/>
   <path d="M 175,310 L 160,340 L 200,330 L 240,340 L 225,310 Z" fill="#1e1828"/>
 
@@ -38,9 +52,11 @@
   <ellipse cx="175" cy="228" rx="4"  ry="4" fill="#0a0808"/>
   <ellipse cx="225" cy="228" rx="4"  ry="4" fill="#0a0808"/>
 
-  <!-- Bags under eyes -->
-  <path d="M 163,235 Q 175,238 187,235" fill="none" stroke="#7a5a40" stroke-width="1" opacity="0.5"/>
-  <path d="M 213,235 Q 225,238 237,235" fill="none" stroke="#7a5a40" stroke-width="1" opacity="0.5"/>
+  <!-- Bags under eyes (pronounced) -->
+  <path d="M 163,235 Q 175,239 187,235" fill="none" stroke="#7a5a40" stroke-width="1.5" opacity="0.55"/>
+  <path d="M 213,235 Q 225,239 237,235" fill="none" stroke="#7a5a40" stroke-width="1.5" opacity="0.55"/>
+  <ellipse cx="175" cy="234" rx="10" ry="4" fill="#5a3a28" opacity="0.20"/>
+  <ellipse cx="225" cy="234" rx="10" ry="4" fill="#5a3a28" opacity="0.20"/>
 
   <!-- Eyebrows (drooping) -->
   <path d="M 163,210 Q 175,212 188,208" fill="none" stroke="#1a1018" stroke-width="2.5" stroke-linecap="round"/>
@@ -49,9 +65,15 @@
   <!-- Nose -->
   <path d="M 196,238 Q 200,251 204,238" fill="none" stroke="#9a7a5a" stroke-width="1.5"/>
 
-  <!-- Mouth (slightly downturned) -->
+  <!-- Mouth (slightly downturned, exhausted) -->
   <path d="M 186,263 Q 200,261 214,263" fill="none" stroke="#8a6a4a" stroke-width="2" stroke-linecap="round"/>
 
-  <!-- Slight head tilt -->
+  <!-- Atmospheric overlays -->
+  <rect x="0" y="0" width="400" height="800" fill="url(#rim_r)"/>
+  <rect x="0" y="0" width="400" height="800" fill="url(#shadow_l)"/>
+  <!-- Heavier left shadow on tired face -->
+  <ellipse cx="152" cy="222" rx="42" ry="58" fill="#08081a" opacity="0.14"/>
+  <ellipse cx="252" cy="218" rx="36" ry="60" fill="#d08030" opacity="0.08"/>
+
   <text x="10" y="20" font-family="monospace" font-size="12" fill="rgba(200,180,100,0.4)">narrator/tired</text>
 </svg>
