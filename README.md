@@ -20,6 +20,36 @@ python serve.py
 
 ---
 
+## 網頁試玩版部署
+
+Engine 為純靜態網站，無需後端，可直接部署至任何靜態托管平台。
+
+### 最快：Netlify Drop（60 秒，不需帳號）
+```bash
+python pack_demo.py        # 產生 dist/（54 files, ~9.7 MB）
+# 拖 dist/ 到 https://app.netlify.com/drop
+# → 立即取得 https://xxxx.netlify.app 分享連結
+```
+
+### itch.io（最適合遊戲分享）
+```bash
+python pack_demo.py --zip  # 額外產生 vn-demo.zip（~9.5 MB）
+# itch.io → Create new project → Kind: HTML
+# 上傳 vn-demo.zip → 勾選「This file will be played in the browser」
+```
+
+### GitHub Pages（push 後自動更新）
+```bash
+git remote add origin https://github.com/<user>/vn-engine.git
+git push -u origin main
+# repo Settings → Pages → Source: GitHub Actions
+# URL: https://<user>.github.io/vn-engine/
+```
+
+詳細步驟見 [docs/progress-deploy.md](docs/progress-deploy.md)
+
+---
+
 ## 目錄結構
 
 ```
