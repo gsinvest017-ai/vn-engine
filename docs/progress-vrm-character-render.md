@@ -30,6 +30,33 @@
 - Seed-san 是動漫風格女性角色（VRM 1.0 格式），授權：CC0
 - **決策**：以 Seed-san 驗證渲染流程；用戶可在 VRoid Hub 登入後下載男性角色替換
 
+## M3 — Blender 匯入 + 渲染場景設定
+- Seed-san.vrm 匯入成功，Armature + 6 個 mesh（head/hair/wear/robo_arm 等）
+- 三點打光：Key 光（強度 5W，右前方）、Fill 光（1W，左側）、Rim 光（3W，後方輪廓）
+- VN 立繪相機：85mm 鏡頭，初始全身鏡頭，後調整為上半身/臉部特寫
+- Cycles 引擎、256 samples + Denoising、RGBA 透明背景
+- 頭部 Mesh 有 44 個 Shape Keys 可控制表情
+
+## M4 — narrator 6 個表情 PNG
+- 相機調整為臉+上胸特寫（z=1.35，y=-1.5，85mm）
+- 全部以 Seed-san.vrm Shape Keys 組合渲染：
+  - `normal`：預設中性
+  - `tired`：eye_close(0.6) + face_sad(0.5) + eye_brow_down(0.5) + lip_down(0.3)
+  - `troubled`：face_angry(0.6) + eye_brow_down(0.7) + eye_angry(0.6) + mouth_short(0.5)
+  - `silent`：face_relax(0.6) + look_down(0.75) + eye_close(0.25)
+  - `thoughtful`：eye_brow_up_R(0.9) + eye_brow_down_L(0.3) + look_right(0.45)
+  - `reading`：look_down(0.65) + face_relax(0.5) + eye_close(0.15)
+- 產出：`assets/characters/narrator/*.png` × 6（約 362KB/張）
+
+## M5 — diao_caidi 3 個表情 PNG + 引擎更新
+- diao_caidi 使用同一 Seed-san 模型，不同 Shape Key 組合渲染：
+  - `normal`：face_happy(0.7) + cheek(0.5) + eye_smile(0.5) + lip_up(0.3)
+  - `questioning`：eye_brow_up_L(0.95) + eye_brow_down_R(0.35) + look_right(0.45) + mouse_open(0.25)
+  - `shocked`：face_surprise(1.0) + eye_brow_up(0.85) + mouse_open(1.0) + eye_black_big(0.6)
+- 產出：`assets/characters/diao_caidi/*.png` × 3
+- `engine/js/managers/character.js`：`spriteUrl()` 預設改為 `.png`，onerror fallback 改為 `.svg`
+- `assets/manifest.json`：9 個角色表情 entry 全部更新為 `.png` + source 說明
+
 ## Fallback 指引
 
 - 還原角色：`git checkout HEAD -- assets/characters/`

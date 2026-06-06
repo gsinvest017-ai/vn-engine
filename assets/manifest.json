@@ -43,47 +43,58 @@
     "narrator": {
       "expressions": {
         "normal": {
-          "file": "characters/narrator/normal.svg",
-          "status": "ready"
+          "file": "characters/narrator/normal.png",
+          "status": "ready",
+          "source": "Seed-san.vrm Blender Cycles render, neutral expression"
         },
         "tired": {
-          "file": "characters/narrator/tired.svg",
-          "status": "ready"
+          "file": "characters/narrator/tired.png",
+          "status": "ready",
+          "source": "Seed-san.vrm Blender Cycles render, eye_close+face_sad+eye_brow_down"
         },
         "troubled": {
-          "file": "characters/narrator/troubled.svg",
-          "status": "ready"
+          "file": "characters/narrator/troubled.png",
+          "status": "ready",
+          "source": "Seed-san.vrm Blender Cycles render, face_angry+eye_brow_down+eye_angry"
         },
         "silent": {
-          "file": "characters/narrator/silent.svg",
-          "status": "ready"
+          "file": "characters/narrator/silent.png",
+          "status": "ready",
+          "source": "Seed-san.vrm Blender Cycles render, face_relax+look_down+eye_close"
         },
         "thoughtful": {
-          "file": "characters/narrator/thoughtful.svg",
-          "status": "ready"
+          "file": "characters/narrator/thoughtful.png",
+          "status": "ready",
+          "source": "Seed-san.vrm Blender Cycles render, eye_brow_up_R+look_right+face_relax"
         },
         "reading": {
-          "file": "characters/narrator/reading.svg",
-          "status": "ready"
+          "file": "characters/narrator/reading.png",
+          "status": "ready",
+          "source": "Seed-san.vrm Blender Cycles render, look_down+face_relax+eye_close"
         }
       },
+      "source_model": "tools/vrm/Seed-san.vrm (CC0, vrm-c/vrm-specification sample)",
       "ai_prompt_base": "中年男性, 偵探/側寫師, 穿深色長風衣, 眼神疲憊而深邃, 台灣人面孔, 寫實黑色電影立繪風格, 透明背景, 直立正面或四分之三角度, 800x1600px"
     },
     "diao_caidi": {
       "expressions": {
         "normal": {
-          "file": "characters/diao_caidi/normal.svg",
-          "status": "ready"
+          "file": "characters/diao_caidi/normal.png",
+          "status": "ready",
+          "source": "Seed-san.vrm Blender Cycles render, face_happy+cheek+eye_smile"
         },
         "questioning": {
-          "file": "characters/diao_caidi/questioning.svg",
-          "status": "ready"
+          "file": "characters/diao_caidi/questioning.png",
+          "status": "ready",
+          "source": "Seed-san.vrm Blender Cycles render, eye_brow_up_L+eye_brow_down_R+look_right"
         },
         "shocked": {
-          "file": "characters/diao_caidi/shocked.svg",
-          "status": "ready"
+          "file": "characters/diao_caidi/shocked.png",
+          "status": "ready",
+          "source": "Seed-san.vrm Blender Cycles render, face_surprise+mouse_open+eye_black_big"
         }
       },
+      "source_model": "tools/vrm/Seed-san.vrm (CC0, vrm-c/vrm-specification sample)",
       "ai_prompt_base": "中年男性, 略胖身材, 台灣本土臉孔, 穿休閒短袖, 好奇而直率的表情, 寫實視覺小說立繪風格, 透明背景, 直立正面, 800x1600px"
     }
   },

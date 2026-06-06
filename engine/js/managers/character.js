@@ -14,8 +14,8 @@ export class CharManager {
     this.displayed = {};
   }
 
-  spriteUrl(id, expr = 'normal') {
-    return `${this.assetBase}/characters/${id}/${expr}.svg`;
+  spriteUrl(id, expr = 'normal', ext = 'png') {
+    return `${this.assetBase}/characters/${id}/${expr}.${ext}`;
   }
 
   show(id, pos = 'center', expr = 'normal') {
@@ -33,9 +33,9 @@ export class CharManager {
       el.className = 'char-sprite';
       el.dataset.charId = id;
       el.onerror = () => {
-        // SVG not found → try png
+        // PNG not found → try svg fallback
         el.onerror = null;
-        el.src = this.spriteUrl(id, expr).replace('.svg', '.png');
+        el.src = this.spriteUrl(id, expr, 'svg');
       };
       slot.appendChild(el);
     }
