@@ -15,6 +15,10 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+# Use Node.js 24 for all actions (avoids deprecation warnings from June 2026)
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     environment:
@@ -48,5 +52,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        env:
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
