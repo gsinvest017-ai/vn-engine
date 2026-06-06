@@ -239,10 +239,11 @@ html, body {
   display: flex; flex-direction: column; overflow: hidden;
 }
 #sidebar-right .panel { flex-shrink: 0; }
-#panel-bgs { flex: 0 0 auto; max-height: 220px; }
-#panel-chars { flex: 0 1 auto; max-height: 200px; }
-#panel-audio { flex: 1 1 0; min-height: 50px; }
-#panel-tools { flex: 0 0 auto; }
+#panel-bgs    { flex: 0 0 auto; max-height: 190px; }
+#panel-chars  { flex: 0 1 auto; max-height: 170px; }
+#panel-audio  { flex: 1 1 0; min-height: 50px; }
+#panel-style  { flex: 0 0 auto; }
+#panel-tools  { flex: 0 0 auto; }
 
 /* Background grid */
 #bg-grid {
@@ -363,6 +364,25 @@ html, body {
   white-space: pre-wrap; word-break: break-all; max-height: 60px;
   overflow-y: auto; background: var(--bg); border-top: 1px solid var(--border);
 }
+
+/* ── Style Panel ──────────────────────────────────────────────── */
+#panel-style { flex: 0 0 auto; }
+.style-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(50px,70px) 30px;
+  gap: 3px 5px;
+  align-items: center;
+  padding: 4px 8px 2px;
+}
+.style-grid label { font-size: 10px; color: var(--muted); white-space: nowrap; }
+.style-grid input[type=range] {
+  width: 100%; height: 3px; accent-color: var(--amber);
+  cursor: pointer; padding: 0;
+}
+.style-grid .sv { font-size: 9.5px; color: var(--text); text-align: right; }
+.style-preview-row {
+  display: flex; gap: 4px; padding: 5px 8px 6px; flex-wrap: wrap;
+}
 </style>
 </head>
 <body>
@@ -439,6 +459,49 @@ html, body {
         <div class="empty">載入中…</div>
       </div>
     </div>
+    <!-- Style Settings -->
+    <div class="panel" id="panel-style">
+      <div class="panel-hd">STYLE</div>
+      <div class="panel-body">
+        <div class="style-grid">
+          <label>主選單 sepia</label>
+          <input type="range" id="s-menu-sepia" min="0" max="0.5" step="0.01" value="0.18"
+            oninput="sv('s-menu-sepia-v',this.value)">
+          <span class="sv" id="s-menu-sepia-v">0.18</span>
+
+          <label>噪點強度</label>
+          <input type="range" id="s-grain" min="0" max="1" step="0.05" value="0.55"
+            oninput="sv('s-grain-v',this.value)">
+          <span class="sv" id="s-grain-v">0.55</span>
+
+          <label>暗角強度</label>
+          <input type="range" id="s-vignette" min="0" max="1" step="0.05" value="0.62"
+            oninput="sv('s-vignette-v',this.value)">
+          <span class="sv" id="s-vignette-v">0.62</span>
+
+          <label>背景灰階 %</label>
+          <input type="range" id="s-bg-gray" min="0" max="100" step="5" value="90"
+            oninput="sv('s-bg-gray-v',this.value+'%')">
+          <span class="sv" id="s-bg-gray-v">90%</span>
+
+          <label>對話框 sepia</label>
+          <input type="range" id="s-textbox-sepia" min="0" max="0.5" step="0.01" value="0.18"
+            oninput="sv('s-textbox-sepia-v',this.value)">
+          <span class="sv" id="s-textbox-sepia-v">0.18</span>
+
+          <label>轉場動畫 sepia</label>
+          <input type="range" id="s-chapter-sepia" min="0" max="0.5" step="0.01" value="0.16"
+            oninput="sv('s-chapter-sepia-v',this.value)">
+          <span class="sv" id="s-chapter-sepia-v">0.16</span>
+        </div>
+        <div class="style-preview-row">
+          <button class="tool-btn" onclick="previewStyle()">⊞ 預覽</button>
+          <button class="tool-btn" onclick="copyStyleUrl(event)">⎘ 複製網址</button>
+          <button class="tool-btn" onclick="resetStyle()">↺ 重設</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Tools -->
     <div class="panel" id="panel-tools">
       <div class="panel-hd">TOOLS</div>
@@ -909,6 +972,60 @@ function testRain() {
   const intensity = document.getElementById('rain-intensity').value;
   const wind      = document.getElementById('rain-wind').value;
   window.open(`/engine/?devRain=${encodeURIComponent(intensity)}&devWind=${encodeURIComponent(wind)}`, '_blank');
+}
+
+// ── Style panel ────────────────────────────────────────────────
+function sv(id, val) {
+  document.getElementById(id).textContent = val;
+}
+
+const STYLE_DEFAULTS = {
+  menuSepia: 0.18, grainOp: 0.55, vignetteOp: 0.62,
+  bgGray: 90, textboxSepia: 0.18, chapterSepia: 0.16,
+};
+
+function getStyleParams() {
+  return {
+    menuSepia:    parseFloat(document.getElementById('s-menu-sepia').value),
+    grainOp:      parseFloat(document.getElementById('s-grain').value),
+    vignetteOp:   parseFloat(document.getElementById('s-vignette').value),
+    bgGray:       parseInt(document.getElementById('s-bg-gray').value, 10),
+    textboxSepia: parseFloat(document.getElementById('s-textbox-sepia').value),
+    chapterSepia: parseFloat(document.getElementById('s-chapter-sepia').value),
+  };
+}
+
+function previewStyle() {
+  const qs = new URLSearchParams(window.location.search);
+  const rain = qs.get('previewRain') || '';
+  const style = JSON.stringify(getStyleParams());
+  const url = `/engine/?devStyle=${encodeURIComponent(style)}${rain ? '&devRain=' + rain : ''}`;
+  window.open(url, '_blank');
+}
+
+function copyStyleUrl(e) {
+  const style = JSON.stringify(getStyleParams());
+  const url = `${location.origin}/engine/?devStyle=${encodeURIComponent(style)}`;
+  navigator.clipboard.writeText(url).then(() => {
+    const btn = e.currentTarget;
+    const orig = btn.textContent;
+    btn.textContent = '✓ 已複製';
+    setTimeout(() => btn.textContent = orig, 1600);
+  });
+}
+
+function resetStyle() {
+  const d = STYLE_DEFAULTS;
+  const set = (id, val, dispId, disp) => {
+    document.getElementById(id).value = val;
+    document.getElementById(dispId).textContent = disp || val;
+  };
+  set('s-menu-sepia',    d.menuSepia,    's-menu-sepia-v',    d.menuSepia);
+  set('s-grain',         d.grainOp,      's-grain-v',         d.grainOp);
+  set('s-vignette',      d.vignetteOp,   's-vignette-v',      d.vignetteOp);
+  set('s-bg-gray',       d.bgGray,       's-bg-gray-v',       d.bgGray + '%');
+  set('s-textbox-sepia', d.textboxSepia, 's-textbox-sepia-v', d.textboxSepia);
+  set('s-chapter-sepia', d.chapterSepia, 's-chapter-sepia-v', d.chapterSepia);
 }
 
 // ── Init ──────────────────────────────────────────────────────────

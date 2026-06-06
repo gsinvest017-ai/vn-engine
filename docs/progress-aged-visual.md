@@ -19,6 +19,28 @@
 | M5 | 雨水寫實多層化 | effects.js 三層雨水重寫 |
 | M6 | Dashboard 整合工具 | 所有處理功能加入後台 |
 
+## M8 — 主選單 + 章節轉場動畫灰階古舊化
+
+**完成**。`engine/css/engine.css` + `engine/index.html` + `engine/js/main.js`：
+- CSS `:root` 加 6 個 `--dev-*` 自訂屬性（menuSepia / grainOp / vignetteOp / bgGray / textboxSepia / chapterSepia）
+- `#main-menu`：`filter: sepia(var(--dev-menu-sepia)) contrast(1.02)`
+- `#menu-bg`：梯度全部去藍調（`#040402`）
+- `#menu-bg::before`：teal shimmer 改全 amber shimmer
+- `#menu-bg::after`：scanlines + 橫向紙張纖維 + 直向細粒
+- `#game-subtitle`：teal → 暖銅黃 `rgba(185,155,95,0.78)`
+- `.menu-btn`：`rgba(8,8,18)` → `rgba(8,6,2)`
+- `#chapter-card`：去藍調 + 水漬 radial + scanlines + paper fiber + `filter: sepia(var(--dev-chapter-sepia))`
+- index.html 水波紋 canvas：teal `40,120,136` → 暖 amber `140,96,22`
+- main.js：IIFE 解析 `?devStyle=JSON` 並即時 setProperty 到 `:root`
+
+## M9 — Dashboard STYLE 風格控制面板
+
+**完成**。`dashboard/index.html` 新增 `#panel-style`：
+- 6 個滑桿：主選單 sepia / 噪點強度 / 暗角強度 / 背景灰階% / 對話框 sepia / 轉場動畫 sepia
+- 預覽按鈕：開 `/engine/?devStyle=JSON` 新分頁
+- 複製網址按鈕：clipboard + 短暫確認提示
+- 重設按鈕：還原到設計預設值
+
 ## M5 — 雨水三層寫實化
 
 **完成**。重寫 `engine/js/managers/effects.js` `_startRain()`：

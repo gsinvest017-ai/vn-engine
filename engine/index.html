@@ -178,7 +178,7 @@
         const y = (H * 0.55) + Math.sin(t * 0.4 + i * 0.6) * (H * 0.08)
                   + (i / LINES) * (H * 0.5);
         const alpha = (1 - i / LINES) * 0.12;
-        const hue   = i % 3 === 0 ? '40,120,136' : '192,120,32';
+        const hue   = i % 3 === 0 ? '140,96,22' : '192,120,32';  // all warm amber, no teal
         ctx.beginPath();
         ctx.moveTo(0, y);
         for (let x = 0; x < W; x += 8) {

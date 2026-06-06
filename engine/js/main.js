@@ -35,6 +35,23 @@ const DEV_EFFECT  = _devParams.get('devEffect');   // e.g. ?devEffect=suspense_e
 const DEV_RAIN    = _devParams.get('devRain');     // e.g. ?devRain=heavy
 const DEV_WIND    = parseFloat(_devParams.get('devWind') || '0');  // e.g. ?devWind=0.5
 
+// Apply devStyle CSS custom property overrides immediately (before first paint)
+(function applyDevStyle() {
+  const raw = _devParams.get('devStyle');
+  if (!raw) return;
+  try {
+    const s   = JSON.parse(raw);
+    const root = document.documentElement;
+    const set  = (v, prop) => { if (v != null) root.style.setProperty(prop, String(v)); };
+    set(s.menuSepia,     '--dev-menu-sepia');
+    set(s.grainOp,       '--dev-grain-op');
+    set(s.vignetteOp,    '--dev-vignette-op');
+    set(s.bgGray != null ? s.bgGray + '%' : null, '--dev-bg-gray');
+    set(s.textboxSepia,  '--dev-textbox-sepia');
+    set(s.chapterSepia,  '--dev-chapter-sepia');
+  } catch (e) { console.warn('[devStyle] parse error', e); }
+})();
+
 let engine = null;
 let menuUI = null;
 
