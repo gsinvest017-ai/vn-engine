@@ -38,6 +38,27 @@
 - 表情差異：明顯（silent 暗沉、troubled 高對比、thoughtful 明亮）
 - 風格契合度：極高（黑白寫實老人 ↔ 台中舊城 film noir 主題完美搭配）
 
+### M3 — diao_caidi 去背 + 灰階 + 3 表情輸出
+
+來源：`tools/vrm/diao_caidi.jpg`（年輕男性，坐姿趴桌，320×426px WebP → JPG）
+
+**處理流程**（`tools/rembg_diao_caidi.py`）：
+1. rembg u2net 去背 → 主體裁切（247×372px 後 + 30px padding）
+2. 等比縮放至 400×602，底部置中貼於 400×800 透明畫布
+3. `ImageOps.grayscale().convert('RGB')` 灰階轉換（與 narrator 黑白風格統一）
+4. 3 個 PIL 色彩分級表情變體：
+
+| 表情 | brightness | contrast | 色調 | shadow crush |
+|------|-----------|---------|------|-------------|
+| normal | 1.00 | 1.00 | 無 | 0 |
+| questioning | 0.92 | 1.20 | 冷藍 | 0.15 |
+| shocked | 1.10 | 1.35 | 無 | 0 |
+
+**品質評估**：
+- 去背品質：優（白色背景乾淨，邊緣清晰）
+- 灰階轉換：一致（與 narrator 黑白寫實風格相符）
+- 表情差異：明顯（normal 清晰自然、questioning 偏暗帶藍調不安、shocked 高亮高對比驚嚇感）
+
 ## Fallback 指引
 - 還原舊立繪（VRM 渲染版）：`git checkout 0bb4bdc -- assets/characters/narrator/`
 - 重新跑去背：`python tools/rembg_narrator.py`

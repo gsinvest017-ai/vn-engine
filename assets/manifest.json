@@ -45,35 +45,35 @@
         "normal": {
           "file": "characters/narrator/normal.png",
           "status": "ready",
-          "source": "Seed-san.vrm Blender Cycles render, neutral expression"
+          "source": "tools/vrm/narrator.jpg rembg+grade: bright=1.00 contrast=1.00"
         },
         "tired": {
           "file": "characters/narrator/tired.png",
           "status": "ready",
-          "source": "Seed-san.vrm Blender Cycles render, eye_close+face_sad+eye_brow_down"
+          "source": "tools/vrm/narrator.jpg rembg+grade: bright=0.80 contrast=0.92 tint=amber crush=0.22"
         },
         "troubled": {
           "file": "characters/narrator/troubled.png",
           "status": "ready",
-          "source": "Seed-san.vrm Blender Cycles render, face_angry+eye_brow_down+eye_angry"
+          "source": "tools/vrm/narrator.jpg rembg+grade: bright=0.86 contrast=1.30 tint=blue crush=0.28"
         },
         "silent": {
           "file": "characters/narrator/silent.png",
           "status": "ready",
-          "source": "Seed-san.vrm Blender Cycles render, face_relax+look_down+eye_close"
+          "source": "tools/vrm/narrator.jpg rembg+grade: bright=0.60 contrast=1.18 tint=dark-blue crush=0.42"
         },
         "thoughtful": {
           "file": "characters/narrator/thoughtful.png",
           "status": "ready",
-          "source": "Seed-san.vrm Blender Cycles render, eye_brow_up_R+look_right+face_relax"
+          "source": "tools/vrm/narrator.jpg rembg+grade: bright=1.06 contrast=1.06 tint=warm-cream"
         },
         "reading": {
           "file": "characters/narrator/reading.png",
           "status": "ready",
-          "source": "Seed-san.vrm Blender Cycles render, look_down+face_relax+eye_close"
+          "source": "tools/vrm/narrator.jpg rembg+grade: bright=0.90 contrast=1.10 tint=amber crush=0.12"
         }
       },
-      "source_model": "tools/vrm/Seed-san.vrm (CC0, vrm-c/vrm-specification sample)",
+      "source_model": "tools/vrm/narrator.jpg (photo, rembg u2net)",
       "ai_prompt_base": "中年男性, 偵探/側寫師, 穿深色長風衣, 眼神疲憊而深邃, 台灣人面孔, 寫實黑色電影立繪風格, 透明背景, 直立正面或四分之三角度, 800x1600px"
     },
     "diao_caidi": {
@@ -81,20 +81,20 @@
         "normal": {
           "file": "characters/diao_caidi/normal.png",
           "status": "ready",
-          "source": "Seed-san.vrm Blender Cycles render, face_happy+cheek+eye_smile"
+          "source": "tools/vrm/diao_caidi.jpg rembg+grayscale+grade: bright=1.00 contrast=1.00"
         },
         "questioning": {
           "file": "characters/diao_caidi/questioning.png",
           "status": "ready",
-          "source": "Seed-san.vrm Blender Cycles render, eye_brow_up_L+eye_brow_down_R+look_right"
+          "source": "tools/vrm/diao_caidi.jpg rembg+grayscale+grade: bright=0.92 contrast=1.20 tint=cool-blue crush=0.15"
         },
         "shocked": {
           "file": "characters/diao_caidi/shocked.png",
           "status": "ready",
-          "source": "Seed-san.vrm Blender Cycles render, face_surprise+mouse_open+eye_black_big"
+          "source": "tools/vrm/diao_caidi.jpg rembg+grayscale+grade: bright=1.10 contrast=1.35"
         }
       },
-      "source_model": "tools/vrm/Seed-san.vrm (CC0, vrm-c/vrm-specification sample)",
+      "source_model": "tools/vrm/diao_caidi.jpg (photo, rembg u2net + grayscale)",
       "ai_prompt_base": "中年男性, 略胖身材, 台灣本土臉孔, 穿休閒短袖, 好奇而直率的表情, 寫實視覺小說立繪風格, 透明背景, 直立正面, 800x1600px"
     }
   },
