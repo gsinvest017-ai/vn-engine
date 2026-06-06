@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VN Engine</title>
+  <link rel="stylesheet" href="css/engine.css">
+</head>
+<body>
+  <div id="vn-root">
+
+    <!-- ── 主選單 ── -->
+    <div id="main-menu" class="layer active">
+      <div id="menu-bg"></div>
+      <div id="menu-content">
+        <div id="menu-logo">
+          <h1 id="game-title">暗渠之書</h1>
+          <p id="game-subtitle">台中舊城的記憶</p>
+        </div>
+        <nav id="menu-buttons">
+          <button class="menu-btn" data-action="start">開始遊戲</button>
+          <button class="menu-btn" data-action="load">讀取存檔</button>
+          <button class="menu-btn" data-action="settings">設定</button>
+        </nav>
+        <p id="menu-version">VN Engine v1.0</p>
+      </div>
+    </div>
+
+    <!-- ── 遊戲畫面 ── -->
+    <div id="game-screen" class="layer">
+
+      <!-- 背景層 -->
+      <div id="bg-layer">
+        <div id="bg-a" class="bg-image"></div>
+        <div id="bg-b" class="bg-image" style="opacity:0"></div>
+      </div>
+
+      <!-- 天氣 Canvas -->
+      <canvas id="weather-canvas"></canvas>
+
+      <!-- 特效層 -->
+      <div id="effects-layer">
+        <div id="fx-dim"></div>
+        <div id="fx-flash"></div>
+        <div id="fx-fade"></div>
+        <div id="fx-vignette"></div>
+      </div>
+
+      <!-- 角色層 -->
+      <div id="characters-layer">
+        <div class="char-slot" id="slot-left"   data-pos="left"></div>
+        <div class="char-slot" id="slot-center" data-pos="center"></div>
+        <div class="char-slot" id="slot-right"  data-pos="right"></div>
+      </div>
+
+      <!-- UI 層 -->
+      <div id="ui-layer">
+        <!-- 章節標題 -->
+        <div id="chapter-card" class="hidden">
+          <div id="chapter-num"></div>
+          <div id="chapter-name"></div>
+        </div>
+
+        <!-- 對話框 -->
+        <div id="textbox" class="hidden">
+          <div id="speaker-strip">
+            <span id="speaker-name"></span>
+          </div>
+          <div id="text-area">
+            <p id="dialogue-text"></p>
+          </div>
+          <span id="advance-arrow" class="blink">▼</span>
+        </div>
+
+        <!-- 選擇框 -->
+        <div id="choice-box" class="hidden">
+          <p id="choice-prompt"></p>
+          <div id="choice-options"></div>
+        </div>
+
+        <!-- HUD -->
+        <div id="hud">
+          <button class="hud-btn" id="hud-menu"    title="選單">☰</button>
+          <button class="hud-btn" id="hud-save"    title="存檔">■</button>
+          <button class="hud-btn" id="hud-history" title="歷史">≡</button>
+          <button class="hud-btn" id="hud-auto"    title="自動">▶</button>
+          <button class="hud-btn" id="hud-skip"    title="略過">»</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 存讀檔 Overlay ── -->
+    <div id="overlay-saveload" class="overlay hidden">
+      <div class="overlay-panel">
+        <h2 id="overlay-title">存/讀檔</h2>
+        <div id="save-slots"></div>
+        <button class="menu-btn" id="overlay-close">關閉</button>
+      </div>
+    </div>
+
+    <!-- ── 歷史記錄 Overlay ── -->
+    <div id="overlay-history" class="overlay hidden">
+      <div class="overlay-panel" id="history-panel">
+        <h2>對話記錄</h2>
+        <div id="history-list"></div>
+        <button class="menu-btn" id="history-close">關閉</button>
+      </div>
+    </div>
+
+  </div><!-- #vn-root -->
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
