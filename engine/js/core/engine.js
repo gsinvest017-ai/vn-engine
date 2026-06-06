@@ -158,6 +158,14 @@ export class VNEngine {
   async _doDialogue(cmd) {
     this.state.addHistory({ speaker: cmd.character, text: cmd.text });
     const displayName = this.config.characters?.[cmd.character]?.name || cmd.character;
+
+    // Auto-show character sprite if not already on screen
+    if (cmd.character && !this.chars.displayed[cmd.character]) {
+      this.chars.show(cmd.character, 'center', 'normal');
+    }
+    // Dim all other characters, highlight the speaker
+    this.chars.highlight(cmd.character);
+
     await this.textbox.show(cmd.text, { speaker: displayName, style: 'dialogue' });
     if (!this.skipMode) return 'wait_input';
     await this._sleep(60);
@@ -167,6 +175,8 @@ export class VNEngine {
   async _doNarration(cmd) {
     if (!cmd.text) return null;
     this.state.addHistory({ speaker: '', text: cmd.text });
+    // Narration: no single speaker, restore all characters to equal brightness
+    this.chars.clearHighlight();
     await this.textbox.show(cmd.text, { speaker: '', style: cmd.style });
     if (!this.skipMode) return 'wait_input';
     await this._sleep(40);
@@ -201,22 +211,51 @@ export class VNEngine {
 
   _bindInput() {
     const advance = () => {
+      // Skip typewriter first; next click will advance to the next command
+      if (this.textbox.isTyping()) {
+        this.textbox.skipType();
+        return;
+      }
       if (this._inputResolve) {
         const fn = this._inputResolve;
         this._inputResolve = null;
         this.waitInput = false;
         fn();
       }
-      if (this.textbox.isTyping()) {
-        this.textbox.skipType();
-        return;
-      }
     };
 
     const gameScreen = this.root.querySelector('#game-screen');
     gameScreen?.addEventListener('click', advance);
+
+    // Space / Enter / → : advance
     document.addEventListener('keydown', e => {
-      if (e.code === 'Space' || e.code === 'Enter' || e.code === 'ArrowRight') advance();
+      if (e.code === 'Space' || e.code === 'Enter' || e.code === 'ArrowRight') {
+        if (!e.ctrlKey) advance();
+      }
+    });
+
+    // Ctrl hold → continuous fast-forward (skip typing + auto-advance)
+    let _ffTimer = null;
+    const _ff = () => {
+      if (this.textbox.isTyping()) this.textbox.skipType();
+      if (this._inputResolve) {
+        const fn = this._inputResolve;
+        this._inputResolve = null;
+        this.waitInput = false;
+        fn();
+      }
+      _ffTimer = setTimeout(_ff, 80);
+    };
+    document.addEventListener('keydown', e => {
+      if ((e.code === 'ControlLeft' || e.code === 'ControlRight') && !_ffTimer) {
+        _ff();
+      }
+    });
+    document.addEventListener('keyup', e => {
+      if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
+        clearTimeout(_ffTimer);
+        _ffTimer = null;
+      }
     });
   }
 

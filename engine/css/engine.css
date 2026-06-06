@@ -135,7 +135,7 @@ html, body {
 }
 
 /* ── Game Screen ── */
-#game-screen { display: flex; flex-direction: column; }
+#game-screen { flex-direction: column; }
 
 /* ── Background Layer ── */
 #bg-layer {
@@ -226,11 +226,16 @@ html, body {
   max-width: 100%;
   object-fit: contain;
   filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
-  transition: opacity var(--transition-normal);
+  transition: opacity var(--transition-normal), transform 250ms ease, filter 250ms ease;
 }
 
 .char-slot.dimmed .char-sprite {
   filter: drop-shadow(0 8px 24px rgba(0,0,0,0.8)) brightness(0.55) saturate(0.6);
+}
+
+.char-slot.speaking .char-sprite {
+  transform: scale(1.03) translateY(-4px);
+  filter: drop-shadow(0 12px 32px rgba(0,0,0,0.7)) brightness(1.08);
 }
 
 /* ── UI Layer ── */

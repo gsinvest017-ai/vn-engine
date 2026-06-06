@@ -105,21 +105,26 @@ export class CharManager {
     this.displayed[id] = info;
   }
 
-  /** Dim all characters except the one speaking. */
+  /** Dim all other characters; scale up the speaker. */
   highlight(speakerId) {
     for (const [id, info] of Object.entries(this.displayed)) {
       const slot = this.slots[info.pos];
       if (!slot) continue;
       if (id === speakerId) {
         slot.classList.remove('dimmed');
+        slot.classList.add('speaking');
       } else {
         slot.classList.add('dimmed');
+        slot.classList.remove('speaking');
       }
     }
   }
 
   clearHighlight() {
-    Object.values(this.slots).forEach(s => s?.classList.remove('dimmed'));
+    Object.values(this.slots).forEach(s => {
+      s?.classList.remove('dimmed');
+      s?.classList.remove('speaking');
+    });
   }
 
   _removeFrom(id) {
