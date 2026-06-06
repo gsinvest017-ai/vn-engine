@@ -133,11 +133,71 @@ export class EffectsManager {
     }
   }
 
+  /* ── Suspense End — cinematic closing sequence ── */
+  async suspenseEnd({ message = '', duration = 5200 } = {}) {
+    // Phase 1: Vignette intensifies with pulse animation
+    this.fxVig.classList.add('vignette-suspense');
+    this.fxVig.style.opacity = '0.65';
+    await this._sleep(700);
+
+    // Phase 2: Textbox fades out
+    const textbox = this.root.querySelector('#textbox');
+    if (textbox) {
+      textbox.classList.add('fading-out');
+    }
+    this.dim(0.22);
+    await this._sleep(900);
+
+    // Phase 3: Optional closing message
+    if (message) {
+      const msgEl = this.root.querySelector('#fx-suspense-msg');
+      if (msgEl) {
+        msgEl.querySelector('span').textContent = message;
+        msgEl.classList.add('show');
+        await this._sleep(1800);
+        msgEl.classList.remove('show');
+        await this._sleep(600);
+      }
+    }
+
+    // Phase 4: Characters drift out
+    const charLayer = this.root.querySelector('#characters-layer');
+    if (charLayer) {
+      charLayer.style.transition = 'opacity 1600ms ease-in, transform 1800ms ease-in';
+      charLayer.style.opacity    = '0';
+      charLayer.style.transform  = 'translateY(12px)';
+    }
+    this.fxVig.style.transition = 'opacity 2000ms ease-in';
+    this.fxVig.style.opacity    = '1.0';
+    await this._sleep(1000);
+
+    // Phase 5: Slow blackout
+    const fadeDuration = Math.max(2000, Math.floor(duration * 0.55));
+    this.fxFade.style.background  = '#000';
+    this.fxFade.style.transition  = `opacity ${fadeDuration}ms ease-in`;
+    this.fxFade.style.opacity     = '1';
+    await this._sleep(fadeDuration + 120);
+
+    // Restore char layer transform for potential replay
+    if (charLayer) {
+      charLayer.style.transition = '';
+      charLayer.style.transform  = '';
+    }
+  }
+
   /* ── Cleanup ── */
   clearAll() {
     this.dim(0);
     this.vignette(0);
     this.fxFlash.style.opacity = '0';
+    this.fxFade.style.opacity  = '0';
+    this.fxVig.classList.remove('vignette-suspense');
+    const charLayer = this.root.querySelector('#characters-layer');
+    if (charLayer) { charLayer.style.opacity = ''; charLayer.style.transform = ''; }
+    const msgEl = this.root.querySelector('#fx-suspense-msg');
+    if (msgEl) msgEl.classList.remove('show');
+    const textbox = this.root.querySelector('#textbox');
+    if (textbox) textbox.classList.remove('fading-out');
     this._stopRain();
   }
 

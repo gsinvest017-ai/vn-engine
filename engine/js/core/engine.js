@@ -110,8 +110,9 @@ export class VNEngine {
       case 'choice':      return this._doChoice(cmd);
       case 'label':       return null;  // labels are no-ops at runtime
       case 'jump':        this._jump(cmd.label); return 'jump';
-      case 'chapter_end': return this._doChapterEnd();
-      case 'end':         return 'stop';
+      case 'chapter_end':   return this._doChapterEnd();
+      case 'suspense_end':  return this._doSuspenseEnd(cmd);
+      case 'end':           return 'stop';
       default:            return null;
     }
   }
@@ -201,6 +202,12 @@ export class VNEngine {
   _jump(label) {
     const idx = this.allCommands.findIndex(c => c.type === 'label' && c.name === label);
     if (idx >= 0) this.cmdIdx = idx + 1;
+  }
+
+  async _doSuspenseEnd(cmd) {
+    this.textbox.hide();
+    await this.fx.suspenseEnd({ message: cmd.message, duration: cmd.duration });
+    return 'stop';
   }
 
   _onEnd() {

@@ -166,6 +166,13 @@ function parseDirective(content) {
     case 'chapter_end':
       return { type: 'chapter_end' };
 
+    case 'suspense_end':
+      return {
+        type: 'suspense_end',
+        message:  params.message || '',
+        duration: parseInt(params.duration || '5200', 10),
+      };
+
     case 'end':
       return { type: 'end' };
 
