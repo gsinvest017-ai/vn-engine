@@ -32,6 +32,8 @@ const _devParams  = new URLSearchParams(location.search);
 const DEV_SCENE   = _devParams.get('devScene');    // e.g. ?devScene=shrine_interior
 const DEV_CHAPTER = _devParams.get('devChapter');  // e.g. ?devChapter=1
 const DEV_EFFECT  = _devParams.get('devEffect');   // e.g. ?devEffect=suspense_end
+const DEV_RAIN    = _devParams.get('devRain');     // e.g. ?devRain=heavy
+const DEV_WIND    = parseFloat(_devParams.get('devWind') || '0');  // e.g. ?devWind=0.5
 
 let engine = null;
 let menuUI = null;
@@ -74,6 +76,12 @@ async function startGame() {
     }
 
     await engine.start(startIdx);
+
+    // Dev rain preview
+    if (DEV_RAIN && DEV_RAIN !== 'none') {
+      engine.fx.setWeather({ rain: DEV_RAIN, wind: DEV_WIND });
+      _showDevBanner(`Rain: ${DEV_RAIN} wind:${DEV_WIND}`);
+    }
 
     // Dev effect test (fires after story loads at start)
     if (DEV_EFFECT) {

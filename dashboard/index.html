@@ -458,6 +458,23 @@ html, body {
           </div>
         </div>
         <div class="tools-section">
+          <div class="tools-section-hd">雨水預覽</div>
+          <div class="tools-row" style="align-items:center;gap:6px;flex-wrap:wrap;">
+            <select id="rain-intensity" class="tool-btn" style="padding:3px 6px;cursor:pointer;">
+              <option value="drizzle">毛毛雨</option>
+              <option value="light">小雨</option>
+              <option value="heavy" selected>大雨</option>
+              <option value="storm">暴雨</option>
+            </select>
+            <span style="color:var(--muted);font-size:10px;">風</span>
+            <input id="rain-wind" type="range" min="-1" max="1" step="0.1" value="0"
+              style="width:60px;accent-color:var(--amber);vertical-align:middle;"
+              oninput="document.getElementById('rain-wind-val').textContent=this.value">
+            <span id="rain-wind-val" style="color:var(--muted);font-size:10px;width:26px;">0</span>
+            <button class="tool-btn" onclick="testRain()">⛈ 預覽</button>
+          </div>
+        </div>
+        <div class="tools-section">
           <div class="tools-section-hd">特效測試</div>
           <div class="tools-row">
             <button class="tool-btn" onclick="testEffect('suspense_end')">◎ 懸疑結局</button>
@@ -886,6 +903,12 @@ function testEffect(effect) {
   const params = { suspense_end: 'devEffect=suspense_end', chapter_end: 'devEffect=chapter_end', fade_out: 'devEffect=fade_out' };
   const qs = params[effect] || '';
   window.open(`/engine/?${qs}`, '_blank');
+}
+
+function testRain() {
+  const intensity = document.getElementById('rain-intensity').value;
+  const wind      = document.getElementById('rain-wind').value;
+  window.open(`/engine/?devRain=${encodeURIComponent(intensity)}&devWind=${encodeURIComponent(wind)}`, '_blank');
 }
 
 // ── Init ──────────────────────────────────────────────────────────

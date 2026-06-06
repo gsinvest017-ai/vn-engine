@@ -85,43 +85,123 @@ export class EffectsManager {
   }
 
   _startRain(intensity, wind = 0) {
-    const ctx    = this.canvas.getContext('2d');
-    const w      = this.canvas.width;
-    const h      = this.canvas.height;
-    const count  = Math.floor(w * h * intensity * 0.0004);
-    const drops  = Array.from({ length: count }, () => ({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      len: 8 + Math.random() * 20 * intensity,
-      speed: 8 + Math.random() * 14 * intensity,
-      alpha: 0.2 + Math.random() * 0.5 * intensity,
+    const ctx = this.canvas.getContext('2d');
+    const w   = this.canvas.width;
+    const h   = this.canvas.height;
+
+    // Rain angle: near-vertical + wind offset
+    const windAngle = (wind * 22) * Math.PI / 180;
+    const baseAngle = 83 * Math.PI / 180;   // nearly vertical
+    const totalAngle = baseAngle + windAngle;
+    const adx = Math.cos(totalAngle);       // small horizontal component
+    const ady = Math.sin(totalAngle);       // dominant vertical
+
+    // ── Layer 1: Heavy drops (main streaks) ─────────────────────────
+    const dropCount = Math.floor(w * h * intensity * 0.00055);
+    const drops = Array.from({ length: dropCount }, () => ({
+      x:     Math.random() * w * 1.3 - w * 0.15,
+      y:     Math.random() * h,
+      len:   22 + Math.random() * 42 * intensity,
+      speed: 14 + Math.random() * 22 * intensity,
+      alpha: 0.18 + Math.random() * 0.55 * intensity,
+      width: 0.35 + Math.random() * 0.85 * intensity,
+      sway:  (Math.random() - 0.5) * 0.45,
     }));
-    const angle = (wind * 25) * Math.PI / 180;
-    const dx    = Math.sin(angle);
-    const dy    = Math.cos(angle);
+
+    // ── Layer 2: Fine spray (smaller, slower, drifts) ───────────────
+    const sprayCount = Math.floor(dropCount * 0.7);
+    const spray = Array.from({ length: sprayCount }, () => ({
+      x:     Math.random() * w,
+      y:     Math.random() * h,
+      len:   4 + Math.random() * 12 * intensity,
+      speed: 5 + Math.random() * 9 * intensity,
+      alpha: 0.06 + Math.random() * 0.16 * intensity,
+      drift: (Math.random() - 0.5) * 1.4,
+    }));
+
+    // ── Layer 3: Mist / ambient haze (drawn once, fades) ────────────
+    let mistAlpha = intensity * 0.04;
+    let mistPhase = 0;
 
     let raf;
-    const draw = () => {
+    const drawFrame = () => {
       ctx.clearRect(0, 0, w, h);
-      ctx.strokeStyle = `rgba(180,200,220,1)`;
-      ctx.lineWidth   = 0.5 + intensity * 0.6;
-      for (const d of drops) {
+
+      // Atmospheric mist band (mid-height, oscillating)
+      mistPhase += 0.008;
+      const mistY = h * 0.45 + Math.sin(mistPhase) * h * 0.08;
+      const grad  = ctx.createLinearGradient(0, mistY - h*0.15, 0, mistY + h*0.15);
+      grad.addColorStop(0, 'rgba(160,175,190,0)');
+      grad.addColorStop(0.5, `rgba(160,175,190,${mistAlpha * 0.9})`);
+      grad.addColorStop(1, 'rgba(160,175,190,0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, mistY - h * 0.15, w, h * 0.3);
+
+      // ── Spray layer ────────────────────────────────────────────────
+      for (const d of spray) {
         ctx.globalAlpha = d.alpha;
+        ctx.strokeStyle = 'rgba(195,210,225,1)';
+        ctx.lineWidth   = 0.3;
         ctx.beginPath();
         ctx.moveTo(d.x, d.y);
-        ctx.lineTo(d.x + dx * d.len, d.y + dy * d.len);
+        ctx.lineTo(d.x + adx * d.len * 0.5 + d.drift, d.y + ady * d.len);
         ctx.stroke();
-        d.x += d.speed * dx;
-        d.y += d.speed * dy;
-        if (d.y > h || d.x < 0 || d.x > w) {
+        d.x += d.speed * adx * 0.6 + d.drift * 0.3;
+        d.y += d.speed * ady * 0.7;
+        if (d.y > h + d.len || d.x < -60 || d.x > w + 60) {
           d.x = Math.random() * w;
-          d.y = -d.len;
+          d.y = -d.len - Math.random() * 80;
         }
       }
+
+      // ── Main drops with motion trail ──────────────────────────────
+      for (const d of drops) {
+        // Trail: 3 progressively fading segments behind the drop
+        for (let t = 2; t >= 0; t--) {
+          const trailFade   = (3 - t) / 3;
+          const trailOffset = t * d.speed * 0.10;
+          ctx.globalAlpha = d.alpha * trailFade * (t === 0 ? 1 : 0.45);
+          ctx.strokeStyle = t === 0
+            ? 'rgba(210,228,245,1)'
+            : 'rgba(180,205,228,1)';
+          ctx.lineWidth   = d.width * (t === 0 ? 1 : 0.55);
+          ctx.beginPath();
+          const ox = d.x - adx * trailOffset;
+          const oy = d.y - ady * trailOffset;
+          ctx.moveTo(ox, oy);
+          ctx.lineTo(ox + adx * d.len, oy + ady * d.len);
+          ctx.stroke();
+        }
+
+        // Tiny impact splash at bottom of drop
+        if (d.y > h - 60 && d.y < h + d.len) {
+          const splashAlpha = Math.max(0, (1 - (d.y - (h - 60)) / 60)) * d.alpha * 0.55;
+          ctx.globalAlpha = splashAlpha;
+          ctx.strokeStyle = 'rgba(200,220,238,1)';
+          ctx.lineWidth   = 0.5;
+          const sx = d.x + adx * d.len;
+          const sy = Math.min(h - 2, d.y + ady * d.len);
+          for (let s = 0; s < 4; s++) {
+            const sa = (s / 4) * Math.PI * 2;
+            ctx.beginPath();
+            ctx.moveTo(sx, sy);
+            ctx.lineTo(sx + Math.cos(sa) * 4, sy - Math.abs(Math.sin(sa)) * 5);
+            ctx.stroke();
+          }
+        }
+
+        d.x += d.speed * adx + d.sway;
+        d.y += d.speed * ady;
+        if (d.y > h + d.len + 40 || d.x < -80 || d.x > w + 80) {
+          d.x = Math.random() * w * 1.3 - w * 0.15;
+          d.y = -d.len - Math.random() * 120;
+        }
+      }
+
       ctx.globalAlpha = 1;
-      raf = requestAnimationFrame(draw);
+      raf = requestAnimationFrame(drawFrame);
     };
-    draw();
+    drawFrame();
     this._rain = { raf, ctx };
   }
 
