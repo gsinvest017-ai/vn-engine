@@ -3,40 +3,40 @@
   "_story": "taichung-anqu",
   "backgrounds": {
     "old_city_dusk": {
-      "file": "backgrounds/old_city_dusk.svg",
+      "file": "backgrounds/old_city_dusk.png",
       "status": "ready",
-      "description": "台中舊城區黃昏，第三市場附近，橙紅色天空，電線桿剪影",
-      "ai_prompt": "台中舊城區黃昏街景, 第三市場附近老舊巷弄, 傍晚橙紅漸層天空, 舊式建築與電線桿剪影, 潮濕地面反光, 台灣街頭油畫風格, 16:9橫向構圖, 暗色調"
+      "description": "台中舊城區夜晚窄巷，鐵捲門，路燈，石板路",
+      "source": "PolyHaven cobblestone_street_night HDRI 270° Blender Cycles render"
     },
     "shrine_interior": {
-      "file": "backgrounds/shrine_interior.svg",
+      "file": "backgrounds/shrine_interior.png",
       "status": "ready",
-      "description": "老舊道壇內部，低矮天花板，牆壁鹽斑，香爐微光",
-      "ai_prompt": "台灣傳統道壇/神壇室內, 低矮天花板, 磚牆有灰白鹽斑與潮濕水漬, 昏暗香爐燈光, 木質神桌, 暗沉陰鬱氛圍, 16:9橫向, 黑暗水墨寫實風格"
+      "description": "廟宇/道壇夜間內部，木門關閉，暖色壁燈",
+      "source": "PolyHaven courtyard_night HDRI 270° Blender Cycles render"
     },
     "city_historical": {
       "file": "backgrounds/city_historical.svg",
       "status": "ready",
-      "description": "泛黃古地圖，清代翰溪庄水路圖",
+      "description": "泛黃古地圖，清代翰溪庄水路圖（保留 SVG）",
       "ai_prompt": "清代台灣古地圖（泛黃宣紙質感）, 翰溪庄附近水路圖, 毛筆手繪水流標示, 廟宇位置標記, 年代久遠斑痕, 16:9橫向, 歷史文件風格"
     },
     "archive_room": {
-      "file": "backgrounds/archive_room.svg",
+      "file": "backgrounds/archive_room.png",
       "status": "ready",
-      "description": "舊檔案室，昏黃桌燈，滿架文件",
-      "ai_prompt": "台灣舊式政府檔案室深夜, 木製書架堆滿老舊文件, 昏黃桌燈, 灰塵漂浮, 窗外黑暗, 壓迫感, 16:9橫向, 黑色電影光影風格"
+      "description": "廢棄磚造室內，極暗，遠處昏暗門框透光",
+      "source": "PolyHaven abandoned_bakery HDRI 180° Blender Cycles render"
     },
     "shrine_entrance_night": {
-      "file": "backgrounds/shrine_entrance_night.svg",
+      "file": "backgrounds/shrine_entrance_night.png",
       "status": "ready",
-      "description": "深夜暴雨中的道壇入口，停電，遠處便利商店綠光",
-      "ai_prompt": "台灣舊城區道壇/廟門口深夜暴雨, 停電後黑暗, 只有遠方便利商店綠色招牌微弱發光, 鐵皮屋頂雨聲視覺化, 積水地面反光, 恐怖寂靜氛圍, 16:9橫向"
+      "description": "舊城夜景，橙黃磚牆拱形門洞，暗夜停車",
+      "source": "PolyHaven cobblestone_street_night HDRI 135° Blender Cycles render"
     },
     "underground_river": {
-      "file": "backgrounds/underground_river.svg",
+      "file": "backgrounds/underground_river.png",
       "status": "ready",
-      "description": "地下暗渠，拱形磚隧道，幽暗水道，舊船",
-      "ai_prompt": "台灣日治時代地下暗渠/排水隧道, 拱形磚造結構, 幽暗水面微弱磷光, 遠處一艘木製舟筏, 滴水聲視覺化, 神秘陰暗, 16:9橫向, 黑暗寫實風格"
+      "description": "夜晚湖面水景，遠處暖燈倒影，秋樹剪影",
+      "source": "PolyHaven pond_bridge_night HDRI 270° Blender Cycles render"
     }
   },
   "characters": {

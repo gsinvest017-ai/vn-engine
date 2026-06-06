@@ -11,16 +11,22 @@ export class SceneManager {
     this.current   = null;
   }
 
-  bgUrl(id) {
-    // Try .svg first (placeholders), fallback to .png / .jpg via onerror in img
-    return `${this.assetBase}/backgrounds/${id}.svg`;
+  _bgUrlResolved(id) {
+    const png = `${this.assetBase}/backgrounds/${id}.png`;
+    const svg = `${this.assetBase}/backgrounds/${id}.svg`;
+    return new Promise(resolve => {
+      const img = new Image();
+      img.onload  = () => resolve(png);
+      img.onerror = () => resolve(svg);
+      img.src = png;
+    });
   }
 
   async set(id, transition = 'fade') {
     if (!id || id === this.current) return;
     this.current = id;
 
-    const url  = this.bgUrl(id);
+    const url  = await this._bgUrlResolved(id);
     const next = this.active === 'a' ? this.bgB : this.bgA;
     const curr = this.active === 'a' ? this.bgA : this.bgB;
 
