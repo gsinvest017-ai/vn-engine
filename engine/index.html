@@ -41,6 +41,12 @@
       <!-- 天氣 Canvas -->
       <canvas id="weather-canvas"></canvas>
 
+      <!-- 膠片古舊覆蓋層 (grain + scanlines + warm tint) -->
+      <canvas id="grain-canvas"></canvas>
+      <div id="fx-scanlines"></div>
+      <div id="fx-aged-tint"></div>
+      <div id="fx-vignette-static"></div>
+
       <!-- 特效層 -->
       <div id="effects-layer">
         <div id="fx-dim"></div>
@@ -117,6 +123,40 @@
 
   <script type="module" src="js/main.js"></script>
   <script>
+  // ── Film grain canvas ─────────────────────────────────────────────
+  (function() {
+    const canvas = document.getElementById('grain-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, frame = 0;
+
+    function resize() {
+      W = canvas.width  = canvas.offsetWidth  || window.innerWidth;
+      H = canvas.height = canvas.offsetHeight || window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function drawGrain() {
+      // Only redraw at ~12fps — enough for film grain feel
+      frame++;
+      if (frame % 5 !== 0) { requestAnimationFrame(drawGrain); return; }
+
+      const imgData = ctx.createImageData(W, H);
+      const d = imgData.data;
+      for (let i = 0; i < d.length; i += 4) {
+        const v = (Math.random() * 2 - 1) * 38;
+        d[i]   = 128 + v;
+        d[i+1] = 128 + v;
+        d[i+2] = 118 + v;  // slight warm tint
+        d[i+3] = Math.random() < 0.06 ? 18 : (Math.random() < 0.015 ? 38 : 8);
+      }
+      ctx.putImageData(imgData, 0, 0);
+      requestAnimationFrame(drawGrain);
+    }
+    drawGrain();
+  })();
+
   // ── Menu water-ripple canvas ──────────────────────────────────────
   (function() {
     const canvas = document.getElementById('menu-canvas');

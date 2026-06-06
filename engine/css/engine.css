@@ -307,6 +307,59 @@ html, body {
   z-index: 5;
 }
 
+/* ── Film Grain Canvas ── */
+#grain-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+}
+
+/* ── Scan Lines ── */
+#fx-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 7;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.055) 2px,
+    rgba(0, 0, 0, 0.055) 4px
+  );
+}
+
+/* ── Aged Warm Tint ── */
+#fx-aged-tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+  background:
+    radial-gradient(ellipse 100% 100% at 50% 50%,
+      transparent 40%,
+      rgba(12, 8, 2, 0.22) 100%),
+    linear-gradient(180deg,
+      rgba(25, 15, 3, 0.06) 0%,
+      rgba(5, 3, 1, 0.02) 50%,
+      rgba(25, 15, 3, 0.08) 100%);
+}
+
+/* ── Permanent Vignette (always-on, darker than fx-vignette) ── */
+#fx-vignette-static {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9;
+  background: radial-gradient(ellipse 90% 90% at 50% 50%,
+    transparent 35%,
+    rgba(0, 0, 0, 0.30) 70%,
+    rgba(0, 0, 0, 0.62) 100%);
+}
+
 /* ── Effects Layer ── */
 #effects-layer {
   position: absolute;
