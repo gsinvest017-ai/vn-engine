@@ -228,6 +228,12 @@ html, body {
 .char-name {
   font-size: 10px; color: var(--amber); padding: 3px 4px; margin-bottom: 4px;
   border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 5px;
+}
+.char-src {
+  font-size: 8px; padding: 0 4px; border-radius: 2px;
+  background: rgba(80,136,152,.3); color: var(--teal);
+  border: 1px solid rgba(80,136,152,.25);
 }
 .expr-row { display: flex; flex-wrap: wrap; gap: 4px; padding: 0 4px; }
 .expr-thumb {
@@ -592,6 +598,21 @@ function renderGit() {
 }
 
 // ── Backgrounds ───────────────────────────────────────────────────
+function bgImgSrc(id, info) {
+  // Prefer PNG > SVG, derive from manifest file path
+  const file = info.file || `backgrounds/${id}.svg`;
+  const isPng = file.endsWith('.png');
+  if (isPng && S.assetMap[`backgrounds/${id}.png`]) return `/assets/backgrounds/${id}.png`;
+  if (S.assetMap[`backgrounds/${id}.svg`]) return `/assets/backgrounds/${id}.svg`;
+  return '';
+}
+
+function bgLightboxSrc(id, info) {
+  const file = info.file || '';
+  if (file.endsWith('.png') && S.assetMap[`backgrounds/${id}.png`]) return `/assets/backgrounds/${id}.png`;
+  return `/assets/backgrounds/${id}.svg`;
+}
+
 function renderBackgrounds() {
   const el = document.getElementById('bg-grid');
   const bgs = S.manifest.backgrounds || {};
@@ -600,15 +621,17 @@ function renderBackgrounds() {
 
   el.innerHTML = ids.map(id => {
     const info   = bgs[id];
-    const assetP = `backgrounds/${id}.svg`;
-    const exists = S.assetMap[assetP];
-    const status = exists ? 'ready' : (info.status || 'missing');
-    const imgSrc = exists ? `/assets/backgrounds/${id}.svg` : '';
+    const imgSrc = bgImgSrc(id, info);
+    const lbSrc  = bgLightboxSrc(id, info);
+    const status = imgSrc ? 'ready' : (info.status || 'missing');
     const badgeCls = status === 'ready' ? 's-ready' : (status === 'procedural' ? 's-procedural' : 's-missing');
     const badgeTxt = status === 'ready' ? '✓' : (status === 'procedural' ? '⚡' : '✗');
+    const imgHtml  = imgSrc
+      ? `<img src="${imgSrc}" alt="${esc(id)}" loading="lazy">`
+      : `<div style="height:100%;background:var(--panel2);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:10px">no img</div>`;
 
-    return `<div class="bg-thumb" onclick="openLightbox('/assets/backgrounds/${id}.svg','${esc(id)}')" title="${esc(info.description || id)}">
-      ${imgSrc ? `<img src="${imgSrc}" alt="${esc(id)}" loading="lazy">` : `<div style="height:100%;background:var(--panel2);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:10px">no img</div>`}
+    return `<div class="bg-thumb" onclick="openLightbox('${esc(lbSrc)}','${esc(id)}')" title="${esc(info.description || id)}">
+      ${imgHtml}
       <span class="bg-label">${esc(id)}</span>
       <span class="bg-status ${badgeCls}">${badgeTxt}</span>
     </div>`;
@@ -616,6 +639,14 @@ function renderBackgrounds() {
 }
 
 // ── Characters ────────────────────────────────────────────────────
+function charImgSrc(cid, expr, info) {
+  const file = info?.file || `characters/${cid}/${expr}.svg`;
+  const isPng = file.endsWith('.png');
+  if (isPng && S.assetMap[`characters/${cid}/${expr}.png`]) return `/assets/characters/${cid}/${expr}.png`;
+  if (S.assetMap[`characters/${cid}/${expr}.svg`]) return `/assets/characters/${cid}/${expr}.svg`;
+  return '';
+}
+
 function renderCharacters() {
   const el   = document.getElementById('char-grid');
   const chars = S.manifest.characters || {};
@@ -624,18 +655,21 @@ function renderCharacters() {
 
   el.innerHTML = cids.map(cid => {
     const info  = chars[cid];
-    const exprs = Object.keys(info.expressions || {});
-    const exprHtml = exprs.map(expr => {
-      const assetP = `characters/${cid}/${expr}.svg`;
-      const exists = S.assetMap[assetP];
-      const imgSrc = exists ? `/assets/characters/${cid}/${expr}.svg` : '';
-      return `<div class="expr-thumb" onclick="openLightbox('/assets/characters/${cid}/${expr}.svg','${esc(cid)}/${esc(expr)}')" title="${esc(expr)}">
-        ${imgSrc ? `<img src="${imgSrc}" alt="${esc(expr)}" loading="lazy">` : `<div style="height:80px;background:var(--panel2);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:9px">?</div>`}
+    const exprs = Object.entries(info.expressions || {});
+    const exprHtml = exprs.map(([expr, exprInfo]) => {
+      const imgSrc = charImgSrc(cid, expr, exprInfo);
+      const lbSrc  = imgSrc || `/assets/characters/${cid}/${expr}.svg`;
+      return `<div class="expr-thumb" onclick="openLightbox('${esc(lbSrc)}','${esc(cid)}/${esc(expr)}')" title="${esc(expr)}">
+        ${imgSrc
+          ? `<img src="${imgSrc}" alt="${esc(expr)}" loading="lazy" style="object-fit:contain;background:#0a0a14;">`
+          : `<div style="height:80px;background:var(--panel2);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:9px">?</div>`}
         <span class="expr-name">${esc(expr)}</span>
       </div>`;
     }).join('');
+    const srcBadge = info.source_model
+      ? `<span class="char-src" title="${esc(info.source_model)}">vrm</span>` : '';
     return `<div class="char-section">
-      <div class="char-name">${esc(cid)}</div>
+      <div class="char-name">${esc(cid)} ${srcBadge}</div>
       <div class="expr-row">${exprHtml}</div>
     </div>`;
   }).join('');
