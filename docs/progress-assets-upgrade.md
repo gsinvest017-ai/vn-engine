@@ -91,7 +91,20 @@
 
 ## M4 — 素材資源指引 + manifest 更新
 
-（見下方 M4 完成後追加）
+**完成時間**：本次作業
+
+### 完成內容
+
+**`assets/manifest.json`** — 音訊狀態更新：
+- 所有 10 個音訊槽位（3 BGM + 7 SFX）`status` 由 `"missing"` → `"procedural"`
+- 新增 `procedural_fn` 欄位標注對應的合成函式名稱
+- 新增頂層 `_note` 說明程序式 fallback 機制
+
+**`docs/asset-sources.md`** — 新建資源指引：
+- 每個音訊 ID 對應的 Freesound / OpenGameArt / Pixabay / Mixkit 搜尋關鍵字
+- 授權類型說明（CC0 / CC-BY / Pixabay / Mixkit）
+- DIY Audacity 合成替代方案（market_closing、oar_creak、power_failure）
+- 字型資源：Noto Serif TC、Source Han Serif（OFL 1.1）+ CSS 嵌入範例
 
 ## Fallback 指引
 
