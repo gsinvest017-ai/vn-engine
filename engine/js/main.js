@@ -1,6 +1,10 @@
 /**
  * main.js — entry point.
  * Wires up the main menu and bootstraps VNEngine.
+ *
+ * Dev-jump URL params (for Dashboard integration):
+ *   ?devScene=<bg_id>    — start at first @scene bg=<bg_id>
+ *   ?devChapter=<N>      — start at chapter N (0-indexed)
  */
 import { VNEngine } from './core/engine.js';
 import { MenuUI }   from './ui/menu.js';
@@ -23,8 +27,35 @@ const root        = document.getElementById('vn-root');
 const mainMenu    = document.getElementById('main-menu');
 const gameScreen  = document.getElementById('game-screen');
 
+// ── Dev-jump params ──────────────────────────────────────────────
+const _devParams  = new URLSearchParams(location.search);
+const DEV_SCENE   = _devParams.get('devScene');    // e.g. ?devScene=shrine_interior
+const DEV_CHAPTER = _devParams.get('devChapter');  // e.g. ?devChapter=1
+
 let engine = null;
 let menuUI = null;
+
+function _devStartIndex(eng) {
+  if (DEV_SCENE) {
+    // Find first @scene command with matching bg id
+    const idx = eng.allCommands.findIndex(
+      c => c.type === 'scene' && c.bg === DEV_SCENE
+    );
+    if (idx >= 0) return idx;
+    console.warn(`[Dev] Scene "${DEV_SCENE}" not found — starting from 0`);
+  }
+  if (DEV_CHAPTER !== null) {
+    const chNum = parseInt(DEV_CHAPTER, 10);
+    // Find the first command that belongs to chapter chNum
+    const cmds = eng.allCommands;
+    let charCount = 0;
+    for (let i = 0; i < cmds.length; i++) {
+      if (cmds[i]._chapterIdx === chNum) return i;
+    }
+    console.warn(`[Dev] Chapter ${chNum} not found — starting from 0`);
+  }
+  return 0;
+}
 
 async function startGame() {
   mainMenu.classList.remove('active');
@@ -35,11 +66,31 @@ async function startGame() {
 
   try {
     await engine.loadStory(STORY_CONFIG);
-    await engine.start(0);
+    const startIdx = _devStartIndex(engine);
+
+    if ((DEV_SCENE || DEV_CHAPTER !== null) && startIdx > 0) {
+      _showDevBanner(DEV_SCENE ? `Scene: ${DEV_SCENE}` : `Chapter: ${DEV_CHAPTER}`);
+    }
+
+    await engine.start(startIdx);
   } catch (err) {
     console.error('Failed to load story:', err);
     showError(err.message);
   }
+}
+
+function _showDevBanner(label) {
+  const banner = document.createElement('div');
+  banner.style.cssText = [
+    'position:absolute', 'top:0', 'left:0', 'right:0',
+    'background:rgba(192,120,32,.85)', 'color:#000',
+    'font-family:monospace', 'font-size:10px', 'text-align:center',
+    'padding:2px 8px', 'z-index:9999', 'pointer-events:none',
+    'letter-spacing:.05em',
+  ].join(';');
+  banner.textContent = `⌘ DEV JUMP → ${label}`;
+  root.appendChild(banner);
+  setTimeout(() => banner.remove(), 4000);
 }
 
 function showError(msg) {
