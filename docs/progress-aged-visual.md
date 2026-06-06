@@ -35,6 +35,16 @@
 - 按鈕開新分頁 `/engine/?devRain=heavy&devWind=0`，main.js 讀 `devRain`/`devWind` 後呼叫 `fx.setWeather()`
 - 既有工具保留：灰階預覽 toggle、素材重建（地圖/narrator/diao_caidi）、特效測試（懸疑結局/章末/fade）
 
+## M7 — 對話框灰階古舊化
+
+**完成**。`engine/css/engine.css` 多項修正：
+- CSS 變數全部去藍調：`--bg-deep #050509 → #050402`、`--bg-dark → #0c0904`、`--bg-mid → #16120a`、`--bg-panel → rgba(10,7,2,...)`
+- `#textbox`：背景從紫藍黑 `rgba(5,4,10)` → 暖褐黑 `rgba(8,6,2)` + 水漬 radial-gradient + 橫向紙張纖維紋理 + `filter: sepia(0.18) contrast(1.04)` + `backdrop-filter: sepia(0.25)`
+- `#choice-box`：同步暖褐黑背景 + `filter: sepia(0.16)`
+- `.overlay`：背景 `rgba(6,4,1,0.92)` + backdrop sepia
+- `.overlay-panel`：`filter: sepia(0.14)` + paper fiber 紋理 `::before`
+- `.hud-btn`：去藍調 + `filter: sepia(0.15)` (hover 時 sepia(0))
+
 ## Fallback 指引
 - 還原任何 engine.css：`git checkout <hash> -- engine/css/engine.css`
 - 重跑人物去背：`python tools/rembg_narrator.py && python tools/rembg_diao_caidi.py`
