@@ -296,6 +296,7 @@ html, body {
   background-position: center;
   background-repeat: no-repeat;
   transition: opacity var(--t-slow);
+  filter: grayscale(90%) contrast(1.08) brightness(0.88);
 }
 
 /* ── Weather Canvas ── */

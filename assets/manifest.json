@@ -15,10 +15,10 @@
       "source": "PolyHaven courtyard_night HDRI 270° Blender Cycles render"
     },
     "city_historical": {
-      "file": "backgrounds/city_historical.svg",
+      "file": "backgrounds/city_historical.png",
       "status": "ready",
-      "description": "泛黃古地圖，清代翰溪庄水路圖（保留 SVG）",
-      "ai_prompt": "清代台灣古地圖（泛黃宣紙質感）, 翰溪庄附近水路圖, 毛筆手繪水流標示, 廟宇位置標記, 年代久遠斑痕, 16:9橫向, 歷史文件風格"
+      "description": "灰階測繪地圖，翰溪庄街道 + 水路圖，清代風格，寫實細街格",
+      "source": "tools/gen_map_realistic.py PIL生成，灰階 1920×1080"
     },
     "archive_room": {
       "file": "backgrounds/archive_room.png",
