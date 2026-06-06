@@ -1,0 +1,30 @@
+[build]
+  # No build command needed — pure static site
+  publish = "."
+
+# Redirect root to the game engine
+[[redirects]]
+  from = "/"
+  to   = "/engine/"
+  status = 302
+  force  = false   # index.html already does JS redirect; this is a fallback
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "same-origin"
+
+# Long-cache for assets (images rarely change)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=3600"
+
+# Short-cache for VNS scripts (content may update)
+[[headers]]
+  for = "/scripts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
