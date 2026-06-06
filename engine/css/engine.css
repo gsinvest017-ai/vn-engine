@@ -399,12 +399,21 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(4,4,9,0.92);
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(35,22,8,0.92) 0%, rgba(4,4,9,0.97) 100%),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 28px,
+      rgba(192,140,40,0.015) 28px,
+      rgba(192,140,40,0.015) 30px
+    );
   pointer-events: auto;
   gap: 0.8rem;
 }
 #chapter-card.hidden { display: none; }
 
+/* Horizontal rules with calligraphic expansion */
 #chapter-card::before,
 #chapter-card::after {
   content: '';
@@ -412,12 +421,20 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--amber), transparent);
-  animation: rule-expand 0.9s 0.5s ease forwards;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(192,120,32,0.4) 15%,
+    var(--amber) 40%,
+    var(--amber-light) 50%,
+    var(--amber) 60%,
+    rgba(192,120,32,0.4) 85%,
+    transparent);
+  animation: rule-expand 1.0s 0.4s ease forwards;
   opacity: 0;
+  box-shadow: 0 0 8px rgba(192,120,32,0.15);
 }
-#chapter-card::before { top: calc(50% - 3rem); width: 40%; }
-#chapter-card::after  { bottom: calc(50% - 3rem); width: 40%; }
+#chapter-card::before { top: calc(50% - 3.2rem); width: 44%; }
+#chapter-card::after  { bottom: calc(50% - 3.2rem); width: 44%; }
 
 #chapter-num {
   font-family: var(--font-mono);
@@ -449,15 +466,30 @@ html, body {
   bottom: 0; left: 0; right: 0;
   min-height: 195px;
   background:
-    linear-gradient(0deg, rgba(4,4,10,0.97) 0%, rgba(6,6,14,0.90) 100%);
+    radial-gradient(ellipse 30% 80% at 8% 60%, rgba(192,120,32,0.04) 0%, transparent 100%),
+    radial-gradient(ellipse 20% 60% at 92% 40%, rgba(192,120,32,0.03) 0%, transparent 100%),
+    radial-gradient(ellipse 12% 40% at 50% 20%, rgba(80,60,20,0.06) 0%, transparent 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(192,160,80,0.012) 3px,
+      rgba(192,160,80,0.012) 4px
+    ),
+    linear-gradient(0deg, rgba(5,4,10,0.97) 0%, rgba(7,6,15,0.92) 100%);
   border-top: 1px solid var(--border-ui);
   padding: 0.9rem 3rem 1.4rem 2.5rem;
   pointer-events: auto;
   cursor: pointer;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 -4px 32px rgba(0,0,0,0.6);
+  box-shadow:
+    0 -4px 32px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(192,120,32,0.08),
+    inset 3px 0 0 rgba(192,100,20,0.05),
+    inset -3px 0 0 rgba(192,100,20,0.05);
 }
+/* Amber top border line */
 #textbox::before {
   content: '';
   position: absolute;
@@ -465,24 +497,30 @@ html, body {
   height: 2px;
   background: linear-gradient(90deg,
     transparent 0%,
+    rgba(160,90,10,0.5) 8%,
     var(--amber) 20%,
     var(--amber-light) 50%,
     var(--amber) 80%,
+    rgba(160,90,10,0.5) 92%,
     transparent 100%);
-  opacity: 0.6;
+  opacity: 0.65;
 }
 #textbox.hidden { display: none; }
+#textbox.fading-out { opacity: 0 !important; transition: opacity 1200ms ease !important; }
 
-/* Corner accents */
+/* Aged corner accents — four corners */
 #textbox::after {
   content: '';
   position: absolute;
   top: -1px; right: 0;
-  width: 40px; height: 40px;
-  border-right: 1px solid var(--amber);
-  border-top: 1px solid var(--amber);
-  opacity: 0.4;
+  width: 48px; height: 48px;
+  border-right: 1px solid rgba(192,120,32,0.55);
+  border-top: 1px solid rgba(192,120,32,0.55);
+  opacity: 0.55;
 }
+/* Bottom-left corner mimic via box-shadow + outline */
+#textbox .corner-tl,
+#textbox .corner-br { display: none; }
 
 #speaker-strip {
   height: 2rem;
@@ -500,16 +538,36 @@ html, body {
   font-weight: 700;
   color: var(--amber-light);
   letter-spacing: 0.18em;
-  padding: 0.12em 1em 0.12em 0.6em;
-  background: rgba(192,120,32,0.12);
+  padding: 0.14em 1.1em 0.14em 0.7em;
+  background:
+    radial-gradient(ellipse 80% 100% at 0% 50%, rgba(192,120,32,0.18) 0%, transparent 100%),
+    rgba(28,18,6,0.72);
   border-left: 3px solid var(--amber);
+  border-top: 1px solid rgba(192,120,32,0.30);
+  border-bottom: 1px solid rgba(192,120,32,0.15);
   position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(255,200,80,0.06),
+    0 1px 6px rgba(0,0,0,0.45),
+    2px 0 12px rgba(192,100,20,0.08);
+  transform: skewX(-1deg);
 }
 #speaker-name::before {
   content: '◆';
   font-size: 0.45em;
   color: var(--amber);
-  opacity: 0.7;
+  opacity: 0.75;
+  transform: skewX(1deg);
+}
+/* Ink-bleed glow on name text */
+#speaker-name::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(192,120,32,0.10) 0%,
+    transparent 60%);
+  pointer-events: none;
 }
 #speaker-name:empty { display: none; }
 
@@ -759,4 +817,142 @@ html, body {
   font-style: italic;
   border-left: 2px solid var(--amber);
   padding-left: 0.8em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   AGED PAPER UI — 古舊質感元件
+══════════════════════════════════════════════════════════════ */
+
+/* Dialogue text — subtle ink-bleed drop shadow */
+#dialogue-text {
+  text-shadow: 0 0 1px rgba(200,160,60,0.08);
+}
+
+/* Choice box — aged parchment look */
+#choice-box {
+  background:
+    radial-gradient(ellipse 40% 60% at 10% 50%, rgba(192,120,32,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 90% 50%, rgba(80,60,20,0.08) 0%, transparent 70%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(192,160,80,0.01) 3px,
+      rgba(192,160,80,0.01) 4px
+    ),
+    rgba(5,5,12,0.94);
+  border: 1px solid rgba(192,120,32,0.28);
+  border-top: 2px solid var(--amber);
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.75),
+    0 0 0 1px rgba(192,120,32,0.06),
+    inset 0 1px 0 rgba(255,200,80,0.06);
+}
+
+/* Choice options — aged document lines */
+.choice-option {
+  border-left: 2px solid rgba(160,100,20,0.30);
+  background: rgba(14,10,4,0.55);
+  transition: background var(--t-fast), border-color var(--t-fast),
+              color var(--t-fast), padding-left var(--t-fast),
+              box-shadow var(--t-fast);
+}
+.choice-option:hover {
+  background:
+    radial-gradient(ellipse 60% 100% at 0% 50%, rgba(192,120,32,0.12) 0%, transparent 100%),
+    rgba(14,10,4,0.75);
+  border-left-color: var(--amber-light);
+  box-shadow: inset 0 0 0 1px rgba(192,120,32,0.08);
+}
+
+/* HUD buttons — aged metal look */
+.hud-btn {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(80,60,20,0.15) 0%, transparent 70%),
+    rgba(6,5,12,0.72);
+  border: 1px solid rgba(140,90,18,0.22);
+}
+.hud-btn:hover {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(192,120,32,0.20) 0%, transparent 70%),
+    var(--amber-glow);
+  border-color: rgba(192,120,32,0.55);
+}
+
+/* Overlay panels — aged paper inset effect */
+.overlay-panel {
+  box-shadow:
+    var(--shadow-deep),
+    var(--shadow-glow),
+    inset 0 1px 0 rgba(255,210,90,0.06),
+    inset 0 -1px 0 rgba(0,0,0,0.4);
+  border-top: 2px solid var(--amber);
+  position: relative;
+  overflow: hidden;
+}
+.overlay-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 30% at 50% 0%, rgba(192,120,32,0.06) 0%, transparent 100%),
+    repeating-linear-gradient(
+      135deg,
+      transparent 0px,
+      transparent 32px,
+      rgba(192,140,40,0.012) 32px,
+      rgba(192,140,40,0.012) 34px
+    );
+  pointer-events: none;
+}
+
+/* Advance arrow — ink drop animation */
+#advance-arrow {
+  text-shadow: 0 0 4px rgba(192,120,32,0.5);
+}
+
+/* Chapter number — mono label with aged ink */
+#chapter-num {
+  text-shadow: 0 0 12px rgba(192,120,32,0.25);
+  letter-spacing: 0.65em;
+}
+
+/* Chapter name — calligraphic glow */
+#chapter-name {
+  text-shadow:
+    0 2px 20px rgba(0,0,0,0.8),
+    0 0 40px rgba(192,120,32,0.12);
+}
+
+/* Suspense end: full-screen overlay for dramatic closing */
+#fx-suspense-msg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1400ms ease;
+  z-index: 25;
+}
+#fx-suspense-msg.show { opacity: 1; }
+#fx-suspense-msg span {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+  color: var(--text-dim);
+  letter-spacing: 0.35em;
+  text-shadow: 0 0 20px rgba(192,120,32,0.25);
+  opacity: 0.75;
+}
+
+/* ── Suspense vignette pulse ── */
+@keyframes vig-pulse {
+  0%   { opacity: 0.6; }
+  40%  { opacity: 0.9; }
+  70%  { opacity: 0.75; }
+  100% { opacity: 1.0; }
+}
+.vignette-suspense {
+  animation: vig-pulse 3s ease-in forwards !important;
 }
