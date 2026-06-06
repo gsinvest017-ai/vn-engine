@@ -106,6 +106,39 @@
 - DIY Audacity 合成替代方案（market_closing、oar_creak、power_failure）
 - 字型資源：Noto Serif TC、Source Han Serif（OFL 1.1）+ CSS 嵌入範例
 
+---
+
+## M5 — 角色說話高亮 + Ctrl 快進對話
+
+**Commit**：e7fa720
+
+### 問題背景
+- `_doDialogue()` 已有 `@char show=...` 命令支援立繪顯示，但說話時不會高亮說話者（CharManager 的 `highlight()` 從未被呼叫）
+- `_doNarration()` 也未呼叫 `clearHighlight()`，導致從對話切換到旁白時高亮殘留
+- 沒有持續快進功能（只有 `»` 切換式 skipMode，無法 hold 長按連發）
+
+### 修改內容
+
+**`engine/js/core/engine.js`**：
+- `_doDialogue()`: 角色未 display 時自動以 `center` 位置 + `normal` 表情呼叫 `show()`；隨後呼叫 `chars.highlight(cmd.character)` 高亮說話者
+- `_doNarration()`: 文字顯示前先呼叫 `chars.clearHighlight()` 恢復所有角色等亮度
+- `_bindInput()`:
+  - `advance()` 判斷順序修正：先 `isTyping()` 再 `_inputResolve`（原本順序相反）
+  - 新增 Ctrl 長按快進：`keydown ControlLeft/Right` 啟動 80ms 定時連發（skip + advance），`keyup` 清除計時器
+
+**`engine/js/managers/character.js`**：
+- `highlight()`: 說話者 slot 同時 add `.speaking` / remove `.dimmed`；其他 slot add `.dimmed` / remove `.speaking`
+- `clearHighlight()`: 同時移除 `.dimmed` 和 `.speaking`
+
+**`engine/css/engine.css`**：
+- `.char-sprite`: transition 加入 `transform 250ms ease, filter 250ms ease`
+- 新增 `.char-slot.speaking .char-sprite`: `scale(1.03) translateY(-4px)` + `brightness(1.08)` — 說話者輕微放大前移
+
+**`engine/index.html`**：
+- `#hud-skip` title 補充 `「或長按 Ctrl 快進對話」` 說明
+
+---
+
 ## Fallback 指引
 
 若需回滾至某 milestone：
