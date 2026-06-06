@@ -161,6 +161,13 @@
         "description": "停電瞬間，電氣消失聲",
         "procedural_fn": "playSfx('power_failure')",
         "sfx_prompt": "停電瞬間：電器嗡嗡聲突然消失，一聲低沉的電氣切斷聲"
+      },
+      "thunder_crack": {
+        "file": "audio/sfx/thunder_crack.ogg",
+        "status": "procedural",
+        "description": "近距離打雷聲，初爆 + 滾動殘響",
+        "procedural_fn": "playSfx('thunder_crack')",
+        "sfx_prompt": "近距離雷擊：極短的初爆衝擊聲 (0-50ms) 後接 1-2 秒低頻滾動殘響，低音 sub-bass 震動感，單次播放"
       }
     }
   }

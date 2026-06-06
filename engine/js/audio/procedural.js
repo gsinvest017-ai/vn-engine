@@ -260,6 +260,7 @@ export class ProceduralAudio {
       case 'water_distant':    this._sfxWater(out, sources);    break;
       case 'rain_heavy':       this._sfxRainHeavy(out, sources); break;
       case 'power_failure':    this._sfxPowerFail(out, sources); break;
+      case 'thunder_crack':    this._sfxThunder(out, sources);  break;
       default: out.disconnect(); return null;
     }
 
@@ -348,33 +349,85 @@ export class ProceduralAudio {
 
   _sfxOar(dest, srcs) {
     const ctx = this.ctx;
+    // Looping creak: pink noise BPF through slow LFO (~0.5 Hz = creak every ~2s)
+    const pBuf = this._makePinkBuffer(5);
+    const creak = this._loopSource(pBuf);
+    const lpf = this._lpf(360);
+    const bpf = this._bpf(135, 4.0);
+    const g = this._gain(0.07);
+    // Rhythmic amplitude modulation mimics each oar stroke
+    const lfoOsc = ctx.createOscillator();
+    lfoOsc.type = 'sine';
+    lfoOsc.frequency.value = 0.47;
+    const lfoGain = this._gain(0.065);
+    lfoOsc.connect(lfoGain);
+    lfoGain.connect(g.gain);
+    lfoOsc.start();
+    creak.connect(lpf); lpf.connect(bpf); bpf.connect(g); g.connect(dest);
+    creak.start();
+    srcs.push(creak, lfoOsc);
+
+    // Water drip accent: also looping with offset LFO
+    const wBuf = this._makeWhiteBuffer(5);
+    const drip = this._loopSource(wBuf);
+    const dbpf = this._bpf(820, 2.5);
+    const dg = this._gain(0.0);
+    const dLfo = ctx.createOscillator();
+    dLfo.type = 'sine';
+    dLfo.frequency.value = 0.47;
+    const dLfoG = this._gain(0.038);
+    dLfo.connect(dLfoG);
+    dLfoG.connect(dg.gain);
+    dLfo.start();
+    drip.connect(dbpf); dbpf.connect(dg); dg.connect(dest);
+    drip.start();
+    srcs.push(drip, dLfo);
+  }
+
+  _sfxThunder(dest, srcs) {
+    const ctx = this.ctx;
     const now = ctx.currentTime;
-    const wBuf = this._makeWhiteBuffer(0.3);
 
-    [0, 1.9, 3.8].forEach(t => {
-      const osc = ctx.createOscillator();
-      osc.type = 'square';
-      osc.frequency.value = 88 + Math.random() * 28;
-      const g = this._gain(0);
-      g.gain.setValueAtTime(0, now + t);
-      g.gain.linearRampToValueAtTime(0.09, now + t + 0.04);
-      g.gain.exponentialRampToValueAtTime(0.001, now + t + 0.58);
-      const lpf = this._lpf(380);
-      osc.connect(lpf); lpf.connect(g); g.connect(dest);
-      osc.start(now + t); osc.stop(now + t + 0.62);
-      srcs.push(osc);
+    // Initial crack: sharp broadband burst
+    const wBuf = this._makeWhiteBuffer(0.12);
+    const crack = ctx.createBufferSource();
+    crack.buffer = wBuf;
+    const cg = this._gain(0);
+    cg.gain.setValueAtTime(0, now);
+    cg.gain.linearRampToValueAtTime(0.92, now + 0.003);
+    cg.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+    const cHpf = this._hpf(80);
+    crack.connect(cHpf); cHpf.connect(cg); cg.connect(dest);
+    crack.start(now); crack.stop(now + 0.25);
+    srcs.push(crack);
 
-      const drip = ctx.createBufferSource();
-      drip.buffer = wBuf;
-      const dg = this._gain(0);
-      dg.gain.setValueAtTime(0, now + t + 0.06);
-      dg.gain.linearRampToValueAtTime(0.06, now + t + 0.065);
-      dg.gain.exponentialRampToValueAtTime(0.001, now + t + 0.32);
-      const dbpf = this._bpf(820, 2.2);
-      drip.connect(dbpf); dbpf.connect(dg); dg.connect(dest);
-      drip.start(now + t + 0.06); drip.stop(now + t + 0.36);
-      srcs.push(drip);
+    // Rolling rumble: 3 overlapping low-frequency bursts
+    const pBuf = this._makePinkBuffer(3);
+    [0.05, 0.30, 0.65].forEach((t, i) => {
+      const roll = ctx.createBufferSource();
+      roll.buffer = pBuf;
+      const rg = this._gain(0);
+      const peak = 0.32 - i * 0.08;
+      rg.gain.setValueAtTime(0, now + t);
+      rg.gain.linearRampToValueAtTime(peak, now + t + 0.12);
+      rg.gain.exponentialRampToValueAtTime(0.001, now + t + 0.90);
+      const rlpf = this._lpf(100 - i * 15);
+      roll.connect(rlpf); rlpf.connect(rg); rg.connect(dest);
+      roll.start(now + t); roll.stop(now + t + 1.1);
+      srcs.push(roll);
     });
+
+    // Sub-bass thud (room shake)
+    const osc = ctx.createOscillator();
+    osc.type = 'sine';
+    osc.frequency.value = 42;
+    const og = this._gain(0);
+    og.gain.setValueAtTime(0, now + 0.02);
+    og.gain.linearRampToValueAtTime(0.28, now + 0.06);
+    og.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+    osc.connect(og); og.connect(dest);
+    osc.start(now + 0.02); osc.stop(now + 0.6);
+    srcs.push(osc);
   }
 
   _sfxWater(dest, srcs) {

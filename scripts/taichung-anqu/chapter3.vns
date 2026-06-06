@@ -55,6 +55,7 @@
 
 @weather rain=storm wind=0.6
 @sfx play=rain_heavy volume=0.9 loop=true
+@sfx play=thunder_crack volume=0.9
 @effect shake intensity=0.2 duration=600
 
 雨愈下愈大。
