@@ -188,9 +188,10 @@ html, body {
   display: flex; flex-direction: column; overflow: hidden;
 }
 #sidebar-right .panel { flex-shrink: 0; }
-#panel-bgs { flex: 0 0 auto; max-height: 280px; }
-#panel-chars { flex: 0 1 auto; max-height: 250px; }
-#panel-audio { flex: 1 1 0; min-height: 60px; }
+#panel-bgs { flex: 0 0 auto; max-height: 220px; }
+#panel-chars { flex: 0 1 auto; max-height: 200px; }
+#panel-audio { flex: 1 1 0; min-height: 50px; }
+#panel-tools { flex: 0 0 auto; }
 
 /* Background grid */
 #bg-grid {
@@ -285,6 +286,32 @@ html, body {
   background: var(--border); color: var(--muted);
 }
 .badge.red { background: rgba(176,48,48,.3); color: #e07070; }
+
+/* ── Tools Panel ───────────────────────────────────────────────── */
+#panel-tools { flex: 0 0 auto; }
+.tools-section { padding: 6px 8px; border-bottom: 1px solid var(--border); }
+.tools-section-hd {
+  font-size: 9.5px; color: var(--muted); margin-bottom: 5px;
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.tools-row { display: flex; flex-wrap: wrap; gap: 4px; }
+.tool-btn {
+  background: var(--panel2); border: 1px solid var(--border2);
+  color: var(--text); padding: 3px 9px; font-size: 10.5px;
+  font-family: inherit; cursor: pointer; border-radius: 2px;
+  transition: border-color .12s, color .12s, background .12s;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.tool-btn:hover { border-color: var(--amber); color: var(--amberB); }
+.tool-btn.running { border-color: var(--blue); color: var(--blue); }
+.tool-btn.ok      { border-color: var(--green); color: var(--green); }
+.tool-btn.err     { border-color: var(--red); color: var(--red); }
+.tool-btn.active-toggle { border-color: var(--teal); color: var(--teal); background: rgba(80,136,152,.12); }
+#tool-log {
+  font-size: 9.5px; color: var(--muted); padding: 4px 8px;
+  white-space: pre-wrap; word-break: break-all; max-height: 60px;
+  overflow-y: auto; background: var(--bg); border-top: 1px solid var(--border);
+}
 </style>
 </head>
 <body>
@@ -359,6 +386,35 @@ html, body {
       <div class="panel-hd">AUDIO</div>
       <div class="panel-body" id="audio-list">
         <div class="empty">載入中…</div>
+      </div>
+    </div>
+    <!-- Tools -->
+    <div class="panel" id="panel-tools">
+      <div class="panel-hd">TOOLS</div>
+      <div class="panel-body">
+        <div class="tools-section">
+          <div class="tools-section-hd">預覽</div>
+          <div class="tools-row">
+            <button class="tool-btn" id="btn-grayscale" onclick="toggleGrayscale()">◑ 灰階預覽</button>
+          </div>
+        </div>
+        <div class="tools-section">
+          <div class="tools-section-hd">素材重建</div>
+          <div class="tools-row">
+            <button class="tool-btn" id="btn-gen-map" onclick="runTool('gen_map','btn-gen-map')">⟳ 地圖</button>
+            <button class="tool-btn" id="btn-rembg-narrator" onclick="runTool('rembg_narrator','btn-rembg-narrator')">⟳ narrator 去背</button>
+            <button class="tool-btn" id="btn-rembg-diao" onclick="runTool('rembg_diao_caidi','btn-rembg-diao')">⟳ 刁才弟 去背</button>
+          </div>
+        </div>
+        <div class="tools-section">
+          <div class="tools-section-hd">特效測試</div>
+          <div class="tools-row">
+            <button class="tool-btn" onclick="testEffect('suspense_end')">◎ 懸疑結局</button>
+            <button class="tool-btn" onclick="testEffect('chapter_end')">▶ 章末淡出</button>
+            <button class="tool-btn" onclick="testEffect('fade_out')">▼ Fade Out</button>
+          </div>
+        </div>
+        <div id="tool-log"></div>
       </div>
     </div>
   </aside>
@@ -721,6 +777,64 @@ function esc(s) {
     .replace(/</g,'&lt;')
     .replace(/>/g,'&gt;')
     .replace(/"/g,'&quot;');
+}
+
+// ── Tools ─────────────────────────────────────────────────────────
+let _grayscaleOn = false;
+
+function toggleGrayscale() {
+  _grayscaleOn = !_grayscaleOn;
+  const btn = document.getElementById('btn-grayscale');
+  if (_grayscaleOn) {
+    btn.classList.add('active-toggle');
+    document.querySelectorAll('.bg-thumb img, .expr-thumb img').forEach(img => {
+      img.style.filter = 'grayscale(1) contrast(1.08) brightness(0.9)';
+    });
+  } else {
+    btn.classList.remove('active-toggle');
+    document.querySelectorAll('.bg-thumb img, .expr-thumb img').forEach(img => {
+      img.style.filter = '';
+    });
+  }
+}
+
+async function runTool(tool, btnId) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  btn.classList.add('running');
+  btn.textContent = '⏳ ' + btn.textContent.replace(/^[⟳⏳✓✗]\s*/, '');
+  document.getElementById('tool-log').textContent = `running ${tool}…`;
+
+  try {
+    const r = await fetch('/api/run-tool', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tool }),
+    });
+    const data = await r.json();
+    btn.classList.remove('running');
+    btn.classList.add(data.ok ? 'ok' : 'err');
+    btn.textContent = (data.ok ? '✓' : '✗') + ' ' + btn.textContent.replace(/^[⟳⏳✓✗]\s*/, '');
+    document.getElementById('tool-log').textContent =
+      (data.stdout || '') + (data.stderr ? '\n---\n' + data.stderr : '');
+    if (data.ok) {
+      setTimeout(() => {
+        btn.classList.remove('ok');
+        btn.textContent = '⟳ ' + btn.textContent.replace(/^[✓✗]\s*/, '');
+        refreshAll();
+      }, 2500);
+    }
+  } catch (e) {
+    btn.classList.remove('running');
+    btn.classList.add('err');
+    document.getElementById('tool-log').textContent = 'Error: ' + e.message;
+  }
+}
+
+function testEffect(effect) {
+  const params = { suspense_end: 'devEffect=suspense_end', chapter_end: 'devEffect=chapter_end', fade_out: 'devEffect=fade_out' };
+  const qs = params[effect] || '';
+  window.open(`/engine/?${qs}`, '_blank');
 }
 
 // ── Init ──────────────────────────────────────────────────────────

@@ -31,6 +31,7 @@ const gameScreen  = document.getElementById('game-screen');
 const _devParams  = new URLSearchParams(location.search);
 const DEV_SCENE   = _devParams.get('devScene');    // e.g. ?devScene=shrine_interior
 const DEV_CHAPTER = _devParams.get('devChapter');  // e.g. ?devChapter=1
+const DEV_EFFECT  = _devParams.get('devEffect');   // e.g. ?devEffect=suspense_end
 
 let engine = null;
 let menuUI = null;
@@ -73,6 +74,14 @@ async function startGame() {
     }
 
     await engine.start(startIdx);
+
+    // Dev effect test (fires after story loads at start)
+    if (DEV_EFFECT) {
+      await engine._sleep(600);
+      if (DEV_EFFECT === 'suspense_end') await engine.fx.suspenseEnd({ message: '— 暗渠之書 —' });
+      else if (DEV_EFFECT === 'chapter_end') await engine._doChapterEnd();
+      else if (DEV_EFFECT === 'fade_out') await engine.fx.fade('out', 'black', 2000);
+    }
   } catch (err) {
     console.error('Failed to load story:', err);
     showError(err.message);

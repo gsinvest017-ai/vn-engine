@@ -16,6 +16,30 @@
 | M3 | 懸疑 fade-out | `suspenseEnd()` effect + `@suspense_end` VNScript 指令 |
 | M4 | Dashboard 工具面板 | 灰階預覽切換 + 特效測試按鈕 + serve.py POST API |
 
+## 進度日誌
+
+### M1 — 背景灰階 + 寫實地圖 — commit e2d7b1a
+- `.bg-image` CSS filter: `grayscale(90%) contrast(1.08) brightness(0.88)`
+- `tools/gen_map_realistic.py`：PIL 生成 1920×1080 灰階地圖（噪點紙底 + 水漬 + 街道格 + 水路 + 地標 + 漢字標注）
+- `assets/backgrounds/city_historical.png` 更新
+
+### M2 — UI 古舊感 — commit 5677549
+- textbox：水漬 radial-gradient + 纖維紋理 repeating-linear-gradient + 四角 amber 裝飾邊框
+- speaker-name：倒梯形印章感（skewX-1deg + 光暈 box-shadow）
+- chapter-card：斜線花紋背景 + 橫線 glow 擴展動畫
+- choice-box / hud-btn / overlay-panel：皮革 + 古銅金屬底色
+- 新增 #fx-suspense-msg、.fading-out、.vignette-suspense CSS
+
+### M3 — 懸疑 fade-out — commit 7a42fb1
+- `EffectsManager.suspenseEnd()`: vignette pulse → textbox fading-out → 字幕 → 角色淡出下移 → 緩慢 fade to black
+- `@suspense_end message="..." duration=5200` VNScript 指令
+- `engine.js _doSuspenseEnd()` + `clearAll()` 還原 suspense 狀態
+
+### M4 — Dashboard 工具面板 — commit (本次)
+- dashboard: TOOLS panel（灰階預覽切換、素材重建按鈕、特效測試按鈕）
+- serve.py: `do_POST` + `/api/run-tool` whitelist endpoint（gen_map / rembg_narrator / rembg_diao_caidi）
+- main.js: `?devEffect=suspense_end|chapter_end|fade_out` URL param 特效即時測試
+
 ## Fallback 指引
 - 還原 engine.css：`git checkout <hash> -- engine/css/engine.css`
 - 還原地圖：`git checkout <hash> -- assets/backgrounds/city_historical.png`

@@ -28,6 +28,19 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     # ── Request routing ─────────────────────────────────────────────
 
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.end_headers()
+
+    def do_POST(self):
+        parsed = urllib.parse.urlparse(self.path)
+        if parsed.path == '/api/run-tool':
+            length = int(self.headers.get('Content-Length', 0))
+            body = json.loads(self.rfile.read(length) or b'{}')
+            self._dispatch_run_tool(body)
+        else:
+            self._respond({'error': 'not found'}, 404)
+
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
         if parsed.path.startswith('/api/'):
@@ -73,6 +86,38 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._respond({'error': str(e)}, 404)
         except Exception as e:
             self._respond({'error': str(e)}, 500)
+
+    # ── Tool runner ──────────────────────────────────────────────────
+    TOOL_WHITELIST = {
+        'gen_map':          'tools/gen_map_realistic.py',
+        'rembg_narrator':   'tools/rembg_narrator.py',
+        'rembg_diao_caidi': 'tools/rembg_diao_caidi.py',
+    }
+
+    def _dispatch_run_tool(self, body):
+        tool = body.get('tool', '')
+        if tool not in self.TOOL_WHITELIST:
+            self._respond({'error': f'Unknown tool: {tool}'}, 400)
+            return
+        script = ROOT / self.TOOL_WHITELIST[tool]
+        try:
+            result = subprocess.run(
+                [sys.executable, str(script)],
+                cwd=str(ROOT),
+                capture_output=True, text=True,
+                encoding='utf-8', errors='replace',
+                timeout=120,
+            )
+            self._respond({
+                'ok':     result.returncode == 0,
+                'tool':   tool,
+                'stdout': result.stdout[-3000:] if result.stdout else '',
+                'stderr': result.stderr[-1000:] if result.stderr else '',
+            })
+        except subprocess.TimeoutExpired:
+            self._respond({'error': 'Timeout after 120s', 'tool': tool}, 504)
+        except Exception as e:
+            self._respond({'error': str(e), 'tool': tool}, 500)
 
     def _respond(self, data, code=200):
         body = json.dumps(data, ensure_ascii=False, indent=2).encode('utf-8')
