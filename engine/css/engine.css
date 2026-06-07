@@ -950,6 +950,58 @@ html, body {
   line-height: 1.75;
 }
 
+/* ── Settings Overlay ── */
+.settings-grid {
+  display: grid;
+  grid-template-columns: 7em 1fr 4.5em;
+  gap: 0.7rem 0.8rem;
+  align-items: center;
+}
+.settings-grid label {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+.settings-grid input[type=range] {
+  width: 100%;
+  accent-color: var(--amber);
+  cursor: pointer;
+}
+.settings-grid .sv {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--amber-light);
+  text-align: right;
+}
+
+/* ── End Screen（結局出口） ── */
+#end-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+  background: rgba(0,0,0,0.55);
+  opacity: 0;
+  transition: opacity 1200ms ease;
+  pointer-events: none;
+}
+#end-screen.show { opacity: 1; pointer-events: auto; }
+#end-screen .menu-btn {
+  min-width: 220px;
+  background: rgba(8,6,2,0.92);
+  text-align: center;
+}
+
+/* ── Save slot snippet ── */
+.save-slot-snippet {
+  color: var(--text-ghost);
+  font-size: 0.78rem;
+  font-style: italic;
+}
+
 /* ── Utility ── */
 .hidden { display: none !important; }
 

@@ -124,6 +124,32 @@
       </div>
     </div>
 
+    <!-- ── 設定 Overlay ── -->
+    <div id="overlay-settings" class="overlay hidden">
+      <div class="overlay-panel">
+        <h2>設定</h2>
+        <div class="settings-grid">
+          <label for="set-textspeed">文字速度</label>
+          <input type="range" id="set-textspeed" min="5" max="60" step="1">
+          <span class="sv" id="set-textspeed-v"></span>
+
+          <label for="set-autodelay">自動模式延遲</label>
+          <input type="range" id="set-autodelay" min="800" max="5000" step="100">
+          <span class="sv" id="set-autodelay-v"></span>
+
+          <label for="set-bgmvol">BGM 音量</label>
+          <input type="range" id="set-bgmvol" min="0" max="1" step="0.05">
+          <span class="sv" id="set-bgmvol-v"></span>
+
+          <label for="set-sfxvol">SFX 音量</label>
+          <input type="range" id="set-sfxvol" min="0" max="1" step="0.05">
+          <span class="sv" id="set-sfxvol-v"></span>
+        </div>
+        <button class="menu-btn" id="set-fullscreen">⛶ 全螢幕切換</button>
+        <button class="menu-btn" id="settings-close">關閉</button>
+      </div>
+    </div>
+
   </div><!-- #vn-root -->
 
   <script type="module" src="js/main.js"></script>

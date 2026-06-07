@@ -54,7 +54,7 @@ export class MenuUI {
     slotsEl.innerHTML = '';
 
     const slots = GameState.listSlots();
-    slots.forEach(({ slot, empty, chapter, savedAt }) => {
+    slots.forEach(({ slot, empty, chapter, snippet, savedAt }) => {
       const el = document.createElement('div');
       el.className = 'save-slot';
 
@@ -69,21 +69,32 @@ export class MenuUI {
         info.innerHTML = '<span class="save-slot-title">— 空槽 —</span>';
       } else {
         const date = savedAt ? new Date(savedAt).toLocaleString('zh-TW') : '—';
-        info.innerHTML = `<span class="save-slot-title">第 ${(chapter || 0) + 1} 章</span><br>${date}`;
+        const snip = snippet ? `<br><span class="save-slot-snippet">${snippet}</span>` : '';
+        info.innerHTML = `<span class="save-slot-title">第 ${(chapter || 0) + 1} 章</span><br>${date}${snip}`;
       }
 
       el.appendChild(num);
       el.appendChild(info);
       el.addEventListener('click', () => {
         if (mode === 'save') {
-          const meta = { chapter: this.engine.state.chapter };
-          this.engine.state.save(slot, meta);
-          this._showSaveLoad('save');
+          if (empty || confirm(`覆蓋存檔 ${slot + 1}？`)) {
+            const lastText = this.engine.state.history.at(-1)?.text || '';
+            const meta = {
+              chapter: this.engine.state.chapter,
+              snippet: lastText.slice(0, 24),
+            };
+            this.engine.state.save(slot, meta);
+            this._showSaveLoad('save');
+          }
         } else {
+          if (empty) return;
           const meta = this.engine.state.load(slot);
           if (meta) {
             overlay.classList.add('hidden');
-            this.engine.start(this.engine.state.cmdIndex);
+            // 從主選單讀檔時切到遊戲畫面
+            this.root.querySelector('#main-menu')?.classList.remove('active');
+            this.root.querySelector('#game-screen')?.classList.add('active');
+            this.engine.resumeFromSave();
           }
         }
       });

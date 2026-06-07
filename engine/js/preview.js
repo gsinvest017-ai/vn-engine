@@ -8,7 +8,8 @@
  *
  * 瞬時類指令（shake / flash / fade / wait / choice 跳轉）預覽中不執行。
  */
-import { parseScript }    from './core/parser.js';
+import { parseScript }     from './core/parser.js';
+import { accumulateState } from './core/replay.js';
 import { SceneManager }   from './managers/scene.js';
 import { CharManager }    from './managers/character.js';
 import { AudioManager }   from './managers/audio.js';
@@ -103,67 +104,10 @@ export class PreviewDriver {
     window.parent?.postMessage({ type: 'vns-preview-ready' }, window.location.origin);
   }
 
-  /* ── 狀態重建 ── */
+  /* ── 狀態重建（共用 core/replay.js） ── */
 
-  /** 累積游標行（含）之前的持續狀態 */
   _stateAt(commands, line) {
-    const st = {
-      bg: null, weather: null, bgm: null,
-      chars: {},                       // id → { pos, expr }
-      text: null,                      // { text, speaker, style, charId }
-      dim: null, vignette: null,
-      exprState: {},                   // id → 最後表情（含未在場上）
-    };
-    for (const cmd of commands) {
-      if (line > 0 && (cmd.line || 0) > line) break;
-      switch (cmd.type) {
-        case 'scene':
-          if (cmd.bg) st.bg = cmd.bg;
-          if (cmd.music) st.bgm = cmd.music;
-          break;
-        case 'weather':
-          st.weather = { rain: cmd.rain, fog: cmd.fog, wind: cmd.wind };
-          break;
-        case 'bgm_play':  st.bgm = cmd.id; break;
-        case 'bgm_stop':  st.bgm = null; break;
-        case 'char_show':
-          st.chars[cmd.id] = { pos: cmd.pos, expr: cmd.expr };
-          st.exprState[cmd.id] = cmd.expr;
-          break;
-        case 'char_hide':
-          if (cmd.id === 'all') st.chars = {};
-          else delete st.chars[cmd.id];
-          break;
-        case 'char_expr':
-          if (st.chars[cmd.id]) st.chars[cmd.id].expr = cmd.expr;
-          st.exprState[cmd.id] = cmd.expr;
-          break;
-        case 'char_move':
-          if (st.chars[cmd.id]) st.chars[cmd.id].pos = cmd.pos;
-          break;
-        case 'effect':
-          if (cmd.fx === 'dim' || cmd.fx === 'darkness') st.dim = cmd.fx === 'darkness' ? 0.92 : cmd.level;
-          if (cmd.fx === 'vignette') st.vignette = cmd.intensity;
-          if (cmd.fx === 'clear') { st.dim = null; st.vignette = null; }
-          break;
-        case 'dialogue': {
-          // 對白若未先 @char show，遊戲會自動上場（與 engine._doDialogue 一致）
-          if (cmd.character && !st.chars[cmd.character]) {
-            st.chars[cmd.character] = { pos: 'center', expr: st.exprState[cmd.character] || 'normal' };
-            st.exprState[cmd.character] ??= 'normal';
-          }
-          st.text = { text: cmd.text, speaker: cmd.character, style: 'dialogue', charId: cmd.character };
-          break;
-        }
-        case 'narration':
-          st.text = { text: cmd.text, speaker: '', style: cmd.style, charId: null };
-          break;
-        case 'chapter':
-          st.text = { text: `【${cmd.title}】`, speaker: '', style: 'normal', charId: null };
-          break;
-      }
-    }
-    return st;
+    return accumulateState(commands, { uptoLine: line > 0 ? line : Infinity });
   }
 
   /* ── diff 套用 ── */

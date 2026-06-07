@@ -8,6 +8,7 @@
  */
 import { VNEngine } from './core/engine.js';
 import { MenuUI }   from './ui/menu.js';
+import { initSettingsUI, openSettings, loadSettings } from './ui/settings.js';
 
 const STORY_CONFIG = {
   title: '暗渠之書',
@@ -87,15 +88,33 @@ function _devStartIndex(eng) {
   return 0;
 }
 
+/** 建立 engine（若尚未建立）並載入故事；主選單讀檔也走這裡 */
+async function ensureEngine() {
+  if (engine) return engine;
+  engine = new VNEngine(root, '../assets');
+  menuUI = new MenuUI(root, engine);
+  await engine.loadStory(STORY_CONFIG);
+  engine.applySettings(loadSettings());
+  return engine;
+}
+
+/** 主選單「讀取存檔」：開讀檔 overlay，選槽後切畫面 + 重建狀態 */
+async function openLoadFromMenu() {
+  try {
+    await ensureEngine();
+    menuUI._showSaveLoad('load');
+  } catch (err) {
+    console.error('Failed to load story:', err);
+    showError(err.message);
+  }
+}
+
 async function startGame() {
   mainMenu.classList.remove('active');
   gameScreen.classList.add('active');
 
-  engine = new VNEngine(root, '../assets');
-  menuUI = new MenuUI(root, engine);
-
   try {
-    await engine.loadStory(STORY_CONFIG);
+    await ensureEngine();
     const startIdx = _devStartIndex(engine);
 
     if ((DEV_SCENE || DEV_CHAPTER !== null) && startIdx > 0) {
@@ -156,12 +175,14 @@ function showError(msg) {
 document.querySelectorAll('.menu-btn[data-action]').forEach(btn => {
   btn.addEventListener('click', () => {
     const action = btn.dataset.action;
-    if (action === 'start') startGame();
-    if (action === 'load') {
-      // TODO: show load menu without starting fresh
-    }
+    if (action === 'start')    startGame();
+    if (action === 'load')     openLoadFromMenu();
+    if (action === 'settings') openSettings(root);
   });
 });
+
+/* ── 設定面板（主選單階段即可用；engine 建立後即時套用） ── */
+initSettingsUI(root, () => engine);
 
 /* ── Keyboard shortcut: Enter on main menu ── */
 document.addEventListener('keydown', e => {

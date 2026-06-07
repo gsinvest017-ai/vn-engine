@@ -125,6 +125,10 @@ export class AudioManager {
     if (this._procBgm?.gain) this._procBgm.gain.gain.value = value;
   }
 
+  sfxVol(value) {
+    this._sfxVol = value;  // 影響之後播放的 SFX
+  }
+
   // ── SFX ───────────────────────────────────────────────────────────
 
   async sfx(id, { volume = 1, loop = false, delay = 0 } = {}) {

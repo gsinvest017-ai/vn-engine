@@ -3,6 +3,7 @@
  * Instantiate once; call engine.loadStory(config) then engine.start().
  */
 import { parseScript }   from './parser.js';
+import { accumulateState, applySet, evalCondition } from './replay.js';
 import { GameState }     from './state.js';
 import { SceneManager }  from '../managers/scene.js';
 import { CharManager }   from '../managers/character.js';
@@ -76,11 +77,59 @@ export class VNEngine {
   async _run() {
     while (this.running && this.cmdIdx < this.allCommands.length) {
       const cmd = this.allCommands[this.cmdIdx++];
+      // 記錄「目前執行中指令」的 index 與章節，存檔據此恢復
+      this.state.cmdIndex = this.cmdIdx - 1;
+      if (cmd._chapterIdx !== undefined) this.state.chapter = cmd._chapterIdx;
       const cont = await this._exec(cmd);
       if (cont === 'wait_input') await this._awaitInput();
       if (cont === 'stop') break;
     }
     if (this.cmdIdx >= this.allCommands.length) this._onEnd();
+  }
+
+  /* ── 讀檔/中途起跑：重建累積狀態 ── */
+
+  /** 套用 accumulateState 的結果到各 manager（瞬切、無轉場） */
+  async applyState(st) {
+    if (st.bg) await this.scene.set(st.bg, 'none');
+    if (st.weather) this.fx.setWeather(st.weather);
+    this.fx.dim(st.dim ?? 0);
+    this.fx.vignette(st.vignette ?? 0);
+    for (const [id, c] of Object.entries(st.chars)) {
+      this.chars.show(id, c.pos, c.expr);
+    }
+    Object.assign(this._exprState, st.exprState);
+    if (st.bgm) this.audio.bgm(st.bgm, 400);
+    if (st.text) {
+      const displayName = st.text.charId
+        ? (this.config.characters?.[st.text.charId]?.name || st.text.charId)
+        : '';
+      if (st.text.charId) this.chars.highlight(st.text.charId);
+      const narratorId = this.config?.narratorPortrait !== undefined
+        ? this.config.narratorPortrait : 'narrator';
+      const pid = st.text.charId || narratorId;
+      await this.textbox.show(st.text.text, {
+        speaker: displayName,
+        style: st.text.style,
+        portrait: pid ? { id: pid, expr: this._exprState[pid] || 'normal' } : null,
+        instant: true,
+      });
+    }
+  }
+
+  /** 讀檔：重建存檔 index（含）之前的畫面狀態後，從下一指令續跑 */
+  async resumeFromSave() {
+    const idx = this.state.cmdIndex || 0;
+    const st  = accumulateState(this.allCommands, { uptoIndex: idx });
+    // 存檔的 variables 為準（含玩家實際走過的分支）
+    st.variables = { ...st.variables, ...this.state.variables };
+    this.state.variables = st.variables;
+    await this.applyState(st);
+    this.running = true;
+    this.cmdIdx  = idx + 1;
+    // 目前這句已重建顯示 → 等輸入後繼續
+    await this._awaitInput();
+    this._run();
   }
 
   async _exec(cmd) {
@@ -111,6 +160,10 @@ export class VNEngine {
       case 'choice':      return this._doChoice(cmd);
       case 'label':       return null;  // labels are no-ops at runtime
       case 'jump':        this._jump(cmd.label); return 'jump';
+      case 'set':         applySet(this.state.variables, cmd); return null;
+      case 'if_jump':
+        if (evalCondition(this.state.variables, cmd)) { this._jump(cmd.label); return 'jump'; }
+        return null;
       case 'chapter_end':   return this._doChapterEnd();
       case 'suspense_end':  return this._doSuspenseEnd(cmd);
       case 'end':           return 'stop';
@@ -215,6 +268,7 @@ export class VNEngine {
     this.textbox.hide();
     const chosen = await this.choices.show(cmd.options);
     this.choices.hide();
+    if (chosen) this.state.addHistory({ speaker: '▸ 選擇', text: chosen.text });
     if (chosen?.label) this._jump(chosen.label);
     return null;
   }
@@ -238,7 +292,28 @@ export class VNEngine {
   }
 
   _onEnd() {
-    this.textbox.show('— 完 —', { speaker: '', style: 'normal' });
+    this.textbox.show('— 完 —', { speaker: '', style: 'normal', portrait: null, instant: true });
+    this._showEndScreen();
+  }
+
+  /** 結局出口：回主選單按鈕（reload 重置所有 runtime 狀態，存檔在 localStorage 不受影響） */
+  _showEndScreen() {
+    if (this.root.querySelector('#end-screen')) return;
+    const el = document.createElement('div');
+    el.id = 'end-screen';
+    el.innerHTML = `<button class="menu-btn" id="end-back-menu">回到主選單</button>`;
+    this.root.appendChild(el);
+    el.querySelector('#end-back-menu').addEventListener('click', () => location.reload());
+    requestAnimationFrame(() => el.classList.add('show'));
+  }
+
+  /* ── 設定套用（由設定面板呼叫） ── */
+
+  applySettings(s = {}) {
+    if (s.textSpeed != null) this.textbox.setSpeed(Number(s.textSpeed));
+    if (s.autoDelay != null) this.autoDelay = Number(s.autoDelay);
+    if (s.bgmVol    != null) this.audio.bgmVol(Number(s.bgmVol));
+    if (s.sfxVol    != null) this.audio.sfxVol(Number(s.sfxVol));
   }
 
   /* ── Input Handling ── */

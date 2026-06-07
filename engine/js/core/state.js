@@ -21,6 +21,7 @@ export class GameState {
   save(slot = 0, meta = {}) {
     const data = {
       snap: this.snapshot(),
+      history: this.history.slice(-200),   // 對話記錄一併存檔
       meta: { ...meta, savedAt: Date.now() },
     };
     try {
@@ -33,11 +34,11 @@ export class GameState {
     try {
       const raw = localStorage.getItem(`vn_save_${slot}`);
       if (!raw) return null;
-      const { snap, meta } = JSON.parse(raw);
+      const { snap, history, meta } = JSON.parse(raw);
       this.chapter   = snap.chapter ?? 0;
       this.cmdIndex  = snap.cmdIndex ?? 0;
       this.variables = snap.variables ?? {};
-      this.history   = [];
+      this.history   = Array.isArray(history) ? history : [];
       return meta;
     } catch { return null; }
   }
