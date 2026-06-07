@@ -40,6 +40,17 @@
   --t-normal: 300ms ease;
   --t-slow:   600ms ease;
 
+  /* ── Responsive layout tokens（媒體查詢中覆寫） ── */
+  --textbox-h:        195px;  /* 對話框最小高度；characters/choice 連動 */
+  --textbox-pad-x:    2.5rem;
+  --hud-btn-size:     2rem;
+  --char-max-w:       400px;
+  --char-max-h:       88%;
+  --safe-bottom:      env(safe-area-inset-bottom, 0px);
+  --safe-top:         env(safe-area-inset-top, 0px);
+  --safe-right:       env(safe-area-inset-right, 0px);
+  --safe-left:        env(safe-area-inset-left, 0px);
+
   /* ── Dev style overrides (set via ?devStyle= URL param) ── */
   --dev-menu-sepia:     0.18;
   --dev-grain-op:       0.55;
@@ -61,6 +72,7 @@ html, body {
 #vn-root {
   position: relative;
   width: 100vw; height: 100vh;
+  height: 100dvh; /* 手機瀏覽器網址列收合時跟著視口變化 */
   overflow: hidden;
   background: var(--bg-deep);
 }
@@ -417,7 +429,7 @@ html, body {
 #characters-layer {
   position: absolute;
   inset: 0;
-  bottom: 190px;
+  bottom: calc(var(--textbox-h) - 5px + var(--safe-bottom));
   z-index: 20;
   display: flex;
   align-items: flex-end;
@@ -431,14 +443,14 @@ html, body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  max-width: 400px;
+  max-width: var(--char-max-w);
   height: 100%;
   transition: opacity var(--t-normal), transform var(--t-normal);
 }
 .char-slot.hidden { opacity: 0; pointer-events: none; }
 
 .char-sprite {
-  max-height: 88%;
+  max-height: var(--char-max-h);
   max-width: 100%;
   object-fit: contain;
   filter: drop-shadow(0 10px 30px rgba(0,0,0,0.7));
@@ -553,7 +565,7 @@ html, body {
 #textbox {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  min-height: 195px;
+  min-height: calc(var(--textbox-h) + var(--safe-bottom));
   background:
     /* water-stain blotches */
     radial-gradient(ellipse 28% 55% at 7%  65%, rgba(140,90,18,0.07) 0%, transparent 100%),
@@ -574,7 +586,10 @@ html, body {
     /* base: warm brown-black, not blue */
     linear-gradient(0deg, rgba(8,6,2,0.97) 0%, rgba(11,8,3,0.93) 100%);
   border-top: 1px solid var(--border-ui);
-  padding: 0.9rem 3rem 1.4rem 2.5rem;
+  padding: 0.9rem
+           calc(var(--textbox-pad-x) + 0.5rem + var(--safe-right))
+           calc(1.4rem + var(--safe-bottom))
+           calc(var(--textbox-pad-x) + var(--safe-left));
   pointer-events: auto;
   cursor: pointer;
   backdrop-filter: blur(10px) sepia(0.25);
@@ -696,8 +711,12 @@ html, body {
 /* ── Choice Box ── */
 #choice-box {
   position: absolute;
-  bottom: 200px; left: 50%; transform: translateX(-50%);
+  bottom: calc(var(--textbox-h) + 5px + var(--safe-bottom));
+  left: 50%; transform: translateX(-50%);
   min-width: min(560px, 88vw);
+  max-width: min(640px, 94vw);
+  max-height: calc(100dvh - var(--textbox-h) - 4rem);
+  overflow-y: auto;
   background: rgba(8,6,2,0.95);
   border: 1px solid var(--border-ui);
   border-top: 2px solid var(--amber);
@@ -754,14 +773,15 @@ html, body {
 /* ── HUD ── */
 #hud {
   position: absolute;
-  top: 0.8rem; right: 1rem;
+  top: calc(0.8rem + var(--safe-top));
+  right: calc(1rem + var(--safe-right));
   display: flex;
   gap: 0.3rem;
   pointer-events: auto;
 }
 
 .hud-btn {
-  width: 2rem; height: 2rem;
+  width: var(--hud-btn-size); height: var(--hud-btn-size);
   background: rgba(5,5,12,0.72);
   border: 1px solid rgba(192,120,32,0.18);
   color: var(--text-ghost);
@@ -1057,4 +1077,119 @@ html, body {
 }
 .vignette-suspense {
   animation: vig-pulse 3s ease-in forwards !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE LAYOUT — 電腦 / 平板 / 手機自適應
+   桌面（>1024px）維持原設計；以下僅在小螢幕覆寫 token 與細部。
+══════════════════════════════════════════════════════════════ */
+
+/* ── 平板（≤1024px）── */
+@media (max-width: 1024px) {
+  :root {
+    --textbox-h:     175px;
+    --textbox-pad-x: 1.6rem;
+    --char-max-w:    340px;
+  }
+  #dialogue-text { line-height: 1.95; }
+  .overlay-panel { padding: 1.6rem 1.8rem; }
+}
+
+/* ── 手機橫式 / 大手機（≤768px）── */
+@media (max-width: 768px) {
+  :root {
+    --textbox-h:     150px;
+    --textbox-pad-x: 1rem;
+    --hud-btn-size:  2.75rem;  /* ≥44px 觸控目標 */
+    --char-max-w:    300px;
+    --char-max-h:    92%;
+  }
+
+  #dialogue-text { line-height: 1.8; letter-spacing: 0.04em; }
+  #speaker-strip { height: 1.7rem; margin-bottom: 0.35rem; }
+  #text-area { min-height: 3.6rem; }
+  #advance-arrow { bottom: calc(0.6rem + var(--safe-bottom)); right: 1rem; }
+
+  /* 選擇框：貼齊左右、選項加大觸控面積 */
+  #choice-box {
+    min-width: 0;
+    width: calc(100vw - 1.6rem - var(--safe-left) - var(--safe-right));
+    max-width: none;
+    padding: 1rem 1.1rem 1.1rem;
+  }
+  .choice-option { padding: 0.85em 1em; }
+
+  /* 主選單：按鈕加大觸控面積 */
+  #menu-buttons { min-width: min(280px, 78vw); }
+  .menu-btn { padding: 0.9em 1.4em; font-size: 1rem; }
+  #menu-content { gap: 2rem; }
+
+  /* Overlay 全寬化 */
+  .overlay-panel {
+    min-width: 0;
+    width: calc(100vw - 1.6rem);
+    max-height: calc(100dvh - 2rem - var(--safe-top) - var(--safe-bottom));
+    padding: 1.3rem 1.2rem;
+  }
+  #history-list { max-height: none; flex: 1; }
+
+  /* 章節卡 */
+  #chapter-card::before { top: calc(50% - 2.6rem); width: 60%; }
+  #chapter-card::after  { bottom: calc(50% - 2.6rem); width: 60%; }
+}
+
+/* ── 手機直式（≤520px 或 portrait 窄螢幕）── */
+@media (max-width: 520px) {
+  :root {
+    --textbox-h:     145px;
+    --textbox-pad-x: 0.85rem;
+    --char-max-w:    none;
+  }
+
+  /* 直式時三個 char-slot 重疊置中（避免過度壓縮變形） */
+  #characters-layer { padding: 0 2%; }
+  .char-slot { max-width: 70vw; }
+
+  #dialogue-text { font-size: 0.95rem; }
+  #speaker-name  { font-size: 0.78rem; }
+
+  /* HUD 半透明縮列，避免遮擋直式畫面 */
+  #hud { gap: 0.25rem; }
+  .hud-btn { font-size: 1rem; opacity: 0.85; }
+
+  #game-title    { letter-spacing: 0.18em; }
+  #game-subtitle { letter-spacing: 0.3em; }
+  #menu-version  { padding: 0 1rem; text-align: center; }
+}
+
+/* ── 矮視口（手機橫式鍵盤外露 / 短螢幕，高度 ≤ 480px）── */
+@media (max-height: 480px) {
+  :root {
+    --textbox-h:  120px;
+    --char-max-h: 96%;
+  }
+  #speaker-strip { height: 1.5rem; margin-bottom: 0.25rem; }
+  #text-area { min-height: 2.8rem; }
+  #dialogue-text { line-height: 1.6; font-size: 0.92rem; }
+  #menu-content { gap: 1.2rem; }
+  #menu-buttons { gap: 0.35rem; }
+  .menu-btn { padding: 0.5em 1.4em; }
+  .overlay-panel { max-height: calc(100dvh - 1.2rem); padding: 1rem 1.4rem; }
+}
+
+/* ── 觸控裝置：hover 效果改為 active、選項常駐高亮邊 ── */
+@media (hover: none) and (pointer: coarse) {
+  .menu-btn:hover { padding-left: 1.6em; }       /* 取消 hover 位移 */
+  .choice-option:hover { padding-left: 1em; }
+  .menu-btn:active,
+  .choice-option:active {
+    background: var(--amber-glow2);
+    color: var(--text-main);
+    border-left-color: var(--amber-light);
+  }
+  .hud-btn:active {
+    background: var(--amber-glow);
+    border-color: var(--amber);
+    color: var(--amber-light);
+  }
 }
