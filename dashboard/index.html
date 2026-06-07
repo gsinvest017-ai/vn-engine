@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>暗渠之書 ⌘ Dev Dashboard</title>
 <style>
 /* ── Reset & Variables ─────────────────────────────────────────── */
@@ -382,6 +382,88 @@ html, body {
 .style-grid .sv { font-size: 9.5px; color: var(--text); text-align: right; }
 .style-preview-row {
   display: flex; gap: 4px; padding: 5px 8px 6px; flex-wrap: wrap;
+}
+
+/* ══ RESPONSIVE — 平板 / 手機自適應 ═══════════════════════════════ */
+
+/* ── 平板（769–1100px）：右側 assets 欄移到底部橫排 ── */
+@media (max-width: 1100px) and (min-width: 769px) {
+  #layout {
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 1fr minmax(170px, 28vh);
+  }
+  #sidebar-left { grid-row: 1 / -1; }
+  #content      { grid-column: 2; grid-row: 1; }
+  #sidebar-right {
+    grid-column: 2; grid-row: 2;
+    flex-direction: row;
+    border-top: 1px solid var(--border2);
+    overflow-x: auto; overflow-y: hidden;
+  }
+  #sidebar-right .panel {
+    flex: 1 0 220px;
+    max-height: none !important;
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+  }
+  #panel-bgs, #panel-chars, #panel-audio,
+  #panel-style, #panel-tools { flex: 1 0 230px; min-height: 0; }
+}
+
+/* ── 手機（≤768px）：單欄堆疊、解除整頁 overflow 鎖定 ── */
+@media (max-width: 768px) {
+  html, body { overflow: auto; height: auto; min-height: 100%; }
+
+  #topbar {
+    position: sticky; top: 0; z-index: 50;
+    height: auto; min-height: 38px;
+    flex-wrap: wrap; gap: 4px; padding: 6px 10px;
+    padding-top: calc(6px + env(safe-area-inset-top, 0px));
+  }
+  #topbar .actions { flex-wrap: wrap; }
+  .btn { padding: 6px 12px; }       /* 觸控目標加大 */
+
+  #layout {
+    display: flex; flex-direction: column;
+    height: auto; overflow: visible;
+  }
+
+  #sidebar-left, #content, #sidebar-right {
+    display: flex; flex-direction: column;
+    border-right: none; overflow: visible;
+    width: 100%;
+  }
+
+  /* 每個 panel 給上限高度、內部自捲，頁面整體下捲瀏覽 */
+  .panel { max-height: 40vh !important; flex: 0 0 auto !important; }
+  .panel-body { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  #panel-validate, #panel-git { max-height: 28vh !important; }
+
+  /* 腳本檢視器固定高度（單欄裡的「主畫面」），#content 本身不設上限 */
+  #content { border-right: none; max-height: none !important; }
+  #script-viewer { max-height: 55vh; }
+
+  /* 點按目標加大 */
+  .script-item { padding: 9px 12px; }
+  .tool-btn { padding: 7px 12px; font-size: 11.5px; }
+  .expr-thumb { width: 56px; }
+  #bg-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+
+  /* 觸控回饋 */
+  .script-item:active, .tool-btn:active, .btn:active {
+    background: rgba(168,104,16,0.14);
+  }
+
+  #lightbox img { max-width: 96vw; max-height: 78vh; }
+}
+
+/* ── 小手機（≤480px）：字級微縮、統計列換行 ── */
+@media (max-width: 480px) {
+  html, body { font-size: 12px; }
+  #script-topbar { height: auto; flex-wrap: wrap; padding: 4px 10px; gap: 2px; }
+  #cmd-stats { flex-wrap: wrap; gap: 6px; }
+  .ln { min-width: 30px; font-size: 10px; }
+  .style-grid { grid-template-columns: 1fr minmax(44px, 60px) 28px; }
 }
 </style>
 </head>
