@@ -488,6 +488,22 @@ html, body {
 #import-file-list .imp-f { padding: 3px 0; border-bottom: 1px solid var(--border); }
 .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
 
+/* ── 共用 modal（新建 / 分支圖） ────────────────────────────────── */
+.hidden-modal {
+  position: fixed; inset: 0; display: none; z-index: 120;
+  background: rgba(0,0,0,.72); align-items: center; justify-content: center;
+}
+.hidden-modal.open { display: flex; }
+
+/* 音訊試聽按鈕 */
+.audio-play {
+  flex-shrink: 0; background: none; border: 1px solid var(--border2);
+  color: var(--muted); font-size: 9px; width: 20px; height: 18px;
+  cursor: pointer; font-family: inherit; line-height: 1;
+}
+.audio-play:hover { border-color: var(--amber); color: var(--amberB); }
+.audio-play.playing { border-color: var(--teal); color: var(--teal); }
+
 /* ── Toast ──────────────────────────────────────────────────────── */
 #toast {
   position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
@@ -616,7 +632,8 @@ html, body {
     <!-- Scripts -->
     <div class="panel" id="panel-scripts">
       <div class="panel-hd">SCRIPTS <span id="script-count" class="badge"></span>
-        <button class="hd-btn" onclick="pickImport()" title="從本機選擇 .vns/.txt/.yaml 匯入 scripts/">⊕ 匯入</button>
+        <button class="hd-btn" onclick="openNewScript()" title="建立新劇本檔" style="margin-left:auto">✚ 新檔</button>
+        <button class="hd-btn" onclick="pickImport()" title="從本機選擇 .vns/.txt/.yaml 匯入 scripts/" style="margin-left:0">⊕ 匯入</button>
       </div>
       <input type="file" id="import-input" multiple accept=".vns,.txt,.yaml,.yml"
              style="display:none" onchange="onImportFiles(this)">
@@ -646,6 +663,8 @@ html, body {
       <span id="current-file">← 選取腳本</span>
       <div style="display:flex;align-items:center;gap:10px;">
         <div id="cmd-stats"></div>
+        <button class="btn" id="btn-flow" style="display:none" onclick="showFlowGraph()" title="分支流程圖（label / jump / choice）">⑂ 分支</button>
+        <button class="btn" id="btn-restore" style="display:none" onclick="restoreBackup()" title="載入上次儲存前的 .bak 備份到編輯區">↩ .bak</button>
         <button class="btn" id="btn-runline" style="display:none" onclick="runFromCursor()" title="開真實遊戲，從游標行開始跑（含特效/打字機/聲音）">▶ 從游標行</button>
         <button class="btn" id="btn-preview" style="display:none" onclick="togglePreview()" title="開關右側即時預覽欄">◧ 預覽</button>
         <button class="btn" id="btn-edit" style="display:none" onclick="toggleEdit()">✎ 編輯</button>
@@ -800,6 +819,32 @@ html, body {
   </div>
 </div>
 
+<!-- 新建劇本 Modal -->
+<div id="modal-new" class="hidden-modal">
+  <div class="modal-panel">
+    <h3>✚ 新建劇本</h3>
+    <label>故事目錄（scripts/&lt;名稱&gt;/）</label>
+    <input type="text" id="new-story" list="story-options" placeholder="story-name">
+    <label>檔名（自動加 .vns）</label>
+    <input type="text" id="new-fname" placeholder="chapter4">
+    <div class="modal-actions">
+      <button class="btn" onclick="closeNewScript()">取消</button>
+      <button class="btn primary" onclick="confirmNewScript()">建立並編輯</button>
+    </div>
+  </div>
+</div>
+
+<!-- 分支流程圖 Modal -->
+<div id="modal-flow" class="hidden-modal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-panel" style="width:min(640px,94vw);max-height:80vh;">
+    <h3>⑂ 分支流程圖 <span id="flow-file" style="color:var(--muted);font-size:10px"></span></h3>
+    <pre id="flow-body" style="overflow:auto;font-size:11.5px;line-height:1.7;color:var(--text);max-height:62vh;"></pre>
+    <div class="modal-actions">
+      <button class="btn" onclick="document.getElementById('modal-flow').classList.remove('open')">關閉</button>
+    </div>
+  </div>
+</div>
+
 <!-- Toast 通知 -->
 <div id="toast"></div>
 
@@ -899,6 +944,7 @@ async function loadScript(path) {
   S.activeFile = path;
   renderScripts(); // update active state
   document.getElementById('btn-edit').style.display = '';
+  document.getElementById('btn-flow').style.display = '';
 
   document.getElementById('current-file').textContent = path;
   document.getElementById('script-viewer').innerHTML = '<div class="empty">載入中…</div>';
@@ -1139,21 +1185,23 @@ function renderAudio() {
 
   if (!bgms.length && !sfxs.length) { el.innerHTML = '<div class="empty">無音訊定義</div>'; return; }
 
-  const renderRow = ([id, info]) => {
+  const renderRow = (kind) => ([id, info]) => {
     const exists = S.assetMap[info.file?.replace(/^[^/]+\//, '')];
     const status = info.status || (exists ? 'ready' : 'missing');
     const icon    = status === 'ready' ? '✓' : (status === 'procedural' ? '⚡' : '✗');
     const icoCls  = status === 'ready' ? 'ok' : (status === 'procedural' ? 'proc' : 'miss');
     return `<div class="audio-item">
       <span class="audio-icon ${icoCls}">${icon}</span>
+      <button class="audio-play" data-kind="${kind}" data-id="${esc(id)}"
+              onclick="previewAudio(this)" title="試聽（含程序式 fallback）">▶</button>
       <span class="audio-id">${esc(id)}</span>
       <span class="audio-desc" title="${esc(info.description||'')}">${esc(info.description||'')}</span>
     </div>`;
   };
 
   el.innerHTML =
-    (bgms.length ? `<div class="audio-section-hd">BGM</div>${bgms.map(renderRow).join('')}` : '') +
-    (sfxs.length ? `<div class="audio-section-hd">SFX</div>${sfxs.map(renderRow).join('')}` : '');
+    (bgms.length ? `<div class="audio-section-hd">BGM</div>${bgms.map(renderRow('bgm')).join('')}` : '') +
+    (sfxs.length ? `<div class="audio-section-hd">SFX</div>${sfxs.map(renderRow('sfx')).join('')}` : '');
 }
 
 // ── Lightbox ──────────────────────────────────────────────────────
@@ -1529,6 +1577,7 @@ function _exitEditUI() {
   document.getElementById('btn-save').style.display = 'none';
   document.getElementById('btn-preview').style.display = 'none';
   document.getElementById('btn-runline').style.display = 'none';
+  document.getElementById('btn-restore').style.display = 'none';
   document.getElementById('editor-suggest').classList.add('hidden-bar');
   document.getElementById('editor-lint').classList.add('hidden-bar');
 }
@@ -1549,6 +1598,7 @@ function toggleEdit() {
   document.getElementById('btn-save').style.display = '';
   document.getElementById('btn-preview').style.display = '';
   document.getElementById('btn-runline').style.display = '';
+  document.getElementById('btn-restore').style.display = '';
   _applyPreviewClass();
   if (_previewOn) { _ensurePreviewLoaded(); sendPreview(0); }
   scheduleLint();
@@ -1569,6 +1619,8 @@ async function saveScript() {
     _dirty = false;
     S.content = content;
     toast(`✓ 已儲存 ${S.activeFile}（原檔備份 .bak）`);
+    // 熱重載：通知開著的遊戲分頁（preview iframe 除外）reload
+    try { new BroadcastChannel('vn-reload').postMessage({ path: S.activeFile }); } catch {}
     document.getElementById('current-file').textContent = S.activeFile;
     // 重新驗證 + 更新左欄統計，維持編輯模式不中斷
     const [scripts, issues] = await Promise.all([api('/api/scripts'), api('/api/validate')]);
@@ -1609,6 +1661,138 @@ document.addEventListener('keydown', e => {
 window.addEventListener('beforeunload', e => {
   if (_editing && _dirty) { e.preventDefault(); e.returnValue = ''; }
 });
+
+// ── 新建劇本 ──────────────────────────────────────────────────────
+function openNewScript() {
+  const stories = [...new Set(S.scripts.map(s => s.path.split('/')[1]).filter(Boolean))];
+  document.getElementById('story-options').innerHTML =
+    stories.map(s => `<option value="${esc(s)}">`).join('');
+  const inp = document.getElementById('new-story');
+  if (!inp.value.trim()) inp.value = stories[0] || 'my-story';
+  document.getElementById('modal-new').classList.add('open');
+}
+function closeNewScript() { document.getElementById('modal-new').classList.remove('open'); }
+
+async function confirmNewScript() {
+  const story = document.getElementById('new-story').value.trim();
+  let fname = document.getElementById('new-fname').value.trim();
+  if (!story || !fname) { toast('✗ 請輸入目錄與檔名'); return; }
+  if (!fname.endsWith('.vns')) fname += '.vns';
+  if (S.scripts.some(s => s.path === `scripts/${story}/${fname}`)) {
+    toast('✗ 檔案已存在'); return;
+  }
+  const firstBg = Object.keys(S.manifest.backgrounds || {})[0] || 'bg_id';
+  const template = `# ${fname.replace('.vns', '')}\n\n@chapter 未命名章節\n\n@scene bg=${firstBg} transition=none\n\n旁白從這裡開始。\n`;
+  const r = await fetch('/api/scripts/upload', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ story, files: [{ name: fname, content: template }] }),
+  });
+  const data = await r.json();
+  closeNewScript();
+  if (data.ok && data.saved.length) {
+    toast(`✓ 已建立 ${data.saved[0].path}`);
+    await refreshAll();
+    await loadScript(data.saved[0].path);
+    if (!_editing) toggleEdit();
+  } else {
+    toast('✗ 建立失敗: ' + (data.error || ''));
+  }
+}
+
+// ── .bak 還原 ─────────────────────────────────────────────────────
+async function restoreBackup() {
+  if (!_editing || !S.activeFile) return;
+  try {
+    const r = await fetch(`/api/scripts/backup?f=${encodeURIComponent(S.activeFile)}`);
+    const data = await r.json();
+    if (!r.ok) { toast('✗ ' + (data.error || r.status)); return; }
+    const ed = document.getElementById('script-editor');
+    ed.value = data.content;
+    ed.dispatchEvent(new Event('input'));
+    toast('✓ 已載入 .bak 備份（按 Ctrl+S 確認還原）');
+  } catch (e) { toast('✗ 還原失敗: ' + e.message); }
+}
+
+// ── 分支流程圖 ────────────────────────────────────────────────────
+async function showFlowGraph() {
+  if (!S.activeFile) return;
+  const { parseScript } = await _loadParser();
+  const content = _editing ? document.getElementById('script-editor').value : (S.content || '');
+  const cmds = parseScript(content);
+
+  const labels = new Map();          // name → line
+  const incoming = new Map();        // label → [來源行]
+  cmds.filter(c => c.type === 'label').forEach(c => labels.set(c.name, c.line));
+  const mark = (lbl, from) => {
+    if (!incoming.has(lbl)) incoming.set(lbl, []);
+    incoming.get(lbl).push(from);
+  };
+
+  const lines = [];
+  for (const c of cmds) {
+    if (c.type === 'chapter')  lines.push(`📖 L${c.line}  @chapter ${c.title}`);
+    if (c.type === 'label')    lines.push(`◉ L${c.line}  label「${c.name}」`);
+    if (c.type === 'jump') {
+      lines.push(`  └─ L${c.line}  jump → ${c.label}${labels.has(c.label) ? '' : '  ⚠ 未定義'}`);
+      mark(c.label, c.line);
+    }
+    if (c.type === 'if_jump') {
+      lines.push(`  └─ L${c.line}  if ${c.key}${c.op}${c.value} → ${c.label}${labels.has(c.label) ? '' : '  ⚠ 未定義'}`);
+      mark(c.label, c.line);
+    }
+    if (c.type === 'set') lines.push(`  · L${c.line}  set ${c.key} ${c.op} ${c.value}`);
+    if (c.type === 'choice') {
+      lines.push(`◇ L${c.line}  choice:`);
+      for (const o of c.options || []) {
+        lines.push(`  ├─ 「${o.text}」${o.label ? ` → ${o.label}${labels.has(o.label) ? '' : '  ⚠ 未定義'}` : '（不跳轉）'}`);
+        if (o.label) mark(o.label, c.line);
+      }
+    }
+    if (c.type === 'end' || c.type === 'suspense_end') lines.push(`■ L${c.line}  ${c.type}`);
+  }
+  // 孤兒 label（沒有任何入邊）
+  const orphans = [...labels.keys()].filter(n => !incoming.has(n));
+  if (orphans.length) {
+    lines.push('');
+    lines.push(`⚠ 孤兒 label（沒有任何 jump/choice 指向）: ${orphans.join(', ')}`);
+  }
+  if (!lines.length) lines.push('（此劇本沒有 label / jump / choice 分支結構）');
+
+  document.getElementById('flow-file').textContent = S.activeFile;
+  document.getElementById('flow-body').textContent = lines.join('\n');
+  document.getElementById('modal-flow').classList.add('open');
+}
+
+// ── 音訊試聽（重用引擎 AudioManager，含程序式 fallback） ──────────
+let _audioMgr = null, _playingBtn = null, _playingKind = null;
+
+async function previewAudio(btn) {
+  const { kind, id } = btn.dataset;
+  if (!_audioMgr) {
+    const { AudioManager } = await import('/engine/js/managers/audio.js');
+    _audioMgr = new AudioManager('/assets');
+  }
+  // 同一顆再按 = 停止
+  if (_playingBtn === btn) {
+    _audioMgr.stopAll();
+    btn.classList.remove('playing'); btn.textContent = '▶';
+    _playingBtn = null;
+    return;
+  }
+  // 換曲：停掉前一個
+  if (_playingBtn) {
+    _audioMgr.stopAll();
+    _playingBtn.classList.remove('playing'); _playingBtn.textContent = '▶';
+  }
+  _playingBtn = btn; _playingKind = kind;
+  btn.classList.add('playing'); btn.textContent = '■';
+  if (kind === 'bgm') _audioMgr.bgm(id, 300);
+  else _audioMgr.sfx(id, { volume: 1 });
+  // SFX 非循環：幾秒後自動復原按鈕
+  if (kind === 'sfx') setTimeout(() => {
+    if (_playingBtn === btn) { btn.classList.remove('playing'); btn.textContent = '▶'; _playingBtn = null; }
+  }, 6000);
+}
 
 // ── Tools ─────────────────────────────────────────────────────────
 let _grayscaleOn = false;

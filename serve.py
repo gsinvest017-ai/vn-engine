@@ -110,6 +110,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 return
             if   p == '/api/scripts':           data = self._api_scripts()
             elif p == '/api/scripts/content':   data = self._api_script_content(qs.get('f', [''])[0])
+            elif p == '/api/scripts/backup':    data = self._api_script_backup(qs.get('f', [''])[0])
             elif p == '/api/manifest':          data = self._api_manifest()
             elif p == '/api/assets/check':      data = self._api_assets_check()
             elif p == '/api/git/log':           data = self._api_git_log()
@@ -341,6 +342,16 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             raise PermissionError('File type not allowed')
         return {'content': target.read_text('utf-8'), 'path': filepath}
 
+    def _api_script_backup(self, filepath):
+        """GET /api/scripts/backup?f=<path> — 取 <path>.bak 內容（還原用）。"""
+        if not filepath:
+            raise ValueError('Missing f parameter')
+        target = self._resolve_script_path(filepath)
+        bak = target.with_suffix(target.suffix + '.bak')
+        if not bak.exists():
+            raise FileNotFoundError(f'{filepath}.bak 不存在（尚未有編輯備份）')
+        return {'content': bak.read_text('utf-8'), 'path': filepath}
+
     def _api_manifest(self):
         p = ROOT / 'assets' / 'manifest.json'
         if p.exists():
@@ -453,8 +464,14 @@ if ts_ip:
 
 print(f'\nPress Ctrl+C to stop.\n')
 
+class _Server(socketserver.ThreadingTCPServer):
+    """多執行緒 + reuse addr：dist 打包等慢請求不卡其他請求；重啟不吃 TIME_WAIT。"""
+    allow_reuse_address = True
+    daemon_threads = True
+
+
 try:
-    with socketserver.TCPServer(('', PORT), Handler) as httpd:
+    with _Server(('', PORT), Handler) as httpd:
         if not _args.no_browser:
             webbrowser.open(dash_url)
         httpd.serve_forever()

@@ -208,6 +208,14 @@ document.addEventListener('keydown', e => {
   if (e.code === 'Enter' && mainMenu.classList.contains('active')) startGame();
 });
 
+/* ── 熱重載：dashboard 儲存劇本後自動 reload（preview iframe 不參與） ── */
+if (!DEV_PREVIEW && 'BroadcastChannel' in window) {
+  try {
+    const _reloadCh = new BroadcastChannel('vn-reload');
+    _reloadCh.onmessage = () => location.reload();
+  } catch { /* ignore */ }
+}
+
 /* ── Dev 參數自動開始（dashboard 跳轉免再點「開始遊戲」） ── */
 if (!DEV_PREVIEW && (DEV_FILE || DEV_SCENE || DEV_CHAPTER !== null || DEV_EFFECT || (DEV_RAIN && DEV_RAIN !== 'none'))) {
   startGame();
