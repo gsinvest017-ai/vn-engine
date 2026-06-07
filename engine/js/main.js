@@ -37,6 +37,8 @@ const DEV_CHAPTER = _devParams.get('devChapter');  // e.g. ?devChapter=1
 const DEV_EFFECT  = _devParams.get('devEffect');   // e.g. ?devEffect=suspense_end
 const DEV_RAIN    = _devParams.get('devRain');     // e.g. ?devRain=heavy
 const DEV_WIND    = parseFloat(_devParams.get('devWind') || '0');  // e.g. ?devWind=0.5
+const DEV_FILE    = _devParams.get('devFile');     // e.g. ?devFile=scripts/x/chapter1.vns
+const DEV_LINE    = parseInt(_devParams.get('devLine') || '0', 10);  // 搭配 devFile
 
 // Apply devStyle CSS custom property overrides immediately (before first paint)
 (function applyDevStyle() {
@@ -67,6 +69,22 @@ let engine = null;
 let menuUI = null;
 
 function _devStartIndex(eng) {
+  if (DEV_FILE) {
+    // dashboard「▶ 從游標行」：以檔案尾兩段路徑對應章節，再找 ≥ devLine 的第一個指令
+    const tail = DEV_FILE.split('/').slice(-2).join('/');
+    const chIdx = STORY_CONFIG.chapters.findIndex(p => p.endsWith(tail));
+    if (chIdx >= 0) {
+      const cmds = eng.allCommands;
+      for (let i = 0; i < cmds.length; i++) {
+        if (cmds[i]._chapterIdx === chIdx && (cmds[i].line || 0) >= DEV_LINE) return i;
+      }
+      // devLine 超出檔尾 → 該章最後一個指令
+      for (let i = cmds.length - 1; i >= 0; i--) {
+        if (cmds[i]._chapterIdx === chIdx) return i;
+      }
+    }
+    console.warn(`[Dev] devFile "${DEV_FILE}" 對不到章節 — 從頭開始`);
+  }
   if (DEV_SCENE) {
     // Find first @scene command with matching bg id
     const idx = eng.allCommands.findIndex(
@@ -79,7 +97,6 @@ function _devStartIndex(eng) {
     const chNum = parseInt(DEV_CHAPTER, 10);
     // Find the first command that belongs to chapter chNum
     const cmds = eng.allCommands;
-    let charCount = 0;
     for (let i = 0; i < cmds.length; i++) {
       if (cmds[i]._chapterIdx === chNum) return i;
     }
@@ -117,11 +134,13 @@ async function startGame() {
     await ensureEngine();
     const startIdx = _devStartIndex(engine);
 
-    if ((DEV_SCENE || DEV_CHAPTER !== null) && startIdx > 0) {
-      _showDevBanner(DEV_SCENE ? `Scene: ${DEV_SCENE}` : `Chapter: ${DEV_CHAPTER}`);
+    if ((DEV_SCENE || DEV_CHAPTER !== null || DEV_FILE) && startIdx > 0) {
+      _showDevBanner(DEV_FILE ? `${DEV_FILE.split('/').pop()}:L${DEV_LINE}`
+        : DEV_SCENE ? `Scene: ${DEV_SCENE}` : `Chapter: ${DEV_CHAPTER}`);
     }
 
-    await engine.start(startIdx);
+    // 中途起跑（dev jump）先重建累積狀態，避免黑畫面
+    await engine.startFrom(startIdx);
 
     // Dev rain preview
     if (DEV_RAIN && DEV_RAIN !== 'none') {
@@ -188,3 +207,8 @@ initSettingsUI(root, () => engine);
 document.addEventListener('keydown', e => {
   if (e.code === 'Enter' && mainMenu.classList.contains('active')) startGame();
 });
+
+/* ── Dev 參數自動開始（dashboard 跳轉免再點「開始遊戲」） ── */
+if (!DEV_PREVIEW && (DEV_FILE || DEV_SCENE || DEV_CHAPTER !== null || DEV_EFFECT || (DEV_RAIN && DEV_RAIN !== 'none'))) {
+  startGame();
+}

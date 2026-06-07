@@ -137,6 +137,16 @@ export class VNEngine {
     }
   }
 
+  /** 中途起跑（dev jump / 從游標行開始玩）：先重建 idx 之前的狀態再續跑 */
+  async startFrom(idx) {
+    if (idx > 0) {
+      const st = accumulateState(this.allCommands, { uptoIndex: idx - 1 });
+      this.state.variables = st.variables;
+      await this.applyState(st);
+    }
+    return this.start(idx);
+  }
+
   /** 讀檔：重建存檔 index（含）之前的畫面狀態後，從下一指令續跑 */
   async resumeFromSave() {
     const idx = this.state.cmdIndex || 0;

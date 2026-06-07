@@ -405,13 +405,50 @@ html, body {
 #content.editing #script-topbar { border-bottom-color: rgba(168,104,16,0.6); }
 .dirty-star { color: var(--amberB); }
 
+#editor-left {
+  display: flex; flex-direction: column;
+  min-width: 0; min-height: 0;
+}
 #script-editor {
-  width: 100%; min-width: 0; min-height: 0;
+  flex: 1; width: 100%; min-width: 0; min-height: 0;
   background: var(--bg); color: var(--text);
   border: none; outline: none; resize: none;
   padding: 8px 12px; font-family: inherit; font-size: 12.5px;
   line-height: 1.7; tab-size: 2; white-space: pre; overflow: auto;
 }
+
+/* 自動完成 chips 列 */
+#editor-suggest {
+  flex-shrink: 0; display: flex; flex-wrap: wrap; gap: 4px;
+  padding: 4px 8px; border-bottom: 1px solid var(--border);
+  background: var(--panel); min-height: 0;
+}
+#editor-suggest.hidden-bar { display: none; }
+.sg-label { font-size: 9.5px; color: var(--muted); align-self: center; }
+.sg-chip {
+  background: var(--panel2); border: 1px solid var(--border2);
+  color: var(--amberB); font-size: 10.5px; font-family: inherit;
+  padding: 1px 8px; cursor: pointer; transition: border-color .1s;
+}
+.sg-chip:hover { border-color: var(--amber); }
+
+/* 行內 lint 列 */
+#editor-lint {
+  flex-shrink: 0; max-height: 92px; overflow-y: auto;
+  border-top: 1px solid var(--border); background: var(--panel);
+  font-size: 10.5px;
+}
+#editor-lint.hidden-bar { display: none; }
+.lint-item {
+  display: flex; gap: 6px; padding: 2px 8px; cursor: pointer;
+  border-bottom: 1px solid var(--border);
+}
+.lint-item:hover { background: var(--panel2); }
+.lint-ln { color: var(--teal); flex-shrink: 0; min-width: 3.2em; }
+.lint-msg { color: var(--text); }
+.lint-item.err .lint-msg { color: #e07070; }
+.lint-item.warn .lint-msg { color: var(--amberB); }
+.lint-ok { padding: 2px 8px; color: var(--green); }
 
 #preview-pane {
   min-width: 0; min-height: 0;
@@ -609,6 +646,7 @@ html, body {
       <span id="current-file">← 選取腳本</span>
       <div style="display:flex;align-items:center;gap:10px;">
         <div id="cmd-stats"></div>
+        <button class="btn" id="btn-runline" style="display:none" onclick="runFromCursor()" title="開真實遊戲，從游標行開始跑（含特效/打字機/聲音）">▶ 從游標行</button>
         <button class="btn" id="btn-preview" style="display:none" onclick="togglePreview()" title="開關右側即時預覽欄">◧ 預覽</button>
         <button class="btn" id="btn-edit" style="display:none" onclick="toggleEdit()">✎ 編輯</button>
         <button class="btn primary" id="btn-save" style="display:none" onclick="saveScript()" title="Ctrl+S">💾 儲存</button>
@@ -618,8 +656,12 @@ html, body {
       <div id="script-hint">← 從左側選取 .vns 腳本</div>
     </div>
     <div id="editor-split">
-      <textarea id="script-editor" spellcheck="false"
-                placeholder="# VNScript 內容…"></textarea>
+      <div id="editor-left">
+        <div id="editor-suggest" class="hidden-bar"></div>
+        <textarea id="script-editor" spellcheck="false"
+                  placeholder="# VNScript 內容…"></textarea>
+        <div id="editor-lint" class="hidden-bar"></div>
+      </div>
       <div id="preview-pane">
         <iframe id="preview-frame" title="即時預覽"></iframe>
         <div id="preview-hint">即時預覽：跟隨游標所在行渲染畫面 · ♪ badge 點擊開聲音</div>
@@ -1043,7 +1085,7 @@ function renderBackgrounds() {
       ? `<img src="${imgSrc}" alt="${esc(id)}" loading="lazy">`
       : `<div style="height:100%;background:var(--panel2);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:10px">no img</div>`;
 
-    return `<div class="bg-thumb" onclick="openLightbox('${esc(lbSrc)}','${esc(id)}')" title="${esc(info.description || id)}">
+    return `<div class="bg-thumb" onclick="assetClick('bg','${esc(id)}','','${esc(lbSrc)}','${esc(id)}')" title="${esc(info.description || id)}（編輯模式點擊 = 插入 @scene）">
       ${imgHtml}
       <span class="bg-label">${esc(id)}</span>
       <span class="bg-status ${badgeCls}">${badgeTxt}</span>
@@ -1072,7 +1114,7 @@ function renderCharacters() {
     const exprHtml = exprs.map(([expr, exprInfo]) => {
       const imgSrc = charImgSrc(cid, expr, exprInfo);
       const lbSrc  = imgSrc || `/assets/characters/${cid}/${expr}.svg`;
-      return `<div class="expr-thumb" onclick="openLightbox('${esc(lbSrc)}','${esc(cid)}/${esc(expr)}')" title="${esc(expr)}">
+      return `<div class="expr-thumb" onclick="assetClick('char','${esc(cid)}','${esc(expr)}','${esc(lbSrc)}','${esc(cid)}/${esc(expr)}')" title="${esc(expr)}（編輯模式點擊 = 插入 @char）">
         ${imgSrc
           ? `<img src="${imgSrc}" alt="${esc(expr)}" loading="lazy" style="object-fit:contain;background:#0a0a14;">`
           : `<div style="height:80px;background:var(--panel2);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:9px">?</div>`}
@@ -1231,6 +1273,201 @@ async function confirmImport() {
   } catch (e) { toast('✗ 上傳失敗: ' + e.message); }
 }
 
+// ── 行內 lint（用引擎真 parser，與 server VALIDATE 互補） ──────────
+let _parserMod = null;
+async function _loadParser() {
+  if (!_parserMod) _parserMod = await import('/engine/js/core/parser.js');
+  return _parserMod;
+}
+
+const VNS_COMMANDS = ['scene','weather','char','bgm','sfx','effect','fade','wait',
+  'pause','chapter','choice','label','jump','set','if','chapter_end','suspense_end','end'];
+
+function _bgExists(id) {
+  return !!(S.manifest.backgrounds?.[id]) ||
+         !!S.assetMap[`backgrounds/${id}.png`] || !!S.assetMap[`backgrounds/${id}.svg`];
+}
+function _charExists(id) { return !!(S.manifest.characters?.[id]); }
+function _exprExists(cid, expr) {
+  return !!(S.manifest.characters?.[cid]?.expressions?.[expr]) ||
+         !!S.assetMap[`characters/${cid}/${expr}.png`] || !!S.assetMap[`characters/${cid}/${expr}.svg`];
+}
+
+async function lintVNS(content) {
+  const { parseScript } = await _loadParser();
+  const issues = [];
+  let cmds;
+  try { cmds = parseScript(content); }
+  catch (e) { return [{ line: 1, type: 'err', msg: 'parse 失敗: ' + e.message }]; }
+
+  const labels = new Map();   // name → 出現次數
+  for (const c of cmds) {
+    if (c.type === 'label') labels.set(c.name, (labels.get(c.name) || 0) + 1);
+  }
+  for (const c of cmds) {
+    const L = c.line || 0;
+    switch (c.type) {
+      case 'scene':
+        if (c.bg && !_bgExists(c.bg))
+          issues.push({ line: L, type: 'err', msg: `背景 "${c.bg}" 不存在` });
+        break;
+      case 'char_show':
+      case 'char_expr': {
+        const id   = c.id;
+        const expr = c.expr;
+        if (!_charExists(id))
+          issues.push({ line: L, type: 'err', msg: `角色 "${id}" 不存在` });
+        else if (expr && !_exprExists(id, expr))
+          issues.push({ line: L, type: 'warn', msg: `角色 "${id}" 表情 "${expr}" 無對應檔案` });
+        break;
+      }
+      case 'char_raw':
+        issues.push({ line: L, type: 'warn', msg: '@char 缺 show=/hide=/expr=/move= 參數' });
+        break;
+      case 'jump':
+      case 'if_jump':
+        if (c.label && !labels.has(c.label))
+          issues.push({ line: L, type: 'err', msg: `jump 目標 label "${c.label}" 未定義` });
+        break;
+      case 'choice':
+        for (const opt of c.options || []) {
+          if (opt.label && !labels.has(opt.label))
+            issues.push({ line: L, type: 'err', msg: `選項目標 label "${opt.label}" 未定義` });
+        }
+        break;
+      case 'unknown':
+        issues.push({ line: L, type: 'err', msg: `無法解析的指令: @${(c.raw || '').slice(0, 30)}` });
+        break;
+    }
+  }
+  for (const [name, n] of labels) {
+    if (n > 1) issues.push({ line: 0, type: 'warn', msg: `label "${name}" 重複定義 ${n} 次` });
+  }
+  return issues.sort((a, b) => a.line - b.line);
+}
+
+let _lintDebounce = null;
+function scheduleLint() {
+  clearTimeout(_lintDebounce);
+  _lintDebounce = setTimeout(async () => {
+    if (!_editing) return;
+    const el = document.getElementById('editor-lint');
+    const issues = await lintVNS(document.getElementById('script-editor').value);
+    el.classList.remove('hidden-bar');
+    if (!issues.length) {
+      el.innerHTML = '<div class="lint-ok">✓ lint 無問題</div>';
+      return;
+    }
+    el.innerHTML = issues.map(i =>
+      `<div class="lint-item ${i.type}" onclick="gotoLine(${i.line})">
+        <span class="lint-ln">${i.line ? 'L' + i.line : '—'}</span>
+        <span class="lint-msg">${esc(i.msg)}</span>
+      </div>`).join('');
+  }, 300);
+}
+
+function gotoLine(n) {
+  if (!n) return;
+  const ed = document.getElementById('script-editor');
+  const lines = ed.value.split('\n');
+  let pos = 0;
+  for (let i = 0; i < Math.min(n - 1, lines.length); i++) pos += lines[i].length + 1;
+  ed.focus();
+  ed.setSelectionRange(pos, pos);
+  sendPreview(0);
+}
+
+// ── 自動完成 chips（context-aware） ────────────────────────────────
+function _suggestCandidates() {
+  const ed = document.getElementById('script-editor');
+  const before = ed.value.slice(0, ed.selectionStart);
+  const lineStart = before.lastIndexOf('\n') + 1;
+  const lineText  = before.slice(lineStart);
+
+  // @指令補全：行首 @ 開頭
+  const cmdM = lineText.match(/^@(\w*)$/);
+  if (cmdM) {
+    return { kind: '指令', prefix: cmdM[1], tokenLen: cmdM[1].length,
+             items: VNS_COMMANDS.filter(c => c.startsWith(cmdM[1])) };
+  }
+
+  // key=value 補全
+  const kvM = lineText.match(/(bg|show|move|hide|expr|play)=([\w:]*)$/);
+  if (!kvM) return null;
+  const key = kvM[1], typed = kvM[2];
+  let items = [];
+  if (key === 'bg') {
+    items = Object.keys(S.manifest.backgrounds || {});
+  } else if (key === 'show' || key === 'move' || key === 'hide') {
+    items = Object.keys(S.manifest.characters || {});
+    if (key === 'hide') items.push('all');
+  } else if (key === 'expr') {
+    const showM = lineText.match(/show=(\w+)/);
+    if (showM && S.manifest.characters?.[showM[1]]) {
+      items = Object.keys(S.manifest.characters[showM[1]].expressions || {});
+    } else {
+      // @char expr=<id>:<expr> 全組合
+      items = Object.entries(S.manifest.characters || {}).flatMap(([cid, info]) =>
+        Object.keys(info.expressions || {}).map(e => `${cid}:${e}`));
+    }
+  } else if (key === 'play') {
+    const isBgm = /^\s*@bgm/.test(lineText);
+    const audio = S.manifest.audio || {};
+    items = Object.keys((isBgm ? audio.bgm : audio.sfx) || {});
+  }
+  return { kind: key + '=', prefix: typed, tokenLen: typed.length,
+           items: items.filter(i => i.startsWith(typed)) };
+}
+
+function updateSuggest() {
+  if (!_editing) return;
+  const bar = document.getElementById('editor-suggest');
+  const sug = _suggestCandidates();
+  if (!sug || !sug.items.length) { bar.classList.add('hidden-bar'); return; }
+  bar.classList.remove('hidden-bar');
+  bar.innerHTML = `<span class="sg-label">${esc(sug.kind)}</span>` +
+    sug.items.slice(0, 10).map(item =>
+      `<button class="sg-chip" onclick="applySuggest('${esc(item)}', ${sug.tokenLen})">${esc(item)}</button>`
+    ).join('');
+}
+
+function applySuggest(item, tokenLen) {
+  const ed = document.getElementById('script-editor');
+  const pos = ed.selectionStart;
+  ed.value = ed.value.slice(0, pos - tokenLen) + item + ed.value.slice(pos);
+  const np = pos - tokenLen + item.length;
+  ed.focus();
+  ed.setSelectionRange(np, np);
+  ed.dispatchEvent(new Event('input'));
+}
+
+// ── 資產點擊插入（編輯模式時縮圖 → 指令） ──────────────────────────
+function insertAtCursorLine(text) {
+  const ed = document.getElementById('script-editor');
+  const pos = ed.selectionStart;
+  const nl  = ed.value.indexOf('\n', pos);
+  const insertPos = nl < 0 ? ed.value.length : nl + 1;
+  ed.value = ed.value.slice(0, insertPos) + text + ed.value.slice(insertPos);
+  ed.focus();
+  ed.setSelectionRange(insertPos + text.length, insertPos + text.length);
+  ed.dispatchEvent(new Event('input'));
+}
+
+function assetClick(kind, a, b, lbSrc, caption) {
+  // 編輯模式：插入指令；否則維持 lightbox 預覽
+  if (!_editing) { openLightbox(lbSrc, caption); return; }
+  if (kind === 'bg')   insertAtCursorLine(`@scene bg=${a} transition=fade\n`);
+  if (kind === 'char') insertAtCursorLine(`@char show=${a} pos=center expr=${b}\n`);
+  toast(`✓ 已插入 ${kind === 'bg' ? '@scene bg=' + a : '@char show=' + a}`);
+}
+
+// ── 從游標行開真實遊戲 ─────────────────────────────────────────────
+function runFromCursor() {
+  if (!S.activeFile) return;
+  const line = _editorLine();
+  window.open(`/engine/?devFile=${encodeURIComponent(S.activeFile)}&devLine=${line}`, '_blank');
+}
+
 // ── 編輯模式（中央 viewer ⇄ 雙欄編輯+即時預覽，Ctrl+S 儲存） ───────
 let _editing = false, _dirty = false;
 let _previewOn = localStorage.getItem('vnsPreviewOn') !== '0';
@@ -1291,6 +1528,9 @@ function _exitEditUI() {
   document.getElementById('btn-edit').textContent = '✎ 編輯';
   document.getElementById('btn-save').style.display = 'none';
   document.getElementById('btn-preview').style.display = 'none';
+  document.getElementById('btn-runline').style.display = 'none';
+  document.getElementById('editor-suggest').classList.add('hidden-bar');
+  document.getElementById('editor-lint').classList.add('hidden-bar');
 }
 
 function toggleEdit() {
@@ -1308,8 +1548,10 @@ function toggleEdit() {
   document.getElementById('btn-edit').textContent = '✕ 取消';
   document.getElementById('btn-save').style.display = '';
   document.getElementById('btn-preview').style.display = '';
+  document.getElementById('btn-runline').style.display = '';
   _applyPreviewClass();
   if (_previewOn) { _ensurePreviewLoaded(); sendPreview(0); }
+  scheduleLint();
   ed.focus();
 }
 
@@ -1344,12 +1586,14 @@ document.getElementById('script-editor').addEventListener('input', () => {
       `<span class="dirty-star">●</span> ${esc(S.activeFile || '')}`;
   }
   sendPreview(250);   // 打字 → 預覽（debounce 合併）
+  scheduleLint();     // 打字 → 行內 lint
+  updateSuggest();    // 打字 → 自動完成 chips
 });
 
-// 游標移動（方向鍵/點擊/選取）→ 預覽跟隨所在行
+// 游標移動（方向鍵/點擊/選取）→ 預覽跟隨所在行 + chips 更新
 const _scriptEditor = document.getElementById('script-editor');
 ['keyup', 'click'].forEach(ev =>
-  _scriptEditor.addEventListener(ev, () => sendPreview(120)));
+  _scriptEditor.addEventListener(ev, () => { sendPreview(120); updateSuggest(); }));
 
 document.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && e.key === 's' && _editing) {
