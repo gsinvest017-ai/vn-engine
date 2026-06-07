@@ -1179,6 +1179,7 @@ html, body {
 
 /* ── 觸控裝置：hover 效果改為 active、選項常駐高亮邊 ── */
 @media (hover: none) and (pointer: coarse) {
+  :root { --hud-btn-size: 2.75rem; }  /* 不論寬度，觸控裝置 HUD ≥44px */
   .menu-btn:hover { padding-left: 1.6em; }       /* 取消 hover 位移 */
   .choice-option:hover { padding-left: 1em; }
   .menu-btn:active,

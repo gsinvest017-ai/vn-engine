@@ -143,6 +143,19 @@ vn-engine/
 | 存檔 | — | HUD ■ 按鈕 |
 | 對話歷史 | — | HUD ≡ 按鈕 |
 
+### 自適應布局（RWD）
+
+遊戲畫面與 Dev Dashboard 皆支援電腦 / 平板 / 手機自適應：
+
+- **遊戲畫面**：`100dvh` 視口 + safe-area（瀏海/Home indicator）適配；
+  平板/手機自動縮小對話框與留白；觸控裝置 HUD 按鈕放大至 ≥44px、
+  hover 效果改為按壓回饋；手機直式角色立繪自動調整；橫式矮視口
+  （鍵盤外露）對話框再壓縮。
+- **Dashboard**：平板（≤1100px）右側 assets 欄移到底部橫排；
+  手機（≤768px）單欄堆疊、各 panel 內捲、topbar sticky。
+
+設計細節見 `docs/progress-responsive-layout.md`。
+
 ---
 
 ## 加入新故事
