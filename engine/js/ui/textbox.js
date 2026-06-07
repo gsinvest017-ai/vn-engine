@@ -113,14 +113,24 @@ export class TextBox {
     img.style.top       = `${-cy0 * scale}px`;
   }
 
-  async show(text, { speaker = '', style = 'normal', portrait = undefined } = {}) {
+  async show(text, { speaker = '', style = 'normal', portrait = undefined, instant = false } = {}) {
     this.box.classList.remove('hidden');
     this.arrow.style.visibility = 'hidden';
-    this._typing  = true;
-    this._skipReq = false;
 
     this.nameEl.textContent = speaker;
     if (portrait !== undefined) this.setPortrait(portrait);
+
+    if (instant) {
+      // 預覽模式：跳過打字機，直接整段顯示
+      this.textEl.className = style === 'quote' ? 'narration-quote' : '';
+      this.textEl.textContent = text;
+      this._typing = false;
+      this.arrow.style.visibility = 'visible';
+      return;
+    }
+
+    this._typing  = true;
+    this._skipReq = false;
 
     if (style === 'quote') {
       this.textEl.className = 'narration-quote';

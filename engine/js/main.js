@@ -54,6 +54,14 @@ const DEV_WIND    = parseFloat(_devParams.get('devWind') || '0');  // e.g. ?devW
   } catch (e) { console.warn('[devStyle] parse error', e); }
 })();
 
+// ── Dev Preview 模式（Dashboard 雙欄編輯右側 iframe） ─────────────
+const DEV_PREVIEW = _devParams.get('devPreview');
+if (DEV_PREVIEW) {
+  import('./preview.js').then(({ PreviewDriver }) => {
+    window.__previewDriver = new PreviewDriver(root, '../assets', STORY_CONFIG);
+  }).catch(err => console.error('[preview] init failed', err));
+}
+
 let engine = null;
 let menuUI = null;
 

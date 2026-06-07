@@ -12,11 +12,13 @@ export function parseScript(text) {
     const raw = lines[i];
     const line = raw.trim();
     i++;
+    const srcLine = i;  // 1-based 來源行號（供 dev preview / lint 對應）
 
     if (!line || line.startsWith('#')) continue;
 
     if (line.startsWith('@')) {
       const cmd = parseDirective(line.slice(1), lines, i);
+      cmd.line = srcLine;
       if (cmd.type === 'choice') {
         // consume option lines
         const options = [];
@@ -40,17 +42,17 @@ export function parseScript(text) {
       if (bracketEnd > 0) {
         const charId = line.slice(1, bracketEnd).trim();
         const text   = line.slice(bracketEnd + 1).trim();
-        commands.push({ type: 'dialogue', character: charId, text });
+        commands.push({ type: 'dialogue', character: charId, text, line: srcLine });
         continue;
       }
     }
 
     if (line.startsWith('>')) {
-      commands.push({ type: 'narration', text: line.slice(1).trim(), style: 'quote' });
+      commands.push({ type: 'narration', text: line.slice(1).trim(), style: 'quote', line: srcLine });
       continue;
     }
 
-    commands.push({ type: 'narration', text: line, style: 'normal' });
+    commands.push({ type: 'narration', text: line, style: 'normal', line: srcLine });
   }
 
   return commands;
@@ -84,8 +86,11 @@ function parseDirective(content) {
       };
 
     case 'char': {
-      const sub = firstToken(rest);
-      if (sub === 'show') {
+      // 注意：子指令格式是 `@char show=<id> ...`，firstToken 會拿到
+      // "show=<id>" 而非 "show"——必須用 params key 判斷分支。
+      // （舊版用 sub === 'show' 比對，導致所有 @char 指令都掉進
+      //   char_raw no-op，立繪只剩對白自動上場 — 已修正）
+      if (params.show) {
         return {
           type: 'char_show',
           id: params.show,
@@ -93,10 +98,7 @@ function parseDirective(content) {
           expr: params.expr || 'normal',
         };
       }
-      if (sub === 'hide') {
-        return { type: 'char_hide', id: params.hide || 'all' };
-      }
-      if (sub === 'move') {
+      if (params.move) {
         return {
           type: 'char_move',
           id: params.move,
@@ -104,12 +106,16 @@ function parseDirective(content) {
           duration: parseInt(params.duration || '400', 10),
         };
       }
-      if (sub === 'expr') {
-        const exprVal = params.expr || rest.replace(/^expr\s*=?\s*/, '');
+      if (params.expr) {
+        // @char expr=<id>:<expr>（無 show= 時才視為純表情變化）
+        const exprVal = params.expr;
         const colon = exprVal.indexOf(':');
         const id    = colon >= 0 ? exprVal.slice(0, colon) : exprVal;
         const expr  = colon >= 0 ? exprVal.slice(colon + 1) : 'normal';
         return { type: 'char_expr', id, expr };
+      }
+      if (params.hide || firstToken(rest) === 'hide') {
+        return { type: 'char_hide', id: params.hide || 'all' };
       }
       return { type: 'char_raw', params };
     }
