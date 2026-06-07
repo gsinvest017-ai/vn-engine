@@ -42,7 +42,51 @@
 
 ## 進度日誌
 
-（隨 milestone 完成追加）
+## M1 — 遊戲 P0（commit `eddb24c`）
+
+- `core/replay.js`：`accumulateState`/`applySet`/`evalCondition` 單一來源；
+  preview.js 改薄包裝。
+- 修讀檔黑畫面（`resumeFromSave` 重建狀態）+ **隱藏 bug**：`state.cmdIndex`
+  在主迴圈從未更新，存檔永遠記 index 0（存檔功能其實一直是壞的）。
+- history 隨存檔持久化；存檔槽顯示台詞片段；覆蓋前 confirm。
+- 主選單「讀取存檔」「設定」實裝；設定面板（速度/延遲/音量/全螢幕）。
+- choice 記入 history；結局「回到主選單」。
+
+## M2 — 遊戲 P1/P2（commit `adf19a1`）
+
+- `@set key=value|key+=n` 與 `@if key<op>value jump=label`；
+  變數隨存檔持久化。
+- 資產預載；`prefers-reduced-motion`（CSS + grain/menu canvas rAF 不啟動）；
+  手機上滑 → 對話記錄。
+
+## M3 — Dashboard P0（commit `1c48659`）
+
+- 行內 lint（dashboard import 引擎真 parser；6 類規則；點項跳行）。
+- 自動完成 chips（@指令、bg=、show=、expr=（依同行角色過濾）、play=）。
+- 資產縮圖編輯模式點擊 = 插入指令。
+- 「▶ 從游標行」+ engine `startFrom`（dev jump 統一先重建狀態）；
+  dev 參數頁自動開始遊戲。
+
+## M4 — Dashboard P1（commit `2243f4b`）
+
+- ✚ 新建劇本（模板 + 直接進編輯）；↩ .bak 還原（新 API
+  `/api/scripts/backup`）；音訊試聽（重用 AudioManager 含程序式
+  fallback）；⑂ 分支流程圖（文字樹 + 孤兒 label 偵測）；
+  儲存熱重載（BroadcastChannel `vn-reload`）。
+- serve.py 換 ThreadingTCPServer + allow_reuse_address（提前做：
+  測試中實際撞上 TIME_WAIT bind 失敗）。
+
+## M5 — tests 收編 + CI（本 commit）
+
+- `tests/e2e/`：`rwd.cjs`（8 視口溢出）、`game-flow.cjs`（頭像/@if 分支/
+  存讀檔重建）、`preview.cjs`（游標狀態 7 斷言）、`dashboard.cjs`
+  （新建/lint/chips/還原/匯入白名單/traversal）+ `run-all.sh`
+  （起 server、跑全部、自我清理測試產物）。
+- `.github/workflows/e2e.yml`：push/PR 跑全套（Playwright chromium）。
+- **測試又抓到一個真 bug**：HUD 按鈕點擊冒泡到 game-screen 的 advance
+  listener，按「存檔」同時對話前進一行（存到下一句）。已修
+  （`closest('#hud')` 排除）。
+- 本地全套 27/27 通過。
 
 ## Fallback 指引
 

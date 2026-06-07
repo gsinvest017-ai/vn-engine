@@ -364,7 +364,11 @@ export class VNEngine {
     };
 
     const gameScreen = this.root.querySelector('#game-screen');
-    gameScreen?.addEventListener('click', advance);
+    gameScreen?.addEventListener('click', e => {
+      // HUD / 選擇框上的點擊不推進對話（避免按存檔同時前進一行）
+      if (e.target.closest('#hud') || e.target.closest('#choice-box')) return;
+      advance();
+    });
 
     // 手機：上滑開對話記錄（menu.js 監聽 vn-swipe-up）
     let _touchY = null, _touchX = null;

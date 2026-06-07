@@ -174,9 +174,51 @@ vn-engine/
   狀態——背景、角色立繪與表情、對話框與頭像、天氣、dim/vignette；
   打字後約 250ms 自動更新，不用重開遊戲預覽。BGM 以 ♪ badge 顯示，
   點擊解鎖聲音播放。「◧ 預覽」可開關（記憶設定）。
-- **▶ 場景跳轉**：`@scene` 行右側按鈕直接開遊戲跳到該場景測試。
+- **▶ 場景跳轉**：`@scene` 行右側按鈕直接開遊戲跳到該場景測試；
+  編輯模式另有「▶ 從游標行」直接從該行起跑真實遊戲（自動重建累積狀態）。
+- **行內 lint + 自動完成**：編輯時即時檢查（背景/角色/表情不存在、
+  jump 目標未定義、重複 label 等），點 lint 項跳行；游標在 `@`、`bg=`、
+  `show=`、`expr=`、`play=` 時顯示 manifest 候選 chips 一鍵補全。
+- **資產插入**：編輯模式點背景/表情縮圖 = 在游標處插入 `@scene`/`@char`。
+- **✚ 新建 / ↩ .bak 還原 / ⑂ 分支圖 / 音訊試聽**：新劇本模板一鍵建立；
+  誤存可載回上一版備份；label/jump/choice 結構視覺化（含孤兒 label
+  偵測）；AUDIO panel 直接試聽（含程序式 fallback）。
+- **熱重載**：儲存劇本後，開著的遊戲分頁自動 reload。
 
-設計細節見 `docs/progress-responsive-layout.md`。
+設計細節見 `docs/progress-responsive-layout.md`、
+`docs/progress-live-preview-editor.md`、`docs/progress-review-fixes.md`。
+
+---
+
+## 劇本變數與條件分支
+
+```
+@set found_clue=1          # 設變數（number / true / false / 字串）
+@set visits+=1             # 累加
+@if found_clue==1 jump=clue_path    # 條件跳轉（== != >= <= > <）
+@choice
+> 追問下去 -> press_on
+> 保持沉默 -> stay_silent
+@label press_on
+...
+```
+
+變數隨存檔保存；選項本身不直接設變數，慣例是在跳到的 label
+區塊內寫 `@set`。
+
+---
+
+## E2E 測試
+
+```bash
+# 本地（需可用的 playwright node module）
+./tests/e2e/run-all.sh
+
+# 涵蓋：RWD 溢出（2 頁 × 4 視口）、遊戲流程（頭像/@set @if/存讀檔
+# 狀態重建）、即時預覽、dashboard（lint/自動完成/新建/還原/匯入安全）
+```
+
+GitHub Actions（`.github/workflows/e2e.yml`）在 push / PR 自動跑全套。
 
 ---
 
