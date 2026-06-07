@@ -384,6 +384,61 @@ html, body {
   display: flex; gap: 4px; padding: 5px 8px 6px; flex-wrap: wrap;
 }
 
+/* ── Panel header mini button（⊕ 匯入等） ───────────────────────── */
+.hd-btn {
+  margin-left: auto; background: none; border: 1px solid var(--border2);
+  color: var(--muted); font-size: 9.5px; padding: 1px 7px; cursor: pointer;
+  font-family: inherit; letter-spacing: .05em;
+  transition: border-color .12s, color .12s;
+}
+.hd-btn:hover { border-color: var(--amber); color: var(--amberB); }
+
+/* ── Script editor（中央檢視器的編輯模式） ──────────────────────── */
+#script-editor {
+  flex: 1; display: none; width: 100%;
+  background: var(--bg); color: var(--text);
+  border: none; outline: none; resize: none;
+  padding: 8px 12px; font-family: inherit; font-size: 12.5px;
+  line-height: 1.7; tab-size: 2; white-space: pre; overflow: auto;
+}
+#content.editing #script-viewer { display: none; }
+#content.editing #script-editor { display: block; }
+#content.editing #script-topbar { border-bottom-color: rgba(168,104,16,0.6); }
+.dirty-star { color: var(--amberB); }
+
+/* ── 匯入 Modal ─────────────────────────────────────────────────── */
+#modal-import {
+  position: fixed; inset: 0; display: none; z-index: 120;
+  background: rgba(0,0,0,.72); align-items: center; justify-content: center;
+}
+#modal-import.open { display: flex; }
+.modal-panel {
+  background: var(--panel); border: 1px solid var(--border2);
+  border-top: 2px solid var(--amber);
+  padding: 16px 18px; width: min(440px, 92vw);
+  display: flex; flex-direction: column; gap: 10px;
+  box-shadow: 0 8px 40px rgba(0,0,0,.8);
+}
+.modal-panel h3 { font-size: 11px; color: var(--amberB); letter-spacing: .12em; }
+.modal-panel label { font-size: 10.5px; color: var(--muted); }
+.modal-panel input[type=text] {
+  background: var(--bg); border: 1px solid var(--border2); color: var(--text);
+  padding: 6px 8px; font-family: inherit; font-size: 12px; width: 100%;
+}
+#import-file-list { font-size: 11px; max-height: 150px; overflow-y: auto; }
+#import-file-list .imp-f { padding: 3px 0; border-bottom: 1px solid var(--border); }
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+
+/* ── Toast ──────────────────────────────────────────────────────── */
+#toast {
+  position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+  background: var(--panel2); border: 1px solid var(--amber); color: var(--text);
+  padding: 8px 18px; font-size: 12px; z-index: 130; max-width: 90vw;
+  opacity: 0; pointer-events: none; transition: opacity .25s;
+  box-shadow: 0 4px 20px rgba(0,0,0,.7);
+}
+#toast.show { opacity: 1; }
+
 /* ══ RESPONSIVE — 平板 / 手機自適應 ═══════════════════════════════ */
 
 /* ── 平板（769–1100px）：右側 assets 欄移到底部橫排 ── */
@@ -486,7 +541,11 @@ html, body {
   <aside id="sidebar-left">
     <!-- Scripts -->
     <div class="panel" id="panel-scripts">
-      <div class="panel-hd">SCRIPTS <span id="script-count" class="badge"></span></div>
+      <div class="panel-hd">SCRIPTS <span id="script-count" class="badge"></span>
+        <button class="hd-btn" onclick="pickImport()" title="從本機選擇 .vns/.txt/.yaml 匯入 scripts/">⊕ 匯入</button>
+      </div>
+      <input type="file" id="import-input" multiple accept=".vns,.txt,.yaml,.yml"
+             style="display:none" onchange="onImportFiles(this)">
       <div class="panel-body" id="scripts-list">
         <div class="empty">載入中…</div>
       </div>
@@ -511,11 +570,17 @@ html, body {
   <main id="content">
     <div id="script-topbar">
       <span id="current-file">← 選取腳本</span>
-      <div id="cmd-stats"></div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div id="cmd-stats"></div>
+        <button class="btn" id="btn-edit" style="display:none" onclick="toggleEdit()">✎ 編輯</button>
+        <button class="btn primary" id="btn-save" style="display:none" onclick="saveScript()" title="Ctrl+S">💾 儲存</button>
+      </div>
     </div>
     <div id="script-viewer">
       <div id="script-hint">← 從左側選取 .vns 腳本</div>
     </div>
+    <textarea id="script-editor" spellcheck="false"
+              placeholder="# VNScript 內容…"></textarea>
   </main>
 
   <!-- ═══ Right Sidebar: Assets ════════════════════════════════ -->
@@ -633,6 +698,25 @@ html, body {
   </aside>
 </div>
 
+<!-- 匯入劇本 Modal -->
+<div id="modal-import">
+  <div class="modal-panel">
+    <h3>⊕ 匯入劇本</h3>
+    <label>目標故事目錄（scripts/&lt;名稱&gt;/，不存在會自動建立）</label>
+    <input type="text" id="import-story" list="story-options" placeholder="story-name">
+    <datalist id="story-options"></datalist>
+    <label>選擇的檔案（.txt 會自動轉為 .vns；同名檔覆蓋前自動備份 .bak）</label>
+    <div id="import-file-list"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeImport()">取消</button>
+      <button class="btn primary" onclick="confirmImport()">匯入</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast 通知 -->
+<div id="toast"></div>
+
 <!-- Lightbox for fullsize preview -->
 <div id="lightbox" onclick="closeLightbox()">
   <img id="lb-img" src="" alt="">
@@ -693,8 +777,8 @@ async function refreshAll() {
   renderCharacters();
   renderAudio();
 
-  // Re-render open file if any
-  if (S.activeFile) loadScript(S.activeFile);
+  // Re-render open file if any（await 避免與後續 loadScript 競態）
+  if (S.activeFile) await loadScript(S.activeFile);
 }
 
 // ── Scripts List ──────────────────────────────────────────────────
@@ -721,8 +805,14 @@ function renderScripts() {
 
 // ── Load & Render Script ──────────────────────────────────────────
 async function loadScript(path) {
+  // 編輯模式下切換檔案：未儲存變更要先確認
+  if (_editing) {
+    if (_dirty && !confirm('有未儲存的變更，捨棄並切換？')) return;
+    _exitEditUI();
+  }
   S.activeFile = path;
   renderScripts(); // update active state
+  document.getElementById('btn-edit').style.display = '';
 
   document.getElementById('current-file').textContent = path;
   document.getElementById('script-viewer').innerHTML = '<div class="empty">載入中…</div>';
@@ -800,12 +890,22 @@ function colorizeVNS(raw) {
 
   if (s.startsWith('@')) {
     // Command line: @cmd key=val key=val
-    const colored = s
-      .replace(/^(@\w+)/, (m, cmd) => `<span class="t-cmd">${esc(cmd)}</span>`)
-      .replace(/(\w+)=("([^"]*)"|\S+)/g, (m, k, v) =>
-        `<span class="t-key">${esc(k)}</span>=<span class="t-val">${esc(v)}</span>`
-      );
-    return pad + colored;
+    // 注意：必須先 tokenize 再注入 HTML——若先包 <span class="t-cmd"> 再跑
+    // key=val regex，regex 會把注入的 class="t-cmd" 也當參數改寫，輸出破碎 HTML
+    const m = s.match(/^(@\w+)([\s\S]*)$/);
+    if (!m) return pad + esc(s);
+    const rest = m[2];
+    let html = `<span class="t-cmd">${esc(m[1])}</span>`;
+    let last = 0;
+    const kvRe = /(\w+)=("[^"]*"|\S+)/g;
+    let mm;
+    while ((mm = kvRe.exec(rest)) !== null) {
+      html += esc(rest.slice(last, mm.index));
+      html += `<span class="t-key">${esc(mm[1])}</span>=<span class="t-val">${esc(mm[2])}</span>`;
+      last = mm.index + mm[0].length;
+    }
+    html += esc(rest.slice(last));
+    return pad + html;
   }
 
   if (s.startsWith('[')) {
@@ -991,6 +1091,144 @@ function esc(s) {
     .replace(/>/g,'&gt;')
     .replace(/"/g,'&quot;');
 }
+
+// ── Toast ─────────────────────────────────────────────────────────
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._tm);
+  t._tm = setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ── 匯入劇本（file selector → modal → POST upload） ───────────────
+let _importFiles = [];
+
+function pickImport() { document.getElementById('import-input').click(); }
+
+function onImportFiles(input) {
+  if (!input.files.length) return;
+  _importFiles = [...input.files];
+  document.getElementById('import-file-list').innerHTML = _importFiles.map(f =>
+    `<div class="imp-f">${esc(f.name)} <span style="color:var(--muted)">(${(f.size / 1024).toFixed(1)} KB)</span></div>`
+  ).join('');
+  // 既有故事目錄做 datalist 提示
+  const stories = [...new Set(S.scripts.map(s => s.path.split('/')[1]).filter(Boolean))];
+  document.getElementById('story-options').innerHTML =
+    stories.map(s => `<option value="${esc(s)}">`).join('');
+  const inp = document.getElementById('import-story');
+  if (!inp.value.trim()) inp.value = stories[0] || 'my-story';
+  document.getElementById('modal-import').classList.add('open');
+  input.value = '';  // 允許重選同一批檔案
+}
+
+function closeImport() {
+  document.getElementById('modal-import').classList.remove('open');
+  _importFiles = [];
+}
+
+async function confirmImport() {
+  const story = document.getElementById('import-story').value.trim();
+  if (!story) { toast('✗ 請輸入故事目錄名稱'); return; }
+  if (!_importFiles.length) { closeImport(); return; }
+  let files;
+  try {
+    files = await Promise.all(_importFiles.map(f =>
+      f.text().then(content => ({ name: f.name, content }))));
+  } catch (e) { toast('✗ 讀檔失敗: ' + e.message); return; }
+  try {
+    const r = await fetch('/api/scripts/upload', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ story, files }),
+    });
+    const data = await r.json();
+    closeImport();
+    if (data.ok) {
+      const skipMsg = data.skipped?.length
+        ? `（略過 ${data.skipped.length}：${data.skipped.map(s => s.name).join(', ')}）` : '';
+      toast(`✓ 已匯入 ${data.saved.length} 個檔案到 scripts/${data.story}/ ${skipMsg}`);
+      await refreshAll();
+      if (data.saved.length) await loadScript(data.saved[0].path);
+    } else {
+      toast(`✗ 匯入失敗: ${data.error || JSON.stringify(data.skipped)}`);
+    }
+  } catch (e) { toast('✗ 上傳失敗: ' + e.message); }
+}
+
+// ── 編輯模式（中央 viewer ⇄ textarea，Ctrl+S 儲存） ────────────────
+let _editing = false, _dirty = false;
+
+function _exitEditUI() {
+  _editing = false; _dirty = false;
+  document.getElementById('content').classList.remove('editing');
+  document.getElementById('btn-edit').textContent = '✎ 編輯';
+  document.getElementById('btn-save').style.display = 'none';
+}
+
+function toggleEdit() {
+  if (!S.activeFile) return;
+  if (_editing) {
+    if (_dirty && !confirm('有未儲存的變更，捨棄？')) return;
+    _exitEditUI();
+    loadScript(S.activeFile);  // 重新渲染檢視（含 issue 標記）
+    return;
+  }
+  _editing = true; _dirty = false;
+  const ed = document.getElementById('script-editor');
+  ed.value = S.content ?? '';
+  document.getElementById('content').classList.add('editing');
+  document.getElementById('btn-edit').textContent = '✕ 取消';
+  document.getElementById('btn-save').style.display = '';
+  ed.focus();
+}
+
+async function saveScript() {
+  if (!_editing || !S.activeFile) return;
+  const content = document.getElementById('script-editor').value;
+  try {
+    const r = await fetch('/api/scripts/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path: S.activeFile, content }),
+    });
+    const data = await r.json();
+    if (!data.ok) { toast(`✗ 儲存失敗: ${data.error || r.status}`); return; }
+    _dirty = false;
+    S.content = content;
+    toast(`✓ 已儲存 ${S.activeFile}（原檔備份 .bak）`);
+    document.getElementById('current-file').textContent = S.activeFile;
+    // 重新驗證 + 更新左欄統計，維持編輯模式不中斷
+    const [scripts, issues] = await Promise.all([api('/api/scripts'), api('/api/validate')]);
+    if (scripts) S.scripts = scripts;
+    if (issues)  S.issues  = issues;
+    renderScripts();
+    renderValidate();
+  } catch (e) { toast('✗ 儲存失敗: ' + e.message); }
+}
+
+document.getElementById('script-editor').addEventListener('input', () => {
+  if (!_dirty) {
+    _dirty = true;
+    document.getElementById('current-file').innerHTML =
+      `<span class="dirty-star">●</span> ${esc(S.activeFile || '')}`;
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's' && _editing) {
+    e.preventDefault();
+    saveScript();
+  }
+  if (e.key === 'Escape' && document.getElementById('modal-import').classList.contains('open')) {
+    closeImport();
+  }
+});
+
+// 有未儲存變更時離頁警告
+window.addEventListener('beforeunload', e => {
+  if (_editing && _dirty) { e.preventDefault(); e.returnValue = ''; }
+});
 
 // ── Tools ─────────────────────────────────────────────────────────
 let _grayscaleOn = false;

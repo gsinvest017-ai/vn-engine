@@ -249,7 +249,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def _api_scripts(self):
         result = []
-        for vns in sorted(ROOT.rglob('scripts/**/*.vns')):
+        # 只掃 ROOT/scripts/（rglob 'scripts/**' 會把 dist/scripts/ 打包產物也掃進來）
+        for vns in sorted((ROOT / 'scripts').rglob('*.vns')):
             try:
                 text  = vns.read_text('utf-8')
                 lines = text.splitlines()
@@ -355,7 +356,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         def bgm_exists(bid):
             return (assets / 'audio' / 'bgm' / f'{bid}.ogg').exists()
 
-        for vns in sorted(ROOT.rglob('scripts/**/*.vns')):
+        for vns in sorted((ROOT / 'scripts').rglob('*.vns')):
             try:
                 rel = str(vns.relative_to(ROOT)).replace('\\', '/')
                 for i, raw in enumerate(vns.read_text('utf-8').splitlines(), 1):
