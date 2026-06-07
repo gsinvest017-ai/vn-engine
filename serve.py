@@ -105,6 +105,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         p  = parsed.path
         qs = urllib.parse.parse_qs(parsed.query)
         try:
+            if p == '/api/dist/download':
+                self._api_dist_download()   # 自行串流 zip，不走 JSON responder
+                return
             if   p == '/api/scripts':           data = self._api_scripts()
             elif p == '/api/scripts/content':   data = self._api_script_content(qs.get('f', [''])[0])
             elif p == '/api/manifest':          data = self._api_manifest()
@@ -152,6 +155,41 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._respond({'error': 'Timeout after 120s', 'tool': tool}, 504)
         except Exception as e:
             self._respond({'error': str(e), 'tool': tool}, 500)
+
+    # ── dist 打包下載 ─────────────────────────────────────────────────
+
+    def _api_dist_download(self):
+        """GET /api/dist/download — 重跑 pack_demo.py --zip 後串流 zip。
+
+        每次都重新打包，保證拿到當下檔案系統的最新版（含未 commit 修改）；
+        打包規則只維護在 pack_demo.py 一處。
+        """
+        try:
+            result = subprocess.run(
+                [sys.executable, str(ROOT / 'pack_demo.py'), '--zip'],
+                cwd=str(ROOT), capture_output=True, text=True,
+                encoding='utf-8', errors='replace', timeout=180,
+            )
+        except subprocess.TimeoutExpired:
+            self._respond({'error': 'pack_demo.py timeout (180s)'}, 504)
+            return
+        if result.returncode != 0:
+            self._respond({'error': 'pack_demo.py failed',
+                           'stderr': (result.stderr or '')[-800:]}, 500)
+            return
+        zip_path = ROOT / 'vn-demo.zip'
+        if not zip_path.exists():
+            self._respond({'error': 'vn-demo.zip not produced'}, 500)
+            return
+        data = zip_path.read_bytes()
+        from datetime import datetime
+        fname = f'vn-demo-{datetime.now():%Y%m%d-%H%M}.zip'
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/zip')
+        self.send_header('Content-Disposition', f'attachment; filename="{fname}"')
+        self.send_header('Content-Length', str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
 
     # ── Script write APIs（Dashboard 編輯/匯入劇本） ──────────────────
 
