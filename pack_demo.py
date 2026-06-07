@@ -24,13 +24,14 @@ DIST = ROOT / 'dist'
 GAME_FILES = ['index.html', 'engine', 'assets', 'scripts']
 
 # Skip these anywhere in the tree
-SKIP_DIRS  = {'__pycache__', '.git', 'node_modules', '.venv'}
-SKIP_FILES = {'.DS_Store', 'Thumbs.db'}
+SKIP_DIRS     = {'__pycache__', '.git', 'node_modules', '.venv'}
+SKIP_FILES    = {'.DS_Store', 'Thumbs.db'}
+SKIP_SUFFIXES = {'.bak'}  # dashboard 編輯/匯入產生的即時備份，不進部署包
 
 
 def copy_item(src: Path, dst: Path) -> int:
     """Recursively copy src → dst, returning count of files copied."""
-    if src.name in SKIP_FILES:
+    if src.name in SKIP_FILES or src.suffix in SKIP_SUFFIXES:
         return 0
     if src.is_dir():
         if src.name in SKIP_DIRS:

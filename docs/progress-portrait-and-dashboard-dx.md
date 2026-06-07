@@ -76,6 +76,13 @@
      tokenize 逐段 escape（同時消除 XSS 面）。
 - `refreshAll`/`confirmImport` 的 `loadScript` 補 await 消除競態。
 
+## 後續 — pack_demo.py 排除 .bak（單發修補）
+
+dashboard 編輯/匯入產生的 `scripts/**/*.bak` 雖然 gitignore 了，但
+`pack_demo.py` 是從檔案系統複製，會把備份檔打進 dist/。加
+`SKIP_SUFFIXES = {'.bak'}` 排除；驗證：放測試 .bak 跑打包，dist 內
+0 個 .bak、正式檔案數不變。
+
 ## M4 — 回歸驗證 + 文件（本 commit）
 
 - Playwright 回歸：2 頁 × 4 視口水平溢出 8/8 通過；遊戲流程在手機橫/直式
