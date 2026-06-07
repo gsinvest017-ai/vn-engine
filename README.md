@@ -154,6 +154,23 @@ vn-engine/
 - **Dashboard**：平板（≤1100px）右側 assets 欄移到底部橫排；
   手機（≤768px）單欄堆疊、各 panel 內捲、topbar sticky。
 
+### 對話框頭像
+
+對話框左側常駐顯示說話者頭像：旁白行顯示 `narrator`（主角內心獨白視角，
+`main.js` 的 `narratorPortrait` 可換角色或設 `null` 關閉）、角色對白顯示
+該角色，表情跟隨 `@char expr=` 即時變化。頭像直接重用
+`assets/characters/<id>/<expr>.png` 立繪，runtime 以 canvas 掃 alpha
+自動裁出頭部，不需另外準備頭像素材。
+
+### Dev Dashboard 劇本工作流
+
+- **⊕ 匯入**（SCRIPTS panel）：file selector 選本機 `.vns` / `.txt` /
+  `.yaml` 批次匯入 `scripts/<故事>/`（`.txt` 自動轉 `.vns`，同名覆蓋前
+  自動備份 `.bak`）。
+- **✎ 編輯**（中央檢視器）：直接改劇本、`Ctrl+S` 儲存，存檔後 VALIDATE
+  與行數統計即時重跑；原檔自動備份 `.bak`。
+- **▶ 場景跳轉**：`@scene` 行右側按鈕直接開遊戲跳到該場景測試。
+
 設計細節見 `docs/progress-responsive-layout.md`。
 
 ---
