@@ -25,7 +25,19 @@ Dev dashboard 加「⬇ dist」按鈕：點一下由 server 重新執行 `pack_d
 
 ## 進度日誌
 
-（隨 milestone 完成追加）
+## M1 — serve.py 下載 API（commit `9d6fa10`）
+
+- `GET /api/dist/download`：subprocess 跑 `pack_demo.py --zip` →
+  串流 `vn-demo.zip`，`Content-Disposition` 檔名 `vn-demo-YYYYMMDD-HHMM.zip`。
+- 失敗路徑：returncode ≠ 0 → 500（附 stderr 尾段）；timeout 180s → 504。
+- curl 驗證：55 檔 / 9.9MB / 無 `.bak`。
+
+## M2 — Dashboard 按鈕（本 commit）
+
+- topbar「⬇ dist」按鈕：fetch → blob → 觸發瀏覽器下載；
+  打包中按鈕 disabled +「⏳ 打包中…」、完成/失敗 toast。
+- Playwright E2E：點擊 → 下載 `vn-demo-20260607-1543.zip`（9.5MB）、
+  toast 與按鈕復原正常、無 JS error。
 
 ## Fallback 指引
 

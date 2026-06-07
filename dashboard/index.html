@@ -566,6 +566,8 @@ html, body {
   <div class="actions">
     <span id="dot" class="dot ok" title="Server OK">●</span>
     <a class="btn primary" href="/engine/" target="_blank">▶ 開啟遊戲</a>
+    <button class="btn" id="btn-dist" onclick="downloadDist()"
+            title="重新打包最新版並下載 dist zip（Netlify/itch.io 部署用）">⬇ dist</button>
     <button class="btn" onclick="refreshAll()">↺ 重整</button>
   </div>
 </header>
@@ -1141,6 +1143,37 @@ function toast(msg) {
   t.classList.add('show');
   clearTimeout(t._tm);
   t._tm = setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ── 下載 dist 部署包（server 重打包 → blob 下載） ──────────────────
+async function downloadDist() {
+  const btn = document.getElementById('btn-dist');
+  if (btn.disabled) return;
+  btn.disabled = true;
+  const orig = btn.textContent;
+  btn.textContent = '⏳ 打包中…';
+  try {
+    const r = await fetch('/api/dist/download');
+    if (!r.ok) {
+      const e = await r.json().catch(() => ({}));
+      throw new Error(e.error || `HTTP ${r.status}`);
+    }
+    const blob = await r.blob();
+    const cd = r.headers.get('Content-Disposition') || '';
+    const m = cd.match(/filename="([^"]+)"/);
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = m ? m[1] : 'vn-demo.zip';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(a.href);
+    toast(`✓ dist 打包完成，開始下載（${(blob.size / 1024 / 1024).toFixed(1)} MB）`);
+  } catch (e) {
+    toast('✗ 打包失敗: ' + e.message);
+  }
+  btn.disabled = false;
+  btn.textContent = orig;
 }
 
 // ── 匯入劇本（file selector → modal → POST upload） ───────────────
