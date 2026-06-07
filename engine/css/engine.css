@@ -41,6 +41,7 @@
   --t-slow:   600ms ease;
 
   /* ── Responsive layout tokens（媒體查詢中覆寫） ── */
+  --portrait-w:       118px;  /* 對話框頭像框寬（高度 = 寬 × 1.12） */
   --textbox-h:        195px;  /* 對話框最小高度；characters/choice 連動 */
   --textbox-pad-x:    2.5rem;
   --hud-btn-size:     2rem;
@@ -634,6 +635,59 @@ html, body {
 #textbox .corner-tl,
 #textbox .corner-br { display: none; }
 
+/* ── Textbox 內部排版：頭像 + 文字區 ── */
+#textbox {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.1rem;
+}
+#textbox.hidden { display: none; }
+#textbox-main { flex: 1; min-width: 0; }
+
+/* ── 對話框頭像（常駐顯示說話者 / 旁白者） ── */
+#portrait {
+  flex-shrink: 0;
+  width: var(--portrait-w);
+  height: calc(var(--portrait-w) * 1.12);
+  align-self: flex-end;
+  margin-bottom: 0.1rem;
+  position: relative;
+  overflow: hidden;
+  /* 古舊照片框 */
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(160,100,20,0.10) 0%, transparent 100%),
+    rgba(10,7,2,0.85);
+  border: 1px solid rgba(192,120,32,0.35);
+  box-shadow:
+    0 2px 14px rgba(0,0,0,0.55),
+    inset 0 0 18px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(220,170,60,0.08);
+}
+#portrait.hidden { display: none; }
+#portrait::after {
+  /* 框內 vignette + 掃描線，與整體膠片質感一致 */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 100% 90% at 50% 40%, transparent 55%, rgba(0,0,0,0.5) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 2px,
+      rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 3px
+    );
+  pointer-events: none;
+}
+#portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 8%;   /* 全身立繪裁出頭部 */
+  display: block;
+  filter: sepia(0.22) contrast(1.06) brightness(0.94);
+  transition: opacity 220ms ease;
+}
+
 #speaker-strip {
   height: 2rem;
   margin-bottom: 0.55rem;
@@ -1087,6 +1141,7 @@ html, body {
 /* ── 平板（≤1024px）── */
 @media (max-width: 1024px) {
   :root {
+    --portrait-w:    100px;
     --textbox-h:     175px;
     --textbox-pad-x: 1.6rem;
     --char-max-w:    340px;
@@ -1098,6 +1153,7 @@ html, body {
 /* ── 手機橫式 / 大手機（≤768px）── */
 @media (max-width: 768px) {
   :root {
+    --portrait-w:    84px;
     --textbox-h:     150px;
     --textbox-pad-x: 1rem;
     --hud-btn-size:  2.75rem;  /* ≥44px 觸控目標 */
@@ -1141,6 +1197,7 @@ html, body {
 /* ── 手機直式（≤520px 或 portrait 窄螢幕）── */
 @media (max-width: 520px) {
   :root {
+    --portrait-w:    70px;
     --textbox-h:     145px;
     --textbox-pad-x: 0.85rem;
     --char-max-w:    none;
@@ -1165,6 +1222,7 @@ html, body {
 /* ── 矮視口（手機橫式鍵盤外露 / 短螢幕，高度 ≤ 480px）── */
 @media (max-height: 480px) {
   :root {
+    --portrait-w: 72px;
     --textbox-h:  120px;
     --char-max-h: 96%;
   }

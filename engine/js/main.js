@@ -21,6 +21,8 @@ const STORY_CONFIG = {
     narrator:   { name: '（旁白）' },
     diao_caidi: { name: '刁才弟' },
   },
+  // 旁白行在對話框顯示的頭像角色（主角視角內心獨白）；設 null 可關閉
+  narratorPortrait: 'narrator',
 };
 
 const root        = document.getElementById('vn-root');

@@ -20,7 +20,7 @@ export class VNEngine {
     this.chars     = new CharManager(rootEl, assetBase);
     this.audio     = new AudioManager(assetBase);
     this.fx        = new EffectsManager(rootEl);
-    this.textbox   = new TextBox(rootEl);
+    this.textbox   = new TextBox(rootEl, assetBase);
     this.choices   = new ChoiceBox(rootEl);
 
     this.chapters  = [];   // loaded command arrays
@@ -32,6 +32,7 @@ export class VNEngine {
     this.autoDelay = 2200;
     this._inputResolve = null;
     this._autoTimer    = null;
+    this._exprState    = {};   // charId → 最後表情（供對話框頭像使用）
 
     this._bindInput();
   }
@@ -92,9 +93,9 @@ export class VNEngine {
       case 'chapter':     return this._doChapter(cmd);
       case 'scene':       return this._doScene(cmd);
       case 'weather':     this.fx.setWeather(cmd); return null;
-      case 'char_show':   this.chars.show(cmd.id, cmd.pos, cmd.expr); return null;
+      case 'char_show':   this._exprState[cmd.id] = cmd.expr; this.chars.show(cmd.id, cmd.pos, cmd.expr); return null;
       case 'char_hide':   this.chars.hide(cmd.id); return null;
-      case 'char_expr':   this.chars.setExpr(cmd.id, cmd.expr); return null;
+      case 'char_expr':   this._exprState[cmd.id] = cmd.expr; this.chars.setExpr(cmd.id, cmd.expr); this._refreshPortrait(cmd.id); return null;
       case 'char_move':   this.chars.move(cmd.id, cmd.pos, cmd.duration); return null;
       case 'sfx_play':    this.audio.sfx(cmd.id, { volume: cmd.volume, loop: cmd.loop, delay: cmd.delay }); return null;
       case 'sfx_stop':    this.audio.sfxStop(cmd.id, cmd.fade); return null;
@@ -156,18 +157,37 @@ export class VNEngine {
     return null;
   }
 
+  /** 對話框頭像描述：取角色最後表情；narration 用 narratorPortrait 角色 */
+  _portraitFor(charId) {
+    if (!charId) return null;
+    return { id: charId, expr: this._exprState[charId] || 'normal' };
+  }
+
+  /** 若目前頭像正是 charId，表情變化時即時刷新 */
+  _refreshPortrait(charId) {
+    const key = this.textbox._portraitKey || '';
+    if (key.startsWith(`${charId}:`)) {
+      this.textbox.setPortrait(this._portraitFor(charId));
+    }
+  }
+
   async _doDialogue(cmd) {
     this.state.addHistory({ speaker: cmd.character, text: cmd.text });
     const displayName = this.config.characters?.[cmd.character]?.name || cmd.character;
 
     // Auto-show character sprite if not already on screen
     if (cmd.character && !this.chars.displayed[cmd.character]) {
+      this._exprState[cmd.character] ??= 'normal';
       this.chars.show(cmd.character, 'center', 'normal');
     }
     // Dim all other characters, highlight the speaker
     this.chars.highlight(cmd.character);
 
-    await this.textbox.show(cmd.text, { speaker: displayName, style: 'dialogue' });
+    await this.textbox.show(cmd.text, {
+      speaker: displayName,
+      style: 'dialogue',
+      portrait: this._portraitFor(cmd.character),
+    });
     if (!this.skipMode) return 'wait_input';
     await this._sleep(60);
     return null;
@@ -178,7 +198,14 @@ export class VNEngine {
     this.state.addHistory({ speaker: '', text: cmd.text });
     // Narration: no single speaker, restore all characters to equal brightness
     this.chars.clearHighlight();
-    await this.textbox.show(cmd.text, { speaker: '', style: cmd.style });
+    // 旁白 = 主角內心獨白 → 常駐顯示 narrator 頭像（config 可關閉）
+    const narratorId = this.config?.narratorPortrait !== undefined
+      ? this.config.narratorPortrait : 'narrator';
+    await this.textbox.show(cmd.text, {
+      speaker: '',
+      style: cmd.style,
+      portrait: this._portraitFor(narratorId),
+    });
     if (!this.skipMode) return 'wait_input';
     await this._sleep(40);
     return null;
