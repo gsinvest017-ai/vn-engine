@@ -49,6 +49,26 @@ export class VNEngine {
     }
     this.state.chapter  = 0;
     this.state.cmdIndex = 0;
+    this._preloadAssets();   // fire-and-forget：背景/立繪預載，消除首次切景閃爍
+  }
+
+  /** 掃全劇本出現過的背景與立繪，預載進瀏覽器快取 */
+  _preloadAssets() {
+    const bgs = new Set(), sprites = new Set();
+    for (const cmd of this.allCommands) {
+      if (cmd.type === 'scene' && cmd.bg) bgs.add(cmd.bg);
+      if (cmd.type === 'char_show') sprites.add(`${cmd.id}/${cmd.expr}`);
+      if (cmd.type === 'char_expr') sprites.add(`${cmd.id}/${cmd.expr}`);
+      if (cmd.type === 'dialogue' && cmd.character) sprites.add(`${cmd.character}/normal`);
+    }
+    const urls = [
+      ...[...bgs].map(b => `${this.assetBase}/backgrounds/${b}.png`),
+      ...[...sprites].map(s => `${this.assetBase}/characters/${s}.png`),
+    ];
+    for (const url of urls) {
+      const img = new Image();
+      img.src = url;   // 失敗無妨（svg fallback 在實際顯示時處理）
+    }
   }
 
   get allCommands() {
@@ -335,6 +355,22 @@ export class VNEngine {
 
     const gameScreen = this.root.querySelector('#game-screen');
     gameScreen?.addEventListener('click', advance);
+
+    // 手機：上滑開對話記錄（menu.js 監聽 vn-swipe-up）
+    let _touchY = null, _touchX = null;
+    gameScreen?.addEventListener('touchstart', e => {
+      _touchY = e.touches[0]?.clientY;
+      _touchX = e.touches[0]?.clientX;
+    }, { passive: true });
+    gameScreen?.addEventListener('touchend', e => {
+      if (_touchY == null) return;
+      const dy = (e.changedTouches[0]?.clientY ?? _touchY) - _touchY;
+      const dx = (e.changedTouches[0]?.clientX ?? _touchX) - _touchX;
+      if (dy < -70 && Math.abs(dx) < 50) {
+        this.root.dispatchEvent(new CustomEvent('vn-swipe-up'));
+      }
+      _touchY = _touchX = null;
+    }, { passive: true });
 
     // Space / Enter / → : advance
     document.addEventListener('keydown', e => {

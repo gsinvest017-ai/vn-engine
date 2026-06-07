@@ -34,6 +34,9 @@ export class MenuUI {
       const on = this.engine.toggleSkip();
       skipBtn.classList.toggle('active', on);
     });
+
+    // 手機上滑手勢 → 對話記錄
+    this.root.addEventListener('vn-swipe-up', () => this._showHistory());
   }
 
   _bindOverlays() {

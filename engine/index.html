@@ -158,6 +158,8 @@
   (function() {
     const canvas = document.getElementById('grain-canvas');
     if (!canvas) return;
+    // 尊重 prefers-reduced-motion：不跑膠片噪點 rAF 迴圈
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = canvas.getContext('2d');
     let W, H, frame = 0;
 
@@ -192,6 +194,7 @@
   (function() {
     const canvas = document.getElementById('menu-canvas');
     if (!canvas) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = canvas.getContext('2d');
     let W, H, t = 0;
     const LINES = 18;

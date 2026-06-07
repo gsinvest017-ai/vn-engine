@@ -160,6 +160,20 @@ function parseDirective(content) {
     case 'pause':
       return { type: 'pause' };
 
+    case 'set': {
+      // @set key=value | @set key+=1（value 自動判型：number / true / false / 字串）
+      const m = rest.match(/^(\w+)\s*(\+=|=)\s*(.+)$/);
+      if (!m) return { type: 'unknown', raw: content };
+      return { type: 'set', key: m[1], op: m[2], value: coerceValue(m[3].trim()) };
+    }
+
+    case 'if': {
+      // @if key==value jump=label（op: == != >= <= > <）
+      const m = rest.match(/^(\w+)\s*(==|!=|>=|<=|>|<)\s*("[^"]*"|\S+)\s+jump=(\S+)$/);
+      if (!m) return { type: 'unknown', raw: content };
+      return { type: 'if_jump', key: m[1], op: m[2], value: coerceValue(m[3]), label: m[4] };
+    }
+
     case 'label':
       return { type: 'label', name: rest.trim() };
 
@@ -199,4 +213,12 @@ function parseParams(str) {
 
 function firstToken(str) {
   return str.trim().split(/\s+/)[0] || '';
+}
+
+/** @set / @if 的值自動判型：number / true / false / 去引號字串 */
+function coerceValue(raw) {
+  if (raw === 'true')  return true;
+  if (raw === 'false') return false;
+  if (/^-?\d+(\.\d+)?$/.test(raw)) return Number(raw);
+  return raw.replace(/^"(.*)"$/, '$1');
 }

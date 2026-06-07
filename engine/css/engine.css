@@ -1287,6 +1287,21 @@ html, body {
   .overlay-panel { max-height: calc(100dvh - 1.2rem); padding: 1rem 1.4rem; }
 }
 
+/* ── prefers-reduced-motion：關閉裝飾性動畫（劇情演出保留） ── */
+@media (prefers-reduced-motion: reduce) {
+  #menu-bg::before,
+  #menu-bg::after,
+  #menu-canvas,
+  #grain-canvas,
+  #fx-scanlines { animation: none !important; display: none; }
+  #game-title, #game-subtitle, #menu-buttons, #menu-version,
+  #menu-logo::before, #menu-logo::after {
+    animation-duration: 1ms !important;
+  }
+  .shaking-sm, .shaking-md, .shaking-lg { animation: none !important; }
+  .blink { animation: none !important; opacity: 0.65; }
+}
+
 /* ── 觸控裝置：hover 效果改為 active、選項常駐高亮邊 ── */
 @media (hover: none) and (pointer: coarse) {
   :root { --hud-btn-size: 2.75rem; }  /* 不論寬度，觸控裝置 HUD ≥44px */
