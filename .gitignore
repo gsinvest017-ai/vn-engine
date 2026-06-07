@@ -17,3 +17,6 @@ page-*.yml
 console-*.log
 vroid-*.png
 vn-engine-blank.png
+
+# Dashboard 編輯/匯入的即時備份
+scripts/**/*.bak

@@ -18,10 +18,30 @@ import urllib.parse
 import webbrowser
 from pathlib import Path
 
-PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
+import argparse
+
+_parser = argparse.ArgumentParser(description='VN Engine dev server')
+_parser.add_argument('port', nargs='?', type=int, default=8080)
+_parser.add_argument('--no-browser', action='store_true',
+                     help='Do not open browser on start (useful for remote/SSH sessions)')
+_args = _parser.parse_args()
+
+PORT = _args.port
 ROOT = Path(__file__).parent
 
 os.chdir(ROOT)
+
+
+def _tailscale_ip() -> str:
+    """Return Tailscale IPv4 address, or empty string if not available."""
+    try:
+        out = subprocess.check_output(
+            ['tailscale', 'ip', '-4'],
+            stderr=subprocess.DEVNULL, text=True, timeout=3,
+        ).strip()
+        return out if out else ''
+    except Exception:
+        return ''
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -32,14 +52,28 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.send_response(200)
         self.end_headers()
 
+    MAX_POST = 4 * 1024 * 1024  # 4MB（劇本為純文字，足夠）
+
     def do_POST(self):
         parsed = urllib.parse.urlparse(self.path)
-        if parsed.path == '/api/run-tool':
-            length = int(self.headers.get('Content-Length', 0))
+        length = int(self.headers.get('Content-Length', 0))
+        if length > self.MAX_POST:
+            self._respond({'error': f'Body too large (>{self.MAX_POST} bytes)'}, 413)
+            return
+        try:
             body = json.loads(self.rfile.read(length) or b'{}')
-            self._dispatch_run_tool(body)
-        else:
-            self._respond({'error': 'not found'}, 404)
+        except json.JSONDecodeError as e:
+            self._respond({'error': f'Invalid JSON: {e}'}, 400)
+            return
+        try:
+            if   parsed.path == '/api/run-tool':        self._dispatch_run_tool(body)
+            elif parsed.path == '/api/scripts/save':    self._api_script_save(body)
+            elif parsed.path == '/api/scripts/upload':  self._api_script_upload(body)
+            else:                                       self._respond({'error': 'not found'}, 404)
+        except PermissionError as e:
+            self._respond({'error': str(e)}, 403)
+        except Exception as e:
+            self._respond({'error': str(e)}, 500)
 
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
@@ -118,6 +152,89 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._respond({'error': 'Timeout after 120s', 'tool': tool}, 504)
         except Exception as e:
             self._respond({'error': str(e), 'tool': tool}, 500)
+
+    # ── Script write APIs（Dashboard 編輯/匯入劇本） ──────────────────
+
+    SCRIPT_EXTS = ('.vns', '.yaml')
+
+    @staticmethod
+    def _sanitize_name(name):
+        """檔名/目錄名只留安全字元，去除路徑成分。"""
+        base = os.path.basename(str(name).replace('\\', '/'))
+        clean = re.sub(r'[^\w\-.]', '_', base)
+        if not clean or clean.startswith('.'):
+            raise PermissionError(f'Invalid name: {name!r}')
+        return clean
+
+    def _resolve_script_path(self, rel):
+        """限制目標必須位於 ROOT/scripts/ 之下。"""
+        target = (ROOT / rel).resolve()
+        scripts_root = (ROOT / 'scripts').resolve()
+        if not str(target).startswith(str(scripts_root) + os.sep):
+            raise PermissionError('Path outside scripts/ directory')
+        return target
+
+    def _api_script_save(self, body):
+        """POST /api/scripts/save  {path, content} — 編輯儲存（.bak 備份）。"""
+        rel     = body.get('path', '')
+        content = body.get('content')
+        if not rel or content is None:
+            self._respond({'error': 'Missing path or content'}, 400)
+            return
+        target = self._resolve_script_path(rel)
+        if target.suffix not in self.SCRIPT_EXTS:
+            raise PermissionError(f'File type not allowed: {target.suffix}')
+        if not target.exists():
+            self._respond({'error': f'File not found: {rel}（新檔請用 upload）'}, 404)
+            return
+        # 單一輪替 .bak 備份（git 之外的即時安全網）
+        backup = target.with_suffix(target.suffix + '.bak')
+        backup.write_text(target.read_text('utf-8'), 'utf-8')
+        target.write_text(content, 'utf-8')
+        self._respond({'ok': True, 'path': rel, 'bytes': len(content.encode('utf-8')),
+                       'backup': str(backup.relative_to(ROOT)).replace('\\', '/')})
+
+    def _api_script_upload(self, body):
+        """POST /api/scripts/upload  {story, files:[{name, content}]} — 匯入劇本。
+
+        story 為 scripts/ 下的目錄名（不存在則建立）。
+        檔名 sanitize、僅允許 .vns/.yaml、單檔 ≤ 2MB。
+        """
+        story = self._sanitize_name(body.get('story', ''))
+        files = body.get('files', [])
+        if not files:
+            self._respond({'error': 'No files'}, 400)
+            return
+        story_dir = self._resolve_script_path(f'scripts/{story}/_probe').parent
+        story_dir.mkdir(parents=True, exist_ok=True)
+
+        saved, skipped = [], []
+        for f in files:
+            try:
+                name    = self._sanitize_name(f.get('name', ''))
+                content = f.get('content', '')
+                ext     = os.path.splitext(name)[1].lower()
+                if ext == '.txt':  # 純文字稿視為 .vns 劇本
+                    name = name[:-4] + '.vns'
+                    ext  = '.vns'
+                if ext not in self.SCRIPT_EXTS:
+                    skipped.append({'name': name, 'reason': f'不支援的副檔名 {ext}'})
+                    continue
+                if len(content.encode('utf-8')) > 2 * 1024 * 1024:
+                    skipped.append({'name': name, 'reason': '超過 2MB'})
+                    continue
+                target = story_dir / name
+                existed = target.exists()
+                if existed:  # 覆蓋前備份
+                    target.with_suffix(target.suffix + '.bak').write_text(
+                        target.read_text('utf-8'), 'utf-8')
+                target.write_text(content, 'utf-8')
+                saved.append({'name': name, 'overwritten': existed,
+                              'path': str(target.relative_to(ROOT)).replace('\\', '/')})
+            except Exception as e:
+                skipped.append({'name': str(f.get('name', '?')), 'reason': str(e)})
+        self._respond({'ok': bool(saved), 'story': story,
+                       'saved': saved, 'skipped': skipped})
 
     def _respond(self, data, code=200):
         body = json.dumps(data, ensure_ascii=False, indent=2).encode('utf-8')
@@ -284,15 +401,23 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         return issues
 
 
-url     = f'http://localhost:{PORT}/engine/'
+url      = f'http://localhost:{PORT}/engine/'
 dash_url = f'http://localhost:{PORT}/dashboard/'
 print(f'VN Engine:       {url}')
 print(f'Dev Dashboard:   {dash_url}')
-print(f'Press Ctrl+C to stop.\n')
+
+ts_ip = _tailscale_ip()
+if ts_ip:
+    print(f'\nTailscale access:')
+    print(f'  VN Engine:     http://{ts_ip}:{PORT}/engine/')
+    print(f'  Dev Dashboard: http://{ts_ip}:{PORT}/dashboard/')
+
+print(f'\nPress Ctrl+C to stop.\n')
 
 try:
     with socketserver.TCPServer(('', PORT), Handler) as httpd:
-        webbrowser.open(dash_url)
+        if not _args.no_browser:
+            webbrowser.open(dash_url)
         httpd.serve_forever()
 except KeyboardInterrupt:
     print('\nServer stopped.')
