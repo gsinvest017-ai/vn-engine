@@ -393,18 +393,40 @@ html, body {
 }
 .hd-btn:hover { border-color: var(--amber); color: var(--amberB); }
 
-/* ── Script editor（中央檢視器的編輯模式） ──────────────────────── */
+/* ── Script editor（中央檢視器的編輯模式：HackMD 式雙欄） ────────── */
+#editor-split {
+  display: none; flex: 1; min-height: 0;
+  grid-template-columns: 1fr 1fr;
+}
+#content.editing #editor-split { display: grid; }
+#content.editing #script-viewer { display: none; }
+#content.editing.no-preview #editor-split { grid-template-columns: 1fr; }
+#content.editing.no-preview #preview-pane { display: none; }
+#content.editing #script-topbar { border-bottom-color: rgba(168,104,16,0.6); }
+.dirty-star { color: var(--amberB); }
+
 #script-editor {
-  flex: 1; display: none; width: 100%;
+  width: 100%; min-width: 0; min-height: 0;
   background: var(--bg); color: var(--text);
   border: none; outline: none; resize: none;
   padding: 8px 12px; font-family: inherit; font-size: 12.5px;
   line-height: 1.7; tab-size: 2; white-space: pre; overflow: auto;
 }
-#content.editing #script-viewer { display: none; }
-#content.editing #script-editor { display: block; }
-#content.editing #script-topbar { border-bottom-color: rgba(168,104,16,0.6); }
-.dirty-star { color: var(--amberB); }
+
+#preview-pane {
+  min-width: 0; min-height: 0;
+  display: flex; flex-direction: column;
+  border-left: 1px solid var(--border2);
+  background: #000;
+}
+#preview-frame {
+  flex: 1; width: 100%; border: none; background: #000; min-height: 0;
+}
+#preview-hint {
+  font-size: 9.5px; color: var(--muted); padding: 3px 8px;
+  border-top: 1px solid var(--border); flex-shrink: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 
 /* ── 匯入 Modal ─────────────────────────────────────────────────── */
 #modal-import {
@@ -465,6 +487,15 @@ html, body {
   #panel-style, #panel-tools { flex: 1 0 230px; min-height: 0; }
 }
 
+/* ── 窄幅（≤1280px）：編輯雙欄改上下疊（編輯上、預覽下） ── */
+@media (max-width: 1280px) {
+  #content.editing #editor-split {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr minmax(180px, 42%);
+  }
+  #preview-pane { border-left: none; border-top: 1px solid var(--border2); }
+}
+
 /* ── 手機（≤768px）：單欄堆疊、解除整頁 overflow 鎖定 ── */
 @media (max-width: 768px) {
   html, body { overflow: auto; height: auto; min-height: 100%; }
@@ -497,6 +528,10 @@ html, body {
   /* 腳本檢視器固定高度（單欄裡的「主畫面」），#content 本身不設上限 */
   #content { border-right: none; max-height: none !important; }
   #script-viewer { max-height: 55vh; }
+  /* 編輯模式：編輯區 40vh + 預覽 40vh 上下疊 */
+  #content.editing #editor-split {
+    grid-template-rows: 40vh 40vh;
+  }
 
   /* 點按目標加大 */
   .script-item { padding: 9px 12px; }
@@ -572,6 +607,7 @@ html, body {
       <span id="current-file">← 選取腳本</span>
       <div style="display:flex;align-items:center;gap:10px;">
         <div id="cmd-stats"></div>
+        <button class="btn" id="btn-preview" style="display:none" onclick="togglePreview()" title="開關右側即時預覽欄">◧ 預覽</button>
         <button class="btn" id="btn-edit" style="display:none" onclick="toggleEdit()">✎ 編輯</button>
         <button class="btn primary" id="btn-save" style="display:none" onclick="saveScript()" title="Ctrl+S">💾 儲存</button>
       </div>
@@ -579,8 +615,14 @@ html, body {
     <div id="script-viewer">
       <div id="script-hint">← 從左側選取 .vns 腳本</div>
     </div>
-    <textarea id="script-editor" spellcheck="false"
-              placeholder="# VNScript 內容…"></textarea>
+    <div id="editor-split">
+      <textarea id="script-editor" spellcheck="false"
+                placeholder="# VNScript 內容…"></textarea>
+      <div id="preview-pane">
+        <iframe id="preview-frame" title="即時預覽"></iframe>
+        <div id="preview-hint">即時預覽：跟隨游標所在行渲染畫面 · ♪ badge 點擊開聲音</div>
+      </div>
+    </div>
   </main>
 
   <!-- ═══ Right Sidebar: Assets ════════════════════════════════ -->
@@ -1156,14 +1198,66 @@ async function confirmImport() {
   } catch (e) { toast('✗ 上傳失敗: ' + e.message); }
 }
 
-// ── 編輯模式（中央 viewer ⇄ textarea，Ctrl+S 儲存） ────────────────
+// ── 編輯模式（中央 viewer ⇄ 雙欄編輯+即時預覽，Ctrl+S 儲存） ───────
 let _editing = false, _dirty = false;
+let _previewOn = localStorage.getItem('vnsPreviewOn') !== '0';
+let _previewReady = false;
+let _previewDebounce = null;
+
+function _previewFrame() { return document.getElementById('preview-frame'); }
+
+function _ensurePreviewLoaded() {
+  const f = _previewFrame();
+  if (!f.src) f.src = '/engine/?devPreview=1';
+}
+
+// iframe 載入完成握手後才開始送內容
+window.addEventListener('message', e => {
+  if (e.origin !== location.origin) return;
+  if (e.data?.type === 'vns-preview-ready') {
+    _previewReady = true;
+    sendPreview(0);
+  }
+});
+
+function _editorLine() {
+  const ed = document.getElementById('script-editor');
+  return ed.value.slice(0, ed.selectionStart).split('\n').length;
+}
+
+/** 把編輯器內容 + 游標行送進預覽 iframe（debounce 合併連續輸入） */
+function sendPreview(delay = 200) {
+  if (!_editing || !_previewOn) return;
+  clearTimeout(_previewDebounce);
+  _previewDebounce = setTimeout(() => {
+    if (!_previewReady) return;
+    const f = _previewFrame();
+    f.contentWindow?.postMessage({
+      type: 'vns-preview',
+      content: document.getElementById('script-editor').value,
+      line: _editorLine(),
+    }, location.origin);
+  }, delay);
+}
+
+function _applyPreviewClass() {
+  document.getElementById('content').classList.toggle('no-preview', !_previewOn);
+  document.getElementById('btn-preview').classList.toggle('primary', _previewOn);
+}
+
+function togglePreview() {
+  _previewOn = !_previewOn;
+  localStorage.setItem('vnsPreviewOn', _previewOn ? '1' : '0');
+  _applyPreviewClass();
+  if (_previewOn) { _ensurePreviewLoaded(); sendPreview(0); }
+}
 
 function _exitEditUI() {
   _editing = false; _dirty = false;
   document.getElementById('content').classList.remove('editing');
   document.getElementById('btn-edit').textContent = '✎ 編輯';
   document.getElementById('btn-save').style.display = 'none';
+  document.getElementById('btn-preview').style.display = 'none';
 }
 
 function toggleEdit() {
@@ -1180,6 +1274,9 @@ function toggleEdit() {
   document.getElementById('content').classList.add('editing');
   document.getElementById('btn-edit').textContent = '✕ 取消';
   document.getElementById('btn-save').style.display = '';
+  document.getElementById('btn-preview').style.display = '';
+  _applyPreviewClass();
+  if (_previewOn) { _ensurePreviewLoaded(); sendPreview(0); }
   ed.focus();
 }
 
@@ -1213,7 +1310,13 @@ document.getElementById('script-editor').addEventListener('input', () => {
     document.getElementById('current-file').innerHTML =
       `<span class="dirty-star">●</span> ${esc(S.activeFile || '')}`;
   }
+  sendPreview(250);   // 打字 → 預覽（debounce 合併）
 });
+
+// 游標移動（方向鍵/點擊/選取）→ 預覽跟隨所在行
+const _scriptEditor = document.getElementById('script-editor');
+['keyup', 'click'].forEach(ev =>
+  _scriptEditor.addEventListener(ev, () => sendPreview(120)));
 
 document.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && e.key === 's' && _editing) {
