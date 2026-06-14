@@ -20,3 +20,6 @@ vn-engine-blank.png
 
 # Dashboard 編輯/匯入的即時備份
 scripts/**/*.bak
+
+# Capacitor Android 打包：www/ 是 build 產物（npm run build:www 重建）
+www/

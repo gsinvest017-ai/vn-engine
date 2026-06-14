@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">暗渠之書</string>
+    <string name="title_activity_main">暗渠之書</string>
+    <string name="package_name">com.gsinvest.vnengine</string>
+    <string name="custom_url_scheme">com.gsinvest.vnengine</string>
+</resources>
