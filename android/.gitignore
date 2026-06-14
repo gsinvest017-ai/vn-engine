@@ -1,5 +1,8 @@
 # Using Android gitignore template: https://github.com/github/gitignore/blob/HEAD/Android.gitignore
 
+# Release 簽章機密（含 keystore 密碼）— 絕不進 git
+keystore.properties
+
 # Built application files
 *.apk
 *.aar
