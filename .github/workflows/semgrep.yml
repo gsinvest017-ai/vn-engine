@@ -9,7 +9,7 @@ name: semgrep
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, master]
   workflow_dispatch:
   schedule:
     - cron: "0 19 * * 1"
@@ -27,7 +27,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
+          # 刻意不設 cache: pip —— 本 workflow 用 `pip install semgrep` 臨時安裝，
+          # repo 內沒有 requirements.txt / pyproject.toml，setup-python 找不到
+          # 依賴檔就會直接 error，在任何非 Python repo 都必然失敗。
 
       - name: Install semgrep
         run: pip install semgrep
