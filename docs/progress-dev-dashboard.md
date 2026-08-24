@@ -1,3 +1,10 @@
+---
+type: progress
+updated: 2026-06-06
+repos: [vn-engine]
+owner: vn-engine
+---
+
 # Dev Dashboard 進度 — 暗渠之書
 
 ## 目標

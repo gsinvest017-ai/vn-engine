@@ -1,3 +1,10 @@
+---
+type: progress
+updated: 2026-06-07
+repos: [vn-engine]
+owner: vn-engine
+---
+
 # 進度 — Review 清單全量實作（遊戲 P0–P2 + Dashboard P0–P1 + 基礎設施）
 
 ## 目標

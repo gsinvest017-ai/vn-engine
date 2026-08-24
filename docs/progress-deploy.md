@@ -1,3 +1,10 @@
+---
+type: progress
+updated: 2026-06-06
+repos: [vn-engine]
+owner: vn-engine
+---
+
 # 網頁試玩版部署進度
 
 ## 目標

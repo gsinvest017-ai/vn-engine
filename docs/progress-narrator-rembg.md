@@ -1,3 +1,10 @@
+---
+type: progress
+updated: 2026-06-06
+repos: [vn-engine]
+owner: vn-engine
+---
+
 # narrator 照片去背立繪進度
 
 ## 目標
