@@ -1,3 +1,10 @@
+---
+type: progress
+updated: 2026-06-06
+repos: [vn-engine]
+owner: vn-engine
+---
+
 # VRM 角色立繪渲染進度
 
 ## 目標

@@ -1,3 +1,10 @@
+---
+type: progress
+updated: 2026-06-07
+repos: [vn-engine]
+owner: vn-engine
+---
+
 # 進度 — Dashboard 與遊戲畫面自適應布局（Responsive Layout）
 
 ## 目標

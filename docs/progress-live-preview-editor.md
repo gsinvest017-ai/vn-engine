@@ -1,3 +1,10 @@
+---
+type: progress
+updated: 2026-06-07
+repos: [vn-engine]
+owner: vn-engine
+---
+
 # 進度 — Dashboard VNS 編輯區 HackMD 式雙欄即時預覽
 
 ## 目標

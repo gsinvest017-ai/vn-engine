@@ -1,3 +1,10 @@
+---
+type: progress
+updated: 2026-06-07
+repos: [vn-engine]
+owner: vn-engine
+---
+
 # 進度 — 對話框頭像常駐 + Dev Dashboard 開發者體驗改進
 
 ## 目標
