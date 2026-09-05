@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/gsinvest017-ai/vn-engine#readme",
   "dependencies": {
-    "@capacitor/android": "^7.6.6",
+    "@capacitor/android": "^8.5.1",
     "@capacitor/core": "^7.6.6"
   },
   "devDependencies": {
