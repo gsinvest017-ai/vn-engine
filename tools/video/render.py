@@ -142,8 +142,8 @@ def last_frame(video: Path, dest: Path) -> Path:
 
 
 def generate(planned: list[Planned], out: Path, client: ComfyClient, size: tuple[int, int],
-             seed: int, turbo: bool) -> list[tuple[Path, float, bool, bool]]:
-    """逐段生成 clip；回傳 (檔案, 使用秒數, 是否 shot 開頭, 是否 shot 結尾)。"""
+             seed: int, turbo: bool) -> list[tuple[Path, float, float, bool, bool]]:
+    """逐段生成 clip；回傳 (檔案, 開頭剪掉秒數, 使用秒數, 是否 shot 開頭, 是否 shot 結尾)。"""
     clip_dir = out / "clips"
     clip_dir.mkdir(parents=True, exist_ok=True)
     segs = []
@@ -158,8 +158,12 @@ def generate(planned: list[Planned], out: Path, client: ComfyClient, size: tuple
             cut = prompts.is_cut(s, part, len(p.clips))
             # 幀數進檔名：同一段被 --max-seconds 截短時，才不會誤用錯長度的快取；
             # 換角度（c）與接續（無後綴）的 clip 內容不同，也要分開快取
-            use_ref = cut or (part == 0 and revisit > 0 and s.bg in place_ref)
-            tag = f"{s.chapter[:3]}_{s.index:02d}_{part}_{snap_length(secs)}f" + ("_c" if use_ref else "")
+            # 重回同一場景的第一段：用第一次的全景當參考圖，房間才一致（這裡黏著原構圖反而正好）
+            use_ref = part == 0 and revisit > 0 and s.bg in place_ref
+            head = prompts.CUT_HEAD if cut else 0.0
+            gen_secs = secs + head
+            suffix = "_t" if cut else "_c" if use_ref else ""
+            tag = f"{s.chapter[:3]}_{s.index:02d}_{part}_{snap_length(gen_secs)}f{suffix}"
             dest = clip_dir / f"{tag}.mp4"
             ptxt = prompts.build(s, part, len(p.clips), revisit)
             (clip_dir / f"{tag}.prompt.txt").write_text(ptxt, encoding="utf-8")
@@ -167,21 +171,21 @@ def generate(planned: list[Planned], out: Path, client: ComfyClient, size: tuple
                 first = ref = None
                 if use_ref and s.bg in place_ref:
                     ref = place_ref[s.bg]
-                elif part > 0 and prev is not None:
+                elif part > 0 and prev is not None and not cut:
                     first = client.upload_image(last_frame(prev, clip_dir / f"{tag}.first.png"),
                                                 f"anqu_{tag}_first.png")
                 elif prompts.source_of(s) == "bg" and (BG_DIR / f"{s.bg}.png").exists():
                     first = client.upload_image(BG_DIR / f"{s.bg}.png", f"anqu_bg_{s.bg}.png")
-                job = ClipJob(prompt=ptxt, first_frame=first, ref_image=ref, seconds=secs, width=size[0],
+                job = ClipJob(prompt=ptxt, first_frame=first, ref_image=ref, seconds=gen_secs, width=size[0],
                               height=size[1], seed=seed + s.index * 100 + part, turbo=turbo,
                               prefix=f"video/anqu_{tag}")
                 t0 = time.time()
-                print(f"[gen] {tag} {secs:.1f}s ({snap_length(secs)}f) src={'ref' if ref else 'i2v' if first else 't2v'} …", flush=True)
+                print(f"[gen] {tag} {gen_secs:.1f}s ({snap_length(gen_secs)}f) src={'ref' if ref else 'i2v' if first else 't2v'} …", flush=True)
                 client.run(job, dest)
                 print(f"      done in {time.time() - t0:.0f}s", flush=True)
             else:
                 print(f"[cache] {tag}", flush=True)
-            segs.append((dest, secs, part == 0, part == len(p.clips) - 1))
+            segs.append((dest, head, secs, part == 0, part == len(p.clips) - 1))
             prev = dest
             if part == 0 and s.bg not in place_ref:
                 ref_png = clip_dir / f"ref_{s.bg}.png"
@@ -195,7 +199,7 @@ def assemble(segs, ass: Path, out_file: Path, size: tuple[int, int], font_dir: s
     work = out_file.parent / "norm"
     work.mkdir(exist_ok=True)
     listing = []
-    for i, (src, secs, is_first, is_last) in enumerate(segs):
+    for i, (src, head, secs, is_first, is_last) in enumerate(segs):
         vf = [f"scale={size[0]}:{size[1]}:flags=lanczos", "setsar=1", f"fps={FPS}"]
         af = ["aresample=48000", "aformat=channel_layouts=stereo"]
         if is_first:
@@ -205,7 +209,7 @@ def assemble(segs, ass: Path, out_file: Path, size: tuple[int, int], font_dir: s
             vf.append(f"fade=t=out:st={secs - FADE_SEC:.3f}:d={FADE_SEC}")
             af.append(f"afade=t=out:st={secs - FADE_SEC:.3f}:d={FADE_SEC}")
         dst = work / f"{i:03d}.mp4"
-        ff("-i", str(src), "-t", f"{secs:.3f}", "-vf", ",".join(vf), "-af", ",".join(af),
+        ff("-ss", f"{head:.3f}", "-i", str(src), "-t", f"{secs:.3f}", "-vf", ",".join(vf), "-af", ",".join(af),
            "-c:v", "libx264", "-crf", "16", "-preset", "medium", "-pix_fmt", "yuv420p",
            "-c:a", "aac", "-b:a", "192k", str(dst))
         listing.append(f"file '{dst.name}'")

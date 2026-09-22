@@ -59,3 +59,18 @@ python tools/video/render.py --name anqu_full        # 已生成的 clip 會快�
 - ComfyUI 拒收 prompt：先 `curl 127.0.0.1:8188/object_info/MiniMaxH3ImageToVideo` 確認節點存在（版本 >= v0.37）
 - VRAM 不足：`--res low`；Ollama 常駐的 qwen2.5vl 佔 ~8GB，必要時 `ollama stop qwen2.5vl:7b`
 - 單段 clip 不滿意：刪 `video_out/clips/<tag>.mp4` 後重跑，或換 `--seed`
+
+## 長鏡頭換角度（2026-09-22）
+道壇那場戲一段 68 秒，原本 7 段 clip 全是同一個固定角度接續生成，畫面太悶，而且接續會越來越亮。
+改成：4 段以上的 shot，第 2 段起每段換一個角度（香爐特寫、壁癌、雨窗、卷宗、日光燈、神像…，`prompts.ANGLES`）。
+
+試過三種做法，逐幀看結果：
+| 做法 | 結果 |
+|---|---|
+| `MiniMaxH3ReferenceToVideo`，第一段畫面當 `<Picture 1>` | ✗ 整段黏在參考圖構圖上，第 4 秒仍是全景，只是慢慢推進 |
+| 同上但不接 video VAE（參考圖只進 text encoder） | ✗ 第一幀仍是參考圖構圖 |
+| 純 t2v + 鏡頭描述 | ✓ 開頭仍會先出全景，但約 2.5 秒就到指定特寫 |
+
+→ 採用 t2v，多生 `CUT_HEAD`=2.5 秒、組裝時 `-ss 2.5` 剪掉。成本多約 25%。
+ReferenceToVideo 只留給「重回同一場景的第一段全景」（第二、三場道壇戲），這時黏著原構圖正好讓房間一致。
+快取後綴：`_t` = 換角度 t2v、`_c` = 重訪參考圖、無後綴 = 一般／接續。

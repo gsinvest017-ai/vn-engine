@@ -64,8 +64,11 @@ SCENES: dict[str, dict] = {
 }
 
 # 長鏡頭（CUT_MIN_PARTS 段以上）第 2 段起改成「同一場景換角度」，避免同一個固定畫面撐一分鐘。
-# 每個角度以該 shot 第一段的畫面當參考圖（<Picture 1>），維持房間長相一致。
+# 實測：H3 不管 t2v / ReferenceToVideo 都會先出一個全景再移到指定角度；
+# ReferenceToVideo 更是整段都黏在參考圖構圖上（4 秒後仍是全景）。所以換角度段落走 t2v，
+# 多生 CUT_HEAD 秒再把開頭剪掉（t2v 約 2.5 秒就到位）。特寫只拍局部，房間細節差異不明顯。
 CUT_MIN_PARTS = 4
+CUT_HEAD = 2.5
 ANGLES: dict[str, list[str]] = {
     "shrine_interior": [
         "Extreme close-up of the incense burner on the altar, thin smoke curling upward. Very slow push-in.",
@@ -140,7 +143,7 @@ def build(shot: Shot, part: int, parts: int, revisit: int = 0) -> str:
         camera = angles[(part - 1 + revisit * 2) % len(angles)]
     visual = [sc["look"], RAIN.get(shot.rain, "")]
     if cut:
-        visual.insert(0, "The same place as <Picture 1>, same materials, colors and lighting, but a new camera angle.")
+        visual.insert(0, "The shot opens directly on this framing.")
     elif part == 0 and revisit > 0:
         visual.insert(0, "Return to the same place as <Picture 1>, same materials, colors and layout.")
     if shot.dim >= 0.4:

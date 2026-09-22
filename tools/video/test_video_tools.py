@@ -67,11 +67,38 @@ def test_long_shots_cut_to_new_angles_short_shots_continue():
     n = len(long_shot.clip_lengths())
     assert not prompts.is_cut(long_shot, 0, n)
     texts = [prompts.build(long_shot, k, n) for k in range(1, n)]
-    assert all("<Picture 1>" in t and "Continue the same shot" not in t for t in texts)
+    # 換角度段落走 t2v（ReferenceToVideo 會黏在參考圖構圖上），不能帶 <Picture 1>
+    assert all("opens directly" in t and "<Picture 1>" not in t and "Continue the same shot" not in t
+               for t in texts)
     assert len(set(texts)) == len(texts), "每個換角度的段落鏡頭描述都要不同"
     s0 = shots[0]   # 黃昏巷弄 3 段：維持接續長鏡頭
     assert not any(prompts.is_cut(s0, k, 3) for k in range(3))
     assert "Continue the same shot" in prompts.build(s0, 1, 3)
+
+
+def test_cut_clips_are_generated_longer_and_trimmed(tmp_path, monkeypatch):
+    """換角度段落要多生 CUT_HEAD 秒，組裝時從 CUT_HEAD 開始剪，總長不變。"""
+    class FakeClient:
+        def __init__(self):
+            self.jobs = []
+
+        def upload_image(self, path, name=None):
+            return name or path.name
+
+        def run(self, job, dest):
+            self.jobs.append(job)
+            dest.write_bytes(b"")
+            return dest
+
+    monkeypatch.setattr(render, "ff", lambda *a: None)
+    planned = [p for p in render.plan([1], None) if len(p.clips) >= prompts.CUT_MIN_PARTS][:1]
+    fake = FakeClient()
+    segs = render.generate(planned, tmp_path, fake, (64, 64), 1, True)
+    n = len(planned[0].clips)
+    assert [round(h, 2) for _, h, *_ in segs] == [0.0] + [prompts.CUT_HEAD] * (n - 1)
+    assert [round(j.seconds - c, 2) for j, c in zip(fake.jobs, planned[0].clips)] == [0.0] + [prompts.CUT_HEAD] * (n - 1)
+    assert all(j.ref_image is None and j.first_frame is None for j in fake.jobs[1:])
+    assert sum(secs for _, _, secs, *_ in segs) == sum(planned[0].clips)
 
 
 def test_revisit_references_first_visit_and_rotates_angles():
