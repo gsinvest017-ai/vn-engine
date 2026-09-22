@@ -151,7 +151,8 @@ def generate(planned: list[Planned], out: Path, client: ComfyClient, size: tuple
         s = p.shot
         prev: Path | None = None
         for part, secs in enumerate(p.clips):
-            tag = f"{s.chapter[:3]}_{s.index:02d}_{part}"
+            # 幀數進檔名：同一段被 --max-seconds 截短時，才不會誤用錯長度的快取
+            tag = f"{s.chapter[:3]}_{s.index:02d}_{part}_{snap_length(secs)}f"
             dest = clip_dir / f"{tag}.mp4"
             ptxt = prompts.build(s, part, len(p.clips))
             (clip_dir / f"{tag}.prompt.txt").write_text(ptxt, encoding="utf-8")
