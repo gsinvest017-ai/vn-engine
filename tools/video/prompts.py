@@ -147,14 +147,17 @@ def build(shot: Shot, part: int, parts: int, revisit: int = 0) -> str:
     elif part == 0 and revisit > 0:
         visual.insert(0, "Return to the same place as <Picture 1>, same materials, colors and layout.")
     if shot.dim >= 0.4:
-        visual.append("The light gradually dims until the scene is almost dark, only faint highlights remain.")
+        # 「漸暗」只在第一段發生，之後維持暗；否則每段都從亮暗到黑，接起來一閃一閃
+        visual.append("The light gradually dims until the scene is almost dark, only faint highlights remain."
+                      if part == 0 else "The scene is almost dark, only faint highlights remain.")
     elif shot.dim > 0:
         visual.append("Dim, underexposed lighting.")
-    if shot.flicker:
+    # 閃爍、震動是瞬間事件，只放在 shot 第一段；否則長場景每段都閃一次（道壇戲 68 秒會閃 7 次）
+    if shot.flicker and part == 0:
         visual.append("The fluorescent light flickers twice.")
     if shot.vignette:
         visual.append("Heavy dark vignette at the frame edges.")
-    if shot.shake:
+    if shot.shake and part == 0:
         visual.append("A brief subtle camera shake.")
     if part > 0 and not cut:
         visual.insert(0, "Continue the same shot seamlessly from the first frame, same place, same lighting.")

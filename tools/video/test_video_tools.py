@@ -134,3 +134,18 @@ def test_ass_has_title_and_speaker_name():
         if row.startswith("Dialogue:"):
             assert row.split(",", 9)[9].startswith("{\\fad(")
     assert "刁才弟：你最近是不是又沒睡" in ass
+
+
+def test_momentary_effects_only_in_first_part():
+    s = next(s for s in parse(STORY / "chapter1.vns") if s.flicker and len(s.clip_lengths()) > 1)
+    n = len(s.clip_lengths())
+    assert "flickers" in prompts.build(s, 0, n)
+    assert all("flickers" not in prompts.build(s, k, n) for k in range(1, n))
+
+
+def test_gradual_dim_only_in_first_part():
+    s = next(s for s in parse(STORY / "chapter1.vns") if s.dim >= 0.4 and len(s.clip_lengths()) > 1)
+    n = len(s.clip_lengths())
+    assert "gradually dims" in prompts.build(s, 0, n)
+    assert all("gradually dims" not in prompts.build(s, k, n) and "almost dark" in prompts.build(s, k, n)
+               for k in range(1, n))
