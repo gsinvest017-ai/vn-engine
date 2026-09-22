@@ -28,6 +28,8 @@ STORY = ROOT / "scripts" / "taichung-anqu"
 BG_DIR = ROOT / "assets" / "backgrounds"
 TITLE_SEC = 3.5
 FADE_SEC = 0.5
+# 統一恐怖片調色：H3 產出偏亮偏飽和，壓中間調、降飽和、加暗角
+GRADE = "eq=saturation=0.72:gamma=0.82:contrast=1.06,vignette=angle=PI/4.5"
 
 RES = {"low": (864, 480), "mid": (1056, 608), "high": (1280, 736)}
 
@@ -97,7 +99,7 @@ def build_ass(planned: list[Planned], speakers: dict[str, str], font: str) -> st
         t = p.start
         shot_end = p.start + sum(p.clips)
         if p.title:
-            rows.append(f"Dialogue: 1,{_ts(t + 0.3)},{_ts(t + TITLE_SEC - 0.2)},Title,,0,0,0,"
+            rows.append(f"Dialogue: 1,{_ts(t + 0.3)},{_ts(t + TITLE_SEC - 0.2)},Title,,0,0,0,,"
                         f"{{\\fad(600,500)}}{p.title}")
         for ln in p.shot.lines:
             t += ln.pause_before
@@ -112,7 +114,7 @@ def build_ass(planned: list[Planned], speakers: dict[str, str], font: str) -> st
                 if ln.kind == "dialogue" and c is chunks[0]:
                     text = f"{speakers.get(ln.speaker, ln.speaker)}：{c}"
                 end = min(t + dur, shot_end, end_all)
-                rows.append(f"Dialogue: 0,{_ts(t)},{_ts(end - 0.05)},{style},,0,0,0,"
+                rows.append(f"Dialogue: 0,{_ts(t)},{_ts(end - 0.05)},{style},,0,0,0,,"
                             f"{{\\fad(250,250)}}{text}")
                 t += dur
     return ASS_HEADER.format(font=font) + "\n".join(rows) + "\n"
@@ -197,7 +199,7 @@ def assemble(segs, ass: Path, out_file: Path, size: tuple[int, int], font_dir: s
 
     # 字幕燒錄 + 音量標準化（H3 環境音普遍偏小聲，約 -50 dB）
     ass_arg = ass.as_posix().replace(":", r"\:")
-    sub = f"subtitles='{ass_arg}'" + (f":fontsdir='{font_dir}'" if font_dir else "")
+    sub = f"{GRADE},subtitles='{ass_arg}'" + (f":fontsdir='{font_dir}'" if font_dir else "")
     ff("-i", str(joined), "-vf", sub, "-af", "loudnorm=I=-20:TP=-2:LRA=11",
        "-c:v", "libx264", "-crf", "18", "-preset", "slow", "-pix_fmt", "yuv420p",
        "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(out_file))

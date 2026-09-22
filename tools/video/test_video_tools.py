@@ -71,5 +71,9 @@ def test_plan_truncates_to_max_seconds():
 def test_ass_has_title_and_speaker_name():
     planned = render.plan([1], None)
     ass = render.build_ass(planned, render.speaker_names(), "X")
-    assert "Title,,0,0,0,{\\fad(600,500)}第一章" in ass
+    assert "Title,,0,0,0,,{\\fad(600,500)}第一章" in ass
+    # Events 有 10 欄：Text 前要有空的 Effect 欄，否則 \fad(a,b) 的逗號會被切成欄位、字幕漏出 "500)}"
+    for row in ass.splitlines():
+        if row.startswith("Dialogue:"):
+            assert row.split(",", 9)[9].startswith("{\\fad(")
     assert "刁才弟：你最近是不是又沒睡" in ass

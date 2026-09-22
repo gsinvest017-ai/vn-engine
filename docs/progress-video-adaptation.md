@@ -37,8 +37,23 @@
 | 提示詞一律英文、禁止畫面文字 | AIGF 教學實測英文效果較好；字幕由 ffmpeg 燒，避免模型亂生中文字 |
 
 ## 進度日誌
-- M1：工具鏈（client / parser / prompts / renderer / 測試）
-- M2：第一章 30 秒試片
+- M1 `5b9e598`：工具鏈（client / parser / prompts / renderer / 測試）
+- M2：第一章 30 秒試片完成 → `video_out/trial_ch1.mp4`（31.4 秒、1920×1080、H.264 + AAC）
+  - 4 段 clip：黃昏舊城 3 段（t2v + 2 段續接 i2v）＋ 道壇內 1 段；每段 9 秒約 220–235 秒、5 秒約 100 秒（1056×608、turbo 8 步）
+  - 修正：ASS `Dialogue` 少一個空的 Effect 欄，`ad(a,b)` 的逗號被當欄位切開，字幕漏出 `500)}`；補欄位並加測試守住
+  - 調整：H3 產出偏亮、像白天 → 組裝時統一套 `GRADE`（降飽和、壓中間調、暗角），並在提示詞加 late dusk / underexposed
+  - 音量：H3 原生環境音約 -50 dB，loudnorm 後 mean -24 dB
+
+## 估算：全三章
+`render.py --plan` → 7 shots / 35 clips / 約 322 秒（5.4 分鐘）。依試片速度約 2–2.5 小時 GPU 時間。
+```
+python tools/video/render.py --name anqu_full        # 已生成的 clip 會快取，可中斷續跑
+```
+
+## 已知限制 / 後續
+- 模型偶爾生出亂碼中文招牌（畫面背景文字），屬模型限制；可加 `no readable signage` 或挑 seed 重跑該段
+- 劇情人物（旁白、刁才弟）目前不入鏡；若要角色，需先準備非真人肖像的立繪再走 i2v
+- 旁白配音未做：可用 CosyVoice2 依 ASS 時間軸產生旁白軌，再混進 assemble
 
 ## Fallback
 - ComfyUI 拒收 prompt：先 `curl 127.0.0.1:8188/object_info/MiniMaxH3ImageToVideo` 確認節點存在（版本 >= v0.37）

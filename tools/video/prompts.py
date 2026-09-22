@@ -9,14 +9,14 @@ from __future__ import annotations
 from vns_shots import Shot
 
 STYLE = ("Slow-burn Taiwanese folk horror film, 35mm film grain, muted desaturated palette, "
-         "low-key lighting, deep shadows, damp humid air. Slow deliberate camera, no fast cuts. "
+         "low-key lighting, underexposed, deep shadows, damp humid air. Slow deliberate camera, no fast cuts. "
          "No people visible, no faces, no on-screen text, no subtitles, no watermark.")
 
 # source: t2v = 文生影片開場；bg = 用遊戲背景圖當首幀
 SCENES: dict[str, dict] = {
     "old_city_dusk": {
         "source": "t2v",
-        "look": ("A narrow alley in the old downtown of Taichung, Taiwan at dusk: worn 1970s concrete "
+        "look": ("A narrow alley in the old downtown of Taichung, Taiwan at late dusk, dark blue-hour sky, most shops already closed: worn 1970s concrete "
                  "shophouses with rusted iron window grilles, arcade walkways (qilou), parked scooters, "
                  "tangled power lines, a traditional market pulling down its metal shutters, puddles on "
                  "cracked asphalt reflecting sodium streetlights."),
