@@ -29,6 +29,7 @@ class Line:
     speaker: str = ""
     pause_before: float = 0.0
     audio_sec: float | None = None   # 有旁白音檔時的實際長度（render.plan 填入）
+    narr_wav: str | None = None      # 從這行開始播的旁白段落檔名；段內後續行為 None
 
     @property
     def seconds(self) -> float:

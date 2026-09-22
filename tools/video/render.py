@@ -22,7 +22,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import prompts  # noqa: E402
 from comfy_client import FPS, ClipJob, ComfyClient, snap_length  # noqa: E402
-from vns_shots import MAX_CLIP, MIN_CLIP, Shot, parse, split_subtitle  # noqa: E402
+from vns_shots import LINE_GAP, MAX_CLIP, MIN_CLIP, Shot, parse, split_subtitle  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 STORY = ROOT / "scripts" / "taichung-anqu"
@@ -79,8 +79,24 @@ def fit_to_narration(base: list[float], target: float) -> tuple[list[float], lis
 
 
 def load_narration() -> dict | None:
+    """narration.json 是以「段」為單位（見 narrate.py）；展開成逐行：
+    {行 key: {"sec": 分到的秒數, "wav": 段首才有, "pos": 在段內的序號}}。
+    段落音檔依字數比例分給各行；段內非最後一行扣掉 LINE_GAP（line.seconds 會再加回來），
+    讓整段的字幕總長剛好等於音檔長 + 一個行尾停頓。"""
     f = NARR_DIR / "narration.json"
-    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else None
+    if not f.exists():
+        return None
+    lines: dict[str, dict] = {}
+    for head, b in json.loads(f.read_text(encoding="utf-8")).items():
+        keys = b.get("lines", [head])
+        texts = b.get("texts", [b.get("text", "")])
+        weights = [max(1, sum(1 for ch in t if "一" <= ch <= "鿿")) for t in texts]
+        for i, (k, w) in enumerate(zip(keys, weights)):
+            share = b["sec"] * w / sum(weights)
+            last = i == len(keys) - 1
+            lines[k] = {"sec": share if last else max(0.3, share - LINE_GAP),
+                        "wav": head if i == 0 else None, "pos": i}
+    return lines
 
 
 def narr_key(chapter: str, shot_index: int, line_index: int) -> str:
@@ -104,6 +120,9 @@ def plan(chapters: list[int], max_seconds: float | None, narration: dict | None 
                     if rec is None:
                         raise SystemExit(f"缺旁白：{narr_key(s.chapter, s.index, li)}（先跑 narrate.py）")
                     ln.audio_sec = rec["sec"]
+                    ln.narr_wav = rec.get("wav", narr_key(s.chapter, s.index, li))
+                    if rec.get("pos", 0) > 0:
+                        ln.pause_before = 0.0   # 同一段音檔裡的後續行：聲音是連著的，不能再插 @wait 停頓
                 n_base = len(clips)
                 clips, speeds, gens = fit_to_narration(clips, s.seconds)
             if max_seconds is not None:
@@ -266,8 +285,8 @@ def generate(planned: list[Planned], out: Path, client: ComfyClient, size: tuple
 
 def narration_events(planned: list[Planned]) -> list[tuple[Path, float]]:
     """(旁白 wav, 起點秒)；與字幕共用 line_times，唸的時候字幕同時出現。"""
-    return [(NARR_DIR / f"{narr_key(p.shot.chapter, p.shot.index, li)}.wav", t)
-            for p, li, ln, t, _ in line_times(planned) if ln.audio_sec is not None]
+    return [(NARR_DIR / f"{ln.narr_wav}.wav", t)
+            for p, li, ln, t, _ in line_times(planned) if ln.audio_sec is not None and ln.narr_wav]
 
 
 def build_narration_track(events: list[tuple[Path, float]], dest: Path) -> Path:
