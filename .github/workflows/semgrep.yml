@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           # 刻意不設 cache: pip —— 本 workflow 用 `pip install semgrep` 臨時安裝，
