@@ -19,6 +19,7 @@ MIN_LINE_SEC = 2.5
 MAX_CLIP = 10.0          # H3 訓練長度約 5–15 秒，取 10 秒上限留餘裕
 MIN_CLIP = 5.0
 SUB_MAX_CHARS = 26       # 單條字幕上限，超過就在標點處斷開
+LINE_GAP = 0.6           # 有旁白時，每行唸完後的停頓
 
 
 @dataclass
@@ -27,9 +28,12 @@ class Line:
     text: str
     speaker: str = ""
     pause_before: float = 0.0
+    audio_sec: float | None = None   # 有旁白音檔時的實際長度（render.plan 填入）
 
     @property
     def seconds(self) -> float:
+        if self.audio_sec is not None:
+            return self.audio_sec + LINE_GAP
         return max(MIN_LINE_SEC, len(self.text) / CHARS_PER_SEC)
 
 

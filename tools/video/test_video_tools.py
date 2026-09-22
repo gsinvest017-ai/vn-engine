@@ -149,3 +149,40 @@ def test_gradual_dim_only_in_first_part():
     assert "gradually dims" in prompts.build(s, 0, n)
     assert all("gradually dims" not in prompts.build(s, k, n) and "almost dark" in prompts.build(s, k, n)
                for k in range(1, n))
+
+
+def test_fit_to_narration_shorter_trims_without_changing_gen_lengths():
+    out, speeds, gens = render.fit_to_narration([9.0, 9.0], 12.0)
+    assert [round(x, 2) for x in out] == [6.0, 6.0] and speeds == [1.0, 1.0] and gens == [9.0, 9.0]
+
+
+def test_fit_to_narration_stretches_then_adds_extra_clips():
+    out, speeds, gens = render.fit_to_narration([10.0, 10.0], 22.0)     # 1.1 倍放慢就夠
+    assert len(out) == 2 and abs(sum(out) - 22.0) < 1e-6 and abs(speeds[0] - 1.1) < 1e-6
+    out, speeds, gens = render.fit_to_narration([10.0, 10.0], 40.0)     # 放慢到上限還差 15 秒 → 補 2 段
+    assert abs(sum(out) - 40.0) < 1e-6
+    assert len(out) == 4 and speeds[:2] == [render.MAX_STRETCH] * 2 and speeds[2:] == [1.0, 1.0]
+    assert gens[:2] == [10.0, 10.0]
+    # 放慢到上限後只差一點：補段最短 MIN_CLIP，既有 clip 回扣成截短，總長仍要精確
+    for base, target in (([10.0], 13.0), ([10.0, 10.0], 26.0), ([9.8] * 7, 90.0), ([5.0], 30.0)):
+        out, speeds, gens = render.fit_to_narration(base, target)
+        assert abs(sum(out) - target) < 1e-6, (base, target, out)
+        assert all(s >= 1.0 for s in speeds)
+        assert gens[:len(base)] == base
+        assert all(o <= g * s + 1e-6 for o, g, s in zip(out, gens, speeds)), "取用的原始長度不能超過生成長度"
+
+
+def test_narrated_plan_keeps_base_clips_and_follows_audio():
+    base = render.plan([1], None)
+    fake = {}
+    for p in base:
+        for li, ln in enumerate(p.shot.lines):
+            fake[render.narr_key(p.shot.chapter, p.shot.index, li)] = {"sec": len(ln.text) / 2.5}
+    narrated = render.plan([1], None, fake)
+    for b, n in zip(base, narrated):
+        assert n.gens[:n.n_base] == b.clips, "原本的 clip 生成長度要不變，快取才用得到"
+        assert abs(sum(n.clips) - n.shot.seconds) < 1e-6
+    starts = [t for *_, t, _ in render.line_times(narrated)]
+    assert starts == sorted(starts)
+    ass = render.build_ass(narrated, render.speaker_names(), "X")
+    assert "第一章" in ass

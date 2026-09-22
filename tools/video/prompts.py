@@ -132,11 +132,11 @@ def is_cut(shot: Shot, part: int, parts: int) -> bool:
     return part > 0 and parts >= CUT_MIN_PARTS and bool(ANGLES.get(shot.bg))
 
 
-def build(shot: Shot, part: int, parts: int, revisit: int = 0) -> str:
+def build(shot: Shot, part: int, parts: int, revisit: int = 0, cut: bool | None = None) -> str:
     """revisit：同一場景第幾次出現（0 = 第一次）。重訪時第一段也參考第一次的畫面，
     換角度的起點也錯開，避免三場道壇戲的鏡頭順序一模一樣。"""
     sc = SCENES.get(shot.bg, {"look": shot.bg.replace("_", " "), "camera": "Slow push-in.", "audio": "room tone"})
-    cut = is_cut(shot, part, parts)
+    cut = is_cut(shot, part, parts) if cut is None else cut
     camera = sc["camera"]
     if cut:
         angles = ANGLES[shot.bg]
