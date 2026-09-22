@@ -17,9 +17,15 @@ page-*.yml
 console-*.log
 vroid-*.png
 vn-engine-blank.png
+# 從中國 CDN 抓圖時連縮圖參數一起存下來的殘檔（例：diaocaidi.jpg!qt_w320_webp）——
+# 都是低解析度的重複品，正版素材另存為正常副檔名
+*!qt_*
 
 # Dashboard 編輯/匯入的即時備份
 scripts/**/*.bak
 
 # Capacitor Android 打包：www/ 是 build 產物（npm run build:www 重建）
 www/
+
+# 影片版渲染輸出（tools/video/render.py）
+video_out/
