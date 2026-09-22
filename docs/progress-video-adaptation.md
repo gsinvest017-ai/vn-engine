@@ -40,7 +40,7 @@
 - M1 `5b9e598`：工具鏈（client / parser / prompts / renderer / 測試）
 - M2：第一章 30 秒試片完成 → `video_out/trial_ch1.mp4`（31.4 秒、1920×1080、H.264 + AAC）
   - 4 段 clip：黃昏舊城 3 段（t2v + 2 段續接 i2v）＋ 道壇內 1 段；每段 9 秒約 220–235 秒、5 秒約 100 秒（1056×608、turbo 8 步）
-  - 修正：ASS `Dialogue` 少一個空的 Effect 欄，`ad(a,b)` 的逗號被當欄位切開，字幕漏出 `500)}`；補欄位並加測試守住
+  - 修正：ASS `Dialogue` 少一個空的 Effect 欄，`\fad(a,b)` 的逗號被當欄位切開，字幕漏出 `500)}`；補欄位並加測試守住
   - 調整：H3 產出偏亮、像白天 → 組裝時統一套 `GRADE`（降飽和、壓中間調、暗角），並在提示詞加 late dusk / underexposed
   - 音量：H3 原生環境音約 -50 dB，loudnorm 後 mean -24 dB
 
