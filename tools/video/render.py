@@ -147,32 +147,47 @@ def generate(planned: list[Planned], out: Path, client: ComfyClient, size: tuple
     clip_dir = out / "clips"
     clip_dir.mkdir(parents=True, exist_ok=True)
     segs = []
+    place_ref: dict[str, str] = {}      # 場景 → 第一次出現時 establishing 畫面（已上傳檔名）
+    visits: dict[str, int] = {}
     for p in planned:
         s = p.shot
+        revisit = visits.get(s.bg, 0)
+        visits[s.bg] = revisit + 1
         prev: Path | None = None
         for part, secs in enumerate(p.clips):
-            # 幀數進檔名：同一段被 --max-seconds 截短時，才不會誤用錯長度的快取
-            tag = f"{s.chapter[:3]}_{s.index:02d}_{part}_{snap_length(secs)}f"
+            cut = prompts.is_cut(s, part, len(p.clips))
+            # 幀數進檔名：同一段被 --max-seconds 截短時，才不會誤用錯長度的快取；
+            # 換角度（c）與接續（無後綴）的 clip 內容不同，也要分開快取
+            use_ref = cut or (part == 0 and revisit > 0 and s.bg in place_ref)
+            tag = f"{s.chapter[:3]}_{s.index:02d}_{part}_{snap_length(secs)}f" + ("_c" if use_ref else "")
             dest = clip_dir / f"{tag}.mp4"
-            ptxt = prompts.build(s, part, len(p.clips))
+            ptxt = prompts.build(s, part, len(p.clips), revisit)
             (clip_dir / f"{tag}.prompt.txt").write_text(ptxt, encoding="utf-8")
             if not dest.exists():
-                first = None
-                if part > 0 and prev is not None:
+                first = ref = None
+                if use_ref and s.bg in place_ref:
+                    ref = place_ref[s.bg]
+                elif part > 0 and prev is not None:
                     first = client.upload_image(last_frame(prev, clip_dir / f"{tag}.first.png"),
                                                 f"anqu_{tag}_first.png")
                 elif prompts.source_of(s) == "bg" and (BG_DIR / f"{s.bg}.png").exists():
                     first = client.upload_image(BG_DIR / f"{s.bg}.png", f"anqu_bg_{s.bg}.png")
-                job = ClipJob(prompt=ptxt, first_frame=first, seconds=secs, width=size[0], height=size[1],
-                              seed=seed + s.index * 100 + part, turbo=turbo, prefix=f"video/anqu_{tag}")
+                job = ClipJob(prompt=ptxt, first_frame=first, ref_image=ref, seconds=secs, width=size[0],
+                              height=size[1], seed=seed + s.index * 100 + part, turbo=turbo,
+                              prefix=f"video/anqu_{tag}")
                 t0 = time.time()
-                print(f"[gen] {tag} {secs:.1f}s ({snap_length(secs)}f) src={'i2v' if first else 't2v'} …", flush=True)
+                print(f"[gen] {tag} {secs:.1f}s ({snap_length(secs)}f) src={'ref' if ref else 'i2v' if first else 't2v'} …", flush=True)
                 client.run(job, dest)
                 print(f"      done in {time.time() - t0:.0f}s", flush=True)
             else:
                 print(f"[cache] {tag}", flush=True)
             segs.append((dest, secs, part == 0, part == len(p.clips) - 1))
             prev = dest
+            if part == 0 and s.bg not in place_ref:
+                ref_png = clip_dir / f"ref_{s.bg}.png"
+                if not ref_png.exists():
+                    ff("-i", str(dest), "-vf", r"select=eq(n\,60)", "-frames:v", "1", str(ref_png))
+                place_ref[s.bg] = client.upload_image(ref_png, f"anqu_ref_{s.bg}.png")
     return segs
 
 
