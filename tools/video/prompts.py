@@ -2,7 +2,7 @@
 
 英文提示詞效果比中文好（AIGF-V2 教學實測）。遊戲背景圖多是歐洲街景 stock 圖，
 跟台中舊城不符，所以預設 source=t2v：第一段 clip 用文生影片，
-後續 clip 以前一段最後一幀當首幀接續，維持鏡頭連續。
+短鏡頭（< CUT_MIN_PARTS 段）以前一段最後一幀接續；長鏡頭改成同場景換角度（ReferenceToVideo）。
 """
 from __future__ import annotations
 
@@ -63,6 +63,47 @@ SCENES: dict[str, dict] = {
     },
 }
 
+# 長鏡頭（CUT_MIN_PARTS 段以上）第 2 段起改成「同一場景換角度」，避免同一個固定畫面撐一分鐘。
+# 實測：H3 不管 t2v / ReferenceToVideo 都會先出一個全景再移到指定角度；
+# ReferenceToVideo 更是整段都黏在參考圖構圖上（4 秒後仍是全景）。所以換角度段落走 t2v，
+# 多生 CUT_HEAD 秒再把開頭剪掉（t2v 約 2.5 秒就到位）。特寫只拍局部，房間細節差異不明顯。
+CUT_MIN_PARTS = 4
+CUT_HEAD = 2.5
+ANGLES: dict[str, list[str]] = {
+    "shrine_interior": [
+        "Extreme close-up of the incense burner on the altar, thin smoke curling upward. Very slow push-in.",
+        "Close-up of the pale salt stains spreading across the damp wall like old scars. Slow tilt upward.",
+        "View through the rain-streaked window toward the dark alley outside, droplets sliding down the glass.",
+        "Top-down close-up of the old swollen paper file on the wooden table, brown water-stained edges. Slow drift.",
+        "Low angle from the floor looking up at the fluorescent tube on the low ceiling, dust in the air.",
+        "Close-up of the faded deity paintings above the altar, candle light trembling across their faces.",
+    ],
+    "archive_room": [
+        "Close-up of water-damaged folders on a metal shelf, brown stains creeping across the paper. Slow lateral move.",
+        "The single bare bulb swaying slightly on its wire, shadows of the shelves sliding across the wall.",
+        "A drop of water falling from the ceiling onto an open folder, ink bleeding. Macro shot.",
+        "Low angle across the wet concrete floor between the shelves, a thin film of water reflecting the bulb.",
+    ],
+    "shrine_entrance_night": [
+        "Close-up of red lanterns swaying violently in the wind and rain, light flickering.",
+        "Close-up of a stone lion's face streaming with rain water, eyes in deep shadow.",
+        "Black water rushing along the alley gutter and disappearing into an iron grate. Low angle.",
+        "Slow push toward the pitch-dark temple doorway, rain curtain in front of it.",
+        "The temple roof ridge against a stormy night sky, lightning briefly lighting the clouds.",
+        "Close-up of wet stone steps, rain water pooling and trembling on each step.",
+    ],
+    "old_city_dusk": [
+        "Close-up of iron window grilles with rust streaks, rain dripping from them.",
+        "A market vendor's metal shutter half-closed, dim light leaking from underneath. Low angle.",
+        "Puddle on the asphalt reflecting a flickering sodium streetlight, ripples from drizzle.",
+    ],
+    "underground_river": [
+        "Close-up of black water flowing slowly past old brick, debris drifting.",
+        "Looking up at the concrete ceiling of the culvert, water stains and roots growing through cracks.",
+        "A faint light far down the tunnel, reflecting on the black water surface.",
+    ],
+}
+
 RAIN = {
     "none": "",
     "drizzle": "A fine drizzle drifts through the light.",
@@ -86,20 +127,39 @@ def source_of(shot: Shot) -> str:
     return SCENES.get(shot.bg, {}).get("source", "bg")
 
 
-def build(shot: Shot, part: int, parts: int) -> str:
+def is_cut(shot: Shot, part: int, parts: int) -> bool:
+    """這一段是否用「同場景換角度」而不是接續前一段。"""
+    return part > 0 and parts >= CUT_MIN_PARTS and bool(ANGLES.get(shot.bg))
+
+
+def build(shot: Shot, part: int, parts: int, revisit: int = 0) -> str:
+    """revisit：同一場景第幾次出現（0 = 第一次）。重訪時第一段也參考第一次的畫面，
+    換角度的起點也錯開，避免三場道壇戲的鏡頭順序一模一樣。"""
     sc = SCENES.get(shot.bg, {"look": shot.bg.replace("_", " "), "camera": "Slow push-in.", "audio": "room tone"})
+    cut = is_cut(shot, part, parts)
+    camera = sc["camera"]
+    if cut:
+        angles = ANGLES[shot.bg]
+        camera = angles[(part - 1 + revisit * 2) % len(angles)]
     visual = [sc["look"], RAIN.get(shot.rain, "")]
+    if cut:
+        visual.insert(0, "The shot opens directly on this framing.")
+    elif part == 0 and revisit > 0:
+        visual.insert(0, "Return to the same place as <Picture 1>, same materials, colors and layout.")
     if shot.dim >= 0.4:
-        visual.append("The light gradually dims until the scene is almost dark, only faint highlights remain.")
+        # 「漸暗」只在第一段發生，之後維持暗；否則每段都從亮暗到黑，接起來一閃一閃
+        visual.append("The light gradually dims until the scene is almost dark, only faint highlights remain."
+                      if part == 0 else "The scene is almost dark, only faint highlights remain.")
     elif shot.dim > 0:
         visual.append("Dim, underexposed lighting.")
-    if shot.flicker:
+    # 閃爍、震動是瞬間事件，只放在 shot 第一段；否則長場景每段都閃一次（道壇戲 68 秒會閃 7 次）
+    if shot.flicker and part == 0:
         visual.append("The fluorescent light flickers twice.")
     if shot.vignette:
         visual.append("Heavy dark vignette at the frame edges.")
-    if shot.shake:
+    if shot.shake and part == 0:
         visual.append("A brief subtle camera shake.")
-    if part > 0:
+    if part > 0 and not cut:
         visual.insert(0, "Continue the same shot seamlessly from the first frame, same place, same lighting.")
 
     audio = [sc["audio"]]
@@ -109,4 +169,4 @@ def build(shot: Shot, part: int, parts: int) -> str:
     audio_line = ("Audio: " + ", ".join(dict.fromkeys(a for a in audio if a)) +
                   ". No music, no speech, no voices.")
 
-    return "\n\n".join([STYLE, " ".join(v for v in visual if v), sc["camera"], audio_line])
+    return "\n\n".join([STYLE, " ".join(v for v in visual if v), camera, audio_line])

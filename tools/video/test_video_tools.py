@@ -54,6 +54,63 @@ def test_build_prompt_t2v_vs_i2v():
     assert i2v["9"]["inputs"]["steps"] == 20 and "2" not in i2v
 
 
+def test_reference_job_uses_reference_node():
+    g = build_prompt(ClipJob(prompt="x", first_frame=None, ref_image="r.png"))
+    assert g["7"]["class_type"] == "MiniMaxH3ReferenceToVideo"
+    assert g["7"]["inputs"]["ref_images.ref_image_0"] == ["6", 0]
+    assert "first_frame" not in g["7"]["inputs"]
+
+
+def test_long_shots_cut_to_new_angles_short_shots_continue():
+    shots = parse(STORY / "chapter1.vns")
+    long_shot = next(s for s in shots if len(s.clip_lengths()) >= prompts.CUT_MIN_PARTS)
+    n = len(long_shot.clip_lengths())
+    assert not prompts.is_cut(long_shot, 0, n)
+    texts = [prompts.build(long_shot, k, n) for k in range(1, n)]
+    # 換角度段落走 t2v（ReferenceToVideo 會黏在參考圖構圖上），不能帶 <Picture 1>
+    assert all("opens directly" in t and "<Picture 1>" not in t and "Continue the same shot" not in t
+               for t in texts)
+    assert len(set(texts)) == len(texts), "每個換角度的段落鏡頭描述都要不同"
+    s0 = shots[0]   # 黃昏巷弄 3 段：維持接續長鏡頭
+    assert not any(prompts.is_cut(s0, k, 3) for k in range(3))
+    assert "Continue the same shot" in prompts.build(s0, 1, 3)
+
+
+def test_cut_clips_are_generated_longer_and_trimmed(tmp_path, monkeypatch):
+    """換角度段落要多生 CUT_HEAD 秒，組裝時從 CUT_HEAD 開始剪，總長不變。"""
+    class FakeClient:
+        def __init__(self):
+            self.jobs = []
+
+        def upload_image(self, path, name=None):
+            return name or path.name
+
+        def run(self, job, dest):
+            self.jobs.append(job)
+            dest.write_bytes(b"")
+            return dest
+
+    monkeypatch.setattr(render, "ff", lambda *a: None)
+    planned = [p for p in render.plan([1], None) if len(p.clips) >= prompts.CUT_MIN_PARTS][:1]
+    fake = FakeClient()
+    segs = render.generate(planned, tmp_path, fake, (64, 64), 1, True)
+    n = len(planned[0].clips)
+    assert [round(h, 2) for _, h, *_ in segs] == [0.0] + [prompts.CUT_HEAD] * (n - 1)
+    assert [round(j.seconds - c, 2) for j, c in zip(fake.jobs, planned[0].clips)] == [0.0] + [prompts.CUT_HEAD] * (n - 1)
+    assert all(j.ref_image is None and j.first_frame is None for j in fake.jobs[1:])
+    assert sum(secs for _, _, secs, *_ in segs) == sum(planned[0].clips)
+
+
+def test_revisit_references_first_visit_and_rotates_angles():
+    shrine = [s for s in parse(STORY / "chapter1.vns") if s.bg == "shrine_interior"]
+    assert len(shrine) >= 2
+    a, b = shrine[0], shrine[1]
+    na, nb = len(a.clip_lengths()), len(b.clip_lengths())
+    assert "Return to the same place as <Picture 1>" in prompts.build(b, 0, nb, revisit=1)
+    assert "<Picture 1>" not in prompts.build(a, 0, na, revisit=0)
+    assert prompts.build(a, 1, na, revisit=0) != prompts.build(b, 1, nb, revisit=1)
+
+
 def test_prompts_are_english_and_forbid_onscreen_text():
     for s in parse(STORY / "chapter1.vns"):
         p = prompts.build(s, 0, 1)
@@ -77,3 +134,18 @@ def test_ass_has_title_and_speaker_name():
         if row.startswith("Dialogue:"):
             assert row.split(",", 9)[9].startswith("{\\fad(")
     assert "刁才弟：你最近是不是又沒睡" in ass
+
+
+def test_momentary_effects_only_in_first_part():
+    s = next(s for s in parse(STORY / "chapter1.vns") if s.flicker and len(s.clip_lengths()) > 1)
+    n = len(s.clip_lengths())
+    assert "flickers" in prompts.build(s, 0, n)
+    assert all("flickers" not in prompts.build(s, k, n) for k in range(1, n))
+
+
+def test_gradual_dim_only_in_first_part():
+    s = next(s for s in parse(STORY / "chapter1.vns") if s.dim >= 0.4 and len(s.clip_lengths()) > 1)
+    n = len(s.clip_lengths())
+    assert "gradually dims" in prompts.build(s, 0, n)
+    assert all("gradually dims" not in prompts.build(s, k, n) and "almost dark" in prompts.build(s, k, n)
+               for k in range(1, n))
