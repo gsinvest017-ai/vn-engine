@@ -6,6 +6,8 @@
 - zero_shot 模式保留台灣腔與語氣；prompt 必須是單段、降噪、逐字稿精準，否則會跳字（見 Narrator）
 - **送進模型前一律轉簡體**：CosyVoice2 讀繁體字會大量唸錯（實測同一句 CER 0.61 → 簡體 0.00），
   只影響模型讀的字，聲音不變；CER 仍對照原本的繁體稿計算（拼音層比對，繁簡同音）
+- **台灣讀音**：送 TTS 前依 tw_reading 換同音字（究竟→救竟、檔案→黨案…），t2s 後再把助詞「著」換「着」
+  （OpenCC t2s 不轉「著」，簡體「著」唸 zhù）。字幕不變；CER 的參考稿與轉寫也照同一張表正規化
 
 聲音樣本來自 Mozilla Common Voice zh-TW（CC0），見 voice_audition.py。
 """
@@ -13,6 +15,9 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+import tw_reading  # noqa: E402
 
 HOME = Path.home()
 sys.path.append(str(HOME / "CosyVoice"))
@@ -74,8 +79,25 @@ def split_sentences(text: str) -> list[str]:
     return chunks
 
 
+def speakable(text: str) -> str:
+    """去掉模型唸不好的符號：「」『』 會讓 CosyVoice 前端整句吞掉（實測「唯獨『暗河』兩字」合成出無聲），
+    開頭的 …… 會吃掉後面一截；改成停頓用的逗號。字幕仍用原文。"""
+    for q in "「」『』":
+        text = text.replace(q, "")
+    text = text.replace("……", "，").replace("…", "，")
+    return text.strip("，").strip() or text
+
+
+def tts_text(text: str, t2s=lambda s: s) -> str:
+    """字幕原文 → 實際送進模型的文字：去符號 → 台灣讀音替換 → 轉簡體 → 助詞「著」→「着」。
+    本作品所有「著」都是助詞（沿著、看著、積著、亮著），t2s 不會轉，模型照簡體「著」唸成 zhù。"""
+    return t2s(tw_reading.to_tts(speakable(text))).replace("著", "着")
+
+
 def cer(hyp: str, ref: str) -> float:
-    """拼音 token 級編輯距離 / 參考長度：同音字不算錯，只看發音與聲調。"""
+    """拼音 token 級編輯距離 / 參考長度：同音字不算錯，只看發音與聲調。
+    兩邊先過 tw_reading.for_cer：參考稿用的是台灣音替代字，whisper 聽對了寫「究竟」也要算對。"""
+    hyp, ref = tw_reading.for_cer(hyp), tw_reading.for_cer(ref)
     from pypinyin import Style, lazy_pinyin
 
     def toks(s: str) -> list[str]:
@@ -96,14 +118,15 @@ def cer(hyp: str, ref: str) -> float:
 
 class Narrator:
     def __init__(self, prompt_wav: Path, prompt_text: str, candidates: int = 3,
-                 instruct: str | None = None, mode: str = "zero_shot"):
+                 instruct: str | None = None, mode: str = "zero_shot", asr_device: str = "cuda"):
         """mode：
         - zero_shot（預設）：音色＋韻律＋口音都跟 prompt。台灣腔、老人慢慢講的語氣都靠這個。
           跳字問題靠「prompt 用單段、降噪、逐字稿精準」解決（實測 4 段拼接 prompt 9 次 0 次合格，
           單段降噪 8/9 合格、CER 平均 0.05）。
         - cross_lingual：只取音色、不對齊 prompt 逐字稿，最不會跳字，但**口音與語氣會丟掉**，
           退回模型預設的大陸腔（使用者試聽確認），旁白不用。
-        instruct2 也一樣會丟掉 prompt 韻律（frontend_instruct2 刪掉了 llm_prompt_speech_token）。"""
+        instruct2 也一樣會丟掉 prompt 韻律（frontend_instruct2 刪掉了 llm_prompt_speech_token）。
+        asr_device="cpu"：回聽用的 whisper medium 改跑 CPU int8（GPU 吃緊時）。"""
         import soundfile as sf
         import torch
         import torchaudio
@@ -139,22 +162,21 @@ class Narrator:
         self.n = max(1, candidates)
         self.cv = CosyVoice2(MODEL_DIR, load_jit=False, load_trt=False, fp16=True)
         try:
-            self.asr = WhisperModel("medium", device="cuda", compute_type="float16")
+            if asr_device == "cpu":
+                self.asr = WhisperModel("medium", device="cpu", compute_type="int8")
+            else:
+                self.asr = WhisperModel("medium", device="cuda", compute_type="float16")
         except Exception:
             self.asr = WhisperModel("small", device="cpu", compute_type="int8")
         self.to16k = torchaudio.transforms.Resample(SR_OUT, 16000)
 
-    @staticmethod
-    def speakable(text: str) -> str:
-        """去掉模型唸不好的符號：「」『』 會讓 CosyVoice 前端整句吞掉（實測「唯獨『暗河』兩字」合成出無聲），
-        開頭的 …… 會吃掉後面一截；改成停頓用的逗號。字幕仍用原文。"""
-        for q in "「」『』":
-            text = text.replace(q, "")
-        text = text.replace("……", "，").replace("…", "，")
-        return text.strip("，").strip() or text
+    speakable = staticmethod(speakable)
+
+    def tts_text(self, text: str) -> str:
+        return tts_text(text, self.t2s)
 
     def _once(self, text: str):
-        text = self.t2s(self.speakable(text))
+        text = self.tts_text(text)
         if self.instruct:
             gen = self.cv.inference_instruct2(text, self.instruct, self.prompt_wav,
                                               stream=False, text_frontend=self.text_frontend)

@@ -8,6 +8,8 @@ CosyVoice 單獨唸短句（「是櫓聲。」「雨愈下愈大。」）常常�
 
 輸出：video_out/narration/<段首行 key>.wav 與 narration.json（{段首 key: {lines, texts, sec, cer, ...}}）。
 段落文字沒變且 wav 存在就跳過；段落組成改了會自動重合成，併進別段的舊檔會被清掉。
+送進模型的文字會先過 cosy_tts.tts_text（台灣讀音同音字替換 tw_reading、助詞「著」→「着」），字幕不變；
+只修個別句子用 narr_fix.py（不整段重做）。
 """
 from __future__ import annotations
 
