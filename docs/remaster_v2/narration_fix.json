@@ -1,0 +1,2397 @@
+{
+ "sentences": [
+  {
+   "key": "第一章_01_01",
+   "chunk": 0,
+   "issues": "P01",
+   "subtitle": "屋頂很低。午後下過雨，濕氣沿著牆角向上蔓延，牆面浮出大片灰白色的鹽斑，像人體皮膚無法癒合的舊傷。",
+   "tts_text": "屋顶很低。午后下过雨，湿气沿着墙角向上蔓延，墙面浮出大片灰白色的盐斑，像人体皮肤无法愈合的旧伤。",
+   "n_cands": 6,
+   "cand": 3,
+   "cand_cer": 0.0,
+   "tempo": 1.0137,
+   "clamped": false,
+   "orig_sec": 14.96,
+   "new_sec": 14.96,
+   "v1_post_span": [
+    0.0,
+    13.6
+   ],
+   "v2_post_span": [
+    0.0,
+    13.59
+   ],
+   "v1_checks": [
+    {
+     "i": 1,
+     "char": "頂",
+     "word": "屋頂",
+     "ctx": "屋頂很低午",
+     "tw": "ding3",
+     "alt": "di3",
+     "method": "ctc",
+     "tts_char": "頂",
+     "t0": 0.541,
+     "t1": 0.741,
+     "align": 0.989,
+     "ctc_loss": {
+      "ding": 8.83,
+      "di": 19.32
+     },
+     "ctc_margin": 10.49,
+     "ctc_verdict": "pass"
+    },
+    {
+     "i": 12,
+     "char": "著",
+     "word": "著",
+     "ctx": "濕氣沿著牆角向",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 4.466,
+     "t1": 4.566,
+     "align": 0.624,
+     "ctc_loss": {
+      "zhe": 9.01,
+      "zhu": 0.01
+     },
+     "ctc_margin": -9.0,
+     "ctc_verdict": "fail",
+     "dur": 0.1
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 1,
+     "char": "頂",
+     "word": "屋頂",
+     "ctx": "屋頂很低午",
+     "tw": "ding3",
+     "alt": "di3",
+     "method": "ctc",
+     "tts_char": "頂",
+     "t0": 0.521,
+     "t1": 0.721,
+     "align": 0.854,
+     "ctc_loss": {
+      "ding": 0.74,
+      "di": 2.92
+     },
+     "ctc_margin": 2.18,
+     "ctc_verdict": "pass"
+    },
+    {
+     "i": 12,
+     "char": "著",
+     "word": "著",
+     "ctx": "濕氣沿著牆角向",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 4.666,
+     "t1": 4.786,
+     "align": 0.977,
+     "ctc_loss": {
+      "zhe": 6.83,
+      "zhu": 16.97
+     },
+     "ctc_margin": 10.13,
+     "ctc_verdict": "pass",
+     "dur": 0.12
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 1,
+     "char": "頂",
+     "word": "屋頂",
+     "ctx": "屋頂很低午",
+     "tw": "ding3",
+     "alt": "di3",
+     "method": "ctc",
+     "tts_char": "頂",
+     "t0": 0.501,
+     "t1": 0.721,
+     "align": 0.896,
+     "ctc_loss": {
+      "ding": 0.45,
+      "di": 4.78
+     },
+     "ctc_margin": 4.33,
+     "ctc_verdict": "pass"
+    },
+    {
+     "i": 12,
+     "char": "著",
+     "word": "著",
+     "ctx": "濕氣沿著牆角向",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 4.606,
+     "t1": 4.726,
+     "align": 0.992,
+     "ctc_loss": {
+      "zhe": 7.27,
+      "zhu": 17.25
+     },
+     "ctc_margin": 9.99,
+     "ctc_verdict": "pass",
+     "dur": 0.12
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第一章_01_01",
+   "chunk": 1,
+   "issues": "P02",
+   "subtitle": "我低頭看著自己的手。那不是我熟悉的手。",
+   "tts_text": "我低头看着自己的手。那不是我熟悉的手。",
+   "n_cands": 6,
+   "cand": 1,
+   "cand_cer": 0.0,
+   "tempo": 1.0375,
+   "clamped": false,
+   "orig_sec": 6.4,
+   "new_sec": 6.4,
+   "v1_post_span": [
+    13.92,
+    19.74
+   ],
+   "v2_post_span": [
+    13.91,
+    19.73
+   ],
+   "v1_checks": [
+    {
+     "i": 4,
+     "char": "著",
+     "word": "著",
+     "ctx": "低頭看著自己的",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 1.725,
+     "t1": 1.826,
+     "align": 0.663,
+     "ctc_loss": {
+      "zhe": 9.06,
+      "zhu": 0.0
+     },
+     "ctc_margin": -9.06,
+     "ctc_verdict": "fail",
+     "dur": 0.1
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 4,
+     "char": "著",
+     "word": "著",
+     "ctx": "低頭看著自己的",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 1.765,
+     "t1": 1.866,
+     "align": 0.976,
+     "ctc_loss": {
+      "zhe": 8.11,
+      "zhu": 16.86
+     },
+     "ctc_margin": 8.75,
+     "ctc_verdict": "pass",
+     "dur": 0.1
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 4,
+     "char": "著",
+     "word": "著",
+     "ctx": "低頭看著自己的",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 1.685,
+     "t1": 1.805,
+     "align": 0.99,
+     "ctc_loss": {
+      "zhe": 7.08,
+      "zhu": 15.99
+     },
+     "ctc_margin": 8.91,
+     "ctc_verdict": "pass",
+     "dur": 0.12
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第一章_01_01",
+   "chunk": 2,
+   "issues": "P03",
+   "subtitle": "指節粗大，掌紋深陷，皮膚裡彷彿積著長久未曾排出的疲憊。",
+   "tts_text": "指节粗大，掌纹深陷，皮肤里仿佛积着长久未曾排出的疲惫。",
+   "n_cands": 6,
+   "cand": 0,
+   "cand_cer": 0.0,
+   "tempo": 1.057,
+   "clamped": false,
+   "orig_sec": 8.44,
+   "new_sec": 8.517,
+   "v1_post_span": [
+    20.05,
+    27.73
+   ],
+   "v2_post_span": [
+    20.05,
+    27.79
+   ],
+   "v1_checks": [
+    {
+     "i": 14,
+     "char": "著",
+     "word": "著",
+     "ctx": "彷彿積著長久未",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 5.112,
+     "t1": 5.272,
+     "align": 0.001,
+     "ctc_loss": {
+      "zhe": 31.07,
+      "zhu": 18.02
+     },
+     "ctc_margin": -13.05,
+     "ctc_verdict": "fail",
+     "dur": 0.16
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 14,
+     "char": "著",
+     "word": "著",
+     "ctx": "彷彿積著長久未",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 5.452,
+     "t1": 5.552,
+     "align": 0.985,
+     "ctc_loss": {
+      "zhe": 0.01,
+      "zhu": 9.66
+     },
+     "ctc_margin": 9.66,
+     "ctc_verdict": "pass",
+     "dur": 0.1
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 14,
+     "char": "著",
+     "word": "著",
+     "ctx": "彷彿積著長久未",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 5.15,
+     "t1": 5.25,
+     "align": 0.973,
+     "ctc_loss": {
+      "zhe": 0.01,
+      "zhu": 9.41
+     },
+     "ctc_margin": 9.4,
+     "ctc_verdict": "pass",
+     "dur": 0.1
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第一章_01_02",
+   "chunk": 0,
+   "issues": "P05,P21",
+   "subtitle": "有時我會忘記自己究竟是誰。徐尋尋。廖啟祥。或者更早以前，另一個名字。",
+   "tts_text": "有时我会忘记自己救竟是谁。徐寻寻。廖启祥。或者更早以前，另一个名字。",
+   "n_cands": 6,
+   "cand": 1,
+   "cand_cer": 0.138,
+   "tempo": 1.0264,
+   "clamped": false,
+   "orig_sec": 11.84,
+   "new_sec": 11.992,
+   "v1_post_span": [
+    0.0,
+    10.76
+   ],
+   "v2_post_span": [
+    0.0,
+    10.89
+   ],
+   "v1_checks": [
+    {
+     "i": 8,
+     "char": "究",
+     "word": "究",
+     "ctx": "記自己究竟是誰",
+     "tw": "jiu4",
+     "alt": "jiu1",
+     "method": "tone",
+     "tts_char": "救",
+     "t0": 2.985,
+     "t1": 3.266,
+     "align": 0.963,
+     "p_tw_tone": 0.005,
+     "tone_pred": 1,
+     "tone_verdict": "fail"
+    },
+    {
+     "i": 14,
+     "char": "尋",
+     "word": "徐尋尋",
+     "ctx": "誰徐尋尋廖啟祥",
+     "tw": "xun2",
+     "alt": "xu2",
+     "method": "ctc",
+     "tts_char": "尋",
+     "t0": 5.589,
+     "t1": 5.77,
+     "align": 0.403,
+     "ctc_loss": {
+      "xun": 6.55,
+      "xu": 5.46
+     },
+     "ctc_margin": -1.09,
+     "ctc_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 8,
+     "char": "究",
+     "word": "究",
+     "ctx": "記自己究竟是誰",
+     "tw": "jiu4",
+     "alt": "jiu1",
+     "method": "tone",
+     "tts_char": "救",
+     "t0": 2.705,
+     "t1": 2.885,
+     "align": 0.989,
+     "p_tw_tone": 0.999,
+     "tone_pred": 4,
+     "tone_verdict": "pass"
+    },
+    {
+     "i": 14,
+     "char": "尋",
+     "word": "徐尋尋",
+     "ctx": "誰徐尋尋廖啟祥",
+     "tw": "xun2",
+     "alt": "xu2",
+     "method": "ctc",
+     "tts_char": "尋",
+     "t0": 5.77,
+     "t1": 6.05,
+     "align": 0.666,
+     "ctc_loss": {
+      "xun": 5.28,
+      "xu": 11.25
+     },
+     "ctc_margin": 5.97,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 8,
+     "char": "究",
+     "word": "究",
+     "ctx": "記自己究竟是誰",
+     "tw": "jiu4",
+     "alt": "jiu1",
+     "method": "tone",
+     "tts_char": "救",
+     "t0": 2.643,
+     "t1": 2.823,
+     "align": 0.907,
+     "p_tw_tone": 0.999,
+     "tone_pred": 4,
+     "tone_verdict": "pass"
+    },
+    {
+     "i": 14,
+     "char": "尋",
+     "word": "徐尋尋",
+     "ctx": "誰徐尋尋廖啟祥",
+     "tw": "xun2",
+     "alt": "xu2",
+     "method": "ctc",
+     "tts_char": "尋",
+     "t0": 5.626,
+     "t1": 5.886,
+     "align": 0.669,
+     "ctc_loss": {
+      "xun": 3.8,
+      "xu": 8.59
+     },
+     "ctc_margin": 4.79,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第一章_01_04",
+   "chunk": 0,
+   "issues": "P22",
+   "subtitle": "記憶在我腦中並不連續。它們像被暴雨沖散後重新堆積的河砂。",
+   "tts_text": "记忆在我脑中并不连续。它们像被暴雨冲散后重新堆积的河砂。",
+   "n_cands": 8,
+   "cand": 2,
+   "cand_cer": 0.038,
+   "tempo": 0.9066,
+   "clamped": false,
+   "orig_sec": 10.28,
+   "new_sec": 10.28,
+   "v1_post_span": [
+    0.0,
+    9.35
+   ],
+   "v2_post_span": [
+    0.0,
+    9.34
+   ],
+   "v1_checks": [
+    {
+     "i": 17,
+     "char": "散",
+     "word": "沖散",
+     "ctx": "暴雨沖散後重新",
+     "tw": "san4",
+     "alt": "shang4",
+     "method": "ctc",
+     "tts_char": "散",
+     "t0": 6.412,
+     "t1": 6.613,
+     "align": 0.998,
+     "ctc_loss": {
+      "san": 4.34,
+      "shang": 1.32
+     },
+     "ctc_margin": -3.02,
+     "ctc_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 17,
+     "char": "散",
+     "word": "沖散",
+     "ctx": "暴雨沖散後重新",
+     "tw": "san4",
+     "alt": "shang4",
+     "method": "ctc",
+     "tts_char": "散",
+     "t0": 5.993,
+     "t1": 6.193,
+     "align": 0.993,
+     "ctc_loss": {
+      "san": 8.31,
+      "shang": 7.95
+     },
+     "ctc_margin": -0.36,
+     "ctc_verdict": "unsure"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 17,
+     "char": "散",
+     "word": "沖散",
+     "ctx": "暴雨沖散後重新",
+     "tw": "san4",
+     "alt": "shang4",
+     "method": "ctc",
+     "tts_char": "散",
+     "t0": 6.613,
+     "t1": 6.833,
+     "align": 0.997,
+     "ctc_loss": {
+      "san": 4.03,
+      "shang": 4.17
+     },
+     "ctc_margin": 0.14,
+     "ctc_verdict": "unsure"
+    }
+   ],
+   "final_all_pass": false,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第一章_01_04",
+   "chunk": 2,
+   "issues": "P06",
+   "subtitle": "律川整治工程期間深夜不停運轉的抽水機；某份刑案卷宗裡一張失焦的黑白照片。",
+   "tts_text": "律川整治工程其间深夜不停运转的抽水机；某份刑案卷宗里一张失焦的黑白照片。",
+   "n_cands": 6,
+   "cand": 5,
+   "cand_cer": 0.059,
+   "tempo": 0.8707,
+   "clamped": false,
+   "orig_sec": 14.32,
+   "new_sec": 14.345,
+   "v1_post_span": [
+    20.6,
+    33.62
+   ],
+   "v2_post_span": [
+    20.59,
+    33.63
+   ],
+   "v1_checks": [
+    {
+     "i": 6,
+     "char": "期",
+     "word": "期",
+     "ctx": "治工程期間深夜",
+     "tw": "qi2",
+     "alt": "qi1",
+     "method": "tone",
+     "tts_char": "其",
+     "t0": 2.203,
+     "t1": 2.363,
+     "align": 0.876,
+     "p_tw_tone": 0.016,
+     "tone_pred": 1,
+     "tone_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 6,
+     "char": "期",
+     "word": "期",
+     "ctx": "治工程期間深夜",
+     "tw": "qi2",
+     "alt": "qi1",
+     "method": "tone",
+     "tts_char": "其",
+     "t0": 2.163,
+     "t1": 2.324,
+     "align": 0.984,
+     "p_tw_tone": 0.987,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 6,
+     "char": "期",
+     "word": "期",
+     "ctx": "治工程期間深夜",
+     "tw": "qi2",
+     "alt": "qi1",
+     "method": "tone",
+     "tts_char": "其",
+     "t0": 2.481,
+     "t1": 2.661,
+     "align": 0.994,
+     "p_tw_tone": 0.988,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第一章_01_05",
+   "chunk": 0,
+   "issues": "P20",
+   "subtitle": "對面的刁才弟忽然問我：",
+   "tts_text": "对面的雕才弟呼然问我：",
+   "n_cands": 8,
+   "cand": 7,
+   "cand_cer": 0.1,
+   "tempo": 0.8384,
+   "clamped": true,
+   "orig_sec": 4.36,
+   "new_sec": 4.056,
+   "v1_post_span": [
+    0.0,
+    3.96
+   ],
+   "v2_post_span": [
+    0.0,
+    3.68
+   ],
+   "v1_checks": [
+    {
+     "i": 3,
+     "char": "刁",
+     "word": "刁",
+     "ctx": "對面的刁才弟忽",
+     "tw": "diao1",
+     "alt": "diu1",
+     "method": "ctc",
+     "tts_char": "雕",
+     "t0": 1.326,
+     "t1": 1.507,
+     "align": 0.492,
+     "ctc_loss": {
+      "diao": 8.12,
+      "diu": 0.17
+     },
+     "ctc_margin": -7.95,
+     "ctc_verdict": "fail"
+    },
+    {
+     "i": 6,
+     "char": "忽",
+     "word": "忽",
+     "ctx": "刁才弟忽然問我",
+     "tw": "hu1",
+     "alt": "gu4",
+     "method": "both",
+     "tts_char": "呼",
+     "t0": 2.471,
+     "t1": 2.592,
+     "align": 0.786,
+     "p_tw_tone": 0.999,
+     "tone_pred": 1,
+     "tone_verdict": "pass",
+     "ctc_loss": {
+      "hu": 0.56,
+      "gu": 5.03
+     },
+     "ctc_margin": 4.47,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 3,
+     "char": "刁",
+     "word": "刁",
+     "ctx": "對面的刁才弟忽",
+     "tw": "diao1",
+     "alt": "diu1",
+     "method": "ctc",
+     "tts_char": "雕",
+     "t0": 0.946,
+     "t1": 1.147,
+     "align": 0.997,
+     "ctc_loss": {
+      "diao": 8.4,
+      "diu": 21.86
+     },
+     "ctc_margin": 13.46,
+     "ctc_verdict": "pass"
+    },
+    {
+     "i": 6,
+     "char": "忽",
+     "word": "忽",
+     "ctx": "刁才弟忽然問我",
+     "tw": "hu1",
+     "alt": "gu4",
+     "method": "both",
+     "tts_char": "呼",
+     "t0": 2.052,
+     "t1": 2.173,
+     "align": 0.823,
+     "p_tw_tone": 0.997,
+     "tone_pred": 1,
+     "tone_verdict": "pass",
+     "ctc_loss": {
+      "hu": 0.44,
+      "gu": 7.78
+     },
+     "ctc_margin": 7.34,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 3,
+     "char": "刁",
+     "word": "刁",
+     "ctx": "對面的刁才弟忽",
+     "tw": "diao1",
+     "alt": "diu1",
+     "method": "ctc",
+     "tts_char": "雕",
+     "t0": 1.124,
+     "t1": 1.365,
+     "align": 0.912,
+     "ctc_loss": {
+      "diao": 0.12,
+      "diu": 6.94
+     },
+     "ctc_margin": 6.82,
+     "ctc_verdict": "pass"
+    },
+    {
+     "i": 6,
+     "char": "忽",
+     "word": "忽",
+     "ctx": "刁才弟忽然問我",
+     "tw": "hu1",
+     "alt": "gu4",
+     "method": "both",
+     "tts_char": "呼",
+     "t0": 2.429,
+     "t1": 2.57,
+     "align": 0.606,
+     "p_tw_tone": 0.995,
+     "tone_pred": 1,
+     "tone_verdict": "pass",
+     "ctc_loss": {
+      "hu": 1.52,
+      "gu": 7.66
+     },
+     "ctc_margin": 6.14,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第一章_01_07",
+   "chunk": 0,
+   "issues": "P23",
+   "subtitle": "我沒有回答。窗外的市場正逐漸收攤。",
+   "tts_text": "我没有回答。窗外的市场正逐渐收摊。",
+   "n_cands": 6,
+   "cand": 5,
+   "cand_cer": 0.0,
+   "tempo": 0.9555,
+   "clamped": false,
+   "orig_sec": 5.36,
+   "new_sec": 5.39,
+   "v1_post_span": [
+    0.0,
+    4.87
+   ],
+   "v2_post_span": [
+    0.0,
+    4.89
+   ],
+   "v1_checks": [
+    {
+     "i": 4,
+     "char": "答",
+     "word": "回答",
+     "ctx": "沒有回答窗外的",
+     "tw": "da2",
+     "alt": "dang2",
+     "method": "ctc",
+     "tts_char": "答",
+     "t0": 1.365,
+     "t1": 1.465,
+     "align": 0.979,
+     "ctc_loss": {
+      "da": 15.25,
+      "dang": 8.7
+     },
+     "ctc_margin": -6.55,
+     "ctc_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 4,
+     "char": "答",
+     "word": "回答",
+     "ctx": "沒有回答窗外的",
+     "tw": "da2",
+     "alt": "dang2",
+     "method": "ctc",
+     "tts_char": "答",
+     "t0": 1.225,
+     "t1": 1.325,
+     "align": 0.966,
+     "ctc_loss": {
+      "da": 6.4,
+      "dang": 21.44
+     },
+     "ctc_margin": 15.04,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 4,
+     "char": "答",
+     "word": "回答",
+     "ctx": "沒有回答窗外的",
+     "tw": "da2",
+     "alt": "dang2",
+     "method": "ctc",
+     "tts_char": "答",
+     "t0": 1.062,
+     "t1": 1.162,
+     "align": 0.6,
+     "ctc_loss": {
+      "da": 8.89,
+      "dang": 25.02
+     },
+     "ctc_margin": 16.13,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第一章_03_04",
+   "chunk": 0,
+   "issues": "P10,P09",
+   "subtitle": "我從桌下翻出那本舊檔案。封面受潮變形，紙頁邊緣呈現長久浸水後特有的深褐色。",
+   "tts_text": "我从桌下翻出那本旧党案。封面受潮变形，纸页边缘呈现长久浸水后特有的深合色。",
+   "n_cands": 6,
+   "cand": 1,
+   "cand_cer": 0.029,
+   "tempo": 1.0445,
+   "clamped": false,
+   "orig_sec": 12.84,
+   "new_sec": 12.867,
+   "v1_post_span": [
+    0.0,
+    11.67
+   ],
+   "v2_post_span": [
+    0.0,
+    11.63
+   ],
+   "v1_checks": [
+    {
+     "i": 9,
+     "char": "檔",
+     "word": "檔",
+     "ctx": "那本舊檔案封面",
+     "tw": "dang3",
+     "alt": "dang4",
+     "method": "tone",
+     "tts_char": "黨",
+     "t0": 3.265,
+     "t1": 3.485,
+     "align": 0.961,
+     "p_tw_tone": 0.774,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    },
+    {
+     "i": 32,
+     "char": "褐",
+     "word": "褐",
+     "ctx": "有的深褐色",
+     "tw": "he2",
+     "alt": "he4",
+     "method": "tone",
+     "tts_char": "合",
+     "t0": 12.059,
+     "t1": 12.159,
+     "align": 0.995,
+     "p_tw_tone": 0.002,
+     "tone_pred": 4,
+     "tone_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 9,
+     "char": "檔",
+     "word": "檔",
+     "ctx": "那本舊檔案封面",
+     "tw": "dang3",
+     "alt": "dang4",
+     "method": "tone",
+     "tts_char": "黨",
+     "t0": 3.605,
+     "t1": 3.866,
+     "align": 0.959,
+     "p_tw_tone": 0.996,
+     "tone_pred": 3,
+     "tone_verdict": "pass"
+    },
+    {
+     "i": 32,
+     "char": "褐",
+     "word": "褐",
+     "ctx": "有的深褐色",
+     "tw": "he2",
+     "alt": "he4",
+     "method": "tone",
+     "tts_char": "合",
+     "t0": 12.659,
+     "t1": 12.779,
+     "align": 0.999,
+     "p_tw_tone": 0.979,
+     "tone_pred": 3,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 9,
+     "char": "檔",
+     "word": "檔",
+     "ctx": "那本舊檔案封面",
+     "tw": "dang3",
+     "alt": "dang4",
+     "method": "tone",
+     "tts_char": "黨",
+     "t0": 3.444,
+     "t1": 3.685,
+     "align": 0.995,
+     "p_tw_tone": 0.998,
+     "tone_pred": 3,
+     "tone_verdict": "pass"
+    },
+    {
+     "i": 32,
+     "char": "褐",
+     "word": "褐",
+     "ctx": "有的深褐色",
+     "tw": "he2",
+     "alt": "he4",
+     "method": "tone",
+     "tts_char": "合",
+     "t0": 12.116,
+     "t1": 12.236,
+     "align": 0.998,
+     "p_tw_tone": 0.992,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第一章_03_06",
+   "chunk": 0,
+   "issues": "P11,P12",
+   "subtitle": "檔案裡最早的文字寫於乾隆年間。字跡斷斷續續，像有人在極度不安之中留下的紀錄：",
+   "tts_text": "党案里最早的文字写于乾隆年间。字机断断续续，像有人在极度不安之中留下的纪录：",
+   "n_cands": 6,
+   "cand": 3,
+   "cand_cer": 0.057,
+   "tempo": 0.9409,
+   "clamped": false,
+   "orig_sec": 14.76,
+   "new_sec": 14.794,
+   "v1_post_span": [
+    0.0,
+    13.42
+   ],
+   "v2_post_span": [
+    0.0,
+    13.44
+   ],
+   "v1_checks": [
+    {
+     "i": 0,
+     "char": "檔",
+     "word": "檔",
+     "ctx": "檔案裡最",
+     "tw": "dang3",
+     "alt": "dang4",
+     "method": "tone",
+     "tts_char": "黨",
+     "t0": 0.381,
+     "t1": 0.621,
+     "align": 0.99,
+     "p_tw_tone": 0.044,
+     "tone_pred": 4,
+     "tone_verdict": "fail"
+    },
+    {
+     "i": 15,
+     "char": "跡",
+     "word": "跡",
+     "ctx": "年間字跡斷斷續",
+     "tw": "ji1",
+     "alt": "ji4",
+     "method": "tone",
+     "tts_char": "機",
+     "t0": 6.709,
+     "t1": 6.829,
+     "align": 0.999,
+     "p_tw_tone": 0.0,
+     "tone_pred": 4,
+     "tone_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 0,
+     "char": "檔",
+     "word": "檔",
+     "ctx": "檔案裡最",
+     "tw": "dang3",
+     "alt": "dang4",
+     "method": "tone",
+     "tts_char": "黨",
+     "t0": 0.24,
+     "t1": 0.541,
+     "align": 0.0,
+     "p_tw_tone": 0.973,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    },
+    {
+     "i": 15,
+     "char": "跡",
+     "word": "跡",
+     "ctx": "年間字跡斷斷續",
+     "tw": "ji1",
+     "alt": "ji4",
+     "method": "tone",
+     "tts_char": "機",
+     "t0": 6.329,
+     "t1": 6.469,
+     "align": 0.998,
+     "p_tw_tone": 0.994,
+     "tone_pred": 1,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 0,
+     "char": "檔",
+     "word": "檔",
+     "ctx": "檔案裡最",
+     "tw": "dang3",
+     "alt": "dang4",
+     "method": "tone",
+     "tts_char": "黨",
+     "t0": 0.26,
+     "t1": 0.561,
+     "align": 0.002,
+     "p_tw_tone": 0.94,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    },
+    {
+     "i": 15,
+     "char": "跡",
+     "word": "跡",
+     "ctx": "年間字跡斷斷續",
+     "tw": "ji1",
+     "alt": "ji4",
+     "method": "tone",
+     "tts_char": "機",
+     "t0": 6.726,
+     "t1": 6.867,
+     "align": 0.995,
+     "p_tw_tone": 0.986,
+     "tone_pred": 1,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第一章_03_08",
+   "chunk": 0,
+   "issues": "P25",
+   "subtitle": "「……庄民掘地見異物，其形不可辨。夜半聞水下有聲，如舟行暗河。其後數月，庄中多夢者……」",
+   "tts_text": "庄民掘地见异物，其形不可辨。夜半闻水下有声，如舟行暗河。其后数月，庄中多梦者",
+   "n_cands": 6,
+   "cand": 3,
+   "cand_cer": 0.091,
+   "tempo": 1.0761,
+   "clamped": false,
+   "orig_sec": 13.32,
+   "new_sec": 13.382,
+   "v1_post_span": [
+    0.0,
+    12.11
+   ],
+   "v2_post_span": [
+    0.0,
+    12.16
+   ],
+   "v1_checks": [
+    {
+     "i": 30,
+     "char": "多",
+     "word": "多夢",
+     "ctx": "月庄中多夢者",
+     "tw": "duo1",
+     "alt": "bo1",
+     "method": "ctc",
+     "tts_char": "多",
+     "t0": 12.419,
+     "t1": 12.519,
+     "align": 0.33,
+     "ctc_loss": {
+      "duo": 15.66,
+      "bo": 0.02
+     },
+     "ctc_margin": -15.63,
+     "ctc_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 30,
+     "char": "多",
+     "word": "多夢",
+     "ctx": "月庄中多夢者",
+     "tw": "duo1",
+     "alt": "bo1",
+     "method": "ctc",
+     "tts_char": "多",
+     "t0": 13.599,
+     "t1": 13.739,
+     "align": 0.923,
+     "ctc_loss": {
+      "duo": 0.02,
+      "bo": 14.11
+     },
+     "ctc_margin": 14.09,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 30,
+     "char": "多",
+     "word": "多夢",
+     "ctx": "月庄中多夢者",
+     "tw": "duo1",
+     "alt": "bo1",
+     "method": "ctc",
+     "tts_char": "多",
+     "t0": 12.62,
+     "t1": 12.761,
+     "align": 0.927,
+     "ctc_loss": {
+      "duo": 0.02,
+      "bo": 13.93
+     },
+     "ctc_margin": 13.9,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第一章_03_11",
+   "chunk": 0,
+   "issues": "P26",
+   "subtitle": "我忽然意識到，也許真正留下來的，不是某種怪異之物，",
+   "tts_text": "我呼然意识到，也许真正留下来的，不是某种怪异之物",
+   "n_cands": 6,
+   "cand": 5,
+   "cand_cer": 0.0,
+   "tempo": 0.9923,
+   "clamped": false,
+   "orig_sec": 8.64,
+   "new_sec": 8.666,
+   "v1_post_span": [
+    0.0,
+    7.85
+   ],
+   "v2_post_span": [
+    0.0,
+    7.87
+   ],
+   "v1_checks": [
+    {
+     "i": 1,
+     "char": "忽",
+     "word": "忽",
+     "ctx": "我忽然意識",
+     "tw": "hu1",
+     "alt": "gu4",
+     "method": "both",
+     "tts_char": "呼",
+     "t0": 0.561,
+     "t1": 0.682,
+     "align": 0.42,
+     "p_tw_tone": 0.097,
+     "tone_pred": 4,
+     "tone_verdict": "fail",
+     "ctc_loss": {
+      "hu": 3.41,
+      "gu": 0.08
+     },
+     "ctc_margin": -3.34,
+     "ctc_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 1,
+     "char": "忽",
+     "word": "忽",
+     "ctx": "我忽然意識",
+     "tw": "hu1",
+     "alt": "gu4",
+     "method": "both",
+     "tts_char": "呼",
+     "t0": 0.521,
+     "t1": 0.641,
+     "align": 0.978,
+     "p_tw_tone": 0.994,
+     "tone_pred": 1,
+     "tone_verdict": "pass",
+     "ctc_loss": {
+      "hu": 0.05,
+      "gu": 8.62
+     },
+     "ctc_margin": 8.57,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 1,
+     "char": "忽",
+     "word": "忽",
+     "ctx": "我忽然意識",
+     "tw": "hu1",
+     "alt": "gu4",
+     "method": "both",
+     "tts_char": "呼",
+     "t0": 0.52,
+     "t1": 0.66,
+     "align": 0.854,
+     "p_tw_tone": 0.983,
+     "tone_pred": 1,
+     "tone_verdict": "pass",
+     "ctc_loss": {
+      "hu": 0.09,
+      "gu": 7.65
+     },
+     "ctc_margin": 7.56,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第三章_00_00",
+   "chunk": 1,
+   "issues": "P04,P18",
+   "subtitle": "整條巷子瞬間陷入黑暗，只剩遠處便利商店的綠色招牌仍微弱亮著。",
+   "tts_text": "整条巷子瞬间陷入黑暗，只剩远处便利商店的绿色招牌仍维弱亮着。",
+   "n_cands": 6,
+   "cand": 5,
+   "cand_cer": 0.071,
+   "tempo": 0.9695,
+   "clamped": false,
+   "orig_sec": 10.48,
+   "new_sec": 10.48,
+   "v1_post_span": [
+    8.75,
+    18.28
+   ],
+   "v2_post_span": [
+    8.76,
+    18.28
+   ],
+   "v1_checks": [
+    {
+     "i": 24,
+     "char": "微",
+     "word": "微",
+     "ctx": "招牌仍微弱亮著",
+     "tw": "wei2",
+     "alt": "wei1",
+     "method": "tone",
+     "tts_char": "維",
+     "t0": 9.178,
+     "t1": 9.358,
+     "align": 0.995,
+     "p_tw_tone": 0.149,
+     "tone_pred": 1,
+     "tone_verdict": "fail"
+    },
+    {
+     "i": 27,
+     "char": "著",
+     "word": "著",
+     "ctx": "微弱亮著",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 10.159,
+     "t1": 10.28,
+     "align": 0.653,
+     "ctc_loss": {
+      "zhe": 6.9,
+      "zhu": 0.05
+     },
+     "ctc_margin": -6.85,
+     "ctc_verdict": "fail",
+     "dur": 0.12
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 24,
+     "char": "微",
+     "word": "微",
+     "ctx": "招牌仍微弱亮著",
+     "tw": "wei2",
+     "alt": "wei1",
+     "method": "tone",
+     "tts_char": "維",
+     "t0": 8.777,
+     "t1": 8.958,
+     "align": 0.999,
+     "p_tw_tone": 1.0,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    },
+    {
+     "i": 27,
+     "char": "著",
+     "word": "著",
+     "ctx": "微弱亮著",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 9.819,
+     "t1": 9.94,
+     "align": 0.922,
+     "ctc_loss": {
+      "zhe": 5.28,
+      "zhu": 14.32
+     },
+     "ctc_margin": 9.05,
+     "ctc_verdict": "pass",
+     "dur": 0.12
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 24,
+     "char": "微",
+     "word": "微",
+     "ctx": "招牌仍微弱亮著",
+     "tw": "wei2",
+     "alt": "wei1",
+     "method": "tone",
+     "tts_char": "維",
+     "t0": 9.057,
+     "t1": 9.237,
+     "align": 0.999,
+     "p_tw_tone": 0.999,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    },
+    {
+     "i": 27,
+     "char": "著",
+     "word": "著",
+     "ctx": "微弱亮著",
+     "tw": "zhe5",
+     "alt": "zhu4",
+     "method": "ctc",
+     "tts_char": "著",
+     "t0": 10.119,
+     "t1": 10.259,
+     "align": 0.777,
+     "ctc_loss": {
+      "zhe": 7.2,
+      "zhu": 16.35
+     },
+     "ctc_margin": 9.15,
+     "ctc_verdict": "pass",
+     "dur": 0.14
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第三章_00_00",
+   "chunk": 2,
+   "issues": "P29",
+   "subtitle": "雨水從鐵皮屋頂傾瀉而下，聲音大得近乎失真。然後，我聽見了。不是雨聲。",
+   "tts_text": "雨水从铁皮屋顶倾泻而下，声音大得近乎失真。然后，我听见了。不是雨声。",
+   "n_cands": 6,
+   "cand": 1,
+   "cand_cer": 0.0,
+   "tempo": 1.0085,
+   "clamped": false,
+   "orig_sec": 13.64,
+   "new_sec": 13.753,
+   "v1_post_span": [
+    18.6,
+    31.0
+   ],
+   "v2_post_span": [
+    18.6,
+    31.1
+   ],
+   "v1_checks": [
+    {
+     "i": 6,
+     "char": "頂",
+     "word": "屋頂",
+     "ctx": "鐵皮屋頂傾瀉而",
+     "tw": "ding3",
+     "alt": "di3",
+     "method": "ctc",
+     "tts_char": "頂",
+     "t0": 2.383,
+     "t1": 2.604,
+     "align": 0.299,
+     "ctc_loss": {
+      "ding": 16.75,
+      "di": 1.05
+     },
+     "ctc_margin": -15.7,
+     "ctc_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 6,
+     "char": "頂",
+     "word": "屋頂",
+     "ctx": "鐵皮屋頂傾瀉而",
+     "tw": "ding3",
+     "alt": "di3",
+     "method": "ctc",
+     "tts_char": "頂",
+     "t0": 2.804,
+     "t1": 3.024,
+     "align": 0.977,
+     "ctc_loss": {
+      "ding": 0.08,
+      "di": 9.81
+     },
+     "ctc_margin": 9.73,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 6,
+     "char": "頂",
+     "word": "屋頂",
+     "ctx": "鐵皮屋頂傾瀉而",
+     "tw": "ding3",
+     "alt": "di3",
+     "method": "ctc",
+     "tts_char": "頂",
+     "t0": 2.783,
+     "t1": 3.003,
+     "align": 0.926,
+     "ctc_loss": {
+      "ding": 0.06,
+      "di": 9.78
+     },
+     "ctc_margin": 9.72,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第二章_00_00",
+   "chunk": 0,
+   "issues": "P27",
+   "subtitle": "我曾經是犯罪側寫師。那幾年，我長時間閱讀人的殘缺。",
+   "tts_text": "我曾经是犯罪侧写师。那几年，我长时间阅读人的残缺。",
+   "n_cands": 8,
+   "cand": 3,
+   "cand_cer": 0.091,
+   "tempo": 1.18,
+   "clamped": true,
+   "orig_sec": 7.2,
+   "new_sec": 7.525,
+   "v1_post_span": [
+    0.0,
+    6.55
+   ],
+   "v2_post_span": [
+    0.0,
+    6.84
+   ],
+   "v1_checks": [
+    {
+     "i": 7,
+     "char": "寫",
+     "word": "側寫",
+     "ctx": "犯罪側寫師那幾",
+     "tw": "xie3",
+     "alt": "xuan3",
+     "method": "ctc",
+     "tts_char": "寫",
+     "t0": 2.066,
+     "t1": 2.226,
+     "align": 0.981,
+     "ctc_loss": {
+      "xie": 0.06,
+      "xuan": 19.45
+     },
+     "ctc_margin": 19.39,
+     "ctc_verdict": "pass"
+    },
+    {
+     "i": 20,
+     "char": "殘",
+     "word": "殘缺",
+     "ctx": "讀人的殘缺",
+     "tw": "can2",
+     "alt": "chang2",
+     "method": "ctc",
+     "tts_char": "殘",
+     "t0": 6.318,
+     "t1": 6.518,
+     "align": 0.982,
+     "ctc_loss": {
+      "can": 6.8,
+      "chang": 1.02
+     },
+     "ctc_margin": -5.77,
+     "ctc_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 7,
+     "char": "寫",
+     "word": "側寫",
+     "ctx": "犯罪側寫師那幾",
+     "tw": "xie3",
+     "alt": "xuan3",
+     "method": "ctc",
+     "tts_char": "寫",
+     "t0": 2.887,
+     "t1": 3.027,
+     "align": 0.996,
+     "ctc_loss": {
+      "xie": 0.01,
+      "xuan": 20.06
+     },
+     "ctc_margin": 20.05,
+     "ctc_verdict": "pass"
+    },
+    {
+     "i": 20,
+     "char": "殘",
+     "word": "殘缺",
+     "ctx": "讀人的殘缺",
+     "tw": "can2",
+     "alt": "chang2",
+     "method": "ctc",
+     "tts_char": "殘",
+     "t0": 7.798,
+     "t1": 8.018,
+     "align": 0.991,
+     "ctc_loss": {
+      "can": 0.31,
+      "chang": 5.92
+     },
+     "ctc_margin": 5.61,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 7,
+     "char": "寫",
+     "word": "側寫",
+     "ctx": "犯罪側寫師那幾",
+     "tw": "xie3",
+     "alt": "xuan3",
+     "method": "ctc",
+     "tts_char": "寫",
+     "t0": 2.442,
+     "t1": 2.562,
+     "align": 0.918,
+     "ctc_loss": {
+      "xie": 0.02,
+      "xuan": 19.12
+     },
+     "ctc_margin": 19.1,
+     "ctc_verdict": "pass"
+    },
+    {
+     "i": 20,
+     "char": "殘",
+     "word": "殘缺",
+     "ctx": "讀人的殘缺",
+     "tw": "can2",
+     "alt": "chang2",
+     "method": "ctc",
+     "tts_char": "殘",
+     "t0": 6.585,
+     "t1": 6.785,
+     "align": 0.987,
+     "ctc_loss": {
+      "can": 7.1,
+      "chang": 10.65
+     },
+     "ctc_margin": 3.54,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第二章_00_00",
+   "chunk": 1,
+   "issues": "P14",
+   "subtitle": "閱讀暴力留下的痕跡、閱讀失蹤者最後停留的路線、閱讀一個人在崩潰之前，如何逐漸偏離原本的人生。",
+   "tts_text": "阅读暴力留下的痕机、阅读失踪者最后停留的路线、阅读一个人在崩溃之前，如何逐渐偏离原本的人生。",
+   "n_cands": 6,
+   "cand": 3,
+   "cand_cer": 0.0,
+   "tempo": 0.9173,
+   "clamped": false,
+   "orig_sec": 18.56,
+   "new_sec": 18.597,
+   "v1_post_span": [
+    6.86,
+    23.74
+   ],
+   "v2_post_span": [
+    7.15,
+    24.06
+   ],
+   "v1_checks": [
+    {
+     "i": 8,
+     "char": "跡",
+     "word": "跡",
+     "ctx": "下的痕跡閱讀失",
+     "tw": "ji1",
+     "alt": "ji4",
+     "method": "tone",
+     "tts_char": "機",
+     "t0": 4.345,
+     "t1": 4.485,
+     "align": 0.999,
+     "p_tw_tone": 0.149,
+     "tone_pred": 4,
+     "tone_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 8,
+     "char": "跡",
+     "word": "跡",
+     "ctx": "下的痕跡閱讀失",
+     "tw": "ji1",
+     "alt": "ji4",
+     "method": "tone",
+     "tts_char": "機",
+     "t0": 3.604,
+     "t1": 3.724,
+     "align": 0.994,
+     "p_tw_tone": 0.999,
+     "tone_pred": 1,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 8,
+     "char": "跡",
+     "word": "跡",
+     "ctx": "下的痕跡閱讀失",
+     "tw": "ji1",
+     "alt": "ji4",
+     "method": "tone",
+     "tts_char": "機",
+     "t0": 3.944,
+     "t1": 4.064,
+     "align": 0.979,
+     "p_tw_tone": 0.994,
+     "tone_pred": 1,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第二章_00_02",
+   "chunk": 0,
+   "issues": "P28",
+   "subtitle": "後來我才明白，城市其實也有自己的側寫。一條被填平的河。一座遷移過數次的廟。",
+   "tts_text": "后来我才明白，城市其实也有自己的侧写。一条被填平的河。一座迁移过数次的庙。",
+   "n_cands": 6,
+   "cand": 4,
+   "cand_cer": 0.03,
+   "tempo": 0.9566,
+   "clamped": false,
+   "orig_sec": 13.16,
+   "new_sec": 13.435,
+   "v1_post_span": [
+    0.0,
+    11.96
+   ],
+   "v2_post_span": [
+    0.0,
+    12.21
+   ],
+   "v1_checks": [
+    {
+     "i": 16,
+     "char": "寫",
+     "word": "側寫",
+     "ctx": "己的側寫一條被",
+     "tw": "xie3",
+     "alt": "xuan3",
+     "method": "ctc",
+     "tts_char": "寫",
+     "t0": 6.229,
+     "t1": 6.41,
+     "align": 0.655,
+     "ctc_loss": {
+      "xie": 6.92,
+      "xuan": 3.07
+     },
+     "ctc_margin": -3.85,
+     "ctc_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 16,
+     "char": "寫",
+     "word": "側寫",
+     "ctx": "己的側寫一條被",
+     "tw": "xie3",
+     "alt": "xuan3",
+     "method": "ctc",
+     "tts_char": "寫",
+     "t0": 5.889,
+     "t1": 6.049,
+     "align": 0.976,
+     "ctc_loss": {
+      "xie": 0.23,
+      "xuan": 10.61
+     },
+     "ctc_margin": 10.38,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 16,
+     "char": "寫",
+     "word": "側寫",
+     "ctx": "己的側寫一條被",
+     "tw": "xie3",
+     "alt": "xuan3",
+     "method": "ctc",
+     "tts_char": "寫",
+     "t0": 6.147,
+     "t1": 6.307,
+     "align": 0.951,
+     "ctc_loss": {
+      "xie": 0.35,
+      "xuan": 10.15
+     },
+     "ctc_margin": 9.79,
+     "ctc_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第二章_00_08",
+   "chunk": 0,
+   "issues": "P15",
+   "subtitle": "我開始查閱地方志。從清代的墾拓紀錄，到日治時期的市區改正計畫，再到戰後的排水工程圖。我愈讀愈感到不安。",
+   "tts_text": "我开始查阅地方志。从清代的垦拓纪录，到日治时其的市区改正计划，再到战后的排水工程图。我愈读愈感到不安。",
+   "n_cands": 6,
+   "cand": 5,
+   "cand_cer": 0.022,
+   "tempo": 0.9538,
+   "clamped": false,
+   "orig_sec": 16.8,
+   "new_sec": 16.826,
+   "v1_post_span": [
+    0.0,
+    15.27
+   ],
+   "v2_post_span": [
+    0.0,
+    15.29
+   ],
+   "v1_checks": [
+    {
+     "i": 20,
+     "char": "期",
+     "word": "期",
+     "ctx": "日治時期的市區",
+     "tw": "qi2",
+     "alt": "qi1",
+     "method": "tone",
+     "tts_char": "其",
+     "t0": 7.629,
+     "t1": 7.729,
+     "align": 0.985,
+     "p_tw_tone": 0.107,
+     "tone_pred": 4,
+     "tone_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 20,
+     "char": "期",
+     "word": "期",
+     "ctx": "日治時期的市區",
+     "tw": "qi2",
+     "alt": "qi1",
+     "method": "tone",
+     "tts_char": "其",
+     "t0": 7.269,
+     "t1": 7.409,
+     "align": 0.995,
+     "p_tw_tone": 0.996,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 20,
+     "char": "期",
+     "word": "期",
+     "ctx": "日治時期的市區",
+     "tw": "qi2",
+     "alt": "qi1",
+     "method": "tone",
+     "tts_char": "其",
+     "t0": 7.603,
+     "t1": 7.763,
+     "align": 0.994,
+     "p_tw_tone": 1.0,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第二章_01_00",
+   "chunk": 0,
+   "issues": "P16",
+   "subtitle": "有一天深夜，我在仲央公園管理處舊檔室找到一張發黃的手繪水路圖。",
+   "tts_text": "有一天深夜，我在仲央公园管理处旧党室找到一张发黄的手绘水路图。",
+   "n_cands": 6,
+   "cand": 3,
+   "cand_cer": 0.034,
+   "tempo": 1.0944,
+   "clamped": false,
+   "orig_sec": 11.24,
+   "new_sec": 11.294,
+   "v1_post_span": [
+    0.0,
+    10.22
+   ],
+   "v2_post_span": [
+    0.0,
+    10.26
+   ],
+   "v1_checks": [
+    {
+     "i": 15,
+     "char": "檔",
+     "word": "檔",
+     "ctx": "理處舊檔室找到",
+     "tw": "dang3",
+     "alt": "dang4",
+     "method": "tone",
+     "tts_char": "黨",
+     "t0": 6.191,
+     "t1": 6.391,
+     "align": 0.979,
+     "p_tw_tone": 0.076,
+     "tone_pred": 4,
+     "tone_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 15,
+     "char": "檔",
+     "word": "檔",
+     "ctx": "理處舊檔室找到",
+     "tw": "dang3",
+     "alt": "dang4",
+     "method": "tone",
+     "tts_char": "黨",
+     "t0": 6.971,
+     "t1": 7.151,
+     "align": 0.94,
+     "p_tw_tone": 0.999,
+     "tone_pred": 3,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 15,
+     "char": "檔",
+     "word": "檔",
+     "ctx": "理處舊檔室找到",
+     "tw": "dang3",
+     "alt": "dang4",
+     "method": "tone",
+     "tts_char": "黨",
+     "t0": 6.368,
+     "t1": 6.548,
+     "align": 0.869,
+     "p_tw_tone": 0.997,
+     "tone_pred": 3,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  },
+  {
+   "key": "第二章_01_02",
+   "chunk": 0,
+   "issues": "P17",
+   "subtitle": "而那個位置，正是如今的樂承宮。我突然感到一陣難以形容的寒意。因為我發現：",
+   "tts_text": "而那个位置，正是如今的乐承宫。我图然感到一阵难以形容的寒意。因为我发现：",
+   "n_cands": 7,
+   "cand": 6,
+   "cand_cer": 0.031,
+   "tempo": 0.8835,
+   "clamped": false,
+   "orig_sec": 14.36,
+   "new_sec": 14.488,
+   "v1_post_span": [
+    0.0,
+    13.05
+   ],
+   "v2_post_span": [
+    0.0,
+    13.16
+   ],
+   "v1_checks": [
+    {
+     "i": 14,
+     "char": "突",
+     "word": "突",
+     "ctx": "承宮我突然感到",
+     "tw": "tu2",
+     "alt": "tu1",
+     "method": "tone",
+     "tts_char": "圖",
+     "t0": 7.871,
+     "t1": 7.991,
+     "align": 0.997,
+     "p_tw_tone": 0.006,
+     "tone_pred": 1,
+     "tone_verdict": "fail"
+    }
+   ],
+   "cand_checks": [
+    {
+     "i": 14,
+     "char": "突",
+     "word": "突",
+     "ctx": "承宮我突然感到",
+     "tw": "tu2",
+     "alt": "tu1",
+     "method": "tone",
+     "tts_char": "圖",
+     "t0": 5.929,
+     "t1": 6.09,
+     "align": 0.992,
+     "p_tw_tone": 0.939,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_checks": [
+    {
+     "i": 14,
+     "char": "突",
+     "word": "突",
+     "ctx": "承宮我突然感到",
+     "tw": "tu2",
+     "alt": "tu1",
+     "method": "tone",
+     "tts_char": "圖",
+     "t0": 6.684,
+     "t1": 6.884,
+     "align": 0.928,
+     "p_tw_tone": 0.999,
+     "tone_pred": 2,
+     "tone_verdict": "pass"
+    }
+   ],
+   "final_all_pass": true,
+   "v1_all_pass": false
+  }
+ ],
+ "plan_check": {
+  "v1_clips": 53,
+  "v2_clips": 53,
+  "same_count": true,
+  "v1_missing_cache": [],
+  "v2_missing_cache": [],
+  "tags_changed": [],
+  "v1_total_sec": 554.7,
+  "v2_total_sec": 555.19,
+  "blocks": [
+   {
+    "key": "第一章_00_00",
+    "v1_sec": 6.849,
+    "v2_sec": 6.849,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第一章_00_01",
+    "v1_sec": 34.445,
+    "v2_sec": 34.445,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第一章_01_00",
+    "v1_sec": 6.304,
+    "v2_sec": 6.304,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第一章_01_01",
+    "v1_sec": 27.566,
+    "v2_sec": 27.632,
+    "delta": 0.066,
+    "fixed": true
+   },
+   {
+    "key": "第一章_01_02",
+    "v1_sec": 10.386,
+    "v2_sec": 10.518,
+    "delta": 0.132,
+    "fixed": true
+   },
+   {
+    "key": "第一章_01_04",
+    "v1_sec": 40.512,
+    "v2_sec": 40.527,
+    "delta": 0.015,
+    "fixed": true
+   },
+   {
+    "key": "第一章_01_05",
+    "v1_sec": 3.831,
+    "v2_sec": 3.521,
+    "delta": -0.31,
+    "fixed": true
+   },
+   {
+    "key": "第一章_01_07",
+    "v1_sec": 26.349,
+    "v2_sec": 26.365,
+    "delta": 0.016,
+    "fixed": true
+   },
+   {
+    "key": "第一章_01_09",
+    "v1_sec": 6.849,
+    "v2_sec": 6.849,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第一章_02_00",
+    "v1_sec": 9.541,
+    "v2_sec": 9.541,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第一章_03_00",
+    "v1_sec": 21.849,
+    "v2_sec": 21.849,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第一章_03_01",
+    "v1_sec": 13.867,
+    "v2_sec": 13.867,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第一章_03_04",
+    "v1_sec": 21.64,
+    "v2_sec": 21.656,
+    "delta": 0.016,
+    "fixed": true
+   },
+   {
+    "key": "第一章_03_05",
+    "v1_sec": 6.667,
+    "v2_sec": 6.667,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第一章_03_06",
+    "v1_sec": 13.285,
+    "v2_sec": 13.303,
+    "delta": 0.018,
+    "fixed": true
+   },
+   {
+    "key": "第一章_03_08",
+    "v1_sec": 11.975,
+    "v2_sec": 11.999,
+    "delta": 0.024,
+    "fixed": true
+   },
+   {
+    "key": "第一章_03_09",
+    "v1_sec": 6.948,
+    "v2_sec": 6.948,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第一章_03_11",
+    "v1_sec": 17.276,
+    "v2_sec": 17.291,
+    "delta": 0.015,
+    "fixed": true
+   },
+   {
+    "key": "第一章_01_06",
+    "v1_sec": 2.382,
+    "v2_sec": 2.382,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第二章_00_00",
+    "v1_sec": 23.604,
+    "v2_sec": 23.916,
+    "delta": 0.312,
+    "fixed": true
+   },
+   {
+    "key": "第二章_00_02",
+    "v1_sec": 11.673,
+    "v2_sec": 11.78,
+    "delta": 0.107,
+    "fixed": true
+   },
+   {
+    "key": "第二章_00_05",
+    "v1_sec": 11.503,
+    "v2_sec": 11.503,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第二章_00_08",
+    "v1_sec": 22.84,
+    "v2_sec": 22.856,
+    "delta": 0.016,
+    "fixed": true
+   },
+   {
+    "key": "第二章_00_09",
+    "v1_sec": 11.349,
+    "v2_sec": 11.349,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第二章_01_00",
+    "v1_sec": 10.085,
+    "v2_sec": 10.107,
+    "delta": 0.022,
+    "fixed": true
+   },
+   {
+    "key": "第二章_01_01",
+    "v1_sec": 12.694,
+    "v2_sec": 12.694,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第二章_01_02",
+    "v1_sec": 12.922,
+    "v2_sec": 12.941,
+    "delta": 0.019,
+    "fixed": true
+   },
+   {
+    "key": "第二章_01_05",
+    "v1_sec": 9.54,
+    "v2_sec": 9.54,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第三章_00_00",
+    "v1_sec": 30.867,
+    "v2_sec": 30.891,
+    "delta": 0.024,
+    "fixed": true
+   },
+   {
+    "key": "第三章_00_04",
+    "v1_sec": 10.804,
+    "v2_sec": 10.804,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第三章_00_06",
+    "v1_sec": 5.158,
+    "v2_sec": 5.158,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第三章_00_08",
+    "v1_sec": 6.047,
+    "v2_sec": 6.047,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第三章_00_10",
+    "v1_sec": 18.767,
+    "v2_sec": 18.767,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第三章_00_12",
+    "v1_sec": 12.482,
+    "v2_sec": 12.482,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第三章_00_15",
+    "v1_sec": 4.885,
+    "v2_sec": 4.885,
+    "delta": 0.0,
+    "fixed": false
+   },
+   {
+    "key": "第三章_00_07",
+    "v1_sec": 0.859,
+    "v2_sec": 0.859,
+    "delta": 0.0,
+    "fixed": false
+   }
+  ]
+ },
+ "cv3_trial": [
+  {
+   "file": "hot_0.wav",
+   "text": "记忆在我脑中并不连续。它们像被暴雨冲[s][àn]后重新堆积的河砂。",
+   "sec": 11.88,
+   "asr": "记忆在我脑中并不粘系,他们像被暴雨冲上后重新堆积的活杀。",
+   "cer": 0.154,
+   "checks": "散(san4) ✗ CTC 邊際 -8.0"
+  },
+  {
+   "file": "hot_1.wav",
+   "text": "记忆在我脑中并不连续。它们像被暴雨冲[s][àn]后重新堆积的河砂。",
+   "sec": 11.12,
+   "asr": "记忆在我脑中并不连续他们像被暴雨冲上后重新堆积的河沙",
+   "cer": 0.038,
+   "checks": "散(san4) ✓ CTC 邊際 +7.2"
+  },
+  {
+   "file": "hot_2.wav",
+   "text": "记忆在我脑中并不连续。它们像被暴雨冲[s][àn]后重新堆积的河砂。",
+   "sec": 12.64,
+   "asr": "记忆在我脑中并不粘事他们像被暴雨冲散后重新堆积的河沙",
+   "cer": 0.077,
+   "checks": "散(san4) ✓ CTC 邊際 +3.3"
+  },
+  {
+   "file": "hot_3.wav",
+   "text": "记忆在我脑中并不连续。它们像被暴雨冲[s][àn]后重新堆积的河砂。",
+   "sec": 13.8,
+   "asr": "记忆在我脑中并不连续,他们像被暴雨冲散后,重新堆积的河沙。",
+   "cer": 0.0,
+   "checks": "散(san4) ✓ CTC 邊際 +4.0"
+  },
+  {
+   "file": "plain_0.wav",
+   "text": "记忆在我脑中并不连续。它们像被暴雨冲散后重新堆积的河砂。",
+   "sec": 11.36,
+   "asr": "记忆在我脑中并不联系它们像被暴疫冲散后重新堆积的核杀",
+   "cer": 0.077,
+   "checks": "散(san4) ✓ CTC 邊際 +1.9"
+  },
+  {
+   "file": "plain_1.wav",
+   "text": "记忆在我脑中并不连续。它们像被暴雨冲散后重新堆积的河砂。",
+   "sec": 12.6,
+   "asr": "記憶在我腦中並不連續他們像被暴雨沖散後重新堆積的河沙",
+   "cer": 0.0,
+   "checks": "散(san4) ✓ CTC 邊際 +6.2"
+  }
+ ],
+ "summary": {
+  "fixed": 20,
+  "final_all_pass": 19,
+  "v1_all_pass": 0,
+  "clamped": [
+   "第一章_01_05:0",
+   "第二章_00_00:0"
+  ]
+ }
+}

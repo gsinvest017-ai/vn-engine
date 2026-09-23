@@ -1,0 +1,3321 @@
+{
+ "task": "assemble_v2 (M4)",
+ "tool": "tools/video/remaster.py",
+ "measure": "video_out/remaster_v2/assemble_v2/measure.py",
+ "runs": {
+  "anqu_v2_test": {
+   "T02_T11_container": {
+    "v1": {
+     "video_s": 554.833333,
+     "audio_s": 551.351,
+     "av_len_diff_s": 3.482,
+     "video_start": 0.041016,
+     "audio_start": 0.0
+    },
+    "v2": {
+     "video_s": 101.041667,
+     "audio_s": 101.041,
+     "av_len_diff_s": 0.001,
+     "video_start": 0.0,
+     "audio_start": 0.0,
+     "frames": 2425,
+     "planned_frames": 2425
+    }
+   },
+   "T01_audio_boundaries": {
+    "in_shot_boundaries": 8,
+    "v1_ambient_boundaries_with_gap": 52,
+    "v1_ambient_drift_end_s": {
+     "47s": 0.09,
+     "178s": 0.22,
+     "312s": 0.56,
+     "451s": 0.85,
+     "545s": 1.056
+    },
+    "v2_ambient_boundaries_with_gap": 0,
+    "v2_ambient_gap_ms_max": 0,
+    "final_mix_boundaries_dip_ms>0": {
+     "v1": 2,
+     "v2": 1
+    },
+    "final_mix_dip_ms_total": {
+     "v1": 70,
+     "v2": 45
+    },
+    "v2_encode_lag_ms": {
+     "5.0s": 0.0,
+     "50.5s": 0.0,
+     "96.0s": 0.0
+    },
+    "v2_mix_wav_vs_video": {
+     "mix_wav_s": 101.041667,
+     "video_s": 101.04166666666667
+    }
+   },
+   "T10_shot_fade_alignment_v2": [
+    {
+     "k": 5,
+     "video_darkest_s": 47.167,
+     "ambient_min_s": 47.24,
+     "diff_s": 0.073
+    }
+   ],
+   "T03_continuation": [
+    {
+     "k": 1,
+     "t": 10.917,
+     "v1": {
+      "max_frame_dY": 0.55,
+      "max_mad": 21.29,
+      "min_ssim": 0.3504
+     },
+     "v2": {
+      "max_frame_dY": 1.0,
+      "max_mad": 4.35,
+      "min_ssim": 0.8822
+     }
+    },
+    {
+     "k": 2,
+     "t": 21.875,
+     "v1": {
+      "max_frame_dY": 1.18,
+      "max_mad": 25.6,
+      "min_ssim": 0.354
+     },
+     "v2": {
+      "max_frame_dY": 1.49,
+      "max_mad": 7.44,
+      "min_ssim": 0.7388
+     }
+    }
+   ],
+   "T05_boundary_luma_jump_cut": {
+    "v1": {
+     "max_frame_dY": {
+      "median": 10.61,
+      "max": 32.1
+     },
+     "max_mad": {
+      "median": 30.14,
+      "max": 42.62
+     },
+     "min_ssim": {
+      "median": 0.29,
+      "max": 0.31
+     },
+     "n_max_frame_dY>15": 1,
+     "n_max_mad>20": 6
+    },
+    "v2": {
+     "max_frame_dY": {
+      "median": 1.25,
+      "max": 8.98
+     },
+     "max_mad": {
+      "median": 4.29,
+      "max": 10.28
+     },
+     "min_ssim": {
+      "median": 0.86,
+      "max": 0.95
+     },
+     "n_max_frame_dY>15": 0,
+     "n_max_mad>20": 0
+    }
+   },
+   "T04_slowmo": {
+    "v1": {
+     "segments": 8,
+     "sharp_mod5_median": 0.095,
+     "sharp_mod5_max": 0.217,
+     "segments_with_tail_dup": 8
+    },
+    "v2": {
+     "segments": 8,
+     "sharp_mod5_median": 0.011,
+     "sharp_mod5_max": 0.019,
+     "segments_with_tail_dup": 1
+    }
+   },
+   "T06_internal_scene_cuts": {
+    "v1": [
+     75.29
+    ],
+    "v2": []
+   },
+   "T07_freeze": {
+    "v1": [],
+    "v2": []
+   },
+   "T07_longest_still_per_seg_max_s": {
+    "v1": 3.04,
+    "v2": 0.08
+   },
+   "T08_black_non_fade": {
+    "v1": [],
+    "v2": []
+   },
+   "T08_black_total_s": {
+    "v1": 0.83,
+    "v2": 0.79
+   },
+   "T09_max_boundary_flash": {
+    "v1": {
+     "flash_Y": 0.65,
+     "k": 4
+    },
+    "v2": {
+     "flash_Y": -0.08,
+     "k": 8
+    }
+   },
+   "loudness": {
+    "v1": {
+     "I": -17.1,
+     "LRA": 2.9,
+     "TP": -3.2
+    },
+    "v2": {
+     "I": -17.0,
+     "LRA": 2.2,
+     "TP": -3.3
+    }
+   },
+   "assembly": {
+    "timing_s": {
+     "total": 82.4,
+     "video": 49.2,
+     "final_encode": 20.9
+    },
+    "pieces": 11,
+    "audio_mix": {
+     "narr_gain_db": -2.782965899078434,
+     "amb_gain_db": -6.890659537197632,
+     "bgm_gain_db": 0.9999999994924522,
+     "pre_lufs": -18.067798821672863,
+     "makeup_db": 1.0677988216728629,
+     "lufs": -16.999999999999726,
+     "true_peak_dbtp": -3.3260854516582454,
+     "narr_lufs_in_mix": -16.93220117832683
+    },
+    "bgm": {
+     "seed": 7,
+     "max_silence": 10.0,
+     "title_vel3": 0.4
+    },
+    "clips_fixed_used": [
+     "第一章_01_3_294f_t"
+    ],
+    "decisions": [
+     {
+      "seg": 0,
+      "tag": "第一章_00_0_226f",
+      "src_frames": [
+       0,
+       226
+      ],
+      "out_frames": 262,
+      "xfade_l": 0,
+      "xfade_r": 0,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "anchor-end"
+      ]
+     },
+     {
+      "seg": 1,
+      "tag": "第一章_00_1_226f",
+      "src_frames": [
+       1,
+       226
+      ],
+      "out_frames": 263,
+      "xfade_l": 0,
+      "xfade_r": 0,
+      "gamma": 0.87,
+      "sat": 1.02,
+      "zoom": false,
+      "notes": [
+       "drop-dup-first",
+       "anchor-end",
+       "grade-ramp-from(1.00,1.00)"
+      ]
+     },
+     {
+      "seg": 2,
+      "tag": "第一章_00_2_226f",
+      "src_frames": [
+       1,
+       226
+      ],
+      "out_frames": 269,
+      "xfade_l": 0,
+      "xfade_r": 12,
+      "gamma": 0.93,
+      "sat": 1.2,
+      "zoom": false,
+      "notes": [
+       "drop-dup-first",
+       "grade-ramp-from(0.87,1.02)"
+      ]
+     },
+     {
+      "seg": 3,
+      "tag": "第一章_00_3_243f_t",
+      "src_frames": [
+       60,
+       243
+      ],
+      "out_frames": 186,
+      "xfade_l": 12,
+      "xfade_r": 14,
+      "gamma": 1.14,
+      "sat": 0.87,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 4,
+      "tag": "第一章_00_4_243f_t",
+      "src_frames": [
+       60,
+       240
+      ],
+      "out_frames": 180,
+      "xfade_l": 14,
+      "xfade_r": 0,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 5,
+      "tag": "第一章_01_0_243f",
+      "src_frames": [
+       0,
+       243
+      ],
+      "out_frames": 300,
+      "xfade_l": 0,
+      "xfade_r": 14,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=12,x1.43)"
+      ]
+     },
+     {
+      "seg": 6,
+      "tag": "第一章_01_1_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 306,
+      "xfade_l": 14,
+      "xfade_r": 14,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=18,x1.28)"
+      ]
+     },
+     {
+      "seg": 7,
+      "tag": "第一章_01_2_294f_t",
+      "src_frames": [
+       60,
+       128
+      ],
+      "out_frames": 92,
+      "xfade_l": 14,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": true,
+      "notes": [
+       "inner-cut@128:xfade",
+       "still→push-in"
+      ]
+     },
+     {
+      "seg": 7,
+      "tag": "第一章_01_2_294f_t",
+      "src_frames": [
+       128,
+       294
+      ],
+      "out_frames": 223,
+      "xfade_l": 10,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@128:xfade"
+      ]
+     },
+     {
+      "seg": 8,
+      "tag": "第一章_01_3_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 304,
+      "xfade_l": 10,
+      "xfade_r": 12,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 9,
+      "tag": "第一章_01_4_294f_t",
+      "src_frames": [
+       60,
+       186
+      ],
+      "out_frames": 126,
+      "xfade_l": 12,
+      "xfade_r": 0,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": true,
+      "notes": [
+       "dark-lift(minY=38,x1.01)",
+       "still→push-in"
+      ]
+     }
+    ]
+   },
+   "contact": [
+    "contact\\anqu_v2_test_k01.png",
+    "contact\\anqu_v2_test_k02.png",
+    "contact\\anqu_v2_test_k03.png",
+    "contact\\anqu_v2_test_k06.png",
+    "contact\\anqu_v2_test_k07.png",
+    "contact\\anqu_v2_test_k08.png"
+   ],
+   "boundaries": [
+    {
+     "k": 1,
+     "type": "cont",
+     "t": 10.917,
+     "prev": "第一章_00_0_226f",
+     "next": "第一章_00_1_226f",
+     "v1": {
+      "dY": 0.9,
+      "max_frame_dY": 0.55,
+      "max_mad": 21.29,
+      "min_ssim": 0.3504,
+      "cut_mad": 21.29,
+      "flash": -0.39,
+      "dropout_ms_final": 30
+     },
+     "v2": {
+      "dY": -0.79,
+      "max_frame_dY": 1.0,
+      "max_mad": 4.35,
+      "min_ssim": 0.8822,
+      "cut_mad": 4.35,
+      "flash": -0.51,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 2,
+     "type": "cont",
+     "t": 21.875,
+     "prev": "第一章_00_1_226f",
+     "next": "第一章_00_2_226f",
+     "v1": {
+      "dY": -0.83,
+      "max_frame_dY": 1.18,
+      "max_mad": 25.6,
+      "min_ssim": 0.354,
+      "cut_mad": 25.6,
+      "flash": -0.1,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -1.25,
+      "max_frame_dY": 1.49,
+      "max_mad": 7.44,
+      "min_ssim": 0.7388,
+      "cut_mad": 3.51,
+      "flash": -0.38,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 3,
+     "type": "cut",
+     "t": 32.833,
+     "prev": "第一章_00_2_226f",
+     "next": "第一章_00_3_243f_t",
+     "v1": {
+      "dY": -11.73,
+      "max_frame_dY": 11.79,
+      "max_mad": 30.16,
+      "min_ssim": 0.3032,
+      "cut_mad": 30.16,
+      "flash": -11.62,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -1.66,
+      "max_frame_dY": 1.11,
+      "max_mad": 4.98,
+      "min_ssim": 0.823,
+      "cut_mad": 4.23,
+      "flash": -2.16,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 4,
+     "type": "cut",
+     "t": 40.042,
+     "prev": "第一章_00_3_243f_t",
+     "next": "第一章_00_4_243f_t",
+     "v1": {
+      "dY": 12.21,
+      "max_frame_dY": 12.18,
+      "max_mad": 29.73,
+      "min_ssim": 0.2623,
+      "cut_mad": 29.73,
+      "flash": 0.65,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 1.31,
+      "max_frame_dY": 1.17,
+      "max_mad": 10.28,
+      "min_ssim": 0.5429,
+      "cut_mad": 5.93,
+      "flash": -0.1,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 5,
+     "type": "shot",
+     "t": 47.25,
+     "prev": "第一章_00_4_243f_t",
+     "next": "第一章_01_0_243f",
+     "v1": {
+      "dY": -0.14,
+      "max_frame_dY": 2.6,
+      "max_mad": 9.39,
+      "min_ssim": 0.6021,
+      "cut_mad": 0.0,
+      "flash": -4.18,
+      "dropout_ms_final": 80
+     },
+     "v2": {
+      "dY": 0.02,
+      "max_frame_dY": 2.63,
+      "max_mad": 8.36,
+      "min_ssim": 0.6421,
+      "cut_mad": 0.0,
+      "flash": -6.62,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 65
+     }
+    },
+    {
+     "k": 6,
+     "type": "cut",
+     "t": 59.458,
+     "prev": "第一章_01_0_243f",
+     "next": "第一章_01_1_294f_t",
+     "v1": {
+      "dY": -32.31,
+      "max_frame_dY": 32.1,
+      "max_mad": 42.62,
+      "min_ssim": 0.2874,
+      "cut_mad": 42.62,
+      "flash": -19.8,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -2.82,
+      "max_frame_dY": 8.98,
+      "max_mad": 10.03,
+      "min_ssim": 0.7756,
+      "cut_mad": 3.09,
+      "flash": -0.46,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 7,
+     "type": "cut",
+     "t": 71.625,
+     "prev": "第一章_01_1_294f_t",
+     "next": "第一章_01_2_294f_t",
+     "v1": {
+      "dY": -4.33,
+      "max_frame_dY": 4.34,
+      "max_mad": 42.23,
+      "min_ssim": 0.228,
+      "cut_mad": 42.23,
+      "flash": -4.34,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -1.23,
+      "max_frame_dY": 1.17,
+      "max_mad": 3.38,
+      "min_ssim": 0.9396,
+      "cut_mad": 3.26,
+      "flash": -0.32,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 8,
+     "type": "cut",
+     "t": 83.833,
+     "prev": "第一章_01_2_294f_t",
+     "next": "第一章_01_3_294f_t",
+     "v1": {
+      "dY": 6.33,
+      "max_frame_dY": 6.27,
+      "max_mad": 30.13,
+      "min_ssim": 0.3096,
+      "cut_mad": 30.13,
+      "flash": -0.05,
+      "dropout_ms_final": 40
+     },
+     "v2": {
+      "dY": 1.75,
+      "max_frame_dY": 1.49,
+      "max_mad": 3.6,
+      "min_ssim": 0.8967,
+      "cut_mad": 3.6,
+      "flash": -0.08,
+      "dropout_ms_final": 45,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 9,
+     "type": "cut",
+     "t": 96.042,
+     "prev": "第一章_01_3_294f_t",
+     "next": "第一章_01_4_294f_t",
+     "v1": {
+      "dY": -9.41,
+      "max_frame_dY": 9.42,
+      "max_mad": 27.24,
+      "min_ssim": 0.2929,
+      "cut_mad": 27.24,
+      "flash": -9.33,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -2.55,
+      "max_frame_dY": 1.33,
+      "max_mad": 2.81,
+      "min_ssim": 0.9477,
+      "cut_mad": 2.58,
+      "flash": -3.47,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    }
+   ]
+  },
+  "anqu_v2_full": {
+   "T02_T11_container": {
+    "v1": {
+     "video_s": 554.833333,
+     "audio_s": 551.351,
+     "av_len_diff_s": 3.482,
+     "video_start": 0.041016,
+     "audio_start": 0.0
+    },
+    "v2": {
+     "video_s": 554.708333,
+     "audio_s": 554.708,
+     "av_len_diff_s": 0.0,
+     "video_start": 0.0,
+     "audio_start": 0.0,
+     "frames": 13313,
+     "planned_frames": 13313
+    }
+   },
+   "T01_audio_boundaries": {
+    "in_shot_boundaries": 46,
+    "v1_ambient_boundaries_with_gap": 52,
+    "v1_ambient_drift_end_s": {
+     "47s": 0.09,
+     "178s": 0.22,
+     "312s": 0.56,
+     "451s": 0.85,
+     "545s": 1.056
+    },
+    "v2_ambient_boundaries_with_gap": 0,
+    "v2_ambient_gap_ms_max": 0,
+    "final_mix_boundaries_dip_ms>0": {
+     "v1": 4,
+     "v2": 7
+    },
+    "final_mix_dip_ms_total": {
+     "v1": 95,
+     "v2": 430
+    },
+    "v2_encode_lag_ms": {
+     "5.0s": 0.0,
+     "277.4s": 0.0,
+     "549.7s": 0.0
+    },
+    "v2_mix_wav_vs_video": {
+     "mix_wav_s": 554.708333,
+     "video_s": 554.7083333333334
+    }
+   },
+   "T10_shot_fade_alignment_v2": [
+    {
+     "k": 5,
+     "video_darkest_s": 47.167,
+     "ambient_min_s": 47.24,
+     "diff_s": 0.073
+    },
+    {
+     "k": 17,
+     "video_darkest_s": 177.75,
+     "ambient_min_s": 177.78,
+     "diff_s": 0.03
+    },
+    {
+     "k": 19,
+     "video_darkest_s": 189.042,
+     "ambient_min_s": 189.12,
+     "diff_s": 0.078
+    },
+    {
+     "k": 30,
+     "video_darkest_s": 312.083,
+     "ambient_min_s": 312.1,
+     "diff_s": 0.017
+    },
+    {
+     "k": 39,
+     "video_darkest_s": 400.375,
+     "ambient_min_s": 400.44,
+     "diff_s": 0.065
+    },
+    {
+     "k": 44,
+     "video_darkest_s": 450.708,
+     "ambient_min_s": 450.8,
+     "diff_s": 0.092
+    }
+   ],
+   "T03_continuation": [
+    {
+     "k": 1,
+     "t": 10.917,
+     "v1": {
+      "max_frame_dY": 0.55,
+      "max_mad": 21.29,
+      "min_ssim": 0.3504
+     },
+     "v2": {
+      "max_frame_dY": 1.0,
+      "max_mad": 4.35,
+      "min_ssim": 0.8822
+     }
+    },
+    {
+     "k": 2,
+     "t": 21.875,
+     "v1": {
+      "max_frame_dY": 1.18,
+      "max_mad": 25.6,
+      "min_ssim": 0.354
+     },
+     "v2": {
+      "max_frame_dY": 1.49,
+      "max_mad": 7.44,
+      "min_ssim": 0.7388
+     }
+    },
+    {
+     "k": 18,
+     "t": 184.125,
+     "v1": {
+      "max_frame_dY": 5.0,
+      "max_mad": 8.89,
+      "min_ssim": 0.664
+     },
+     "v2": {
+      "max_frame_dY": 1.52,
+      "max_mad": 9.45,
+      "min_ssim": 0.6496
+     }
+    }
+   ],
+   "T05_boundary_luma_jump_cut": {
+    "v1": {
+     "max_frame_dY": {
+      "median": 10.8,
+      "max": 41.59
+     },
+     "max_mad": {
+      "median": 30.16,
+      "max": 59.83
+     },
+     "min_ssim": {
+      "median": 0.29,
+      "max": 0.54
+     },
+     "n_max_frame_dY>15": 12,
+     "n_max_mad>20": 35
+    },
+    "v2": {
+     "max_frame_dY": {
+      "median": 1.5,
+      "max": 8.98
+     },
+     "max_mad": {
+      "median": 3.98,
+      "max": 10.28
+     },
+     "min_ssim": {
+      "median": 0.89,
+      "max": 0.97
+     },
+     "n_max_frame_dY>15": 0,
+     "n_max_mad>20": 0
+    }
+   },
+   "T04_slowmo": {
+    "v1": {
+     "segments": 34,
+     "sharp_mod5_median": 0.122,
+     "sharp_mod5_max": 0.544,
+     "segments_with_tail_dup": 34
+    },
+    "v2": {
+     "segments": 34,
+     "sharp_mod5_median": 0.011,
+     "sharp_mod5_max": 0.044,
+     "segments_with_tail_dup": 2
+    }
+   },
+   "T06_internal_scene_cuts": {
+    "v1": [
+     75.29,
+     103.0,
+     219.12,
+     358.71
+    ],
+    "v2": []
+   },
+   "T07_freeze": {
+    "v1": [],
+    "v2": []
+   },
+   "T07_longest_still_per_seg_max_s": {
+    "v1": 3.04,
+    "v2": 0.96
+   },
+   "T08_black_non_fade": {
+    "v1": [
+     [
+      200.08,
+      201.42
+     ],
+     [
+      408.04,
+      408.33
+     ],
+     [
+      471.5,
+      475.33
+     ],
+     [
+      475.62,
+      476.71
+     ],
+     [
+      477.04,
+      477.83
+     ],
+     [
+      485.92,
+      487.5
+     ]
+    ],
+    "v2": [
+     [
+      407.54,
+      407.83
+     ]
+    ]
+   },
+   "T08_black_total_s": {
+    "v1": 11.71,
+    "v2": 3.21
+   },
+   "T09_max_boundary_flash": {
+    "v1": {
+     "flash_Y": 25.81,
+     "k": 46
+    },
+    "v2": {
+     "flash_Y": 0.16,
+     "k": 21
+    }
+   },
+   "T09_k46": {
+    "v1": {
+     "flash": 25.81,
+     "max_frame_dY": 25.49,
+     "dY": 25.65
+    },
+    "v2": {
+     "flash": -0.89,
+     "max_frame_dY": 0.75,
+     "dY": -0.17
+    }
+   },
+   "loudness": {
+    "v1": {
+     "I": -17.1,
+     "LRA": 2.9,
+     "TP": -3.2
+    },
+    "v2": {
+     "I": -17.0,
+     "LRA": 2.7,
+     "TP": -2.7
+    }
+   },
+   "assembly": {
+    "timing_s": {
+     "total": 423.0,
+     "video": 247.8,
+     "final_encode": 110.2
+    },
+    "pieces": 61,
+    "audio_mix": {
+     "narr_gain_db": -2.8548982576884434,
+     "amb_gain_db": -9.093422857296407,
+     "bgm_gain_db": 0.9929237522038967,
+     "pre_lufs": -18.10937080225672,
+     "makeup_db": 1.10937080225672,
+     "lufs": -16.999999999999233,
+     "true_peak_dbtp": -2.677069894223805,
+     "narr_lufs_in_mix": -16.890629197743312
+    },
+    "bgm": {
+     "seed": 7,
+     "max_silence": 10.0,
+     "title_vel3": 0.4
+    },
+    "clips_fixed_used": [
+     "第一章_01_3_294f_t",
+     "第一章_02_0_192f",
+     "第一章_03_2_294f_t",
+     "第三章_00_5_294f_t"
+    ],
+    "decisions": [
+     {
+      "seg": 0,
+      "tag": "第一章_00_0_226f",
+      "src_frames": [
+       0,
+       226
+      ],
+      "out_frames": 262,
+      "xfade_l": 0,
+      "xfade_r": 0,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "anchor-end"
+      ]
+     },
+     {
+      "seg": 1,
+      "tag": "第一章_00_1_226f",
+      "src_frames": [
+       1,
+       226
+      ],
+      "out_frames": 263,
+      "xfade_l": 0,
+      "xfade_r": 0,
+      "gamma": 0.87,
+      "sat": 1.02,
+      "zoom": false,
+      "notes": [
+       "drop-dup-first",
+       "anchor-end",
+       "grade-ramp-from(1.00,1.00)"
+      ]
+     },
+     {
+      "seg": 2,
+      "tag": "第一章_00_2_226f",
+      "src_frames": [
+       1,
+       226
+      ],
+      "out_frames": 269,
+      "xfade_l": 0,
+      "xfade_r": 12,
+      "gamma": 0.93,
+      "sat": 1.2,
+      "zoom": false,
+      "notes": [
+       "drop-dup-first",
+       "grade-ramp-from(0.87,1.02)"
+      ]
+     },
+     {
+      "seg": 3,
+      "tag": "第一章_00_3_243f_t",
+      "src_frames": [
+       60,
+       243
+      ],
+      "out_frames": 186,
+      "xfade_l": 12,
+      "xfade_r": 14,
+      "gamma": 1.14,
+      "sat": 0.87,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 4,
+      "tag": "第一章_00_4_243f_t",
+      "src_frames": [
+       60,
+       240
+      ],
+      "out_frames": 180,
+      "xfade_l": 14,
+      "xfade_r": 0,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 5,
+      "tag": "第一章_01_0_243f",
+      "src_frames": [
+       0,
+       243
+      ],
+      "out_frames": 300,
+      "xfade_l": 0,
+      "xfade_r": 14,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=12,x1.43)"
+      ]
+     },
+     {
+      "seg": 6,
+      "tag": "第一章_01_1_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 306,
+      "xfade_l": 14,
+      "xfade_r": 14,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=18,x1.28)"
+      ]
+     },
+     {
+      "seg": 7,
+      "tag": "第一章_01_2_294f_t",
+      "src_frames": [
+       60,
+       128
+      ],
+      "out_frames": 92,
+      "xfade_l": 14,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": true,
+      "notes": [
+       "inner-cut@128:xfade",
+       "still→push-in"
+      ]
+     },
+     {
+      "seg": 7,
+      "tag": "第一章_01_2_294f_t",
+      "src_frames": [
+       128,
+       294
+      ],
+      "out_frames": 223,
+      "xfade_l": 10,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@128:xfade"
+      ]
+     },
+     {
+      "seg": 8,
+      "tag": "第一章_01_3_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 304,
+      "xfade_l": 10,
+      "xfade_r": 12,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 9,
+      "tag": "第一章_01_4_294f_t",
+      "src_frames": [
+       60,
+       191
+      ],
+      "out_frames": 176,
+      "xfade_l": 12,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": true,
+      "notes": [
+       "inner-cut@191:xfade",
+       "dark-lift(minY=38,x1.01)",
+       "still→push-in"
+      ]
+     },
+     {
+      "seg": 9,
+      "tag": "第一章_01_4_294f_t",
+      "src_frames": [
+       191,
+       294
+      ],
+      "out_frames": 139,
+      "xfade_l": 10,
+      "xfade_r": 12,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@191:xfade"
+      ]
+     },
+     {
+      "seg": 10,
+      "tag": "第一章_01_5_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 305,
+      "xfade_l": 12,
+      "xfade_r": 12,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 11,
+      "tag": "第一章_01_6_294f_t",
+      "src_frames": [
+       60,
+       157
+      ],
+      "out_frames": 130,
+      "xfade_l": 12,
+      "xfade_r": 10,
+      "gamma": 1.15,
+      "sat": 0.9,
+      "zoom": false,
+      "notes": [
+       "inner-cut@157:xfade",
+       "dark-lift(minY=36,x1.04)"
+      ]
+     },
+     {
+      "seg": 11,
+      "tag": "第一章_01_6_294f_t",
+      "src_frames": [
+       157,
+       294
+      ],
+      "out_frames": 184,
+      "xfade_l": 10,
+      "xfade_r": 12,
+      "gamma": 1.15,
+      "sat": 0.9,
+      "zoom": false,
+      "notes": [
+       "inner-cut@157:xfade",
+       "dark-lift(minY=36,x1.04)"
+      ]
+     },
+     {
+      "seg": 12,
+      "tag": "第一章_01_7_277f_t",
+      "src_frames": [
+       60,
+       277
+      ],
+      "out_frames": 228,
+      "xfade_l": 12,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 13,
+      "tag": "第一章_01_8_277f_t",
+      "src_frames": [
+       60,
+       277
+      ],
+      "out_frames": 227,
+      "xfade_l": 10,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 14,
+      "tag": "第一章_01_9_277f_t",
+      "src_frames": [
+       60,
+       277
+      ],
+      "out_frames": 228,
+      "xfade_l": 10,
+      "xfade_r": 14,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=29,x1.12)"
+      ]
+     },
+     {
+      "seg": 15,
+      "tag": "第一章_01_10_277f_t",
+      "src_frames": [
+       60,
+       277
+      ],
+      "out_frames": 230,
+      "xfade_l": 14,
+      "xfade_r": 12,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 16,
+      "tag": "第一章_01_11_277f_t",
+      "src_frames": [
+       60,
+       277
+      ],
+      "out_frames": 223,
+      "xfade_l": 12,
+      "xfade_r": 0,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 17,
+      "tag": "第一章_02_0_192f",
+      "src_frames": [
+       40,
+       192
+      ],
+      "out_frames": 152,
+      "xfade_l": 0,
+      "xfade_r": 0,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "anchor-end"
+      ]
+     },
+     {
+      "seg": 18,
+      "tag": "第一章_02_1_124f",
+      "src_frames": [
+       1,
+       121
+      ],
+      "out_frames": 120,
+      "xfade_l": 0,
+      "xfade_r": 0,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "drop-dup-first"
+      ]
+     },
+     {
+      "seg": 19,
+      "tag": "第一章_03_0_243f_c",
+      "src_frames": [
+       0,
+       243
+      ],
+      "out_frames": 297,
+      "xfade_l": 0,
+      "xfade_r": 14,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=13,x1.39)"
+      ]
+     },
+     {
+      "seg": 20,
+      "tag": "第一章_03_1_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 302,
+      "xfade_l": 14,
+      "xfade_r": 10,
+      "gamma": 1.13,
+      "sat": 0.97,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=33,x1.07)"
+      ]
+     },
+     {
+      "seg": 21,
+      "tag": "第一章_03_2_294f_t",
+      "src_frames": [
+       60,
+       168
+      ],
+      "out_frames": 143,
+      "xfade_l": 10,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@168:xfade"
+      ]
+     },
+     {
+      "seg": 21,
+      "tag": "第一章_03_2_294f_t",
+      "src_frames": [
+       168,
+       294
+      ],
+      "out_frames": 167,
+      "xfade_l": 10,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@168:xfade"
+      ]
+     },
+     {
+      "seg": 22,
+      "tag": "第一章_03_3_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 302,
+      "xfade_l": 10,
+      "xfade_r": 14,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 23,
+      "tag": "第一章_03_4_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 303,
+      "xfade_l": 14,
+      "xfade_r": 12,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 24,
+      "tag": "第一章_03_5_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 303,
+      "xfade_l": 12,
+      "xfade_r": 12,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 25,
+      "tag": "第一章_03_6_294f_t",
+      "src_frames": [
+       60,
+       97
+      ],
+      "out_frames": 49,
+      "xfade_l": 12,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@97:xfade",
+       "dark-lift(minY=33,x1.07)"
+      ]
+     },
+     {
+      "seg": 25,
+      "tag": "第一章_03_6_294f_t",
+      "src_frames": [
+       97,
+       294
+      ],
+      "out_frames": 263,
+      "xfade_l": 10,
+      "xfade_r": 12,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@97:xfade",
+       "dark-lift(minY=27,x1.15)"
+      ]
+     },
+     {
+      "seg": 26,
+      "tag": "第一章_03_7_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 241,
+      "xfade_l": 12,
+      "xfade_r": 10,
+      "gamma": 1.19,
+      "sat": 1.3,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=28,x1.13)"
+      ]
+     },
+     {
+      "seg": 27,
+      "tag": "第一章_03_8_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 241,
+      "xfade_l": 10,
+      "xfade_r": 12,
+      "gamma": 1.17,
+      "sat": 0.89,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=26,x1.16)"
+      ]
+     },
+     {
+      "seg": 28,
+      "tag": "第一章_03_9_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 242,
+      "xfade_l": 12,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 29,
+      "tag": "第一章_03_10_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 235,
+      "xfade_l": 10,
+      "xfade_r": 0,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 30,
+      "tag": "第二章_00_0_209f_c",
+      "src_frames": [
+       0,
+       209
+      ],
+      "out_frames": 261,
+      "xfade_l": 0,
+      "xfade_r": 12,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 31,
+      "tag": "第二章_00_1_277f_t",
+      "src_frames": [
+       60,
+       277
+      ],
+      "out_frames": 267,
+      "xfade_l": 12,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 32,
+      "tag": "第二章_00_2_277f_t",
+      "src_frames": [
+       60,
+       277
+      ],
+      "out_frames": 266,
+      "xfade_l": 10,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 33,
+      "tag": "第二章_00_3_277f_t",
+      "src_frames": [
+       60,
+       277
+      ],
+      "out_frames": 267,
+      "xfade_l": 10,
+      "xfade_r": 14,
+      "gamma": 0.91,
+      "sat": 0.98,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 34,
+      "tag": "第二章_00_4_277f_t",
+      "src_frames": [
+       60,
+       132
+      ],
+      "out_frames": 93,
+      "xfade_l": 14,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@132:xfade"
+      ]
+     },
+     {
+      "seg": 34,
+      "tag": "第二章_00_4_277f_t",
+      "src_frames": [
+       132,
+       277
+      ],
+      "out_frames": 186,
+      "xfade_l": 10,
+      "xfade_r": 12,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@132:xfade"
+      ]
+     },
+     {
+      "seg": 35,
+      "tag": "第二章_00_5_277f_t",
+      "src_frames": [
+       60,
+       277
+      ],
+      "out_frames": 268,
+      "xfade_l": 12,
+      "xfade_r": 14,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 36,
+      "tag": "第二章_00_6_260f_t",
+      "src_frames": [
+       60,
+       260
+      ],
+      "out_frames": 210,
+      "xfade_l": 14,
+      "xfade_r": 14,
+      "gamma": 0.86,
+      "sat": 0.87,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 37,
+      "tag": "第二章_00_7_260f_t",
+      "src_frames": [
+       60,
+       260
+      ],
+      "out_frames": 208,
+      "xfade_l": 14,
+      "xfade_r": 12,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 38,
+      "tag": "第二章_00_8_260f_t",
+      "src_frames": [
+       60,
+       260
+      ],
+      "out_frames": 202,
+      "xfade_l": 12,
+      "xfade_r": 0,
+      "gamma": 1.06,
+      "sat": 0.82,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=37,x1.03)"
+      ]
+     },
+     {
+      "seg": 39,
+      "tag": "第二章_01_0_209f",
+      "src_frames": [
+       0,
+       209
+      ],
+      "out_frames": 252,
+      "xfade_l": 0,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.25,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=30,x1.11)"
+      ]
+     },
+     {
+      "seg": 40,
+      "tag": "第二章_01_1_260f_t",
+      "src_frames": [
+       60,
+       260
+      ],
+      "out_frames": 258,
+      "xfade_l": 10,
+      "xfade_r": 10,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=39,x1.01)"
+      ]
+     },
+     {
+      "seg": 41,
+      "tag": "第二章_01_2_260f_t",
+      "src_frames": [
+       60,
+       260
+      ],
+      "out_frames": 259,
+      "xfade_l": 10,
+      "xfade_r": 14,
+      "gamma": 0.9,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 42,
+      "tag": "第二章_01_3_260f_t",
+      "src_frames": [
+       60,
+       260
+      ],
+      "out_frames": 262,
+      "xfade_l": 14,
+      "xfade_r": 14,
+      "gamma": 0.87,
+      "sat": 1.13,
+      "zoom": false,
+      "notes": []
+     },
+     {
+      "seg": 43,
+      "tag": "第二章_01_4_294f_t",
+      "src_frames": [
+       60,
+       285
+      ],
+      "out_frames": 225,
+      "xfade_l": 14,
+      "xfade_r": 0,
+      "gamma": 1.0,
+      "sat": 1.0,
+      "zoom": true,
+      "notes": [
+       "dark-lift(minY=35,x1.05)",
+       "still→push-in"
+      ]
+     },
+     {
+      "seg": 44,
+      "tag": "第三章_00_0_243f",
+      "src_frames": [
+       0,
+       243
+      ],
+      "out_frames": 299,
+      "xfade_l": 0,
+      "xfade_r": 14,
+      "gamma": 1.236,
+      "sat": 0.86,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=18,x1.28)"
+      ]
+     },
+     {
+      "seg": 45,
+      "tag": "第三章_00_1_294f_t",
+      "src_frames": [
+       60,
+       104
+      ],
+      "out_frames": 59,
+      "xfade_l": 14,
+      "xfade_r": 10,
+      "gamma": 1.2,
+      "sat": 0.79,
+      "zoom": false,
+      "notes": [
+       "inner-cut@104:xfade",
+       "dark-lift(minY=40,x1.00)"
+      ]
+     },
+     {
+      "seg": 45,
+      "tag": "第三章_00_1_294f_t",
+      "src_frames": [
+       104,
+       294
+      ],
+      "out_frames": 257,
+      "xfade_l": 10,
+      "xfade_r": 14,
+      "gamma": 1.2,
+      "sat": 0.79,
+      "zoom": false,
+      "notes": [
+       "inner-cut@104:xfade",
+       "dark-lift(minY=8,x1.57)"
+      ]
+     },
+     {
+      "seg": 46,
+      "tag": "第三章_00_2_294f_t",
+      "src_frames": [
+       67,
+       294
+      ],
+      "out_frames": 306,
+      "xfade_l": 14,
+      "xfade_r": 14,
+      "gamma": 1.2,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "flash-skip-7",
+       "dark-lift(minY=10,x1.47)"
+      ]
+     },
+     {
+      "seg": 47,
+      "tag": "第三章_00_3_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 306,
+      "xfade_l": 14,
+      "xfade_r": 12,
+      "gamma": 1.2,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=20,x1.25)"
+      ]
+     },
+     {
+      "seg": 48,
+      "tag": "第三章_00_4_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 304,
+      "xfade_l": 12,
+      "xfade_r": 12,
+      "gamma": 1.2,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=32,x1.08)"
+      ]
+     },
+     {
+      "seg": 49,
+      "tag": "第三章_00_5_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 303,
+      "xfade_l": 12,
+      "xfade_r": 10,
+      "gamma": 1.2,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=25,x1.17)"
+      ]
+     },
+     {
+      "seg": 50,
+      "tag": "第三章_00_6_294f_t",
+      "src_frames": [
+       60,
+       294
+      ],
+      "out_frames": 302,
+      "xfade_l": 10,
+      "xfade_r": 10,
+      "gamma": 1.2,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "dark-lift(minY=22,x1.22)"
+      ]
+     },
+     {
+      "seg": 51,
+      "tag": "第三章_00_7_294f_t",
+      "src_frames": [
+       82,
+       294
+      ],
+      "out_frames": 235,
+      "xfade_l": 10,
+      "xfade_r": 10,
+      "gamma": 1.2,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@82:drop-head",
+       "dark-lift(minY=22,x1.22)"
+      ]
+     },
+     {
+      "seg": 52,
+      "tag": "第三章_00_8_294f_t",
+      "src_frames": [
+       60,
+       111
+      ],
+      "out_frames": 53,
+      "xfade_l": 10,
+      "xfade_r": 10,
+      "gamma": 1.2,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@111:xfade",
+       "dark-lift(minY=24,x1.19)"
+      ]
+     },
+     {
+      "seg": 52,
+      "tag": "第三章_00_8_294f_t",
+      "src_frames": [
+       111,
+       289
+      ],
+      "out_frames": 186,
+      "xfade_l": 10,
+      "xfade_r": 0,
+      "gamma": 1.2,
+      "sat": 1.0,
+      "zoom": false,
+      "notes": [
+       "inner-cut@111:xfade",
+       "dark-lift(minY=22,x1.22)"
+      ]
+     }
+    ]
+   },
+   "contact": [
+    "contact\\anqu_v2_full_k01.png",
+    "contact\\anqu_v2_full_k06.png",
+    "contact\\anqu_v2_full_k18.png",
+    "contact\\anqu_v2_full_k20.png",
+    "contact\\anqu_v2_full_k40.png",
+    "contact\\anqu_v2_full_k42.png",
+    "contact\\anqu_v2_full_k43.png",
+    "contact\\anqu_v2_full_k45.png",
+    "contact\\anqu_v2_full_k46.png",
+    "contact\\anqu_v2_full_k47.png"
+   ],
+   "boundaries": [
+    {
+     "k": 1,
+     "type": "cont",
+     "t": 10.917,
+     "prev": "第一章_00_0_226f",
+     "next": "第一章_00_1_226f",
+     "v1": {
+      "dY": 0.9,
+      "max_frame_dY": 0.55,
+      "max_mad": 21.29,
+      "min_ssim": 0.3504,
+      "cut_mad": 21.29,
+      "flash": -0.39,
+      "dropout_ms_final": 30
+     },
+     "v2": {
+      "dY": -0.79,
+      "max_frame_dY": 1.0,
+      "max_mad": 4.35,
+      "min_ssim": 0.8822,
+      "cut_mad": 4.35,
+      "flash": -0.51,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 2,
+     "type": "cont",
+     "t": 21.875,
+     "prev": "第一章_00_1_226f",
+     "next": "第一章_00_2_226f",
+     "v1": {
+      "dY": -0.83,
+      "max_frame_dY": 1.18,
+      "max_mad": 25.6,
+      "min_ssim": 0.354,
+      "cut_mad": 25.6,
+      "flash": -0.1,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -1.25,
+      "max_frame_dY": 1.49,
+      "max_mad": 7.44,
+      "min_ssim": 0.7388,
+      "cut_mad": 3.51,
+      "flash": -0.38,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 3,
+     "type": "cut",
+     "t": 32.833,
+     "prev": "第一章_00_2_226f",
+     "next": "第一章_00_3_243f_t",
+     "v1": {
+      "dY": -11.73,
+      "max_frame_dY": 11.79,
+      "max_mad": 30.16,
+      "min_ssim": 0.3032,
+      "cut_mad": 30.16,
+      "flash": -11.62,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -1.66,
+      "max_frame_dY": 1.11,
+      "max_mad": 4.98,
+      "min_ssim": 0.823,
+      "cut_mad": 4.23,
+      "flash": -2.16,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 4,
+     "type": "cut",
+     "t": 40.042,
+     "prev": "第一章_00_3_243f_t",
+     "next": "第一章_00_4_243f_t",
+     "v1": {
+      "dY": 12.21,
+      "max_frame_dY": 12.18,
+      "max_mad": 29.73,
+      "min_ssim": 0.2623,
+      "cut_mad": 29.73,
+      "flash": 0.65,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 1.31,
+      "max_frame_dY": 1.17,
+      "max_mad": 10.28,
+      "min_ssim": 0.5429,
+      "cut_mad": 5.93,
+      "flash": -0.1,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 5,
+     "type": "shot",
+     "t": 47.25,
+     "prev": "第一章_00_4_243f_t",
+     "next": "第一章_01_0_243f",
+     "v1": {
+      "dY": -0.14,
+      "max_frame_dY": 2.6,
+      "max_mad": 9.39,
+      "min_ssim": 0.6021,
+      "cut_mad": 0.0,
+      "flash": -4.18,
+      "dropout_ms_final": 80
+     },
+     "v2": {
+      "dY": 0.02,
+      "max_frame_dY": 2.63,
+      "max_mad": 8.36,
+      "min_ssim": 0.6421,
+      "cut_mad": 0.0,
+      "flash": -6.62,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 65
+     }
+    },
+    {
+     "k": 6,
+     "type": "cut",
+     "t": 59.458,
+     "prev": "第一章_01_0_243f",
+     "next": "第一章_01_1_294f_t",
+     "v1": {
+      "dY": -32.31,
+      "max_frame_dY": 32.1,
+      "max_mad": 42.62,
+      "min_ssim": 0.2874,
+      "cut_mad": 42.62,
+      "flash": -19.8,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -2.82,
+      "max_frame_dY": 8.98,
+      "max_mad": 10.03,
+      "min_ssim": 0.7756,
+      "cut_mad": 3.09,
+      "flash": -0.46,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 7,
+     "type": "cut",
+     "t": 71.625,
+     "prev": "第一章_01_1_294f_t",
+     "next": "第一章_01_2_294f_t",
+     "v1": {
+      "dY": -4.33,
+      "max_frame_dY": 4.34,
+      "max_mad": 42.23,
+      "min_ssim": 0.228,
+      "cut_mad": 42.23,
+      "flash": -4.34,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -1.23,
+      "max_frame_dY": 1.17,
+      "max_mad": 3.38,
+      "min_ssim": 0.9396,
+      "cut_mad": 3.26,
+      "flash": -0.32,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 8,
+     "type": "cut",
+     "t": 83.833,
+     "prev": "第一章_01_2_294f_t",
+     "next": "第一章_01_3_294f_t",
+     "v1": {
+      "dY": 6.33,
+      "max_frame_dY": 6.27,
+      "max_mad": 30.13,
+      "min_ssim": 0.3096,
+      "cut_mad": 30.13,
+      "flash": -0.05,
+      "dropout_ms_final": 40
+     },
+     "v2": {
+      "dY": 1.75,
+      "max_frame_dY": 1.49,
+      "max_mad": 3.6,
+      "min_ssim": 0.8967,
+      "cut_mad": 3.6,
+      "flash": -0.08,
+      "dropout_ms_final": 50,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 9,
+     "type": "cut",
+     "t": 96.042,
+     "prev": "第一章_01_3_294f_t",
+     "next": "第一章_01_4_294f_t",
+     "v1": {
+      "dY": -9.41,
+      "max_frame_dY": 9.42,
+      "max_mad": 27.24,
+      "min_ssim": 0.2929,
+      "cut_mad": 27.24,
+      "flash": -9.33,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -2.47,
+      "max_frame_dY": 1.32,
+      "max_mad": 2.8,
+      "min_ssim": 0.9495,
+      "cut_mad": 2.58,
+      "flash": -3.46,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 10,
+     "type": "cut",
+     "t": 108.25,
+     "prev": "第一章_01_4_294f_t",
+     "next": "第一章_01_5_294f_t",
+     "v1": {
+      "dY": 2.23,
+      "max_frame_dY": 1.93,
+      "max_mad": 46.62,
+      "min_ssim": 0.2075,
+      "cut_mad": 46.62,
+      "flash": -0.45,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 1.4,
+      "max_frame_dY": 1.09,
+      "max_mad": 6.54,
+      "min_ssim": 0.8541,
+      "cut_mad": 4.9,
+      "flash": 0.06,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 11,
+     "type": "cut",
+     "t": 120.458,
+     "prev": "第一章_01_5_294f_t",
+     "next": "第一章_01_6_294f_t",
+     "v1": {
+      "dY": 2.44,
+      "max_frame_dY": 2.37,
+      "max_mad": 29.46,
+      "min_ssim": 0.5092,
+      "cut_mad": 29.46,
+      "flash": 0.03,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 1.63,
+      "max_frame_dY": 1.03,
+      "max_mad": 3.01,
+      "min_ssim": 0.9378,
+      "cut_mad": 2.99,
+      "flash": 0.03,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 12,
+     "type": "cut",
+     "t": 132.625,
+     "prev": "第一章_01_6_294f_t",
+     "next": "第一章_01_7_277f_t",
+     "v1": {
+      "dY": 10.39,
+      "max_frame_dY": 10.28,
+      "max_mad": 28.06,
+      "min_ssim": 0.3717,
+      "cut_mad": 28.06,
+      "flash": -0.25,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.73,
+      "max_frame_dY": 0.97,
+      "max_mad": 3.62,
+      "min_ssim": 0.9328,
+      "cut_mad": 2.95,
+      "flash": -0.31,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 13,
+     "type": "cut",
+     "t": 141.667,
+     "prev": "第一章_01_7_277f_t",
+     "next": "第一章_01_8_277f_t",
+     "v1": {
+      "dY": 13.31,
+      "max_frame_dY": 13.15,
+      "max_mad": 34.78,
+      "min_ssim": 0.2506,
+      "cut_mad": 34.78,
+      "flash": -0.2,
+      "dropout_ms_final": 20
+     },
+     "v2": {
+      "dY": 4.2,
+      "max_frame_dY": 2.33,
+      "max_mad": 4.37,
+      "min_ssim": 0.9259,
+      "cut_mad": 4.2,
+      "flash": -0.15,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 14,
+     "type": "cut",
+     "t": 150.708,
+     "prev": "第一章_01_8_277f_t",
+     "next": "第一章_01_9_277f_t",
+     "v1": {
+      "dY": 10.88,
+      "max_frame_dY": 10.8,
+      "max_mad": 49.22,
+      "min_ssim": 0.287,
+      "cut_mad": 49.22,
+      "flash": -0.68,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 3.32,
+      "max_frame_dY": 2.45,
+      "max_mad": 7.82,
+      "min_ssim": 0.7529,
+      "cut_mad": 6.71,
+      "flash": -0.54,
+      "dropout_ms_final": 10,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 15,
+     "type": "cut",
+     "t": 159.708,
+     "prev": "第一章_01_9_277f_t",
+     "next": "第一章_01_10_277f_t",
+     "v1": {
+      "dY": 25.0,
+      "max_frame_dY": 24.93,
+      "max_mad": 37.61,
+      "min_ssim": 0.2632,
+      "cut_mad": 37.61,
+      "flash": -0.22,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 5.2,
+      "max_frame_dY": 2.29,
+      "max_mad": 3.71,
+      "min_ssim": 0.8641,
+      "cut_mad": 3.56,
+      "flash": -0.19,
+      "dropout_ms_final": 10,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 16,
+     "type": "cut",
+     "t": 168.75,
+     "prev": "第一章_01_10_277f_t",
+     "next": "第一章_01_11_277f_t",
+     "v1": {
+      "dY": -23.75,
+      "max_frame_dY": 23.8,
+      "max_mad": 59.83,
+      "min_ssim": 0.2664,
+      "cut_mad": 59.83,
+      "flash": -23.65,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -6.03,
+      "max_frame_dY": 2.66,
+      "max_mad": 5.31,
+      "min_ssim": 0.8893,
+      "cut_mad": 5.24,
+      "flash": -7.76,
+      "dropout_ms_final": 110,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 17,
+     "type": "shot",
+     "t": 177.792,
+     "prev": "第一章_01_11_277f_t",
+     "next": "第一章_02_0_192f",
+     "v1": {
+      "dY": -0.28,
+      "max_frame_dY": 12.14,
+      "max_mad": 12.27,
+      "min_ssim": 0.5135,
+      "cut_mad": 0.0,
+      "flash": -11.88,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.21,
+      "max_frame_dY": 13.26,
+      "max_mad": 13.28,
+      "min_ssim": 0.5026,
+      "cut_mad": 0.0,
+      "flash": -11.53,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 55
+     }
+    },
+    {
+     "k": 18,
+     "type": "cont",
+     "t": 184.125,
+     "prev": "第一章_02_0_192f",
+     "next": "第一章_02_1_124f",
+     "v1": {
+      "dY": -4.77,
+      "max_frame_dY": 5.0,
+      "max_mad": 8.89,
+      "min_ssim": 0.664,
+      "cut_mad": 7.46,
+      "flash": -4.44,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -1.69,
+      "max_frame_dY": 1.52,
+      "max_mad": 9.45,
+      "min_ssim": 0.6496,
+      "cut_mad": 9.45,
+      "flash": -1.65,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 19,
+     "type": "shot",
+     "t": 189.125,
+     "prev": "第一章_02_1_124f",
+     "next": "第一章_03_0_243f_c",
+     "v1": {
+      "dY": -1.14,
+      "max_frame_dY": 7.56,
+      "max_mad": 12.17,
+      "min_ssim": 0.6482,
+      "cut_mad": 0.0,
+      "flash": -4.96,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -0.02,
+      "max_frame_dY": 7.61,
+      "max_mad": 12.0,
+      "min_ssim": 0.6591,
+      "cut_mad": 0.0,
+      "flash": -4.83,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 60
+     }
+    },
+    {
+     "k": 20,
+     "type": "cut",
+     "t": 201.208,
+     "prev": "第一章_03_0_243f_c",
+     "next": "第一章_03_1_294f_t",
+     "v1": {
+      "dY": 20.18,
+      "max_frame_dY": 20.15,
+      "max_mad": 24.54,
+      "min_ssim": 0.3911,
+      "cut_mad": 24.54,
+      "flash": 0.3,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 4.7,
+      "max_frame_dY": 2.3,
+      "max_mad": 3.65,
+      "min_ssim": 0.8788,
+      "cut_mad": 2.76,
+      "flash": 0.09,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 21,
+     "type": "cut",
+     "t": 213.292,
+     "prev": "第一章_03_1_294f_t",
+     "next": "第一章_03_2_294f_t",
+     "v1": {
+      "dY": 11.26,
+      "max_frame_dY": 11.16,
+      "max_mad": 35.17,
+      "min_ssim": 0.33,
+      "cut_mad": 35.17,
+      "flash": 0.46,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 1.88,
+      "max_frame_dY": 1.82,
+      "max_mad": 4.41,
+      "min_ssim": 0.8826,
+      "cut_mad": 4.22,
+      "flash": 0.16,
+      "dropout_ms_final": 5,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 22,
+     "type": "cut",
+     "t": 225.375,
+     "prev": "第一章_03_2_294f_t",
+     "next": "第一章_03_3_294f_t",
+     "v1": {
+      "dY": -13.01,
+      "max_frame_dY": 13.14,
+      "max_mad": 44.3,
+      "min_ssim": 0.3146,
+      "cut_mad": 44.3,
+      "flash": -12.99,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -3.68,
+      "max_frame_dY": 2.54,
+      "max_mad": 4.92,
+      "min_ssim": 0.8925,
+      "cut_mad": 4.92,
+      "flash": -5.68,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 23,
+     "type": "cut",
+     "t": 237.458,
+     "prev": "第一章_03_3_294f_t",
+     "next": "第一章_03_4_294f_t",
+     "v1": {
+      "dY": -10.11,
+      "max_frame_dY": 10.28,
+      "max_mad": 32.93,
+      "min_ssim": 0.2865,
+      "cut_mad": 32.93,
+      "flash": -9.48,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -2.13,
+      "max_frame_dY": 1.59,
+      "max_mad": 2.9,
+      "min_ssim": 0.9401,
+      "cut_mad": 2.79,
+      "flash": -3.23,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 24,
+     "type": "cut",
+     "t": 249.542,
+     "prev": "第一章_03_4_294f_t",
+     "next": "第一章_03_5_294f_t",
+     "v1": {
+      "dY": -14.07,
+      "max_frame_dY": 14.21,
+      "max_mad": 36.18,
+      "min_ssim": 0.2224,
+      "cut_mad": 36.18,
+      "flash": -13.92,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -3.8,
+      "max_frame_dY": 2.02,
+      "max_mad": 4.53,
+      "min_ssim": 0.8626,
+      "cut_mad": 4.15,
+      "flash": -5.18,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 25,
+     "type": "cut",
+     "t": 261.667,
+     "prev": "第一章_03_5_294f_t",
+     "next": "第一章_03_6_294f_t",
+     "v1": {
+      "dY": 3.44,
+      "max_frame_dY": 3.36,
+      "max_mad": 24.05,
+      "min_ssim": 0.3066,
+      "cut_mad": 24.05,
+      "flash": 0.04,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.95,
+      "max_frame_dY": 0.93,
+      "max_mad": 2.44,
+      "min_ssim": 0.9504,
+      "cut_mad": 2.21,
+      "flash": -0.05,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 26,
+     "type": "cut",
+     "t": 273.75,
+     "prev": "第一章_03_6_294f_t",
+     "next": "第一章_03_7_294f_t",
+     "v1": {
+      "dY": -1.03,
+      "max_frame_dY": 0.9,
+      "max_mad": 13.59,
+      "min_ssim": 0.5429,
+      "cut_mad": 13.59,
+      "flash": -1.07,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 1.88,
+      "max_frame_dY": 1.27,
+      "max_mad": 3.16,
+      "min_ssim": 0.8668,
+      "cut_mad": 1.91,
+      "flash": -0.29,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 27,
+     "type": "cut",
+     "t": 283.333,
+     "prev": "第一章_03_7_294f_t",
+     "next": "第一章_03_8_294f_t",
+     "v1": {
+      "dY": -3.8,
+      "max_frame_dY": 3.48,
+      "max_mad": 26.42,
+      "min_ssim": 0.248,
+      "cut_mad": 26.42,
+      "flash": -3.63,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -2.33,
+      "max_frame_dY": 1.44,
+      "max_mad": 4.29,
+      "min_ssim": 0.8545,
+      "cut_mad": 4.25,
+      "flash": -3.53,
+      "dropout_ms_final": 115,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 28,
+     "type": "cut",
+     "t": 292.917,
+     "prev": "第一章_03_8_294f_t",
+     "next": "第一章_03_9_294f_t",
+     "v1": {
+      "dY": -10.86,
+      "max_frame_dY": 10.96,
+      "max_mad": 42.91,
+      "min_ssim": 0.2548,
+      "cut_mad": 42.91,
+      "flash": -10.46,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -4.73,
+      "max_frame_dY": 2.01,
+      "max_mad": 4.96,
+      "min_ssim": 0.8962,
+      "cut_mad": 4.43,
+      "flash": -5.85,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 29,
+     "type": "cut",
+     "t": 302.542,
+     "prev": "第一章_03_9_294f_t",
+     "next": "第一章_03_10_294f_t",
+     "v1": {
+      "dY": -0.61,
+      "max_frame_dY": 0.6,
+      "max_mad": 28.81,
+      "min_ssim": 0.3526,
+      "cut_mad": 28.81,
+      "flash": -0.53,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -0.21,
+      "max_frame_dY": 0.77,
+      "max_mad": 3.43,
+      "min_ssim": 0.9382,
+      "cut_mad": 3.27,
+      "flash": 0.13,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 30,
+     "type": "shot",
+     "t": 312.125,
+     "prev": "第一章_03_10_294f_t",
+     "next": "第二章_00_0_209f_c",
+     "v1": {
+      "dY": -0.15,
+      "max_frame_dY": 4.95,
+      "max_mad": 4.96,
+      "min_ssim": 0.8157,
+      "cut_mad": 0.0,
+      "flash": -4.71,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.07,
+      "max_frame_dY": 4.8,
+      "max_mad": 4.8,
+      "min_ssim": 0.8268,
+      "cut_mad": 0.0,
+      "flash": -4.64,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 60
+     }
+    },
+    {
+     "k": 31,
+     "type": "cut",
+     "t": 322.75,
+     "prev": "第二章_00_0_209f_c",
+     "next": "第二章_00_1_277f_t",
+     "v1": {
+      "dY": -15.48,
+      "max_frame_dY": 15.5,
+      "max_mad": 33.95,
+      "min_ssim": 0.3654,
+      "cut_mad": 33.95,
+      "flash": -15.41,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -4.14,
+      "max_frame_dY": 1.84,
+      "max_mad": 3.12,
+      "min_ssim": 0.9481,
+      "cut_mad": 2.95,
+      "flash": -5.2,
+      "dropout_ms_final": 130,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 32,
+     "type": "cut",
+     "t": 333.417,
+     "prev": "第二章_00_1_277f_t",
+     "next": "第二章_00_2_277f_t",
+     "v1": {
+      "dY": 2.89,
+      "max_frame_dY": 2.76,
+      "max_mad": 35.47,
+      "min_ssim": 0.2724,
+      "cut_mad": 35.47,
+      "flash": -0.32,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.96,
+      "max_frame_dY": 1.27,
+      "max_mad": 4.68,
+      "min_ssim": 0.8924,
+      "cut_mad": 4.36,
+      "flash": -0.37,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 33,
+     "type": "cut",
+     "t": 344.083,
+     "prev": "第二章_00_2_277f_t",
+     "next": "第二章_00_3_277f_t",
+     "v1": {
+      "dY": 18.94,
+      "max_frame_dY": 18.87,
+      "max_mad": 33.87,
+      "min_ssim": 0.3098,
+      "cut_mad": 33.87,
+      "flash": -0.33,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 4.99,
+      "max_frame_dY": 2.42,
+      "max_mad": 4.07,
+      "min_ssim": 0.8761,
+      "cut_mad": 4.01,
+      "flash": -0.36,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 34,
+     "type": "cut",
+     "t": 354.708,
+     "prev": "第二章_00_3_277f_t",
+     "next": "第二章_00_4_277f_t",
+     "v1": {
+      "dY": -17.27,
+      "max_frame_dY": 17.28,
+      "max_mad": 46.86,
+      "min_ssim": 0.1898,
+      "cut_mad": 46.86,
+      "flash": -17.39,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -3.23,
+      "max_frame_dY": 1.91,
+      "max_mad": 4.81,
+      "min_ssim": 0.8865,
+      "cut_mad": 3.89,
+      "flash": -4.56,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 35,
+     "type": "cut",
+     "t": 365.375,
+     "prev": "第二章_00_4_277f_t",
+     "next": "第二章_00_5_277f_t",
+     "v1": {
+      "dY": 1.52,
+      "max_frame_dY": 1.44,
+      "max_mad": 23.21,
+      "min_ssim": 0.314,
+      "cut_mad": 23.21,
+      "flash": 0.31,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.26,
+      "max_frame_dY": 0.75,
+      "max_mad": 2.5,
+      "min_ssim": 0.9282,
+      "cut_mad": 2.33,
+      "flash": 0.09,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 36,
+     "type": "cut",
+     "t": 376.0,
+     "prev": "第二章_00_5_277f_t",
+     "next": "第二章_00_6_260f_t",
+     "v1": {
+      "dY": 11.5,
+      "max_frame_dY": 11.35,
+      "max_mad": 34.26,
+      "min_ssim": 0.2321,
+      "cut_mad": 34.26,
+      "flash": -0.9,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 1.57,
+      "max_frame_dY": 1.53,
+      "max_mad": 5.28,
+      "min_ssim": 0.7984,
+      "cut_mad": 3.92,
+      "flash": -1.32,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 37,
+     "type": "cut",
+     "t": 384.167,
+     "prev": "第二章_00_6_260f_t",
+     "next": "第二章_00_7_260f_t",
+     "v1": {
+      "dY": -24.23,
+      "max_frame_dY": 24.22,
+      "max_mad": 53.83,
+      "min_ssim": 0.1893,
+      "cut_mad": 53.83,
+      "flash": -24.15,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -3.99,
+      "max_frame_dY": 2.22,
+      "max_mad": 3.98,
+      "min_ssim": 0.941,
+      "cut_mad": 3.88,
+      "flash": -5.22,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 38,
+     "type": "cut",
+     "t": 392.292,
+     "prev": "第二章_00_7_260f_t",
+     "next": "第二章_00_8_260f_t",
+     "v1": {
+      "dY": -0.14,
+      "max_frame_dY": 0.52,
+      "max_mad": 33.65,
+      "min_ssim": 0.3397,
+      "cut_mad": 33.65,
+      "flash": -0.9,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.44,
+      "max_frame_dY": 1.32,
+      "max_mad": 5.18,
+      "min_ssim": 0.8666,
+      "cut_mad": 4.08,
+      "flash": -0.8,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 39,
+     "type": "shot",
+     "t": 400.458,
+     "prev": "第二章_00_8_260f_t",
+     "next": "第二章_01_0_209f",
+     "v1": {
+      "dY": -0.09,
+      "max_frame_dY": 3.3,
+      "max_mad": 4.55,
+      "min_ssim": 0.8698,
+      "cut_mad": 0.0,
+      "flash": -3.58,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.03,
+      "max_frame_dY": 3.32,
+      "max_mad": 5.15,
+      "min_ssim": 0.8739,
+      "cut_mad": 0.0,
+      "flash": -3.56,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 55
+     }
+    },
+    {
+     "k": 40,
+     "type": "cut",
+     "t": 410.75,
+     "prev": "第二章_01_0_209f",
+     "next": "第二章_01_1_260f_t",
+     "v1": {
+      "dY": -11.0,
+      "max_frame_dY": 11.01,
+      "max_mad": 29.23,
+      "min_ssim": 0.2465,
+      "cut_mad": 29.23,
+      "flash": -10.6,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -3.12,
+      "max_frame_dY": 1.97,
+      "max_mad": 5.54,
+      "min_ssim": 0.7955,
+      "cut_mad": 5.27,
+      "flash": -5.06,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 41,
+     "type": "cut",
+     "t": 421.083,
+     "prev": "第二章_01_1_260f_t",
+     "next": "第二章_01_2_260f_t",
+     "v1": {
+      "dY": 0.82,
+      "max_frame_dY": 0.57,
+      "max_mad": 27.43,
+      "min_ssim": 0.2343,
+      "cut_mad": 27.43,
+      "flash": -0.44,
+      "dropout_ms_final": 5
+     },
+     "v2": {
+      "dY": -0.46,
+      "max_frame_dY": 1.5,
+      "max_mad": 9.45,
+      "min_ssim": 0.6023,
+      "cut_mad": 5.55,
+      "flash": -0.33,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 42,
+     "type": "cut",
+     "t": 431.375,
+     "prev": "第二章_01_2_260f_t",
+     "next": "第二章_01_3_260f_t",
+     "v1": {
+      "dY": -32.75,
+      "max_frame_dY": 32.42,
+      "max_mad": 39.58,
+      "min_ssim": 0.1678,
+      "cut_mad": 39.58,
+      "flash": -32.49,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -7.82,
+      "max_frame_dY": 3.09,
+      "max_mad": 3.94,
+      "min_ssim": 0.8029,
+      "cut_mad": 3.64,
+      "flash": -9.57,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 43,
+     "type": "cut",
+     "t": 441.708,
+     "prev": "第二章_01_3_260f_t",
+     "next": "第二章_01_4_294f_t",
+     "v1": {
+      "dY": -41.59,
+      "max_frame_dY": 41.59,
+      "max_mad": 47.62,
+      "min_ssim": 0.1782,
+      "cut_mad": 47.62,
+      "flash": -41.75,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -7.56,
+      "max_frame_dY": 3.19,
+      "max_mad": 3.78,
+      "min_ssim": 0.9368,
+      "cut_mad": 3.17,
+      "flash": -9.33,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 44,
+     "type": "shot",
+     "t": 450.792,
+     "prev": "第二章_01_4_294f_t",
+     "next": "第三章_00_0_243f",
+     "v1": {
+      "dY": -0.18,
+      "max_frame_dY": 3.67,
+      "max_mad": 3.73,
+      "min_ssim": 0.8767,
+      "cut_mad": 0.0,
+      "flash": -3.46,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.04,
+      "max_frame_dY": 4.69,
+      "max_mad": 5.0,
+      "min_ssim": 0.8285,
+      "cut_mad": 0.0,
+      "flash": -4.76,
+      "dropout_ms_final": 5,
+      "dropout_ms_ambient": 115
+     }
+    },
+    {
+     "k": 45,
+     "type": "cut",
+     "t": 462.958,
+     "prev": "第三章_00_0_243f",
+     "next": "第三章_00_1_294f_t",
+     "v1": {
+      "dY": 6.46,
+      "max_frame_dY": 6.46,
+      "max_mad": 18.46,
+      "min_ssim": 0.3871,
+      "cut_mad": 18.46,
+      "flash": -0.04,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.84,
+      "max_frame_dY": 0.69,
+      "max_mad": 2.07,
+      "min_ssim": 0.9648,
+      "cut_mad": 2.04,
+      "flash": 0.08,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 46,
+     "type": "cut",
+     "t": 475.125,
+     "prev": "第三章_00_1_294f_t",
+     "next": "第三章_00_2_294f_t",
+     "v1": {
+      "dY": 25.65,
+      "max_frame_dY": 25.49,
+      "max_mad": 27.66,
+      "min_ssim": 0.3631,
+      "cut_mad": 27.66,
+      "flash": 25.81,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -0.17,
+      "max_frame_dY": 0.75,
+      "max_mad": 3.3,
+      "min_ssim": 0.8268,
+      "cut_mad": 2.62,
+      "flash": -0.89,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 47,
+     "type": "cut",
+     "t": 487.292,
+     "prev": "第三章_00_2_294f_t",
+     "next": "第三章_00_3_294f_t",
+     "v1": {
+      "dY": 15.87,
+      "max_frame_dY": 15.86,
+      "max_mad": 18.97,
+      "min_ssim": 0.5117,
+      "cut_mad": 18.97,
+      "flash": 0.56,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 3.36,
+      "max_frame_dY": 1.65,
+      "max_mad": 3.89,
+      "min_ssim": 0.8707,
+      "cut_mad": 2.67,
+      "flash": 0.14,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 48,
+     "type": "cut",
+     "t": 499.5,
+     "prev": "第三章_00_3_294f_t",
+     "next": "第三章_00_4_294f_t",
+     "v1": {
+      "dY": 5.21,
+      "max_frame_dY": 5.19,
+      "max_mad": 15.96,
+      "min_ssim": 0.4343,
+      "cut_mad": 15.96,
+      "flash": -0.01,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.89,
+      "max_frame_dY": 0.65,
+      "max_mad": 2.76,
+      "min_ssim": 0.9312,
+      "cut_mad": 2.41,
+      "flash": -0.03,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 49,
+     "type": "cut",
+     "t": 511.667,
+     "prev": "第三章_00_4_294f_t",
+     "next": "第三章_00_5_294f_t",
+     "v1": {
+      "dY": -4.5,
+      "max_frame_dY": 4.55,
+      "max_mad": 18.25,
+      "min_ssim": 0.2759,
+      "cut_mad": 18.25,
+      "flash": -4.42,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -1.14,
+      "max_frame_dY": 4.31,
+      "max_mad": 4.31,
+      "min_ssim": 0.9261,
+      "cut_mad": 2.49,
+      "flash": -6.16,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 50,
+     "type": "cut",
+     "t": 523.833,
+     "prev": "第三章_00_5_294f_t",
+     "next": "第三章_00_6_294f_t",
+     "v1": {
+      "dY": -4.2,
+      "max_frame_dY": 4.12,
+      "max_mad": 14.63,
+      "min_ssim": 0.4418,
+      "cut_mad": 14.63,
+      "flash": -4.11,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": -1.52,
+      "max_frame_dY": 1.01,
+      "max_mad": 3.81,
+      "min_ssim": 0.8526,
+      "cut_mad": 3.57,
+      "flash": -2.45,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 51,
+     "type": "cut",
+     "t": 536.0,
+     "prev": "第三章_00_6_294f_t",
+     "next": "第三章_00_7_294f_t",
+     "v1": {
+      "dY": -1.94,
+      "max_frame_dY": 1.98,
+      "max_mad": 13.41,
+      "min_ssim": 0.5217,
+      "cut_mad": 13.41,
+      "flash": -1.85,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 2.33,
+      "max_frame_dY": 1.03,
+      "max_mad": 4.75,
+      "min_ssim": 0.7981,
+      "cut_mad": 3.78,
+      "flash": -0.16,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    },
+    {
+     "k": 52,
+     "type": "cut",
+     "t": 545.375,
+     "prev": "第三章_00_7_294f_t",
+     "next": "第三章_00_8_294f_t",
+     "v1": {
+      "dY": 2.0,
+      "max_frame_dY": 1.93,
+      "max_mad": 12.28,
+      "min_ssim": 0.498,
+      "cut_mad": 12.28,
+      "flash": 0.1,
+      "dropout_ms_final": 0
+     },
+     "v2": {
+      "dY": 0.28,
+      "max_frame_dY": 0.47,
+      "max_mad": 2.18,
+      "min_ssim": 0.9678,
+      "cut_mad": 2.17,
+      "flash": 0.01,
+      "dropout_ms_final": 0,
+      "dropout_ms_ambient": 0
+     }
+    }
+   ]
+  }
+ }
+}
