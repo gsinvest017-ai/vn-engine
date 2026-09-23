@@ -225,6 +225,26 @@ def last_frame(video: Path, dest: Path) -> Path:
     return dest
 
 
+def clip_specs(planned: list[Planned]) -> list[dict]:
+    """不連 ComfyUI 的分段清單（檔名規則與 generate() 相同）：
+    {tag, head, secs（取用原始秒數）, speed, out（成片秒數）, first, last, kind（head/cont/cut/ref）, shot, part}。"""
+    out, visits = [], {}
+    for si, p in enumerate(planned):
+        s = p.shot
+        revisit = visits.get(s.bg, 0)
+        visits[s.bg] = revisit + 1
+        for part, (secs, speed, gen) in enumerate(zip(p.clips, p.speeds, p.gens)):
+            cut = prompts.is_cut(s, part, p.n_base) if part < p.n_base else bool(prompts.ANGLES.get(s.bg))
+            use_ref = part == 0 and revisit > 0      # generate() 裡 place_ref 在該場景第一次出現後一定有值
+            head = prompts.CUT_HEAD if cut else 0.0
+            suffix = "_t" if cut else "_c" if use_ref else ""
+            tag = f"{s.chapter[:3]}_{s.index:02d}_{part}_{snap_length(gen + head)}f{suffix}"
+            kind = "cut" if cut else "ref" if use_ref else "cont" if part > 0 else "head"
+            out.append(dict(tag=tag, head=head, secs=secs / speed, speed=speed, out=secs, first=part == 0,
+                            last=part == len(p.clips) - 1, kind=kind, shot=si, part=part))
+    return out
+
+
 def generate(planned: list[Planned], out: Path, client: ComfyClient, size: tuple[int, int],
              seed: int, turbo: bool) -> list[tuple[Path, float, float, float, bool, bool]]:
     """逐段生成 clip；回傳 (檔案, 開頭剪掉秒數, 取用原始秒數, 放慢倍率, 是否 shot 開頭, 是否 shot 結尾)。"""

@@ -320,7 +320,8 @@ DARK_CFG = dict(celesta_root=60, oct_span=(0, 0), celesta=1.6, chime=0.15, bell=
 CHIME_TUBES = [83, 84, 89, 90, 95, 96]   # B5 C6 F6 F#6 B6 C7：小二度與三全音交錯的一組管子
 SPEECH_RATE = dict(celesta=0.5, chime=0.6, bell=0.7)
 SPEECH_VEL = 0.65
-MAX_SILENCE = 16.0      # 秒；暗段放寬到 1.35 倍
+MAX_SILENCE = 16.0      # 秒；暗段放寬到 1.35 倍（render/compose 的 max_silence 參數可覆寫）
+TITLE_BELL_VEL = {1: 0.6, 2: 0.6, 3: 0.55}   # 章節標題鐘力度（render/compose 的 title_bell_vel 可覆寫）
 
 
 def _cfg(tl: Timeline, t: float) -> dict:
@@ -329,7 +330,9 @@ def _cfg(tl: Timeline, t: float) -> dict:
     return CHAPTER_CFG.get(tl.chapter_at(t), CHAPTER_CFG[1])
 
 
-def compose(tl: Timeline, rng: np.random.Generator) -> list[Event]:
+def compose(tl: Timeline, rng: np.random.Generator, max_silence: float = MAX_SILENCE,
+            title_bell_vel: dict[int, float] | None = None) -> list[Event]:
+    title_vel = {**TITLE_BELL_VEL, **(title_bell_vel or {})}
     ev: list[Event] = []
     dur = tl.duration
     quiet: list[tuple[float, float]] = []   # 刻意留白（不放隨機事件）的區間
@@ -381,7 +384,7 @@ def compose(tl: Timeline, rng: np.random.Generator) -> list[Event]:
     # 1) 章節標題卡：一記鐘（第一章＝遠方低鐘 + 動機；第三章更低）
     for t0, ch in tl.titles:
         c = CHAPTER_CFG.get(ch, CHAPTER_CFG[1])
-        ev.append(Event(t0 + 0.15, "bell_far" if ch != 2 else "bell", midi(c["bell_note"]), 0.6 if ch != 3 else 0.55,
+        ev.append(Event(t0 + 0.15, "bell_far" if ch != 2 else "bell", midi(c["bell_note"]), title_vel.get(ch, 0.6),
                         pan=rng.uniform(-0.15, 0.15), send=0.55 if ch != 2 else 0.3,
                         length=38.0 if ch == 3 else 30.0, tag="title"))
         quiet.append((t0, t0 + 3.4))
@@ -495,7 +498,7 @@ def compose(tl: Timeline, rng: np.random.Generator) -> list[Event]:
     for nxt in onsets + [dur - 3.0]:
         while True:
             dark = tl.dark_start is not None and prev >= tl.dark_start
-            lim = MAX_SILENCE * (1.35 if dark else 1.0)
+            lim = max_silence * (1.35 if dark else 1.0)
             if nxt - prev <= lim:
                 break
             tf = prev + lim * rng.uniform(0.6, 0.9)
@@ -541,9 +544,11 @@ def _smooth_mask(mask: np.ndarray, sr: int, attack: float = 0.35, release: float
 
 
 def render(tl: Timeline, seed: int, sr: int = SR, target_lufs: float = -30.0,
-           speech_duck_db: float = -5.0, dark_db: float = -5.0, cut_sec: float = 13.6) -> tuple[np.ndarray, list[Event], dict]:
+           speech_duck_db: float = -5.0, dark_db: float = -5.0, cut_sec: float = 13.6,
+           max_silence: float = MAX_SILENCE, title_bell_vel: dict[int, float] | None = None,
+           ) -> tuple[np.ndarray, list[Event], dict]:
     rng = np.random.default_rng(seed)
-    events = compose(tl, rng)
+    events = compose(tl, rng, max_silence, title_bell_vel)
     n = int(round(tl.duration * sr))
     dry = np.zeros((n, 2), dtype=np.float64)
     send = np.zeros((n, 2), dtype=np.float64)
@@ -598,6 +603,7 @@ def render(tl: Timeline, seed: int, sr: int = SR, target_lufs: float = -30.0,
     if peak > 0.5:  # 背景層不需要大峰值；保險：峰值壓到 -6 dBFS 以下（會讓響度略低於目標，並回報）
         mix *= 0.5 / peak
     info = {"pre_norm_lufs": lufs0, "norm_gain_db": 20 * math.log10(gain), "speech_duck_db": speech_duck_db,
+            "max_silence": max_silence, "title_bell_vel": {**TITLE_BELL_VEL, **(title_bell_vel or {})},
             "dark_db": dark_db, "cut_sec": cut_sec if tl.dark_start is not None else 0.0}
     return mix.astype(np.float32), events, info
 
@@ -683,10 +689,11 @@ def write_wav(path: Path, mix: np.ndarray, sr: int = SR, seed: int = 0) -> None:
     wavfile.write(str(path), sr, y)
 
 
-def synthesize(shots_path: Path, duration: float | None, seed: int, target_lufs: float = -30.0):
+def synthesize(shots_path: Path, duration: float | None, seed: int, target_lufs: float = -30.0,
+               max_silence: float = MAX_SILENCE, title_bell_vel: dict[int, float] | None = None):
     shots = json.loads(Path(shots_path).read_text(encoding="utf-8"))
     tl = load_timeline(shots, duration)
-    mix, events, info = render(tl, seed, SR, target_lufs)
+    mix, events, info = render(tl, seed, SR, target_lufs, max_silence=max_silence, title_bell_vel=title_bell_vel)
     return tl, mix, events, info
 
 
@@ -698,8 +705,10 @@ def main(argv=None):
     ap.add_argument("--lufs", type=float, default=-30.0)
     ap.add_argument("--out", type=Path, default=Path("video_out/remaster_v2/bgm/bgm_full.wav"))
     ap.add_argument("--stats", type=Path, default=None, help="量測結果 json（預設：<out>.stats.json）")
+    ap.add_argument("--max-silence", type=float, default=MAX_SILENCE, help="最長留白秒數（報告建議約 10）")
+    ap.add_argument("--title-vel3", type=float, default=TITLE_BELL_VEL[3], help="第三章標題鐘力度（報告建議約 0.4）")
     a = ap.parse_args(argv)
-    tl, mix, events, info = synthesize(a.shots, a.duration, a.seed, a.lufs)
+    tl, mix, events, info = synthesize(a.shots, a.duration, a.seed, a.lufs, a.max_silence, {3: a.title_vel3})
     write_wav(a.out, mix, SR, a.seed)
     stats = analyze(mix, tl, events)
     stats.update({"seed": a.seed, "shots": str(a.shots), "render": info,
