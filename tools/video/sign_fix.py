@@ -26,6 +26,7 @@
     "range": [0, 12.25],                     # 修補的 clip 秒數區間，省略=整段
     "anchors": [{"t": 3.0, "quad": [[x,y],[x,y],[x,y],[x,y]]}],
                                              # quad 順序＝文字正立時的 左上,右上,右下,左下；可多個錨點校正漂移
+                                             # 錨點可帶 "poly"（該錨點幀座標的追蹤多邊形），優先於 track.poly
     "base_anchor": 0,                        # 用哪個錨點做底圖（挑物件最大最清楚的那格）
     "text_box": [0, 0, 1, 1],                # 字排在 quad 內哪一塊（canvas 比例 x0,y0,x1,y1）
     "font": "kaiu",                          # kaiu 標楷體 | msjh / msjhbd 微軟正黑 | mingliu | 或字型檔完整路徑
@@ -38,10 +39,19 @@
     "blur": 0.3, "grain": "auto",            # 字的模糊 sigma（畫面像素）、靜態顆粒強度（8bit 單位）
     "temporal_grain": "auto",                # 逐幀變動顆粒強度；auto=量原片相鄰幀雜訊
     "mask_thresh": "auto", "mask_dilate": 1.5,     # 筆畫偵測門檻（Lab 距離）與外擴（畫面像素）
+    "mask_mode": "lab",                      # lab=與底色的 Lab 距離 | dark=比局部底色暗的比例（暗處墨字、光影漸層；
+                                             # 此時 mask_thresh 是變暗比例 0–1，auto=Otsu）
+    "text_rel": null,                        # 例 0.35：字色＝局部素面底色 × 比例（跟著底色明暗走）；auto=原筆畫/底色亮度比
     "fill": "blur",                          # 素面補法 blur（正規化卷積）| telea
     "blend": "strokes",                      # strokes 只蓋筆畫附近 | quad 整塊蓋掉
     "feather": 2.0,                          # 羽化（畫面像素）
     "protect_luma": null,                    # 例 200：畫面上比這亮的像素（燈管等前景）保持原樣
+    "protect_color": null,                   # 例 {"rgb":[190,40,40], "dist":45, "open":1}：與此色 Lab 距離內的像素（禁止標誌
+                                             # 紅斜槓等）不當字、合成時保持原樣（疊在新字上）；open＝去掉比它細的區域（畫面像素）
+    "occlusion": null,                       # 例 {"thresh": 40}：與基準幀原貌差很多處（桿子、前方招牌）保持原樣；
+                                             # 可選 blur／open／close／dilate／feather（畫面像素）
+    "text_gain": "auto",                     # auto=字的逐幀增益取原筆畫；bg=跟底色（原筆畫會被前景遮住時用）
+    "track_on": "current",                   # orig=用原片追蹤（同平面前面物件已抹掉紋理時，例如整頁先 erase 再寫字）
     "gain_smooth": 0,                        # 逐幀增益的 SG 平滑視窗（0=不平滑，閃電／閃光才跟得上）
     "defocus_sigma": 3.0,
     "upscale": 4,
@@ -90,7 +100,10 @@ OBJ_DEFAULTS = {
     "keep_aspect": False, "weight": "auto", "text_color": "auto", "text_color2": "auto", "outline": None,
     "blur": 0.3, "grain": "auto", "temporal_grain": "auto", "mask_thresh": "auto", "mask_dilate": 1.5, "fill": "blur",
     "blend": "strokes", "feather": 2.0, "protect_luma": None, "gain_smooth": 0, "defocus_sigma": 3.0, "upscale": 4,
+    "occlusion": None, "mask_mode": "lab", "text_rel": None, "text_gain": "auto",
+    "protect_color": None,
 }
+OCCL_DEFAULTS = {"thresh": 40.0, "blur": 1.5, "open": 1.0, "dilate": 2.0, "feather": 1.5}
 TRACK_DEFAULTS = {"pad": 30, "poly": None, "static": False, "smooth": 9, "min_cc": 0.6}
 MODES = ("replace", "erase", "defocus")
 
@@ -142,6 +155,8 @@ def parse_spec(spec: dict | str | Path) -> dict:
             raise ValueError(f"{o['id']}: text_box 要是 0–1 的 [x0,y0,x1,y1]")
         if o["track"]["poly"] is not None:
             o["track"]["poly"] = np.asarray(o["track"]["poly"], dtype=np.float32)
+        if o["occlusion"]:
+            o["occlusion"] = {**OCCL_DEFAULTS, **(o["occlusion"] if isinstance(o["occlusion"], dict) else {})}
         out.append(o)
     spec["objects"] = out
     return spec
@@ -242,6 +257,14 @@ def _sift_align(tmpl: np.ndarray, img: np.ndarray, mask: np.ndarray) -> np.ndarr
     return W
 
 
+def _sane_h(H: np.ndarray) -> bool:
+    """homography 是否可用：有限值、線性部分行列式在合理範圍（沒有塌縮或翻轉）。"""
+    if not np.isfinite(H).all() or abs(H[2, 2]) < 1e-9:
+        return False
+    d = float(np.linalg.det(H[:2, :2]))
+    return 0.05 < d < 20
+
+
 def _ecc(tmpl, img, mask, W0):
     crit = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 80, 1e-5)
     try:
@@ -264,7 +287,9 @@ def track_plane(grays: list[np.ndarray], key: int, quad: np.ndarray, lo: int, hi
         prev2, prev = np.eye(3), np.eye(3)
         for i in range(key + step, end + step, step):
             pred = prev @ np.linalg.inv(prev2) @ prev          # 等速預測
-            pred /= pred[2, 2]
+            pred = pred / pred[2, 2] if abs(pred[2, 2]) > 1e-9 else pred
+            if not _sane_h(pred):
+                pred = prev.copy()
             img = cv2.warpPerspective(grays[i].astype(np.float32), pred @ T, size,
                                       flags=cv2.INTER_LINEAR | cv2.WARP_INVERSE_MAP)
             valid = cv2.warpPerspective(np.full(grays[i].shape, 255, np.uint8), pred @ T, size,
@@ -276,11 +301,11 @@ def track_plane(grays: list[np.ndarray], key: int, quad: np.ndarray, lo: int, hi
                 if Ws is not None:
                     W2, c2 = _ecc(tmpl, img, m, Ws)
                     W, c = (W2, c2) if W2 is not None else (Ws, 0.0)
-            if W is None:
-                H, c = pred, 0.0
-            else:
+            if W is not None:
                 H = pred @ T @ W @ Ti
-                H /= H[2, 2]
+                H = H / H[2, 2] if abs(H[2, 2]) > 1e-9 else H
+            if W is None or not _sane_h(H):                     # 失敗或退化（奇異／翻轉）→ 用預測、標低信心
+                H, c = pred, 0.0
             Hs[i], cc[i] = H, c
             prev2, prev = prev, H
     return Hs, cc
@@ -304,7 +329,9 @@ def track_object(o: dict, grays: list[np.ndarray], fps: float) -> dict:
             Hs = {i: np.eye(3) for i in range(a_lo, a_hi + 1)}
             cc = {i: 1.0 for i in Hs}
         else:
-            poly = tr["poly"] if (tr["poly"] is not None and k == o["base_anchor"]) else None
+            ap = o["anchors"][k].get("poly")                   # 錨點自己的追蹤多邊形（該錨點幀座標）優先
+            poly = (np.asarray(ap, dtype=np.float32) if ap is not None
+                    else tr["poly"] if (tr["poly"] is not None and k == o["base_anchor"]) else None)
             Hs, cc = track_plane(grays, fa, q, a_lo, a_hi, tr["pad"], poly)
         per_anchor.append((fa, {i: _persp(H, q) for i, H in Hs.items()}, cc))
     # 錨點互相校驗：A 追到 B 那一幀時的角點 vs B 標的 quad（漂移／標註不一致的指標）
@@ -368,6 +395,7 @@ class Patch:
     ta: np.ndarray | None = None    # 新字 alpha
     core: np.ndarray | None = None  # 原字筆畫核心像素（算「字的增益」：字與底的受光常不同步）
     ref_txt: np.ndarray | None = None
+    src: np.ndarray | None = None   # 基準幀拉正的原貌（occlusion 用來判斷前景遮擋）
 
 
 def canvas_size(quad: np.ndarray, up: int) -> tuple[int, int]:
@@ -440,6 +468,32 @@ def stroke_mask(patch: np.ndarray, box=(0, 0, 1, 1), thresh="auto", exclude=None
     return m, thr
 
 
+def dark_mask(patch: np.ndarray, box=(0, 0, 1, 1), thresh="auto", exclude=None, return_dist: bool = False):
+    """暗字遮罩（mask_mode=dark）：亮度灰階閉運算（抹掉細筆畫）當局部底色，筆畫＝比底色暗的比例 > 門檻。
+    對陰影、光影漸層不敏感，適合暗處紅布／匾上的墨字；回傳的 dist 是變暗比例 ×100。"""
+    ch, cw = patch.shape[:2]
+    x0, y0, x1, y1 = _box_px(box, cw, ch)
+    L = cv2.cvtColor(np.clip(patch, 0, 255).astype(np.uint8), cv2.COLOR_BGR2LAB)[..., 0].astype(np.float32)
+    k = max(5, min(cw, ch) // 4) | 1
+    bgl = cv2.morphologyEx(L, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (k, k)))
+    bgl = cv2.GaussianBlur(bgl, (0, 0), k / 4)
+    dark = np.clip((bgl - L) / np.maximum(bgl, 8.0), 0, 1)
+    ok = np.ones((ch, cw), bool) if exclude is None else ~exclude
+    sel = np.zeros((ch, cw), bool)
+    sel[y0:y1, x0:x1] = True
+    sel &= ok
+    if thresh == "auto":
+        v = (dark[sel] * 255).astype(np.uint8).reshape(-1, 1) if sel.sum() >= 20 else np.zeros((1, 1), np.uint8)
+        t, _ = cv2.threshold(v, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+        thr = max(float(t) / 255, 0.12)
+    else:
+        thr = float(thresh)
+    m = (dark > thr) & sel
+    kk = max(1, min(cw, ch) // 120)
+    m = cv2.morphologyEx(m.astype(np.uint8), cv2.MORPH_OPEN, np.ones((kk + 1, kk + 1), np.uint8)) > 0
+    return (m, thr, dark * 100) if return_dist else (m, thr)
+
+
 def fill_background(patch: np.ndarray, hole: np.ndarray, up: int, method: str = "blur") -> np.ndarray:
     """把 hole 區補成素面：blur=底色正規化卷積（保留低頻光影），telea=OpenCV inpaint。"""
     if not hole.any():
@@ -455,6 +509,7 @@ def fill_background(patch: np.ndarray, hole: np.ndarray, up: int, method: str = 
         keep = (~hole).astype(np.float32)
         dt = cv2.distanceTransform(hole.astype(np.uint8), cv2.DIST_L2, 3)
         sigma = max(2.0, float(np.percentile(dt[hole], 95)) * 1.5)
+        sigma = min(sigma, float(max(hole.shape)))              # 洞幾乎蓋滿 canvas 時 dt 爆大，GaussianBlur 核會溢位
         num = cv2.GaussianBlur(patch * keep[..., None], (0, 0), sigma)
         den = cv2.GaussianBlur(keep, (0, 0), sigma)[..., None]
         fill = num / np.maximum(den, 1e-3)
@@ -550,6 +605,25 @@ def _feather_edges(cw, ch, f):
     return np.clip(np.minimum(y[:, None], x[None, :]), 0, 1).astype(np.float32)
 
 
+def color_dist(bgr: np.ndarray, rgb) -> np.ndarray:
+    """每像素與指定顏色（[r,g,b]）的 Lab 距離。"""
+    lab = cv2.cvtColor(np.clip(bgr, 0, 255).astype(np.uint8), cv2.COLOR_BGR2LAB).astype(np.float32)
+    ref = cv2.cvtColor(np.uint8([[rgb[::-1]]]), cv2.COLOR_BGR2LAB).astype(np.float32)[0, 0]
+    return np.linalg.norm(lab - ref, axis=-1)
+
+
+def protect_color_mask(bgr: np.ndarray, pc: dict, scale: int = 1, pad: float = 0) -> np.ndarray:
+    """protect_color 的 0–1 遮罩：與指定色 Lab 距離 < dist（+pad）且（open>0 時）夠粗的區域；
+    open（畫面像素）用開運算去掉細邊，避免暗字的反鋸齒邊緣被誤當紅斜槓保留。"""
+    d = float(pc.get("dist", 45)) + pad
+    m = np.clip((d + 7.5 - color_dist(bgr, pc["rgb"])) / 15, 0, 1).astype(np.float32)
+    k = int(round(float(pc.get("open", 0)) * scale))
+    if k > 0:
+        ker = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * k + 1,) * 2)
+        m = cv2.morphologyEx(m, cv2.MORPH_OPEN, ker)
+    return m
+
+
 def build_patch(o: dict, frame: np.ndarray, quad: np.ndarray, seed: int = 0) -> Patch:
     """在基準幀建立 canvas：素面底＋（replace 時）新字，並算出混合遮罩與增益取樣區。"""
     up = int(o["upscale"])
@@ -562,7 +636,12 @@ def build_patch(o: dict, frame: np.ndarray, quad: np.ndarray, seed: int = 0) -> 
     if o["protect_luma"] is not None:                  # 前景亮物：不當字、不當補底來源（合成時再從原畫面保留）
         lum = src @ np.float32([0.114, 0.587, 0.299])
         excl = cv2.dilate((lum > float(o["protect_luma"]) - 40).astype(np.uint8), np.ones((up + 1, up + 1), np.uint8)) > 0
-    raw_mask, thr, dist = stroke_mask(src, mbox, o["mask_thresh"], excl, return_dist=True)
+    if o.get("protect_color"):                         # 指定色前景（紅斜槓等）：同上，不當字、不當補底來源
+        pc = protect_color_mask(src, o["protect_color"], up, pad=10) > 0.5
+        pc = cv2.dilate(pc.astype(np.uint8), np.ones((up + 1, up + 1), np.uint8)) > 0
+        excl = pc if excl is None else (excl | pc)
+    masker = dark_mask if o.get("mask_mode") == "dark" else stroke_mask
+    raw_mask, thr, dist = masker(src, mbox, o["mask_thresh"], excl, return_dist=True)
     dil = max(1, int(round(o["mask_dilate"] * up)))
     hole = cv2.dilate(raw_mask.astype(np.uint8), cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * dil + 1,) * 2)) > 0
     if excl is not None:
@@ -608,6 +687,14 @@ def build_patch(o: dict, frame: np.ndarray, quad: np.ndarray, seed: int = 0) -> 
         t = np.clip(0.5 + 0.35 * _noise((ch, cw), min(cw, ch) / 10, rng), 0, 1)[..., None]
         tex = c_lo + (c_hi - c_lo) * t
         info["text_rgb"] = [[int(v) for v in c_lo[::-1]], [int(v) for v in c_hi[::-1]]]
+        if o.get("text_rel") is not None:                # 字色＝局部素面底色 × 比例（底色有明暗漸層、暗處墨字時用）
+            r = o["text_rel"]
+            if r == "auto":
+                bl = float(rgb[bg].reshape(-1, 3).mean(0) @ np.float32([0.114, 0.587, 0.299])) if bg.any() else 1.0
+                r = float(c_lo @ np.float32([0.114, 0.587, 0.299])) / max(bl, 1.0)
+            r = float(np.clip(r, 0.02, 3.0))
+            tex = rgb * r * (0.85 + 0.3 * t)
+            info["text_rel"] = round(r, 3)
         s = float(o["blur"]) * up
         a = cv2.GaussianBlur(glyph, (0, 0), s) if s > 0 else glyph
         if o["outline"]:
@@ -640,20 +727,20 @@ def build_patch(o: dict, frame: np.ndarray, quad: np.ndarray, seed: int = 0) -> 
            "alpha": alpha * 255}
     return Patch(rgb.astype(np.float32), alpha.astype(np.float32), gain_bg, (cw, ch), grain, ref_mean, info,
                  debug=dbg, tex=tex, ta=None if ta is None else ta.astype(np.float32),
-                 core=core if ref_txt is not None else None, ref_txt=ref_txt)
+                 core=core if ref_txt is not None else None, ref_txt=ref_txt, src=src)
 
 
 # ───────────────────────── 合成 ─────────────────────────
 
-def _region_gain(small, m, ref):
-    cur = small[m].mean(0)
+def _region_gain(small, m, ref, robust=False):
+    cur = np.median(small[m], axis=0) if robust else small[m].mean(0)   # robust：中位數，不被遮擋物帶偏
     w = np.float32([0.114, 0.587, 0.299])
     gl = float(cur @ w) / max(float(ref @ w), 1.0)                 # 亮度增益
     gc = cur / np.maximum(ref, 1.0) / max(gl, 1e-3)                # 各通道相對偏色（暗通道比值不穩，限 ±15%）
     return np.clip(gl * np.clip(gc, 0.85, 1.15), 0.1, 3.0).astype(np.float32)
 
 
-def frame_gain(frame: np.ndarray, corners: np.ndarray, P: Patch, up: int) -> np.ndarray:
+def frame_gain(frame: np.ndarray, corners: np.ndarray, P: Patch, up: int, robust: bool = False) -> np.ndarray:
     """回傳 (2,3)：[底色增益, 字的增益]，各為此幀平均 ÷ 基準幀平均。字的增益取原假字筆畫核心
     （它們在每一幀都還在畫面上），沒有時同底色。"""
     cw, ch = P.size
@@ -665,13 +752,13 @@ def frame_gain(frame: np.ndarray, corners: np.ndarray, P: Patch, up: int) -> np.
                                 flags=cv2.INTER_NEAREST | cv2.WARP_INVERSE_MAP) > 0
     bm = cv2.resize(P.bg.astype(np.uint8), (sw, sh), interpolation=cv2.INTER_NEAREST) > 0
     m = bm & valid
-    g_bg = _region_gain(small, m, P.ref_mean) if m.sum() >= 10 else np.ones(3, np.float32)
+    g_bg = _region_gain(small, m, P.ref_mean, robust) if m.sum() >= 10 else np.ones(3, np.float32)
     g_tx = g_bg
     if P.core is not None:
         cm = cv2.resize(P.core.astype(np.float32), (sw, sh), interpolation=cv2.INTER_AREA) > 0.6
         cm &= valid
         if cm.sum() >= 6:
-            g_tx = np.clip(_region_gain(small, cm, P.ref_txt), g_bg * 0.5, g_bg * 2.0)
+            g_tx = np.clip(_region_gain(small, cm, P.ref_txt, robust), g_bg * 0.5, g_bg * 2.0)
     return np.stack([g_bg, g_tx])
 
 
@@ -701,21 +788,62 @@ def _bbox(corners, shape, margin=3):
     return max(x0, 0), max(y0, 0), min(x1, w), min(y1, h)
 
 
+def occlusion_mask(roi: np.ndarray, P: Patch, M: np.ndarray, size, gain: np.ndarray, occ: dict) -> np.ndarray:
+    """前景遮擋遮罩 0–1：此幀（roi）與基準幀原貌（P.src warp 過來、乘上整體亮度比）的平滑差 > thresh 的地方。
+    原假字本身每幀都在、差很小，不會被當遮擋；桿子、前方招牌、行人等差很大。
+    亮度比只用與原貌差距不大的像素估（逐通道中位數，夾在 [0.5, 2]）：遮擋物佔一半以上時也不會把原貌壓成遮擋物的亮度。"""
+    exp = cv2.warpPerspective(P.src, M, size, flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+    inside = cv2.warpPerspective(np.ones(P.src.shape[:2], np.uint8), M, size, flags=cv2.INTER_NEAREST) > 0
+    s = max(0.3, float(occ["blur"]))
+    br, be = cv2.GaussianBlur(roi, (0, 0), s), cv2.GaussianBlur(exp, (0, 0), s)
+    ok = inside & (np.abs(br - be).mean(-1) < 2 * float(occ["thresh"]))   # 只用「看起來還是物件本身」的像素估亮度比
+    ratio = None
+    if ok.sum() >= 20:
+        ratio = np.clip(np.median(br[ok] / np.maximum(be[ok], 1.0), axis=0), 0.5, 2.0).astype(np.float32)
+        be = be * ratio
+    r = np.abs(br - be).mean(-1)
+    m = ((r > float(occ["thresh"])) & inside).astype(np.uint8)
+    k = int(round(float(occ["open"])))
+    if k > 0:
+        m = cv2.morphologyEx(m, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * k + 1,) * 2))
+    k = int(round(float(occ.get("close", 0))))            # 閉運算：暗色遮擋物蓋在原暗筆畫上時差很小，補起遮擋區內的筆畫形小洞
+    if k > 0:
+        m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * k + 1,) * 2))
+    k = int(round(float(occ["dilate"])))
+    if k > 0:
+        m = cv2.dilate(m, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * k + 1,) * 2))
+    m = m.astype(np.float32)
+    f = float(occ["feather"])
+    m = np.clip(cv2.GaussianBlur(m, (0, 0), f) * 1.5, 0, 1) if f > 0 else m
+    return m, ratio
+
+
 def composite(frame: np.ndarray, P: Patch, corners: np.ndarray, gain: np.ndarray, o: dict,
-              rng: np.random.Generator) -> np.ndarray:
+              rng: np.random.Generator, occ_log: list | None = None) -> np.ndarray:
     x0, y0, x1, y1 = _bbox(corners, frame.shape)
     if x1 <= x0 or y1 <= y0:
         return frame
     cw, ch = P.size
     M = cv2.getPerspectiveTransform(canvas_pts(cw, ch), (corners - [x0, y0]).astype(np.float32))
     size = (x1 - x0, y1 - y0)
+    roi = frame[y0:y1, x0:x1].astype(np.float32)
+    occ = None
+    if o.get("occlusion") and P.src is not None:
+        occ, ratio = occlusion_mask(roi, P, M, size, gain, o["occlusion"])
+        if ratio is not None:                   # 遮擋物佔大半時 frame_gain 會被帶偏，改用未遮擋像素估的亮度比（底與字同比）
+            gain = np.stack([ratio, ratio * np.clip(gain[1] / np.maximum(gain[0], 1e-3), 0.8, 1.25)])
     pw = cv2.warpPerspective(P.rgb, M, size, flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE) * gain[0]
     if P.ta is not None:
         tw = cv2.warpPerspective(P.tex, M, size, flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
         taw = cv2.warpPerspective(P.ta, M, size, flags=cv2.INTER_LINEAR, borderValue=0)[..., None]
         pw = pw * (1 - taw) + tw * gain[1] * taw
     a = cv2.warpPerspective(P.alpha, M, size, flags=cv2.INTER_LINEAR, borderValue=0)[..., None]
-    roi = frame[y0:y1, x0:x1].astype(np.float32)
+    if occ is not None:
+        a = a * (1 - occ)[..., None]
+        if occ_log is not None:
+            occ_log.append(float((occ > 0.5).sum()) / max(1.0, float((a > 0.05).sum() + (occ > 0.5).sum())))
+    if o.get("protect_color"):
+        a = a * (1 - protect_color_mask(roi, o["protect_color"], 1))[..., None]
     if o["protect_luma"] is not None:
         lum = roi @ np.float32([0.114, 0.587, 0.299])
         thr = float(o["protect_luma"])
@@ -743,9 +871,11 @@ def defocus(frame: np.ndarray, corners: np.ndarray, o: dict) -> np.ndarray:
     return out
 
 
-def apply_object(frames: list[np.ndarray], o: dict, fps: float, seed: int = 0) -> tuple[list[np.ndarray], dict, dict]:
-    """追蹤＋合成一個物件（回傳新幀列表、軌跡資料、量測）。frames 不會被原地修改。"""
-    grays = [cv2.cvtColor(f, cv2.COLOR_BGR2GRAY) for f in frames]
+def apply_object(frames: list[np.ndarray], o: dict, fps: float, seed: int = 0,
+                 track_frames: list[np.ndarray] | None = None) -> tuple[list[np.ndarray], dict, dict]:
+    """追蹤＋合成一個物件（回傳新幀列表、軌跡資料、量測）。frames 不會被原地修改。
+    track_frames：追蹤改用這組幀（例如原片；前面物件已把同平面的紋理抹掉時用，規格 "track_on": "orig"）。"""
+    grays = [cv2.cvtColor(f, cv2.COLOR_BGR2GRAY) for f in (track_frames if track_frames is not None else frames)]
     tk = track_object(o, grays, fps)
     out = list(frames)
     stats = dict(tk["stats"])
@@ -760,15 +890,21 @@ def apply_object(frames: list[np.ndarray], o: dict, fps: float, seed: int = 0) -
     P = build_patch(o, frames[kb], tk["corners"][jb], seed)
     P.tgrain = temporal_noise(frames, tk, P, up) if o["temporal_grain"] == "auto" else float(o["temporal_grain"])
     stats["temporal_grain"] = round(P.tgrain, 2)
-    gains = np.array([frame_gain(frames[i], tk["corners"][j], P, up) for j, i in enumerate(tk["frames"])])
+    robust = bool(o.get("occlusion"))                      # 有遮擋物時增益改用中位數
+    gains = np.array([frame_gain(frames[i], tk["corners"][j], P, up, robust) for j, i in enumerate(tk["frames"])])
     gains = gains / gains[jb]                                   # 基準幀增益 = 1
+    if o.get("text_gain") == "bg":                              # 原筆畫後段被遮擋時，字的增益改跟底色
+        gains[:, 1] = gains[:, 0]
     gs = int(o["gain_smooth"]) | 1                              # 預設不平滑：閃電、閃光要逐幀跟上
     if gs >= 3 and len(gains) > gs:
         gains = savgol_filter(gains, gs, min(2, gs - 1), axis=0, mode="interp")
     rng = np.random.default_rng(seed + 1)
+    occ_log = [] if o.get("occlusion") else None
     for j, i in enumerate(tk["frames"]):
-        out[i] = composite(frames[i], P, tk["corners"][j], gains[j].astype(np.float32), o, rng)
+        out[i] = composite(frames[i], P, tk["corners"][j], gains[j].astype(np.float32), o, rng, occ_log)
     stats.update(P.info)
+    if occ_log:
+        stats["occluded_frac_max"] = round(max(occ_log), 3)
     tk["debug"] = P.debug
     stats["base_frame"] = kb
     stats["gain_range"] = [round(float(gains[:, 0].min()), 3), round(float(gains[:, 0].max()), 3)]
@@ -864,7 +1000,8 @@ def run_spec(spec_in, clips_dir: Path = CLIPS, out_dir: Path = OUT_CLIPS, work: 
     report = {"clip": spec["clip"], "fps": fps, "frames": len(frames), "objects": []}
     for k, o in enumerate(spec["objects"]):
         before = frames
-        frames, tk, stats = apply_object(frames, o, fps, seed=k)
+        frames, tk, stats = apply_object(frames, o, fps, seed=k,
+                                         track_frames=orig if o.get("track_on") == "orig" else None)
         stats = {"id": o["id"], "mode": o["mode"], "text": o.get("text", ""), **stats}
         sheet = Path(work) / "contact" / f"{stem}__{o['id']}.jpg"
         contact_sheet(before, frames, tk, o, stats, fps, sheet)

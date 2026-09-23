@@ -1,0 +1,11 @@
+{
+ "clip": "第一章_03_6_294f_t.mp4",
+ "note": "H056 供桌紅桌裙金字 5 字（0–4.0s 緩推；4.04s 切鏡頭，range 截在切點前）；原「□美□福源」→「合境保平安」（與 H047 同一用字、同為左→右）",
+ "objects": [
+  {"id": "H056", "mode": "replace", "text": "合境保平安", "direction": "h",
+   "range": [0, 4.0],
+   "anchors": [{"t": 2.5, "quad": [[490, 355], [672, 355], [672, 404], [490, 404]]}],
+   "font": "kaiu", "pad": [0.06, 0.04], "text_color": [72, 48, 22], "text_color2": [120, 88, 44], "blur": 0.5, "mask_thresh": 20, "mask_dilate": 2.5,
+   "track": {"pad": 30, "smooth": 9}}
+ ]
+}

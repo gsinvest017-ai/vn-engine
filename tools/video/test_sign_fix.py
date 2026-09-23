@@ -196,3 +196,129 @@ def test_stroke_width():
     m[20:28, 5:55] = 1                                         # 8px 粗的橫筆
     assert 6 <= S.stroke_width(m) <= 9
     assert S.stroke_width(np.zeros((10, 10))) == 0.0
+
+
+@pytest.mark.skipif(not HAS_KAIU, reason="沒有標楷體")
+def test_occlusion_keeps_foreground():
+    """occlusion 開啟時，後來擋在招牌前的桿子保持原樣；招牌其他地方照常換字。預設（關閉）行為不變。"""
+    clean = sign_frame()
+    occl = clean.copy()
+    occl[95:145, 150:162] = (150, 160, 165)                    # 灰色桿子擋住字的中段
+    frames = [clean, clean, occl]
+    base = {"anchors": [{"frame": 0, "quad": QUAD.tolist()}], "track": {"static": True}}
+    o_on = S.parse_spec(spec(**base, occlusion={"thresh": 40}))["objects"][0]
+    o_off = S.parse_spec(spec(**base))["objects"][0]
+    assert o_on["occlusion"]["dilate"] == 2.0 and o_off["occlusion"] is None
+    on, _, st = S.apply_object(frames, o_on, 24)
+    off, _, _ = S.apply_object(frames, o_off, 24)
+    bar = (slice(100, 140), slice(152, 160))
+    assert np.abs(on[2][bar].astype(int) - occl[bar].astype(int)).max() <= 2      # 桿子沒被蓋
+    assert np.abs(off[2][bar].astype(int) - occl[bar].astype(int)).max() > 20     # 關閉時會蓋到桿子
+    left = (slice(110, 132), slice(128, 145))
+    assert np.abs(on[2][left].astype(int) - occl[left].astype(int)).max() > 20    # 其他筆畫照常修補
+    assert st["occluded_frac_max"] > 0
+
+
+def test_sane_h_rejects_degenerate():
+    """ECC／SIFT 偶爾回傳奇異或翻轉的 homography，追蹤要改用預測而不是崩潰。"""
+    assert S._sane_h(np.eye(3))
+    assert not S._sane_h(np.zeros((3, 3)))
+    assert not S._sane_h(np.diag([1.0, -1.0, 1.0]))            # 翻轉
+    assert not S._sane_h(np.array([[1, 0, 0], [0, 1, 0], [0, 0, np.nan]]))
+
+
+@pytest.mark.skipif(not HAS_KAIU, reason="沒有標楷體")
+def test_protect_color_keeps_red_slash():
+    """protect_color：禁止標誌的紅斜槓不被當成字抹掉，合成後仍在原位。"""
+    f = np.full((H, W, 3), 235, np.uint8)
+    f[108:132, 150:156] = 20                                   # 黑色假字筆畫
+    for k in range(80):                                       # 紅斜槓（BGR）
+        cv2.circle(f, (120 + k, 100 + k // 2), 2, (40, 40, 190), -1)
+    o = S.parse_spec(spec(text="停", anchors=[{"frame": 0, "quad": QUAD.tolist()}], track={"static": True},
+                          protect_color={"rgb": [190, 40, 40], "dist": 45}))["objects"][0]
+    out, _, _ = S.apply_object([f, f], o, 24)
+    red = (np.abs(f.astype(int) - (40, 40, 190)).max(-1) < 5)
+    assert np.abs(out[1][red].astype(int) - f[red].astype(int)).max() <= 3
+    assert np.abs(out[1].astype(int) - f.astype(int)).max() > 20              # 其他地方有換字
+
+
+# ───── 第 5 批新增選項（mask_mode=dark、text_rel、錨點 poly、text_gain=bg、occlusion.close、track_on=orig）─────
+
+def dark_sign(shade=True):
+    """暗紅布上的墨字（兩條橫筆），左半有陰影漸層：Lab 距離門檻會把陰影當字，dark 模式不會。"""
+    f = np.full((H, W, 3), (25, 25, 110), np.float32)
+    if shade:
+        f[:, :160] *= np.linspace(0.45, 1.0, 160)[None, :, None]
+    f[112:118, 128:192] *= 0.3
+    f[124:130, 128:192] *= 0.3
+    return np.clip(f, 0, 255).astype(np.uint8)
+
+
+def test_dark_mask_finds_ink_not_shadow():
+    q = QUAD
+    cw, ch = S.canvas_size(q, 4)
+    src = S.rectify(dark_sign(), q, cw, ch).astype(np.float32)
+    m, thr = S.dark_mask(src)
+    assert 0.05 < m.mean() < 0.5 and 0 < thr < 1
+    rows = m.mean(1)
+    ink = rows[int(ch * 12 / 40):int(ch * 18 / 40)].mean()     # 第一條橫筆所在列
+    gap = rows[int(ch * 19 / 40):int(ch * 23 / 40)].mean()     # 兩筆之間的底色
+    assert ink > 0.7 and gap < 0.1
+    m2, _, dist = S.dark_mask(src, return_dist=True)
+    assert dist.shape == m2.shape and dist.max() <= 100
+
+
+@pytest.mark.skipif(not HAS_KAIU, reason="沒有標楷體")
+def test_mask_mode_dark_and_text_rel():
+    base = {"anchors": [{"frame": 0, "quad": QUAD.tolist()}], "track": {"static": True}}
+    o = S.parse_spec(spec(**base, mask_mode="dark", text_rel=0.3))["objects"][0]
+    assert S.parse_spec(spec())["objects"][0]["mask_mode"] == "lab"            # 預設不變
+    P = S.build_patch(o, dark_sign(), QUAD)
+    assert P.info["text_rel"] == 0.3
+    lum = lambda c: float(np.asarray(c).reshape(-1, 3).mean(0) @ np.float32([0.114, 0.587, 0.299]))
+    assert lum(P.tex) < 0.5 * lum(P.rgb)                        # 字色＝底色 × 0.3 左右
+    o2 = S.parse_spec(spec(**base, mask_mode="dark", text_rel="auto"))["objects"][0]
+    assert 0.02 <= S.build_patch(o2, dark_sign(), QUAD).info["text_rel"] < 1.0
+
+
+def test_anchor_poly_overrides_track_poly():
+    frames, _ = synth_frames(6, fade=False)
+    grays = [cv2.cvtColor(f, cv2.COLOR_BGR2GRAY) for f in frames]
+    far = [[0, 0], [30, 0], [30, 30], [0, 30]]                   # 圈到畫面角落（錯的平面）
+    o_bad = S.parse_spec(spec(track={"pad": 20, "smooth": 5, "poly": far}))["objects"][0]
+    o_fix = S.parse_spec(spec(anchors=[{"frame": 0, "quad": QUAD.tolist(),
+                                        "poly": (QUAD + [[-20, -20], [20, -20], [20, 20], [-20, 20]]).tolist()}],
+                              track={"pad": 20, "smooth": 5, "poly": far}))["objects"][0]
+    assert S.track_object(o_fix, grays, 24)["stats"]["cc_min"] > S.track_object(o_bad, grays, 24)["stats"]["cc_min"]
+
+
+@pytest.mark.skipif(not HAS_KAIU, reason="沒有標楷體")
+def test_text_gain_bg_and_track_on_orig():
+    frames = [sign_frame(), sign_frame(0.6, 1.0)]
+    base = {"anchors": [{"frame": 0, "quad": QUAD.tolist()}], "track": {"static": True}}
+    o = S.parse_spec(spec(**base, text_gain="bg"))["objects"][0]
+    _, _, st = S.apply_object(frames, o, 24)
+    assert st["text_gain_range"] == st["gain_range"]
+    o_def = S.parse_spec(spec(**base))["objects"][0]
+    _, _, st2 = S.apply_object(frames, o_def, 24)
+    assert st2["text_gain_range"] != st2["gain_range"]          # 預設仍用原筆畫
+    # track_frames：追蹤改用傳入的幀組（run_spec 的 track_on=orig 走這條），合成仍作用在 frames 上
+    moving, _ = synth_frames(4, fade=False)
+    o3 = S.parse_spec(spec(mode="defocus"))["objects"][0]
+    out, tk, _ = S.apply_object(moving, o3, 24, track_frames=moving)
+    assert tk["stats"]["cc_min"] > 0.9 and len(out) == 4
+
+
+def test_occlusion_close_fills_holes():
+    P = S.Patch(np.zeros((40, 80, 3), np.float32), np.ones((40, 80), np.float32), np.ones((40, 80), bool),
+                (80, 40), 0.0, np.zeros(3, np.float32), src=np.full((40, 80, 3), 100, np.float32))
+    roi = np.full((40, 80, 3), 100, np.float32)
+    roi[5:35, 20:60] = 20                                       # 大塊暗遮擋
+    roi[15:25, 35:45] = 100                                     # 遮擋中間恰好跟原貌一樣的洞
+    M = np.eye(3, dtype=np.float32)
+    g = np.ones((2, 3), np.float32)
+    occ = {**S.OCCL_DEFAULTS, "thresh": 30, "blur": 0.3, "dilate": 0, "feather": 0, "open": 0}
+    first = lambda r: r[0] if isinstance(r, tuple) else r
+    no = first(S.occlusion_mask(roi, P, M, (80, 40), g, occ))
+    yes = first(S.occlusion_mask(roi, P, M, (80, 40), g, {**occ, "close": 6}))
+    assert no[20, 40] == 0 and yes[20, 40] == 1

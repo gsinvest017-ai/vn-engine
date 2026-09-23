@@ -1,0 +1,62 @@
+{
+ "clip": "第二章_00_1_277f_t.mp4",
+ "note": "H065 道壇供桌紅桌裙金字 5 格（緩推 11 秒）；原字「沃栝播范状」→「合境保平安」",
+ "objects": [
+  {
+   "id": "H065",
+   "mode": "replace",
+   "text": "合境保平安",
+   "direction": "h",
+   "anchors": [
+    {
+     "t": 11.0,
+     "quad": [
+      [
+       313,
+       431
+      ],
+      [
+       508,
+       425
+      ],
+      [
+       508,
+       466
+      ],
+      [
+       313,
+       476
+      ]
+     ]
+    }
+   ],
+   "base_anchor": 0,
+   "font": "kaiu",
+   "pad": [
+    0.05,
+    0.05
+   ],
+   "mask_dilate": 2.0,
+   "track": {
+    "pad": 20,
+    "smooth": 15
+   },
+   "_hanzi": {
+    "object_type": "桌裙",
+    "seen_text": "沃栝播范状",
+    "object_motion": "緩推/緩移"
+   },
+   "mask_thresh": 36,
+   "text_color": [
+    165,
+    130,
+    45
+   ],
+   "text_color2": [
+    215,
+    182,
+    88
+   ]
+  }
+ ]
+}

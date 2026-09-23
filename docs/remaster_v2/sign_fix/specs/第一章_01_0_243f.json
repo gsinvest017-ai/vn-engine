@@ -1,0 +1,11 @@
+{
+ "clip": "第一章_01_0_243f.mp4",
+ "note": "H020 門邊直匾（淡入後緩推，匾逐漸從畫面左緣出畫）；原 5 字假字 →「翰溪庄道壇」直書",
+ "objects": [
+  {"id": "H020", "mode": "replace", "text": "翰溪庄道壇", "direction": "v",
+   "anchors": [{"t": 2.0, "quad": [[16, 176], [64, 176], [64, 432], [16, 432]]}],
+   "font": "kaiu", "pad": [0.06, 0.04], "mask_thresh": 35, "mask_dilate": 2.0, "text_color": [4, 4, 4], "text_color2": [18, 16, 14], "weight": 1.0, "blur": 0.5, "grain": 1.0,
+   "track": {"pad": 30, "smooth": 15},
+   "_hanzi": {"object_type": "門邊直匾", "seen_text": "居□皓美食", "note": "同一塊在 019、030 再出現，三段需同字"}}
+ ]
+}
