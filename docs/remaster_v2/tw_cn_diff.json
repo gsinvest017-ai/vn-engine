@@ -1,0 +1,630 @@
+{
+ "期": {
+  "tw_zhuyin": "ㄑㄧˊ",
+  "tw_pinyin": "qí",
+  "cn_pinyin": "qī",
+  "scope": "char",
+  "tts_sub": "其",
+  "conf": "high",
+  "note": "星期、時期、期間、日期、期待"
+ },
+ "究": {
+  "tw_zhuyin": "ㄐㄧㄡˋ",
+  "tw_pinyin": "jiù",
+  "cn_pinyin": "jiū",
+  "scope": "char",
+  "tts_sub": "救",
+  "conf": "high",
+  "note": "研究、究竟、追究"
+ },
+ "檔": {
+  "tw_zhuyin": "ㄉㄤˇ",
+  "tw_pinyin": "dǎng",
+  "cn_pinyin": "dàng",
+  "scope": "char",
+  "tts_sub": "黨",
+  "conf": "high",
+  "note": "檔案、存檔"
+ },
+ "汐": {
+  "tw_zhuyin": "ㄒㄧˋ",
+  "tw_pinyin": "xì",
+  "cn_pinyin": "xī",
+  "scope": "char",
+  "tts_sub": "細",
+  "conf": "high",
+  "note": "潮汐、汐止"
+ },
+ "夕": {
+  "tw_zhuyin": "ㄒㄧˋ",
+  "tw_pinyin": "xì",
+  "cn_pinyin": "xī",
+  "scope": "char",
+  "tts_sub": "細",
+  "conf": "mid",
+  "note": "夕陽、前夕、七夕；台灣口語 ㄒㄧ 也常見"
+ },
+ "褐": {
+  "tw_zhuyin": "ㄏㄜˊ",
+  "tw_pinyin": "hé",
+  "cn_pinyin": "hè",
+  "scope": "char",
+  "tts_sub": "合",
+  "conf": "high",
+  "note": "褐色"
+ },
+ "跡": {
+  "tw_zhuyin": "ㄐㄧ",
+  "tw_pinyin": "jī",
+  "cn_pinyin": "jì",
+  "scope": "char",
+  "tts_sub": "機",
+  "conf": "mid",
+  "note": "字跡、痕跡、足跡；台灣口語 ㄐㄧˋ 也常見"
+ },
+ "蹟": {
+  "tw_zhuyin": "ㄐㄧ",
+  "tw_pinyin": "jī",
+  "cn_pinyin": "jì",
+  "scope": "char",
+  "tts_sub": "機",
+  "conf": "mid",
+  "note": "古蹟、奇蹟"
+ },
+ "績": {
+  "tw_zhuyin": "ㄐㄧ",
+  "tw_pinyin": "jī",
+  "cn_pinyin": "jì",
+  "scope": "char",
+  "tts_sub": "機",
+  "conf": "mid",
+  "note": "成績、業績"
+ },
+ "識": {
+  "tw_zhuyin": "ㄕˋ",
+  "tw_pinyin": "shì",
+  "cn_pinyin": "shí",
+  "scope": "char",
+  "tts_sub": "事",
+  "conf": "high",
+  "note": "意識、知識、認識（大陸口語 意識/認識 常唸輕聲 shi）"
+ },
+ "微": {
+  "tw_zhuyin": "ㄨㄟˊ",
+  "tw_pinyin": "wéi",
+  "cn_pinyin": "wēi",
+  "scope": "char",
+  "tts_sub": "維",
+  "conf": "high",
+  "note": "微弱、微笑、稍微"
+ },
+ "危": {
+  "tw_zhuyin": "ㄨㄟˊ",
+  "tw_pinyin": "wéi",
+  "cn_pinyin": "wēi",
+  "scope": "char",
+  "tts_sub": "維",
+  "conf": "high",
+  "note": "危險、危機"
+ },
+ "突": {
+  "tw_zhuyin": "ㄊㄨˊ",
+  "tw_pinyin": "tú",
+  "cn_pinyin": "tū",
+  "scope": "char",
+  "tts_sub": "圖",
+  "conf": "high",
+  "note": "突然、突破、衝突"
+ },
+ "凸": {
+  "tw_zhuyin": "ㄊㄨˊ",
+  "tw_pinyin": "tú",
+  "cn_pinyin": "tū",
+  "scope": "char",
+  "tts_sub": "圖",
+  "conf": "mid",
+  "note": "凸出"
+ },
+ "質": {
+  "tw_zhuyin": "ㄓˊ",
+  "tw_pinyin": "zhí",
+  "cn_pinyin": "zhì",
+  "scope": "char",
+  "tts_sub": "直",
+  "conf": "high",
+  "note": "品質、質量、性質"
+ },
+ "企": {
+  "tw_zhuyin": "ㄑㄧˋ",
+  "tw_pinyin": "qì",
+  "cn_pinyin": "qǐ",
+  "scope": "char",
+  "tts_sub": "器",
+  "conf": "high",
+  "note": "企業、企圖"
+ },
+ "暫": {
+  "tw_zhuyin": "ㄓㄢˋ",
+  "tw_pinyin": "zhàn",
+  "cn_pinyin": "zàn",
+  "scope": "char",
+  "tts_sub": "站",
+  "conf": "high",
+  "note": "暫時"
+ },
+ "擁": {
+  "tw_zhuyin": "ㄩㄥˇ",
+  "tw_pinyin": "yǒng",
+  "cn_pinyin": "yōng",
+  "scope": "char",
+  "tts_sub": "永",
+  "conf": "high",
+  "note": "擁抱、擁有、擁擠"
+ },
+ "液": {
+  "tw_zhuyin": "ㄧˋ",
+  "tw_pinyin": "yì",
+  "cn_pinyin": "yè",
+  "scope": "char",
+  "tts_sub": "義",
+  "conf": "high",
+  "note": "液體、血液"
+ },
+ "蝸": {
+  "tw_zhuyin": "ㄍㄨㄚ",
+  "tw_pinyin": "guā",
+  "cn_pinyin": "wō",
+  "scope": "char",
+  "tts_sub": "瓜",
+  "conf": "high",
+  "note": "蝸牛"
+ },
+ "癌": {
+  "tw_zhuyin": "ㄧㄢˊ",
+  "tw_pinyin": "yán",
+  "cn_pinyin": "ái",
+  "scope": "char",
+  "tts_sub": "嚴",
+  "conf": "high",
+  "note": "癌症"
+ },
+ "帆": {
+  "tw_zhuyin": "ㄈㄢˊ",
+  "tw_pinyin": "fán",
+  "cn_pinyin": "fān",
+  "scope": "char",
+  "tts_sub": "凡",
+  "conf": "high",
+  "note": "帆船"
+ },
+ "髮": {
+  "tw_zhuyin": "ㄈㄚˇ",
+  "tw_pinyin": "fǎ",
+  "cn_pinyin": "fà",
+  "scope": "char",
+  "tts_sub": "法",
+  "conf": "high",
+  "note": "頭髮、白髮"
+ },
+ "寂": {
+  "tw_zhuyin": "ㄐㄧˊ",
+  "tw_pinyin": "jí",
+  "cn_pinyin": "jì",
+  "scope": "char",
+  "tts_sub": "集",
+  "conf": "high",
+  "note": "寂寞、寂靜、寂寥、死寂"
+ },
+ "惜": {
+  "tw_zhuyin": "ㄒㄧˊ",
+  "tw_pinyin": "xí",
+  "cn_pinyin": "xī",
+  "scope": "char",
+  "tts_sub": "習",
+  "conf": "high",
+  "note": "可惜、珍惜"
+ },
+ "昔": {
+  "tw_zhuyin": "ㄒㄧˊ",
+  "tw_pinyin": "xí",
+  "cn_pinyin": "xī",
+  "scope": "char",
+  "tts_sub": "習",
+  "conf": "high",
+  "note": "昔日、往昔"
+ },
+ "息": {
+  "tw_zhuyin": "ㄒㄧˊ",
+  "tw_pinyin": "xí",
+  "cn_pinyin": "xī",
+  "scope": "char",
+  "tts_sub": "習",
+  "conf": "mid",
+  "note": "休息、消息、氣息、嘆息"
+ },
+ "擊": {
+  "tw_zhuyin": "ㄐㄧˊ",
+  "tw_pinyin": "jí",
+  "cn_pinyin": "jī",
+  "scope": "char",
+  "tts_sub": "集",
+  "conf": "high",
+  "note": "攻擊、打擊、目擊"
+ },
+ "緝": {
+  "tw_zhuyin": "ㄑㄧˋ",
+  "tw_pinyin": "qì",
+  "cn_pinyin": "jī",
+  "scope": "char",
+  "tts_sub": "器",
+  "conf": "high",
+  "note": "通緝、緝捕"
+ },
+ "叔": {
+  "tw_zhuyin": "ㄕㄨˊ",
+  "tw_pinyin": "shú",
+  "cn_pinyin": "shū",
+  "scope": "char",
+  "tts_sub": "熟",
+  "conf": "high",
+  "note": "叔叔"
+ },
+ "淑": {
+  "tw_zhuyin": "ㄕㄨˊ",
+  "tw_pinyin": "shú",
+  "cn_pinyin": "shū",
+  "scope": "char",
+  "tts_sub": "熟",
+  "conf": "high",
+  "note": "淑女"
+ },
+ "框": {
+  "tw_zhuyin": "ㄎㄨㄤ",
+  "tw_pinyin": "kuāng",
+  "cn_pinyin": "kuàng",
+  "scope": "char",
+  "tts_sub": "筐",
+  "conf": "high",
+  "note": "框架、門框"
+ },
+ "俄": {
+  "tw_zhuyin": "ㄜˋ",
+  "tw_pinyin": "è",
+  "cn_pinyin": "é",
+  "scope": "char",
+  "tts_sub": "餓",
+  "conf": "high",
+  "note": "俄國、俄頃"
+ },
+ "攜": {
+  "tw_zhuyin": "ㄒㄧ",
+  "tw_pinyin": "xī",
+  "cn_pinyin": "xié",
+  "scope": "char",
+  "tts_sub": "西",
+  "conf": "high",
+  "note": "攜帶、提攜"
+ },
+ "穴": {
+  "tw_zhuyin": "ㄒㄩㄝˋ",
+  "tw_pinyin": "xuè",
+  "cn_pinyin": "xué",
+  "scope": "char",
+  "tts_sub": "血",
+  "conf": "mid",
+  "note": "洞穴、墓穴（血 在大陸口語有 xiě 讀音，替代字要小心）"
+ },
+ "崖": {
+  "tw_zhuyin": "ㄧㄞˊ",
+  "tw_pinyin": "yái",
+  "cn_pinyin": "yá",
+  "scope": "char",
+  "tts_sub": null,
+  "conf": "high",
+  "note": "懸崖（大陸無 yái 音節，無同音字可替）"
+ },
+ "酵": {
+  "tw_zhuyin": "ㄒㄧㄠˋ",
+  "tw_pinyin": "xiào",
+  "cn_pinyin": "jiào",
+  "scope": "char",
+  "tts_sub": "笑",
+  "conf": "high",
+  "note": "發酵"
+ },
+ "綜": {
+  "tw_zhuyin": "ㄗㄨㄥˋ",
+  "tw_pinyin": "zòng",
+  "cn_pinyin": "zōng",
+  "scope": "char",
+  "tts_sub": "縱",
+  "conf": "high",
+  "note": "綜合"
+ },
+ "頗": {
+  "tw_zhuyin": "ㄆㄛ",
+  "tw_pinyin": "pō",
+  "cn_pinyin": "pō",
+  "scope": "char",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "常被列入但兩岸現行標準相同；台灣口語 ㄆㄛˇ"
+ },
+ "亞": {
+  "tw_zhuyin": "ㄧㄚˋ",
+  "tw_pinyin": "yà",
+  "cn_pinyin": "yà",
+  "scope": "char",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "標準相同；台灣口語 ㄧㄚˇ"
+ },
+ "血": {
+  "tw_zhuyin": "ㄒㄧㄝˇ",
+  "tw_pinyin": "xiě",
+  "cn_pinyin": "xuè",
+  "scope": "char",
+  "tts_sub": "寫",
+  "conf": "mid",
+  "note": "台灣語音 ㄒㄧㄝˇ（讀音 ㄒㄩㄝˋ 亦可）；大陸書面 xuè"
+ },
+ "熟": {
+  "tw_zhuyin": "ㄕㄡˊ/ㄕㄨˊ",
+  "tw_pinyin": "shóu/shú",
+  "cn_pinyin": "shú/shóu",
+  "scope": "char",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "兩岸都兩讀，風險低"
+ },
+ "播": {
+  "tw_zhuyin": "ㄅㄛ",
+  "tw_pinyin": "bō",
+  "cn_pinyin": "bō",
+  "scope": "char",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "標準相同；台灣口語 ㄅㄛˋ（廣播）"
+ },
+ "骰": {
+  "tw_zhuyin": "ㄊㄡˊ",
+  "tw_pinyin": "tóu",
+  "cn_pinyin": "shǎi/tóu",
+  "scope": "char",
+  "tts_sub": "頭",
+  "conf": "mid",
+  "note": "骰子"
+ },
+ "逮": {
+  "tw_zhuyin": "ㄉㄞˇ",
+  "tw_pinyin": "dǎi",
+  "cn_pinyin": "dài",
+  "scope": "char",
+  "tts_sub": "歹",
+  "conf": "mid",
+  "note": "逮捕（大陸 dàibǔ，台灣 ㄉㄞˇ ㄅㄨˇ）"
+ },
+ "曝": {
+  "tw_zhuyin": "ㄆㄨˋ",
+  "tw_pinyin": "pù",
+  "cn_pinyin": "pù/bào",
+  "scope": "char",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "曝光：大陸 bàoguāng；台灣 ㄆㄨˋ"
+ },
+ "蕁": {
+  "tw_zhuyin": "ㄒㄩㄣˊ",
+  "tw_pinyin": "xún",
+  "cn_pinyin": "qián/xún",
+  "scope": "char",
+  "tts_sub": "尋",
+  "conf": "mid",
+  "note": "蕁麻疹"
+ },
+ "繞": {
+  "tw_zhuyin": "ㄖㄠˋ",
+  "tw_pinyin": "rào",
+  "cn_pinyin": "rào",
+  "scope": "char",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "現行相同；台灣舊審訂 ㄖㄠˇ"
+ },
+ "垃圾": {
+  "tw_zhuyin": "ㄌㄜˋ ㄙㄜˋ",
+  "tw_pinyin": "lèsè",
+  "cn_pinyin": "lājī",
+  "scope": "word",
+  "tts_sub": "勒色",
+  "conf": "high",
+  "note": "台灣標準與口語皆 ㄌㄜˋ ㄙㄜˋ；不用「樂色」因為 乐 在簡體是 lè/yuè 多音字"
+ },
+ "星期": {
+  "tw_zhuyin": "ㄒㄧㄥ ㄑㄧˊ",
+  "tw_pinyin": "xīngqí",
+  "cn_pinyin": "xīngqī",
+  "scope": "word",
+  "tts_sub": "星其",
+  "conf": "high",
+  "note": ""
+ },
+ "質量": {
+  "tw_zhuyin": "ㄓˊ ㄌㄧㄤˋ",
+  "tw_pinyin": "zhíliàng",
+  "cn_pinyin": "zhìliàng",
+  "scope": "word",
+  "tts_sub": "直量",
+  "conf": "high",
+  "note": "另注意：大陸「質量」多指品質，台灣指 mass"
+ },
+ "滑稽": {
+  "tw_zhuyin": "ㄍㄨˇ ㄐㄧ",
+  "tw_pinyin": "gǔjī",
+  "cn_pinyin": "huájī",
+  "scope": "word",
+  "tts_sub": "古機",
+  "conf": "high",
+  "note": ""
+ },
+ "呆板": {
+  "tw_zhuyin": "ㄞˊ ㄅㄢˇ",
+  "tw_pinyin": "áibǎn",
+  "cn_pinyin": "dāibǎn",
+  "scope": "word",
+  "tts_sub": "皚板",
+  "conf": "high",
+  "note": ""
+ },
+ "口吃": {
+  "tw_zhuyin": "ㄎㄡˇ ㄐㄧˊ",
+  "tw_pinyin": "kǒují",
+  "cn_pinyin": "kǒuchī",
+  "scope": "word",
+  "tts_sub": "口集",
+  "conf": "high",
+  "note": ""
+ },
+ "和": {
+  "tw_zhuyin": "ㄏㄢˋ",
+  "tw_pinyin": "hàn",
+  "cn_pinyin": "hé",
+  "scope": "word",
+  "tts_sub": "汗",
+  "conf": "mid",
+  "note": "僅限連詞/介詞「我和你」的台灣語音；文學旁白一般仍唸 ㄏㄜˊ，不建議強改"
+ },
+ "說服": {
+  "tw_zhuyin": "ㄕㄨㄟˋ ㄈㄨˊ",
+  "tw_pinyin": "shuìfú",
+  "cn_pinyin": "shuōfú",
+  "scope": "word",
+  "tts_sub": "睡服",
+  "conf": "high",
+  "note": ""
+ },
+ "暴露": {
+  "tw_zhuyin": "ㄆㄨˋ ㄌㄨˋ",
+  "tw_pinyin": "pùlù",
+  "cn_pinyin": "bàolù",
+  "scope": "word",
+  "tts_sub": "瀑路",
+  "conf": "high",
+  "note": ""
+ },
+ "從容": {
+  "tw_zhuyin": "ㄘㄨㄥ ㄖㄨㄥˊ",
+  "tw_pinyin": "cōngróng",
+  "cn_pinyin": "cóngróng",
+  "scope": "word",
+  "tts_sub": "匆容",
+  "conf": "high",
+  "note": ""
+ },
+ "一會兒": {
+  "tw_zhuyin": "ㄧˋ ㄏㄨㄟˇ ㄦ",
+  "tw_pinyin": "yìhuǐr",
+  "cn_pinyin": "yíhuìr",
+  "scope": "word",
+  "tts_sub": "一悔兒",
+  "conf": "mid",
+  "note": ""
+ },
+ "骨頭": {
+  "tw_zhuyin": "ㄍㄨˊ ˙ㄊㄡ",
+  "tw_pinyin": "gútou",
+  "cn_pinyin": "gǔtou",
+  "scope": "word",
+  "tts_sub": null,
+  "conf": "mid",
+  "note": "台灣口語 ㄍㄨˊ；標準 ㄍㄨˇ 亦通"
+ },
+ "主角": {
+  "tw_zhuyin": "ㄓㄨˇ ㄐㄩㄝˊ",
+  "tw_pinyin": "zhǔjué",
+  "cn_pinyin": "zhǔjué",
+  "scope": "word",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "角色/主角：兩岸標準都 jué，但台灣口語常 ㄐㄧㄠˇ"
+ },
+ "包括": {
+  "tw_zhuyin": "ㄅㄠ ㄎㄨㄛˋ",
+  "tw_pinyin": "bāokuò",
+  "cn_pinyin": "bāokuò",
+  "scope": "word",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "現行相同；台灣舊讀 ㄍㄨㄚ"
+ },
+ "比較": {
+  "tw_zhuyin": "ㄅㄧˇ ㄐㄧㄠˋ",
+  "tw_pinyin": "bǐjiào",
+  "cn_pinyin": "bǐjiào",
+  "scope": "word",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "現行相同；台灣舊讀 ㄐㄧㄠˇ"
+ },
+ "法國": {
+  "tw_zhuyin": "ㄈㄚˇ ㄍㄨㄛˊ",
+  "tw_pinyin": "fǎguó",
+  "cn_pinyin": "fǎguó",
+  "scope": "word",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "現行相同；台灣舊讀 ㄈㄚˋ"
+ },
+ "塑膠": {
+  "tw_zhuyin": "ㄙㄨˋ ㄐㄧㄠ",
+  "tw_pinyin": "sùjiāo",
+  "cn_pinyin": "sùjiāo",
+  "scope": "word",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "字音相同（塑 ㄙㄨˋ）；台灣舊讀 ㄕㄨㄛˋ"
+ },
+ "教室": {
+  "tw_zhuyin": "ㄐㄧㄠˋ ㄕˋ",
+  "tw_pinyin": "jiàoshì",
+  "cn_pinyin": "jiàoshì",
+  "scope": "word",
+  "tts_sub": null,
+  "conf": "low",
+  "note": "現行相同；台灣口語 ㄕˇ"
+ },
+ "質問": {
+  "tw_zhuyin": "ㄓˊ ㄨㄣˋ",
+  "tw_pinyin": "zhíwèn",
+  "cn_pinyin": "zhìwèn",
+  "scope": "word",
+  "tts_sub": "直問",
+  "conf": "high",
+  "note": ""
+ },
+ "_neutral_tone_words": {
+  "note": "大陸《現代漢語詞典》標輕聲而台灣多唸本調的常見詞；CosyVoice 可能唸成輕聲，聽感略『京腔』，一般不建議為此重生，列出供參考",
+  "words": [
+   "時候",
+   "東西(物品)",
+   "地方",
+   "明白",
+   "厲害",
+   "記得",
+   "模糊",
+   "意識",
+   "認識",
+   "衣服",
+   "告訴",
+   "事情",
+   "朋友",
+   "先生",
+   "知道",
+   "消息",
+   "休息",
+   "打算",
+   "關係",
+   "舒服"
+  ]
+ }
+}
