@@ -1107,9 +1107,14 @@ def main(argv=None):
     a.add_argument("--anchors", type=int, default=2)
     b = sub.add_parser("preview", help="把錨點 quad 畫在放大格線圖上")
     b.add_argument("spec")
+    b.add_argument("--clips-dir", type=Path, default=None, help="來源 clip 目錄（預設 video_out/clips）")
     c = sub.add_parser("run", help="修補並輸出")
     c.add_argument("spec", nargs="+")
     c.add_argument("--no-encode", action="store_true", help="只做追蹤與對照圖，不輸出 clip")
+    c.add_argument("--clips-dir", type=Path, default=None,
+                   help="來源 clip 目錄（預設 video_out/clips；修重生候選時指到候選目錄）")
+    c.add_argument("--out-dir", type=Path, default=None,
+                   help="輸出目錄（預設 remaster_v2/clips_fixed）")
     args = ap.parse_args(argv)
     prev_dir = WORK / "preview"
     prev_dir.mkdir(parents=True, exist_ok=True)
@@ -1135,13 +1140,14 @@ def main(argv=None):
         for o in spec["objects"]:
             for an in o["anchors"]:
                 t = an.get("t", an.get("frame", 0) / 24)
-                im = grid_zoom(grab_frame(CLIPS / spec["clip"], t), [an["quad"]])
+                im = grid_zoom(grab_frame((args.clips_dir or CLIPS) / spec["clip"], t), [an["quad"]])
                 p = prev_dir / f"{Path(spec['clip']).stem}__{o['id']}__t{t:.2f}.png"
                 imwrite(p, im)
                 print("預覽", p)
     else:
         for s in args.spec:
-            run_spec(s, encode=not args.no_encode)
+            run_spec(s, clips_dir=args.clips_dir or CLIPS, out_dir=args.out_dir or OUT_CLIPS,
+                     encode=not args.no_encode)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,80 @@
+{
+ "clip": "第三章_00_7_294f_t_s2206.mp4",
+ "note": "v2.2 重生候選 s2206：開頭廣角（3.875s 切到燈籠特寫前）神龕兩側紅聯上有細小假字（各約 0.3% 畫面），固定鏡頭，static quad 失焦。來源 video_out/remaster_v2/regen/（run 時加 --clips-dir video_out/remaster_v2/regen）。",
+ "objects": [
+  {
+   "mode": "defocus",
+   "defocus_sigma": 3.0,
+   "feather": 3.0,
+   "range": [
+    0,
+    3.85
+   ],
+   "track": {
+    "static": true,
+    "pad": 10
+   },
+   "id": "H097r_couplet_L",
+   "anchors": [
+    {
+     "t": 3.0,
+     "quad": [
+      [
+       451,
+       174
+      ],
+      [
+       478,
+       174
+      ],
+      [
+       478,
+       324
+      ],
+      [
+       451,
+       324
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "mode": "defocus",
+   "defocus_sigma": 3.0,
+   "feather": 3.0,
+   "range": [
+    0,
+    3.85
+   ],
+   "track": {
+    "static": true,
+    "pad": 10
+   },
+   "id": "H097r_couplet_R",
+   "anchors": [
+    {
+     "t": 3.0,
+     "quad": [
+      [
+       590,
+       188
+      ],
+      [
+       620,
+       188
+      ],
+      [
+       620,
+       328
+      ],
+      [
+       590,
+       328
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

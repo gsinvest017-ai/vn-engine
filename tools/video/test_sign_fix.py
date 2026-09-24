@@ -322,3 +322,15 @@ def test_occlusion_close_fills_holes():
     no = first(S.occlusion_mask(roi, P, M, (80, 40), g, occ))
     yes = first(S.occlusion_mask(roi, P, M, (80, 40), g, {**occ, "close": 6}))
     assert no[20, 40] == 0 and yes[20, 40] == 1
+
+
+def test_cli_run_dirs_default_and_override(monkeypatch, tmp_path):
+    """run 子指令：不給 --clips-dir/--out-dir 時維持原預設；給了就轉交 run_spec。"""
+    calls = []
+    monkeypatch.setattr(S, "run_spec", lambda s, **kw: calls.append((s, kw)))
+    S.main(["run", "a.json", "--no-encode"])
+    assert calls[-1][1]["clips_dir"] == S.CLIPS and calls[-1][1]["out_dir"] == S.OUT_CLIPS
+    assert calls[-1][1]["encode"] is False
+    S.main(["run", "b.json", "--clips-dir", str(tmp_path / "c"), "--out-dir", str(tmp_path / "o")])
+    assert calls[-1][1]["clips_dir"] == tmp_path / "c" and calls[-1][1]["out_dir"] == tmp_path / "o"
+    assert calls[-1][1]["encode"] is True
