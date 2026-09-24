@@ -1,0 +1,1675 @@
+{
+ "summary": {
+  "blocks": 36,
+  "findings": 32,
+  "by_severity": {
+   "high": 14,
+   "medium": 10,
+   "low": 5,
+   "info": 3
+  },
+  "sentences_to_resynth": 21,
+  "blocks_to_resynth": [
+   "第一章_01_01",
+   "第一章_01_02",
+   "第一章_01_04",
+   "第一章_01_05",
+   "第一章_01_07",
+   "第一章_03_01",
+   "第一章_03_04",
+   "第一章_03_06",
+   "第一章_03_08",
+   "第一章_03_11",
+   "第三章_00_00",
+   "第二章_00_00",
+   "第二章_00_02",
+   "第二章_00_08",
+   "第二章_01_00",
+   "第二章_01_02"
+  ]
+ },
+ "method": {
+  "lexical": "tw_cn_diff.json（67 條）逐字詞掃描 narration.json；多音字依上下文人工判定台灣讀音（analyze.py POLY）",
+  "asr": "faster-whisper medium（CPU int8, beam 5, word_timestamps）轉寫 raw.wav；簡體＋拼音層逐字對齊",
+  "align": "torchaudio MMS_FA 強制對齊（無聲調拼音）取得每個音節在 raw.wav 的時間",
+  "tone": "pyworld harvest F0 → 半音、5 點輪廓等 11 維特徵 → GradientBoosting；以同一批旁白中兩岸同音、非多音字的 1106 個音節訓練，5-fold 交叉驗證 4 類準確率 0.822、兩兩比較 {'1v2': 0.899, '1v3': 0.935, '1v4': 0.937, '2v3': 0.887, '2v4': 0.97, '3v4': 0.88}",
+  "segment": "聲母韻母不同的候選用 MMS CTC loss 在該音節 ±0.1 s 視窗比較（loss 越小越像）",
+  "limits": "F0/CTC 是機器推測，不等於人耳判定；單音節 CTC 視窗短、易受前後音節影響；C 類都標為疑似，建議重生前先試聽。whisper 僅 medium（large-v3 未下載，未使用）。",
+  "time_mapping": "raw_wav_sec＝CosyVoice 原始輸出（<key>.raw.wav）；post_wav_sec≈(raw−lead_trim)/tempo（narr_post 的 rubberband 變速，誤差約 ±0.15 s）；v1_video_tc＝字幕 .ass 該段起點＋post 秒數"
+ },
+ "cosy_tts_sentence_rule": {
+  "split": "split_sentences：依 。！？ 切句；單句 >40 字再依 ，、；： 切；相鄰句併成 16–56 字的合成單位",
+  "gap": "合成單位之間插入 SENT_GAP=0.35 s 的數位靜音（樣本值全 0），本報告用這段全 0 區間精確定位每句在 raw.wav 的起訖；36 段全部偵測到的間隔數＝預期數（沒有句子被拆成子句重合成）",
+  "replace_one": "只換一句：用 tts_text 重合成該合成單位 → 取代 raw.wav 中 raw_sec 區間（前後 0.35 s 靜音保留）→ 重跑 narr_post.py 該段（narr_post 會從 raw.wav 重做整段後製，時長會小幅改變，render 時間軸跟著變）",
+  "cer_note": "cosy_tts._best 的 CER 以原文拼音（大陸音）評分；改用替代字後，CER 參考文字也要換成 tts_text，否則台灣音會被當錯"
+ },
+ "findings": [
+  {
+   "id": "P01",
+   "category": "A_t2s_著",
+   "block": "第一章_01_01",
+   "chunk_index": 0,
+   "sentence": "屋頂很低。午後下過雨，濕氣沿著牆角向上蔓延，牆面浮出大片灰白色的鹽斑，像人體皮膚無法癒合的舊傷。",
+   "word": "氣沿著",
+   "char": "著",
+   "raw_wav_sec": [
+    4.46,
+    4.7
+   ],
+   "post_wav_sec": [
+    4.06,
+    4.28
+   ],
+   "v1_video_tc": [
+    "00:58.76",
+    "00:58.98"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    14.96
+   ],
+   "chunk_post_sec": [
+    0.0,
+    13.6
+   ],
+   "tw_reading": "˙ㄓㄜ zhe（輕聲，助詞）",
+   "actual_or_suspected": "zhù（CTC loss zhu=5.09 vs zhe=13.42；F0 判第4聲機率 0.999；時長 0.24 s 非輕聲）",
+   "evidence": "聲學實測（CTC＋F0）；opencc t2s 輸出仍是「著」（簡體字形讀 zhù/zhuó），不是「着」",
+   "severity": "high",
+   "tts_substitution": {
+    "著": "着"
+   },
+   "fix": "送 TTS 前把助詞「著」改成「着」（字幕不變）。根治：cosy_tts._once 在 t2s 之後加 text.replace('著','着')（本作品所有「著」都是助詞）"
+  },
+  {
+   "id": "P02",
+   "category": "A_t2s_著",
+   "block": "第一章_01_01",
+   "chunk_index": 1,
+   "sentence": "我低頭看著自己的手。那不是我熟悉的手。",
+   "word": "頭看著",
+   "char": "著",
+   "raw_wav_sec": [
+    17.03,
+    17.27
+   ],
+   "post_wav_sec": [
+    15.48,
+    15.7
+   ],
+   "v1_video_tc": [
+    "01:10.18",
+    "01:10.40"
+   ],
+   "chunk_raw_sec": [
+    15.31,
+    21.71
+   ],
+   "chunk_post_sec": [
+    13.92,
+    19.74
+   ],
+   "tw_reading": "˙ㄓㄜ zhe（輕聲，助詞）",
+   "actual_or_suspected": "zhù（CTC loss zhu=8.17 vs zhe=16.39；F0 判第4聲機率 0.999；時長 0.24 s 非輕聲）",
+   "evidence": "聲學實測（CTC＋F0）；opencc t2s 輸出仍是「著」（簡體字形讀 zhù/zhuó），不是「着」",
+   "severity": "high",
+   "tts_substitution": {
+    "著": "着"
+   },
+   "fix": "送 TTS 前把助詞「著」改成「着」（字幕不變）。根治：cosy_tts._once 在 t2s 之後加 text.replace('著','着')（本作品所有「著」都是助詞）"
+  },
+  {
+   "id": "P03",
+   "category": "A_t2s_著",
+   "block": "第一章_01_01",
+   "chunk_index": 2,
+   "sentence": "指節粗大，掌紋深陷，皮膚裡彷彿積著長久未曾排出的疲憊。",
+   "word": "彿積著",
+   "char": "著",
+   "raw_wav_sec": [
+    27.2,
+    27.48
+   ],
+   "post_wav_sec": [
+    24.73,
+    24.98
+   ],
+   "v1_video_tc": [
+    "01:19.43",
+    "01:19.68"
+   ],
+   "chunk_raw_sec": [
+    22.06,
+    30.5
+   ],
+   "chunk_post_sec": [
+    20.05,
+    27.73
+   ],
+   "tw_reading": "˙ㄓㄜ zhe（輕聲，助詞）",
+   "actual_or_suspected": "zhù（CTC loss zhu=26.41 vs zhe=31.74；F0 判第4聲機率 0.963；時長 0.28 s 非輕聲）",
+   "evidence": "聲學實測（CTC＋F0）；opencc t2s 輸出仍是「著」（簡體字形讀 zhù/zhuó），不是「着」",
+   "severity": "high",
+   "tts_substitution": {
+    "著": "着"
+   },
+   "fix": "送 TTS 前把助詞「著」改成「着」（字幕不變）。根治：cosy_tts._once 在 t2s 之後加 text.replace('著','着')（本作品所有「著」都是助詞）"
+  },
+  {
+   "id": "P04",
+   "category": "A_t2s_著",
+   "block": "第三章_00_00",
+   "chunk_index": 1,
+   "sentence": "整條巷子瞬間陷入黑暗，只剩遠處便利商店的綠色招牌仍微弱亮著。",
+   "word": "弱亮著",
+   "char": "著",
+   "raw_wav_sec": [
+    19.79,
+    20.03
+   ],
+   "post_wav_sec": [
+    17.99,
+    18.21
+   ],
+   "v1_video_tc": [
+    "07:52.87",
+    "07:53.09"
+   ],
+   "chunk_raw_sec": [
+    9.63,
+    20.11
+   ],
+   "chunk_post_sec": [
+    8.75,
+    18.28
+   ],
+   "tw_reading": "˙ㄓㄜ zhe（輕聲，助詞）",
+   "actual_or_suspected": "zhù（CTC loss zhu=0.12 vs zhe=6.92；F0 判第4聲機率 0.992；時長 0.24 s 非輕聲）",
+   "evidence": "聲學實測（CTC＋F0）；opencc t2s 輸出仍是「著」（簡體字形讀 zhù/zhuó），不是「着」",
+   "severity": "high",
+   "tts_substitution": {
+    "著": "着"
+   },
+   "fix": "送 TTS 前把助詞「著」改成「着」（字幕不變）。根治：cosy_tts._once 在 t2s 之後加 text.replace('著','着')（本作品所有「著」都是助詞）"
+  },
+  {
+   "id": "P05",
+   "category": "B_兩岸讀音",
+   "block": "第一章_01_02",
+   "chunk_index": 0,
+   "sentence": "有時我會忘記自己究竟是誰。徐尋尋。廖啟祥。或者更早以前，另一個名字。",
+   "word": "究竟",
+   "char": "究",
+   "raw_wav_sec": [
+    2.98,
+    3.38
+   ],
+   "post_wav_sec": [
+    2.71,
+    3.07
+   ],
+   "v1_video_tc": [
+    "01:25.57",
+    "01:25.93"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    11.84
+   ],
+   "chunk_post_sec": [
+    0.0,
+    10.76
+   ],
+   "tw_reading": "ㄐㄧㄡˋ jiù",
+   "actual_or_suspected": "推測 jiū；F0 聲調分類 P(台灣調)=0.005（該聲調對交叉驗證準確率 0.937）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "high",
+   "tts_substitution": {
+    "究竟": "救竟"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P06",
+   "category": "B_兩岸讀音",
+   "block": "第一章_01_04",
+   "chunk_index": 2,
+   "sentence": "律川整治工程期間深夜不停運轉的抽水機；某份刑案卷宗裡一張失焦的黑白照片。",
+   "word": "期間",
+   "char": "期",
+   "raw_wav_sec": [
+    24.87,
+    25.15
+   ],
+   "post_wav_sec": [
+    22.61,
+    22.86
+   ],
+   "v1_video_tc": [
+    "01:56.46",
+    "01:56.71"
+   ],
+   "chunk_raw_sec": [
+    22.66,
+    36.98
+   ],
+   "chunk_post_sec": [
+    20.6,
+    33.62
+   ],
+   "tw_reading": "ㄑㄧˊ qí",
+   "actual_or_suspected": "推測 qī；F0 聲調分類 P(台灣調)=0.015（該聲調對交叉驗證準確率 0.899）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "high",
+   "tts_substitution": {
+    "期間": "其間"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P07",
+   "category": "B_兩岸讀音",
+   "block": "第一章_01_07",
+   "chunk_index": 1,
+   "sentence": "鐵門拉下的聲音此起彼落，像某種緩慢的金屬潮汐。",
+   "word": "潮汐",
+   "char": "汐",
+   "raw_wav_sec": [
+    12.94,
+    13.24
+   ],
+   "post_wav_sec": [
+    11.77,
+    12.04
+   ],
+   "v1_video_tc": [
+    "02:34.15",
+    "02:34.42"
+   ],
+   "chunk_raw_sec": [
+    5.71,
+    13.71
+   ],
+   "chunk_post_sec": [
+    5.19,
+    12.46
+   ],
+   "tw_reading": "ㄒㄧˋ xì",
+   "actual_or_suspected": "推測 xī；F0 聲調分類 P(台灣調)=0.743（該聲調對交叉驗證準確率 0.937）→ 像台灣音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "low",
+   "tts_substitution": {
+    "潮汐": "潮細"
+   },
+   "fix": "實測偏台灣調，可不修；若該句本來就要重生，可一併替換確保一致"
+  },
+  {
+   "id": "P08",
+   "category": "B_兩岸讀音",
+   "block": "第一章_03_01",
+   "chunk_index": 0,
+   "sentence": "有些夜裡，特別是颱風前夕，我總覺得仍能聽見水聲。不是現在的水聲。而是更久以前的。",
+   "word": "前夕",
+   "char": "夕",
+   "raw_wav_sec": [
+    4.08,
+    4.34
+   ],
+   "post_wav_sec": [
+    3.71,
+    3.95
+   ],
+   "v1_video_tc": [
+    "03:35.67",
+    "03:35.91"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    15.4
+   ],
+   "chunk_post_sec": [
+    0.0,
+    14.0
+   ],
+   "tw_reading": "ㄒㄧˋ xì",
+   "actual_or_suspected": "推測 xī；F0 聲調分類 P(台灣調)=0.017（該聲調對交叉驗證準確率 0.937）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "medium",
+   "tts_substitution": {
+    "前夕": "前細"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P09",
+   "category": "B_兩岸讀音",
+   "block": "第一章_03_04",
+   "chunk_index": 0,
+   "sentence": "我從桌下翻出那本舊檔案。封面受潮變形，紙頁邊緣呈現長久浸水後特有的深褐色。",
+   "word": "舊檔案",
+   "char": "檔",
+   "raw_wav_sec": [
+    3.26,
+    3.57
+   ],
+   "post_wav_sec": [
+    2.96,
+    3.25
+   ],
+   "v1_video_tc": [
+    "03:49.39",
+    "03:49.68"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    12.84
+   ],
+   "chunk_post_sec": [
+    0.0,
+    11.67
+   ],
+   "tw_reading": "ㄉㄤˇ dǎng",
+   "actual_or_suspected": "推測 dàng；F0 聲調分類 P(台灣調)=0.791（該聲調對交叉驗證準確率 0.88）→ 像台灣音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "low",
+   "tts_substitution": {
+    "舊檔案": "舊黨案"
+   },
+   "fix": "實測偏台灣調，可不修；若該句本來就要重生，可一併替換確保一致"
+  },
+  {
+   "id": "P10",
+   "category": "B_兩岸讀音",
+   "block": "第一章_03_04",
+   "chunk_index": 0,
+   "sentence": "我從桌下翻出那本舊檔案。封面受潮變形，紙頁邊緣呈現長久浸水後特有的深褐色。",
+   "word": "深褐色",
+   "char": "褐",
+   "raw_wav_sec": [
+    12.04,
+    12.27
+   ],
+   "post_wav_sec": [
+    10.95,
+    11.15
+   ],
+   "v1_video_tc": [
+    "03:57.38",
+    "03:57.58"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    12.84
+   ],
+   "chunk_post_sec": [
+    0.0,
+    11.67
+   ],
+   "tw_reading": "ㄏㄜˊ hé",
+   "actual_or_suspected": "推測 hè；F0 聲調分類 P(台灣調)=0.0（該聲調對交叉驗證準確率 0.97）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "high",
+   "tts_substitution": {
+    "深褐色": "深合色"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P11",
+   "category": "B_兩岸讀音",
+   "block": "第一章_03_06",
+   "chunk_index": 0,
+   "sentence": "檔案裡最早的文字寫於乾隆年間。字跡斷斷續續，像有人在極度不安之中留下的紀錄：",
+   "word": "檔案",
+   "char": "檔",
+   "raw_wav_sec": [
+    0.38,
+    0.73
+   ],
+   "post_wav_sec": [
+    0.35,
+    0.66
+   ],
+   "v1_video_tc": [
+    "04:17.19",
+    "04:17.50"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    14.76
+   ],
+   "chunk_post_sec": [
+    0.0,
+    13.42
+   ],
+   "tw_reading": "ㄉㄤˇ dǎng",
+   "actual_or_suspected": "推測 dàng；F0 聲調分類 P(台灣調)=0.044（該聲調對交叉驗證準確率 0.88）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "high",
+   "tts_substitution": {
+    "檔案": "黨案"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P12",
+   "category": "B_兩岸讀音",
+   "block": "第一章_03_06",
+   "chunk_index": 0,
+   "sentence": "檔案裡最早的文字寫於乾隆年間。字跡斷斷續續，像有人在極度不安之中留下的紀錄：",
+   "word": "字跡",
+   "char": "跡",
+   "raw_wav_sec": [
+    6.71,
+    6.95
+   ],
+   "post_wav_sec": [
+    6.1,
+    6.32
+   ],
+   "v1_video_tc": [
+    "04:22.94",
+    "04:23.16"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    14.76
+   ],
+   "chunk_post_sec": [
+    0.0,
+    13.42
+   ],
+   "tw_reading": "ㄐㄧ jī",
+   "actual_or_suspected": "推測 jì；F0 聲調分類 P(台灣調)=0.0（該聲調對交叉驗證準確率 0.937）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "medium",
+   "tts_substitution": {
+    "字跡": "字機"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P13",
+   "category": "B_兩岸讀音",
+   "block": "第一章_03_11",
+   "chunk_index": 0,
+   "sentence": "我忽然意識到，也許真正留下來的，不是某種怪異之物，",
+   "word": "意識",
+   "char": "識",
+   "raw_wav_sec": [
+    1.22,
+    1.41
+   ],
+   "post_wav_sec": [
+    1.11,
+    1.28
+   ],
+   "v1_video_tc": [
+    "04:54.46",
+    "04:54.63"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    8.64
+   ],
+   "chunk_post_sec": [
+    0.0,
+    7.85
+   ],
+   "tw_reading": "ㄕˋ shì",
+   "actual_or_suspected": "推測 shí；F0 聲調分類 P(台灣調)=0.979（該聲調對交叉驗證準確率 0.97）→ 像台灣音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "low",
+   "tts_substitution": null,
+   "fix": "實測偏台灣調，可不修；若該句本來就要重生，可一併替換確保一致"
+  },
+  {
+   "id": "P14",
+   "category": "B_兩岸讀音",
+   "block": "第二章_00_00",
+   "chunk_index": 1,
+   "sentence": "閱讀暴力留下的痕跡、閱讀失蹤者最後停留的路線、閱讀一個人在崩潰之前，如何逐漸偏離原本的人生。",
+   "word": "痕跡",
+   "char": "跡",
+   "raw_wav_sec": [
+    11.9,
+    12.16
+   ],
+   "post_wav_sec": [
+    10.82,
+    11.06
+   ],
+   "v1_video_tc": [
+    "05:26.94",
+    "05:27.18"
+   ],
+   "chunk_raw_sec": [
+    7.55,
+    26.11
+   ],
+   "chunk_post_sec": [
+    6.86,
+    23.74
+   ],
+   "tw_reading": "ㄐㄧ jī",
+   "actual_or_suspected": "推測 jì；F0 聲調分類 P(台灣調)=0.126（該聲調對交叉驗證準確率 0.937）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "medium",
+   "tts_substitution": {
+    "痕跡": "痕機"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P15",
+   "category": "B_兩岸讀音",
+   "block": "第二章_00_08",
+   "chunk_index": 0,
+   "sentence": "我開始查閱地方志。從清代的墾拓紀錄，到日治時期的市區改正計畫，再到戰後的排水工程圖。我愈讀愈感到不安。",
+   "word": "時期",
+   "char": "期",
+   "raw_wav_sec": [
+    7.62,
+    7.79
+   ],
+   "post_wav_sec": [
+    6.93,
+    7.08
+   ],
+   "v1_video_tc": [
+    "06:11.63",
+    "06:11.78"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    16.8
+   ],
+   "chunk_post_sec": [
+    0.0,
+    15.27
+   ],
+   "tw_reading": "ㄑㄧˊ qí",
+   "actual_or_suspected": "推測 qī；F0 聲調分類 P(台灣調)=0.276（該聲調對交叉驗證準確率 0.899）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "high",
+   "tts_substitution": {
+    "時期": "時其"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P16",
+   "category": "B_兩岸讀音",
+   "block": "第二章_01_00",
+   "chunk_index": 0,
+   "sentence": "有一天深夜，我在仲央公園管理處舊檔室找到一張發黃的手繪水路圖。",
+   "word": "舊檔室",
+   "char": "檔",
+   "raw_wav_sec": [
+    6.19,
+    6.5
+   ],
+   "post_wav_sec": [
+    5.63,
+    5.91
+   ],
+   "v1_video_tc": [
+    "06:46.57",
+    "06:46.85"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    11.24
+   ],
+   "chunk_post_sec": [
+    0.0,
+    10.22
+   ],
+   "tw_reading": "ㄉㄤˇ dǎng",
+   "actual_or_suspected": "推測 dàng；F0 聲調分類 P(台灣調)=0.076（該聲調對交叉驗證準確率 0.88）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "high",
+   "tts_substitution": {
+    "舊檔室": "舊黨室"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P17",
+   "category": "B_兩岸讀音",
+   "block": "第二章_01_02",
+   "chunk_index": 0,
+   "sentence": "而那個位置，正是如今的樂承宮。我突然感到一陣難以形容的寒意。因為我發現：",
+   "word": "突然",
+   "char": "突",
+   "raw_wav_sec": [
+    7.87,
+    8.1
+   ],
+   "post_wav_sec": [
+    7.16,
+    7.36
+   ],
+   "v1_video_tc": [
+    "07:12.58",
+    "07:12.78"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    14.36
+   ],
+   "chunk_post_sec": [
+    0.0,
+    13.05
+   ],
+   "tw_reading": "ㄊㄨˊ tú",
+   "actual_or_suspected": "推測 tū；F0 聲調分類 P(台灣調)=0.006（該聲調對交叉驗證準確率 0.899）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "high",
+   "tts_substitution": {
+    "突然": "圖然"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P18",
+   "category": "B_兩岸讀音",
+   "block": "第三章_00_00",
+   "chunk_index": 1,
+   "sentence": "整條巷子瞬間陷入黑暗，只剩遠處便利商店的綠色招牌仍微弱亮著。",
+   "word": "微弱",
+   "char": "微",
+   "raw_wav_sec": [
+    18.79,
+    19.08
+   ],
+   "post_wav_sec": [
+    17.08,
+    17.35
+   ],
+   "v1_video_tc": [
+    "07:51.96",
+    "07:52.23"
+   ],
+   "chunk_raw_sec": [
+    9.63,
+    20.11
+   ],
+   "chunk_post_sec": [
+    8.75,
+    18.28
+   ],
+   "tw_reading": "ㄨㄟˊ wéi",
+   "actual_or_suspected": "推測 wēi；F0 聲調分類 P(台灣調)=0.011（該聲調對交叉驗證準確率 0.899）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "high",
+   "tts_substitution": {
+    "微弱": "維弱"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P19",
+   "category": "B_兩岸讀音",
+   "block": "第一章_01_04",
+   "chunk_index": 2,
+   "sentence": "律川整治工程期間深夜不停運轉的抽水機；某份刑案卷宗裡一張失焦的黑白照片。",
+   "word": "照片",
+   "char": "片",
+   "raw_wav_sec": [
+    36.35,
+    36.81
+   ],
+   "post_wav_sec": [
+    33.04,
+    33.46
+   ],
+   "v1_video_tc": [
+    "02:06.89",
+    "02:07.31"
+   ],
+   "chunk_raw_sec": [
+    22.66,
+    36.98
+   ],
+   "chunk_post_sec": [
+    20.6,
+    33.62
+   ],
+   "tw_reading": "ㄆㄧㄢˋ piàn",
+   "actual_or_suspected": "推測 piān（大陸口語）；F0 聲調分類 P(台灣調)=0.076（該聲調對交叉驗證準確率 0.937）→ 像大陸音",
+   "evidence": "文字面命中 tw_cn_diff.json ＋ F0 聲調實測",
+   "severity": "low",
+   "tts_substitution": {
+    "照片": "照騙"
+   },
+   "fix": "送 TTS 的文字改用同音替代字（字幕不變）"
+  },
+  {
+   "id": "P20",
+   "category": "C_ASR聲學疑似",
+   "block": "第一章_01_05",
+   "chunk_index": 0,
+   "sentence": "對面的刁才弟忽然問我：",
+   "word": "對面的刁才弟忽然問我",
+   "char": "刁",
+   "raw_wav_sec": [
+    1.33,
+    1.6
+   ],
+   "post_wav_sec": [
+    1.21,
+    1.45
+   ],
+   "v1_video_tc": [
+    "02:16.17",
+    "02:16.41"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    4.36
+   ],
+   "chunk_post_sec": [
+    0.0,
+    3.96
+   ],
+   "tw_reading": "ㄉㄧㄠ diāo",
+   "actual_or_suspected": "diū（whisper 聽成「丟柴地」；CTC diu=5.1 vs diao=13.0）",
+   "evidence": "whisper medium 轉寫差異 ＋ MMS CTC 候選比較（非語言模型）",
+   "severity": "high",
+   "tts_substitution": {
+    "刁才弟": "雕才弟"
+   },
+   "fix": "專名；同段第三章_00_06 的「刁」CTC 仍以 diao 最像，只有這句異常；送 TTS 改用替代字"
+  },
+  {
+   "id": "P21",
+   "category": "C_ASR聲學疑似",
+   "block": "第一章_01_02",
+   "chunk_index": 0,
+   "sentence": "有時我會忘記自己究竟是誰。徐尋尋。廖啟祥。或者更早以前，另一個名字。",
+   "word": "竟是誰徐尋尋廖啟祥或",
+   "char": "尋",
+   "raw_wav_sec": [
+    5.27,
+    5.58
+   ],
+   "post_wav_sec": [
+    4.79,
+    5.07
+   ],
+   "v1_video_tc": [
+    "01:27.65",
+    "01:27.93"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    11.84
+   ],
+   "chunk_post_sec": [
+    0.0,
+    10.76
+   ],
+   "tw_reading": "ㄒㄩㄣˊ xún",
+   "actual_or_suspected": "第二個「尋」疑似 xú（whisper「徐徐徐」；CTC xu=12.7 vs xun=13.8，差距小）",
+   "evidence": "whisper medium 轉寫差異 ＋ MMS CTC 候選比較（非語言模型）",
+   "severity": "medium",
+   "tts_substitution": null,
+   "fix": "專名「徐尋尋」；疊字尾字弱化，差距小，請試聽；只重生該句（不改字），重生後用本資料夾 analyze.py 複查"
+  },
+  {
+   "id": "P22",
+   "category": "C_ASR聲學疑似",
+   "block": "第一章_01_04",
+   "chunk_index": 0,
+   "sentence": "記憶在我腦中並不連續。它們像被暴雨沖散後重新堆積的河砂。",
+   "word": "被暴雨沖散後重新堆",
+   "char": "散",
+   "raw_wav_sec": [
+    6.4,
+    6.71
+   ],
+   "post_wav_sec": [
+    5.82,
+    6.1
+   ],
+   "v1_video_tc": [
+    "01:39.67",
+    "01:39.95"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    10.28
+   ],
+   "chunk_post_sec": [
+    0.0,
+    9.35
+   ],
+   "tw_reading": "ㄙㄢˋ sàn",
+   "actual_or_suspected": "疑似 shàng（whisper「沖上」；CTC shang=14.6 vs san=18.8）",
+   "evidence": "whisper medium 轉寫差異 ＋ MMS CTC 候選比較（非語言模型）",
+   "severity": "medium",
+   "tts_substitution": null,
+   "fix": "聲調仍是第4聲（F0）；只重生該句（不改字），重生後用本資料夾 analyze.py 複查"
+  },
+  {
+   "id": "P23",
+   "category": "C_ASR聲學疑似",
+   "block": "第一章_01_07",
+   "chunk_index": 0,
+   "sentence": "我沒有回答。窗外的市場正逐漸收攤。",
+   "word": "我沒有回答窗外的市",
+   "char": "答",
+   "raw_wav_sec": [
+    1.36,
+    1.58
+   ],
+   "post_wav_sec": [
+    1.24,
+    1.44
+   ],
+   "v1_video_tc": [
+    "02:23.62",
+    "02:23.82"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    5.36
+   ],
+   "chunk_post_sec": [
+    0.0,
+    4.87
+   ],
+   "tw_reading": "ㄉㄚˊ dá",
+   "actual_or_suspected": "疑似帶鼻音尾 dang（whisper「回檔」；CTC dang=6.7 vs da=17.9）",
+   "evidence": "whisper medium 轉寫差異 ＋ MMS CTC 候選比較（非語言模型）",
+   "severity": "medium",
+   "tts_substitution": null,
+   "fix": "段首句「我沒有回答。」；只重生該句（不改字），重生後用本資料夾 analyze.py 複查"
+  },
+  {
+   "id": "P24",
+   "category": "C_ASR聲學疑似",
+   "block": "第一章_03_00",
+   "chunk_index": 1,
+   "sentence": "河流一條條被截短、填平、導入地下。",
+   "word": "流一條條被截短填平導",
+   "char": "被",
+   "raw_wav_sec": [
+    14.09,
+    14.39
+   ],
+   "post_wav_sec": [
+    12.81,
+    13.08
+   ],
+   "v1_video_tc": [
+    "03:22.32",
+    "03:22.59"
+   ],
+   "chunk_raw_sec": [
+    11.23,
+    17.91
+   ],
+   "chunk_post_sec": [
+    10.21,
+    16.28
+   ],
+   "tw_reading": "ㄅㄟˋ bèi",
+   "actual_or_suspected": "疑似 wèi（whisper「為捷」；CTC wei=0.04 vs bei=5.8）",
+   "evidence": "whisper medium 轉寫差異 ＋ MMS CTC 候選比較（非語言模型）",
+   "severity": "low",
+   "tts_substitution": null,
+   "fix": "可能只是 b 聲母弱，聽感差異小；只重生該句（不改字），重生後用本資料夾 analyze.py 複查"
+  },
+  {
+   "id": "P25",
+   "category": "C_ASR聲學疑似",
+   "block": "第一章_03_08",
+   "chunk_index": 0,
+   "sentence": "「……庄民掘地見異物，其形不可辨。夜半聞水下有聲，如舟行暗河。其後數月，庄中多夢者……」",
+   "word": "數月庄中多夢者",
+   "char": "多",
+   "raw_wav_sec": [
+    12.42,
+    12.64
+   ],
+   "post_wav_sec": [
+    11.29,
+    11.49
+   ],
+   "v1_video_tc": [
+    "04:42.61",
+    "04:42.81"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    13.32
+   ],
+   "chunk_post_sec": [
+    0.0,
+    12.11
+   ],
+   "tw_reading": "ㄉㄨㄛ duō",
+   "actual_or_suspected": "疑似 bō（whisper「播」；CTC bo=9.1 vs duo=24.8）",
+   "evidence": "whisper medium 轉寫差異 ＋ MMS CTC 候選比較（非語言模型）",
+   "severity": "medium",
+   "tts_substitution": null,
+   "fix": "段尾「庄中多夢者」；只重生該句（不改字），重生後用本資料夾 analyze.py 複查"
+  },
+  {
+   "id": "P26",
+   "category": "C_ASR聲學疑似",
+   "block": "第一章_03_11",
+   "chunk_index": 0,
+   "sentence": "我忽然意識到，也許真正留下來的，不是某種怪異之物，",
+   "word": "我忽然意識到",
+   "char": "忽",
+   "raw_wav_sec": [
+    0.58,
+    0.77
+   ],
+   "post_wav_sec": [
+    0.53,
+    0.7
+   ],
+   "v1_video_tc": [
+    "04:53.88",
+    "04:54.05"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    8.64
+   ],
+   "chunk_post_sec": [
+    0.0,
+    7.85
+   ],
+   "tw_reading": "ㄏㄨ hū",
+   "actual_or_suspected": "疑似 gù（whisper「固然」；CTC gu=14.3 vs hu=20.3；F0 判第4聲、P(第1聲)=0.07）",
+   "evidence": "whisper medium 轉寫差異 ＋ MMS CTC 候選比較（非語言模型）",
+   "severity": "high",
+   "tts_substitution": {
+    "忽然": "呼然"
+   },
+   "fix": "句首「我忽然意識到」，聲母與聲調都不對；送 TTS 改用替代字"
+  },
+  {
+   "id": "P27",
+   "category": "C_ASR聲學疑似",
+   "block": "第二章_00_00",
+   "chunk_index": 0,
+   "sentence": "我曾經是犯罪側寫師。那幾年，我長時間閱讀人的殘缺。",
+   "word": "閱讀人的殘缺閱讀暴力",
+   "char": "殘",
+   "raw_wav_sec": [
+    6.3,
+    6.59
+   ],
+   "post_wav_sec": [
+    5.73,
+    5.99
+   ],
+   "v1_video_tc": [
+    "05:21.85",
+    "05:22.11"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    7.2
+   ],
+   "chunk_post_sec": [
+    0.0,
+    6.55
+   ],
+   "tw_reading": "ㄘㄢˊ cán",
+   "actual_or_suspected": "疑似 cháng（whisper「長篇」；CTC chang=12.6 vs can=15.6）",
+   "evidence": "whisper medium 轉寫差異 ＋ MMS CTC 候選比較（非語言模型）",
+   "severity": "medium",
+   "tts_substitution": null,
+   "fix": "「缺」正常；只重生該句（不改字），重生後用本資料夾 analyze.py 複查"
+  },
+  {
+   "id": "P28",
+   "category": "C_ASR聲學疑似",
+   "block": "第二章_00_02",
+   "chunk_index": 0,
+   "sentence": "後來我才明白，城市其實也有自己的側寫。一條被填平的河。一座遷移過數次的廟。",
+   "word": "有自己的側寫一條被填",
+   "char": "寫",
+   "raw_wav_sec": [
+    6.23,
+    6.53
+   ],
+   "post_wav_sec": [
+    5.66,
+    5.94
+   ],
+   "v1_video_tc": [
+    "05:45.98",
+    "05:46.26"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    13.16
+   ],
+   "chunk_post_sec": [
+    0.0,
+    11.96
+   ],
+   "tw_reading": "ㄒㄧㄝˇ xiě",
+   "actual_or_suspected": "疑似 xuǎn（whisper「策選」；CTC xuan=3.1 vs xie=6.9）",
+   "evidence": "whisper medium 轉寫差異 ＋ MMS CTC 候選比較（非語言模型）",
+   "severity": "medium",
+   "tts_substitution": null,
+   "fix": "只重生該句（不改字），重生後用本資料夾 analyze.py 複查"
+  },
+  {
+   "id": "P29",
+   "category": "C_ASR聲學疑似",
+   "block": "第三章_00_00",
+   "chunk_index": 2,
+   "sentence": "雨水從鐵皮屋頂傾瀉而下，聲音大得近乎失真。然後，我聽見了。不是雨聲。",
+   "word": "從鐵皮屋頂傾瀉而下",
+   "char": "頂",
+   "raw_wav_sec": [
+    22.85,
+    23.19
+   ],
+   "post_wav_sec": [
+    20.78,
+    21.09
+   ],
+   "v1_video_tc": [
+    "07:55.66",
+    "07:55.97"
+   ],
+   "chunk_raw_sec": [
+    20.46,
+    34.1
+   ],
+   "chunk_post_sec": [
+    18.6,
+    31.0
+   ],
+   "tw_reading": "ㄉㄧㄥˇ dǐng",
+   "actual_or_suspected": "疑似 dǐ 掉鼻音（whisper「屋底」；CTC di=5.8 vs ding=14.7）",
+   "evidence": "whisper medium 轉寫差異 ＋ MMS CTC 候選比較（非語言模型）",
+   "severity": "medium",
+   "tts_substitution": null,
+   "fix": "「鐵皮屋頂」；台灣腔 -ng 弱化也可能，請試聽；只重生該句（不改字），重生後用本資料夾 analyze.py 複查"
+  },
+  {
+   "id": "P30",
+   "category": "D_台灣腔特徵",
+   "block": "第一章_03_04",
+   "chunk_index": 0,
+   "sentence": "我從桌下翻出那本舊檔案。封面受潮變形，紙頁邊緣呈現長久浸水後特有的深褐色。",
+   "word": "受潮變形紙頁邊緣呈現",
+   "char": "紙",
+   "raw_wav_sec": [
+    6.74,
+    7.02
+   ],
+   "post_wav_sec": [
+    6.13,
+    6.38
+   ],
+   "v1_video_tc": [
+    "03:52.56",
+    "03:52.81"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    12.84
+   ],
+   "chunk_post_sec": [
+    0.0,
+    11.67
+   ],
+   "tw_reading": "—",
+   "actual_or_suspected": "zhǐ→zǐ（捲舌弱化）",
+   "evidence": "whisper＋CTC",
+   "severity": "info",
+   "tts_substitution": null,
+   "fix": "符合台灣腔，不建議修"
+  },
+  {
+   "id": "P31",
+   "category": "D_台灣腔特徵",
+   "block": "第一章_03_04",
+   "chunk_index": 1,
+   "sentence": "翻開時，一股陳年的霉味慢慢散開。我忽然產生一種奇異的錯覺：",
+   "word": "開時一股陳年的霉味",
+   "char": "陳",
+   "raw_wav_sec": [
+    16.15,
+    16.48
+   ],
+   "post_wav_sec": [
+    14.68,
+    14.98
+   ],
+   "v1_video_tc": [
+    "04:01.11",
+    "04:01.41"
+   ],
+   "chunk_raw_sec": [
+    13.19,
+    23.95
+   ],
+   "chunk_post_sec": [
+    11.99,
+    21.77
+   ],
+   "tw_reading": "—",
+   "actual_or_suspected": "chén→chéng（前後鼻音）",
+   "evidence": "whisper＋CTC",
+   "severity": "info",
+   "tts_substitution": null,
+   "fix": "符合台灣腔，不建議修"
+  },
+  {
+   "id": "P32",
+   "category": "D_台灣腔特徵",
+   "block": "第二章_00_08",
+   "chunk_index": 0,
+   "sentence": "我開始查閱地方志。從清代的墾拓紀錄，到日治時期的市區改正計畫，再到戰後的排水工程圖。我愈讀愈感到不安。",
+   "word": "查閱地方志從清代的",
+   "char": "志",
+   "raw_wav_sec": [
+    2.02,
+    2.26
+   ],
+   "post_wav_sec": [
+    1.84,
+    2.06
+   ],
+   "v1_video_tc": [
+    "06:06.54",
+    "06:06.76"
+   ],
+   "chunk_raw_sec": [
+    0.0,
+    16.8
+   ],
+   "chunk_post_sec": [
+    0.0,
+    15.27
+   ],
+   "tw_reading": "—",
+   "actual_or_suspected": "zhì→zì（捲舌弱化）",
+   "evidence": "whisper＋CTC",
+   "severity": "info",
+   "tts_substitution": null,
+   "fix": "符合台灣腔，不建議修"
+  }
+ ],
+ "resynth_sentences": [
+  {
+   "block": "第一章_01_01",
+   "chunk_index": 0,
+   "n_chunks": 3,
+   "subtitle_text": "屋頂很低。午後下過雨，濕氣沿著牆角向上蔓延，牆面浮出大片灰白色的鹽斑，像人體皮膚無法癒合的舊傷。",
+   "tts_text": "屋頂很低。午後下過雨，濕氣沿着牆角向上蔓延，牆面浮出大片灰白色的鹽斑，像人體皮膚無法癒合的舊傷。",
+   "raw_sec": [
+    0.0,
+    14.96
+   ],
+   "post_sec": [
+    0.0,
+    13.6
+   ],
+   "v1_video_tc": [
+    "00:54.70",
+    "01:08.30"
+   ],
+   "issues": [
+    "P01"
+   ]
+  },
+  {
+   "block": "第一章_01_01",
+   "chunk_index": 1,
+   "n_chunks": 3,
+   "subtitle_text": "我低頭看著自己的手。那不是我熟悉的手。",
+   "tts_text": "我低頭看着自己的手。那不是我熟悉的手。",
+   "raw_sec": [
+    15.31,
+    21.71
+   ],
+   "post_sec": [
+    13.92,
+    19.74
+   ],
+   "v1_video_tc": [
+    "01:08.62",
+    "01:14.44"
+   ],
+   "issues": [
+    "P02"
+   ]
+  },
+  {
+   "block": "第一章_01_01",
+   "chunk_index": 2,
+   "n_chunks": 3,
+   "subtitle_text": "指節粗大，掌紋深陷，皮膚裡彷彿積著長久未曾排出的疲憊。",
+   "tts_text": "指節粗大，掌紋深陷，皮膚裡彷彿積着長久未曾排出的疲憊。",
+   "raw_sec": [
+    22.06,
+    30.5
+   ],
+   "post_sec": [
+    20.05,
+    27.73
+   ],
+   "v1_video_tc": [
+    "01:14.75",
+    "01:22.43"
+   ],
+   "issues": [
+    "P03"
+   ]
+  },
+  {
+   "block": "第一章_01_02",
+   "chunk_index": 0,
+   "n_chunks": 1,
+   "subtitle_text": "有時我會忘記自己究竟是誰。徐尋尋。廖啟祥。或者更早以前，另一個名字。",
+   "tts_text": "有時我會忘記自己救竟是誰。徐尋尋。廖啟祥。或者更早以前，另一個名字。",
+   "raw_sec": [
+    0.0,
+    11.84
+   ],
+   "post_sec": [
+    0.0,
+    10.76
+   ],
+   "v1_video_tc": [
+    "01:22.86",
+    "01:33.62"
+   ],
+   "issues": [
+    "P05",
+    "P21"
+   ]
+  },
+  {
+   "block": "第一章_01_04",
+   "chunk_index": 0,
+   "n_chunks": 4,
+   "subtitle_text": "記憶在我腦中並不連續。它們像被暴雨沖散後重新堆積的河砂。",
+   "tts_text": "記憶在我腦中並不連續。它們像被暴雨沖散後重新堆積的河砂。",
+   "raw_sec": [
+    0.0,
+    10.28
+   ],
+   "post_sec": [
+    0.0,
+    9.35
+   ],
+   "v1_video_tc": [
+    "01:33.85",
+    "01:43.20"
+   ],
+   "issues": [
+    "P22"
+   ]
+  },
+  {
+   "block": "第一章_01_04",
+   "chunk_index": 2,
+   "n_chunks": 4,
+   "subtitle_text": "律川整治工程期間深夜不停運轉的抽水機；某份刑案卷宗裡一張失焦的黑白照片。",
+   "tts_text": "律川整治工程其間深夜不停運轉的抽水機；某份刑案卷宗裡一張失焦的黑白照騙。",
+   "raw_sec": [
+    22.66,
+    36.98
+   ],
+   "post_sec": [
+    20.6,
+    33.62
+   ],
+   "v1_video_tc": [
+    "01:54.45",
+    "02:07.47"
+   ],
+   "issues": [
+    "P06"
+   ]
+  },
+  {
+   "block": "第一章_01_05",
+   "chunk_index": 0,
+   "n_chunks": 1,
+   "subtitle_text": "對面的刁才弟忽然問我：",
+   "tts_text": "對面的雕才弟忽然問我：",
+   "raw_sec": [
+    0.0,
+    4.36
+   ],
+   "post_sec": [
+    0.0,
+    3.96
+   ],
+   "v1_video_tc": [
+    "02:14.96",
+    "02:18.92"
+   ],
+   "issues": [
+    "P20"
+   ]
+  },
+  {
+   "block": "第一章_01_07",
+   "chunk_index": 0,
+   "n_chunks": 4,
+   "subtitle_text": "我沒有回答。窗外的市場正逐漸收攤。",
+   "tts_text": "我沒有回答。窗外的市場正逐漸收攤。",
+   "raw_sec": [
+    0.0,
+    5.36
+   ],
+   "post_sec": [
+    0.0,
+    4.87
+   ],
+   "v1_video_tc": [
+    "02:22.38",
+    "02:27.25"
+   ],
+   "issues": [
+    "P23"
+   ]
+  },
+  {
+   "block": "第一章_03_01",
+   "chunk_index": 0,
+   "n_chunks": 1,
+   "subtitle_text": "有些夜裡，特別是颱風前夕，我總覺得仍能聽見水聲。不是現在的水聲。而是更久以前的。",
+   "tts_text": "有些夜裡，特別是颱風前細，我總覺得仍能聽見水聲。不是現在的水聲。而是更久以前的。",
+   "raw_sec": [
+    0.0,
+    15.4
+   ],
+   "post_sec": [
+    0.0,
+    14.0
+   ],
+   "v1_video_tc": [
+    "03:31.96",
+    "03:45.96"
+   ],
+   "issues": [
+    "P08"
+   ]
+  },
+  {
+   "block": "第一章_03_04",
+   "chunk_index": 0,
+   "n_chunks": 2,
+   "subtitle_text": "我從桌下翻出那本舊檔案。封面受潮變形，紙頁邊緣呈現長久浸水後特有的深褐色。",
+   "tts_text": "我從桌下翻出那本舊黨案。封面受潮變形，紙頁邊緣呈現長久浸水後特有的深合色。",
+   "raw_sec": [
+    0.0,
+    12.84
+   ],
+   "post_sec": [
+    0.0,
+    11.67
+   ],
+   "v1_video_tc": [
+    "03:46.43",
+    "03:58.10"
+   ],
+   "issues": [
+    "P10"
+   ]
+  },
+  {
+   "block": "第一章_03_06",
+   "chunk_index": 0,
+   "n_chunks": 1,
+   "subtitle_text": "檔案裡最早的文字寫於乾隆年間。字跡斷斷續續，像有人在極度不安之中留下的紀錄：",
+   "tts_text": "黨案裡最早的文字寫於乾隆年間。字機斷斷續續，像有人在極度不安之中留下的紀錄：",
+   "raw_sec": [
+    0.0,
+    14.76
+   ],
+   "post_sec": [
+    0.0,
+    13.42
+   ],
+   "v1_video_tc": [
+    "04:16.84",
+    "04:30.26"
+   ],
+   "issues": [
+    "P11",
+    "P12"
+   ]
+  },
+  {
+   "block": "第一章_03_08",
+   "chunk_index": 0,
+   "n_chunks": 1,
+   "subtitle_text": "「……庄民掘地見異物，其形不可辨。夜半聞水下有聲，如舟行暗河。其後數月，庄中多夢者……」",
+   "tts_text": "庄民掘地見異物，其形不可辨。夜半聞水下有聲，如舟行暗河。其後數月，庄中多夢者",
+   "raw_sec": [
+    0.0,
+    13.32
+   ],
+   "post_sec": [
+    0.0,
+    12.11
+   ],
+   "v1_video_tc": [
+    "04:31.32",
+    "04:43.43"
+   ],
+   "issues": [
+    "P25"
+   ]
+  },
+  {
+   "block": "第一章_03_11",
+   "chunk_index": 0,
+   "n_chunks": 2,
+   "subtitle_text": "我忽然意識到，也許真正留下來的，不是某種怪異之物，",
+   "tts_text": "我呼然意識到，也許真正留下來的，不是某種怪異之物",
+   "raw_sec": [
+    0.0,
+    8.64
+   ],
+   "post_sec": [
+    0.0,
+    7.85
+   ],
+   "v1_video_tc": [
+    "04:53.35",
+    "05:01.20"
+   ],
+   "issues": [
+    "P26"
+   ]
+  },
+  {
+   "block": "第三章_00_00",
+   "chunk_index": 1,
+   "n_chunks": 3,
+   "subtitle_text": "整條巷子瞬間陷入黑暗，只剩遠處便利商店的綠色招牌仍微弱亮著。",
+   "tts_text": "整條巷子瞬間陷入黑暗，只剩遠處便利商店的綠色招牌仍維弱亮着。",
+   "raw_sec": [
+    9.63,
+    20.11
+   ],
+   "post_sec": [
+    8.75,
+    18.28
+   ],
+   "v1_video_tc": [
+    "07:43.63",
+    "07:53.16"
+   ],
+   "issues": [
+    "P04",
+    "P18"
+   ]
+  },
+  {
+   "block": "第三章_00_00",
+   "chunk_index": 2,
+   "n_chunks": 3,
+   "subtitle_text": "雨水從鐵皮屋頂傾瀉而下，聲音大得近乎失真。然後，我聽見了。不是雨聲。",
+   "tts_text": "雨水從鐵皮屋頂傾瀉而下，聲音大得近乎失真。然後，我聽見了。不是雨聲。",
+   "raw_sec": [
+    20.46,
+    34.1
+   ],
+   "post_sec": [
+    18.6,
+    31.0
+   ],
+   "v1_video_tc": [
+    "07:53.48",
+    "08:05.88"
+   ],
+   "issues": [
+    "P29"
+   ]
+  },
+  {
+   "block": "第二章_00_00",
+   "chunk_index": 0,
+   "n_chunks": 2,
+   "subtitle_text": "我曾經是犯罪側寫師。那幾年，我長時間閱讀人的殘缺。",
+   "tts_text": "我曾經是犯罪側寫師。那幾年，我長時間閱讀人的殘缺。",
+   "raw_sec": [
+    0.0,
+    7.2
+   ],
+   "post_sec": [
+    0.0,
+    6.55
+   ],
+   "v1_video_tc": [
+    "05:16.12",
+    "05:22.67"
+   ],
+   "issues": [
+    "P27"
+   ]
+  },
+  {
+   "block": "第二章_00_00",
+   "chunk_index": 1,
+   "n_chunks": 2,
+   "subtitle_text": "閱讀暴力留下的痕跡、閱讀失蹤者最後停留的路線、閱讀一個人在崩潰之前，如何逐漸偏離原本的人生。",
+   "tts_text": "閱讀暴力留下的痕機、閱讀失蹤者最後停留的路線、閱讀一個人在崩潰之前，如何逐漸偏離原本的人生。",
+   "raw_sec": [
+    7.55,
+    26.11
+   ],
+   "post_sec": [
+    6.86,
+    23.74
+   ],
+   "v1_video_tc": [
+    "05:22.98",
+    "05:39.86"
+   ],
+   "issues": [
+    "P14"
+   ]
+  },
+  {
+   "block": "第二章_00_02",
+   "chunk_index": 0,
+   "n_chunks": 1,
+   "subtitle_text": "後來我才明白，城市其實也有自己的側寫。一條被填平的河。一座遷移過數次的廟。",
+   "tts_text": "後來我才明白，城市其實也有自己的側寫。一條被填平的河。一座遷移過數次的廟。",
+   "raw_sec": [
+    0.0,
+    13.16
+   ],
+   "post_sec": [
+    0.0,
+    11.96
+   ],
+   "v1_video_tc": [
+    "05:40.32",
+    "05:52.28"
+   ],
+   "issues": [
+    "P28"
+   ]
+  },
+  {
+   "block": "第二章_00_08",
+   "chunk_index": 0,
+   "n_chunks": 2,
+   "subtitle_text": "我開始查閱地方志。從清代的墾拓紀錄，到日治時期的市區改正計畫，再到戰後的排水工程圖。我愈讀愈感到不安。",
+   "tts_text": "我開始查閱地方志。從清代的墾拓紀錄，到日治時其的市區改正計畫，再到戰後的排水工程圖。我愈讀愈感到不安。",
+   "raw_sec": [
+    0.0,
+    16.8
+   ],
+   "post_sec": [
+    0.0,
+    15.27
+   ],
+   "v1_video_tc": [
+    "06:04.70",
+    "06:19.97"
+   ],
+   "issues": [
+    "P15"
+   ]
+  },
+  {
+   "block": "第二章_01_00",
+   "chunk_index": 0,
+   "n_chunks": 1,
+   "subtitle_text": "有一天深夜，我在仲央公園管理處舊檔室找到一張發黃的手繪水路圖。",
+   "tts_text": "有一天深夜，我在仲央公園管理處舊黨室找到一張發黃的手繪水路圖。",
+   "raw_sec": [
+    0.0,
+    11.24
+   ],
+   "post_sec": [
+    0.0,
+    10.22
+   ],
+   "v1_video_tc": [
+    "06:40.94",
+    "06:51.16"
+   ],
+   "issues": [
+    "P16"
+   ]
+  },
+  {
+   "block": "第二章_01_02",
+   "chunk_index": 0,
+   "n_chunks": 1,
+   "subtitle_text": "而那個位置，正是如今的樂承宮。我突然感到一陣難以形容的寒意。因為我發現：",
+   "tts_text": "而那個位置，正是如今的樂承宮。我圖然感到一陣難以形容的寒意。因為我發現：",
+   "raw_sec": [
+    0.0,
+    14.36
+   ],
+   "post_sec": [
+    0.0,
+    13.05
+   ],
+   "v1_video_tc": [
+    "07:05.42",
+    "07:18.47"
+   ],
+   "issues": [
+    "P17"
+   ]
+  }
+ ]
+}
