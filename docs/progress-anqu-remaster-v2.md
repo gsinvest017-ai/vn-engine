@@ -31,6 +31,8 @@
 
 - 2026-09-23：M3b `9d81cde` 41 段 clip 換字／抹除完成；正式 v2 成片 `video_out/remaster_v2/anqu_narrated_v2.mp4`（9:15.2、1080p、330MB、13325 幀；影音長度差 0、-17.0 LUFS、TP -2.7 dBTP；組裝約 6 分鐘，完全沒有重新生成 clip）。抽幀確認換字結果。
 - 2026-09-24：v2.1b 第一章_03_06:0「檔案」重生：改送「挡案」（`narr_dang.py`），三套 ASR 由「火案」回到「檔／档」、時間軸不變（36 段 sec 與 v2.1 相同、plancheck 53/53）。見 `docs/remaster_v2/narration_fix.md`「v2.1b」節。尚未人耳試聽。
+- 2026-09-24：**v2.1** `video_out/remaster_v2/anqu_narrated_v2_1.mp4`（555.208 秒、影音長度一致、-17.0 LUFS）：「沖散」改寫法重生（20/20 聲學驗證、三套 ASR 交叉驗證）、「檔案」唸成「火案」的退步修正、三清題名依傳統位置、桌裙全改右至左、用字定案（翰溪壇／翰溪庄道壇／大昌當舖保留）。
+- 2026-09-24：審片頁 `http://gs.video-factory.com/review/`（`tools/video/review_server.py` :9201，gb10 Caddy `handle_path /review/*`）；dashboard 加 `--cinematic-dir` 顯示本工作樹的分鏡與旁白數據。不把成片放進 gs-video-factory 審核佇列，因為那邊「核可」會直接上傳 YouTube。
 
 ## 已知限制（未解）
 - H084 第三章燈籠大特寫（約 7:45–7:55）、H055 神龕紅聯：曲面／遮擋導致追蹤失敗，保留原畫面；H097 燈籠只做失焦。根治要重生這 3 段 clip（H3 需約 37GB VRAM，這次 GPU 只剩約 6GB）。
