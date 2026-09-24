@@ -667,7 +667,8 @@ def render_md(rep: dict) -> str:
                  f"{fmt_checks(r['v1_checks'])} | {fmt_checks(r['final_checks'])} |")
     if rep.get("cv3_trial"):
         L += ["", "## 第一章_01_04:0「沖散」：Fun-CosyVoice3 試驗（未採用）", "",
-              "CosyVoice2 8 個候選 whisper 全聽成「沖上」、CTC 都偏 shang（最好的 #3 邊際 +0.4＝無法判定），採用 #3。"
+              "CosyVoice2 8 個候選 whisper 全聽成「沖上」、CTC 都偏 shang（最好的 #3 邊際 +0.4＝無法判定），v2.0 採用 #3；"
+              "v2.1 改用 CosyVoice2 換斷句重生的候選（見 remaster_v2/narration_fix_v2_1/report.md）。"
               "CosyVoice3（cv3/）不加 hotfix 也唸得出 sàn，但音色與 CV2 旁白不同（未經人耳確認）、"
               "有的把「連續」唸錯，而且唸得過長（1.2–1.3 倍，超出可變速範圍），所以沒拼進去；需要時人工試聽後改用。", "",
               "| 檔案 | 送 TTS 文字 | 秒 | whisper | 驗證 |", "|---|---|---|---|---|"]
