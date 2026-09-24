@@ -50,6 +50,7 @@ def audio_ab() -> list[dict]:
     out = []
     for rel, label in [("remaster_v2/narration_fix/ab_compare.mp3", "讀音 A/B：v1 → v2（20 句）"),
                        ("remaster_v2/narration_fix_v2_1/ab_compare_v2_1.mp3", "讀音 A/B：v1 → v2.1"),
+                       ("remaster_v2/narration_fix_v2_1/ab_danga.mp3", "「檔案」：v1 → v2.1 → v2.1b"),
                        ("remaster_v2/bgm/bgm_preview_60s.mp3", "配樂開場 60 秒（單獨）")]:
         if (OUT / rel).exists():
             out.append({"label": label, "path": rel})
