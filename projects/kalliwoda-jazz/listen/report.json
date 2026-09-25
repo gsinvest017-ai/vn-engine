@@ -1,0 +1,2071 @@
+{
+ "task": "AI 聽音工具（listen.py）建置與驗證",
+ "date": "2026-09-25",
+ "status": "done",
+ "code": [
+  "tools/video/listen.py",
+  "tools/video/test_listen.py"
+ ],
+ "tests": {
+  "windows_python312": "30 passed, 3 skipped（重型套件不在時 skip）",
+  "wsl_venv_listen": "33 passed"
+ },
+ "environment": {
+  "venv": "WSL ~/.venv-listen（Python 3.11.15, torch 2.11.0+cu128, transformers 5.17.0, bitsandbytes 0.50.2, essentia-tensorflow 2.1b6.dev1389, laion-clap 1.1.7, audiobox-aesthetics 0.0.4, basic-pitch 0.4.0 (ONNX), beat-this 1.1.0, librosa 0.11.0）",
+  "models_dir": "WSL ~/.venv-listen/models（Qwen2.5-Omni-7B 21G、Qwen2-Audio-7B-Instruct 16G、laion_clap 2.2G、hf_home 0.9G）；beat_this 權重在 ~/.cache/torch/hub/checkpoints",
+  "essentia_models": "projects/kalliwoda-jazz/_assets/listen/essentia（gitignored）",
+  "gpu": "RTX 5090；LLM 以 bnb 4-bit 載入，實測 max_allocated Omni 7.0 GB / Qwen2-Audio 6.5 GB；未卸載 Ollama/ComfyUI",
+  "gb10": "未使用：Ollama 已占 GPU 44 GB、系統可用約 41 GB，Qwen3-Omni-30B-A3B-Captioner bf16 權重約 60–70 GB 放不下；該機無 vLLM、docker 無權限。未測試。"
+ },
+ "licenses": {
+  "Qwen2.5-Omni-7B": "Apache-2.0（可商用）",
+  "Qwen2-Audio-7B-Instruct": "Apache-2.0（可商用）",
+  "essentia (library)": "AGPL-3.0",
+  "essentia models (discogs-effnet, genre_discogs400, mtg_jamendo_*)": "CC BY-NC-SA 4.0（僅非商用/研究；商用需向 MTG-UPF 另購授權）",
+  "audiobox-aesthetics": "CC-BY-4.0（程式與權重；可商用，需標示出處）",
+  "laion_clap (code) + music_audioset_epoch_15_esc_90.14.pt": "CC0-1.0（程式與 lukewys/laion_clap 權重，可商用）",
+  "basic-pitch": "Apache-2.0（可商用）",
+  "beat_this": "MIT（程式與權重；作者註明部分訓練資料版權受限，商用需自行評估）",
+  "librosa": "ISC"
+ },
+ "llm_validation": {
+  "llm_validation_omni": {
+   "device": "cuda:0",
+   "gpu_max_alloc_gb": 7.02,
+   "samples": {
+    "bgm": {
+     "probe_accuracy": "6/7",
+     "false_positive": [
+      "synth/drum machine"
+     ],
+     "false_negative": [],
+     "tempo_answer": "120",
+     "describe": [
+      "The audio features a slow, ambient electronic piece with a dark and mysterious atmosphere. It includes a deep, resonant synthesizer sound that creates a sense of depth and space, accompanied by a gentle, repetitive melody played on a bell-like instrument. The overall mood is somber and introspective, with a slow tempo that enhances the feeling of contemplation. The mix is balanced, with the synthesizer providing a rich, immersive background while the bell adds a delicate, ethereal touch. There is no speech present in the audio.",
+      "The audio features a meditative and serene atmosphere with the use of wind chimes, creating a calming and tranquil ambiance. The sound is characterized by its soft, gentle tones, which are likely to evoke feelings of relaxation and peace. The tempo is slow, contributing to the overall soothing effect. The mix is bright and balanced, with the wind chimes being the primary focus, and there is no noticeable background noise or other instruments present. The genre can be described as ambient or new age, often associated with mindfulness practices or meditation sessions."
+     ],
+     "asr": null,
+     "probes": {
+      "trumpet": "No",
+      "voice": "No",
+      "drums": "No",
+      "piano": "no",
+      "bells": "Yes.",
+      "electric guitar": "no",
+      "synth/drum machine": "yes"
+     }
+    },
+    "narr": {
+     "probe_accuracy": "5/7",
+     "false_positive": [
+      "drums",
+      "synth/drum machine"
+     ],
+     "false_negative": [],
+     "tempo_answer": null,
+     "describe": [
+      "The audio features a slow-paced electronic piece with a dark ambient style, incorporating elements of techno and industrial music. The track has a somber and melancholic mood, with a tempo of 120 BPM. The mix is bright and balanced, with a focus on the reverb effect that enhances the overall atmosphere. There is no speech present in the audio.",
+      "The audio features a male voice speaking in Mandarin with a neutral tone, discussing topics related to nature and environment. The background includes a mix of natural sounds such as breathing, water, and wood, creating an ambient atmosphere. The genre is likely documentary or educational, focusing on environmental issues. The mood is informative and reflective, with a steady tempo that complements the spoken content. The mix is balanced, with the speech being clear and the background sounds providing a rich, immersive backdrop."
+     ],
+     "asr": "The original content of this audio is: '黄昏落在旧城区时，总有一种潮湿的重量。从第三市场往东走，穿过几条被机车与铁窗占满的小巷，空气会慢慢变得不同，那不是气味，而更像某种常年积存在墙壁里的'",
+     "probes": {
+      "trumpet": "No.",
+      "voice": "Yes",
+      "drums": "Yes.",
+      "piano": "No.",
+      "bells": "Yes.",
+      "electric guitar": "No.",
+      "synth/drum machine": "Yes."
+     }
+    },
+    "edm": {
+     "probe_accuracy": "7/7",
+     "false_positive": [],
+     "false_negative": [],
+     "tempo_answer": "139",
+     "describe": [
+      "The audio features a fast-paced electronic music piece with a tempo of 139 BPM, characterized by a bright and energetic sound. The genre is electronic, specifically within the subcategories of techno, house, and electro, with a focus on digital sounds and a strong beat. The mood conveyed is lively and intense, suitable for dancing or high-energy activities. The mix is balanced, with a clear emphasis on the electronic elements, and there is no speech present in the audio."
+     ],
+     "asr": null,
+     "probes": {
+      "trumpet": "No",
+      "voice": "No",
+      "drums": "Yes.",
+      "piano": "No.",
+      "bells": "No",
+      "electric guitar": "No",
+      "synth/drum machine": "yes"
+     }
+    },
+    "jazz_test": {
+     "probe_accuracy": "6/7",
+     "false_positive": [],
+     "false_negative": [
+      "drums"
+     ],
+     "tempo_answer": "89",
+     "describe": [
+      "The audio features a slow-paced jazz piece with a prominent trumpet melody accompanied by a piano, creating a calm and soothing atmosphere. The mix is balanced, with moderate reverb adding depth to the sound without overpowering the instruments. There is no speech present in the audio.",
+      "The audio features a slow, ambient track with a soft piano melody, a gentle guitar strumming, and a subtle bass line, creating a calm and soothing atmosphere. The music is likely in the genre of ambient or chillout, with a tempo that is slow and steady, contributing to a relaxed and peaceful mood. The mix is bright and balanced, with the instruments clearly audible, and there is no noticeable reverb or noise, allowing the listener to focus on the tranquil soundscape."
+     ],
+     "asr": null,
+     "probes": {
+      "trumpet": "Yes.",
+      "voice": "No",
+      "drums": "No",
+      "piano": "Yes.",
+      "bells": "No",
+      "electric guitar": "No",
+      "synth/drum machine": "No"
+     }
+    }
+   }
+  },
+  "llm_validation_omni_virtualhuman_sys": {
+   "device": "cuda:0",
+   "gpu_max_alloc_gb": 7.04,
+   "samples": {
+    "bgm": {
+     "probe_accuracy": "6/7",
+     "false_positive": [
+      "synth/drum machine"
+     ],
+     "false_negative": [],
+     "tempo_answer": "I'm not sure about the exact tempo. But",
+     "describe": [
+      "Well, I can't actually hear the audio you're referring to. But if you tell me more about it, like what kind of instruments you think are being used or any other details, I could try to give you a better description. So, go ahead and share more information.",
+      "Well, I can't actually hear any sounds from this audio. So, I can't really describe the instruments, genre, tempo, mood, or production quality. And there's no speech to transcribe either. But if you have any other questions about this or something else, feel free to ask!"
+     ],
+     "asr": null,
+     "probes": {
+      "trumpet": "No. If you have any other questions",
+      "voice": "No.",
+      "drums": "No. If you have any other questions",
+      "piano": "No. If you have any other questions",
+      "bells": "Yes. If you want to know more",
+      "electric guitar": "No. If you have any other questions",
+      "synth/drum machine": "Yes. If you want to know more"
+     }
+    },
+    "narr": {
+     "probe_accuracy": "6/7",
+     "false_positive": [
+      "synth/drum machine"
+     ],
+     "false_negative": [],
+     "tempo_answer": null,
+     "describe": [
+      "Well, it seems like there's some kind of music playing in the background. It has a sort of ambient or atmospheric style. The tempo is hard to pin down exactly but it might be around 100 BPM. The mood is kind of moody and mysterious. There's also some spoken words in Chinese. I can't give you the exact transcription though. The production quality seems decent, with a good balance between the different elements. There's not too much noise or reverb that's really noticeable. What do you think about this description? Do you have any other thoughts or questions?",
+      "Well, it seems like there's some kind of narration going on here. The language is Chinese. I can't really tell what instruments or sound sources are present just from this description. There's no clear genre or style mentioned either. As for tempo, there's no specific BPM given. The mood is hard to pinpoint without more context, but it might be a bit somber or reflective since it mentions things like \"腐烂木头\" and \"土腥味\". The production quality isn't described, so I can't comment on that. And again, there's no clear information about the brightness, balance, reverb, or noise. What do you think about this? Do you have any other details about the audio?"
+     ],
+     "asr": "黄昏落在旧城区时，总有一种潮湿的重量。从第三市场往东走，穿过几条被机车与铁窗占满的小巷，空气会慢慢变得不同，那不是气味，而更像某种常年积存在墙壁里的。如果还有其他关于这个音频的问题，或者想聊聊别的，都可以跟我说哦。",
+     "probes": {
+      "trumpet": "No.",
+      "voice": "Yes.",
+      "drums": "No.",
+      "piano": "No.",
+      "bells": "Yes.",
+      "electric guitar": "No.",
+      "synth/drum machine": "Yes."
+     }
+    },
+    "edm": {
+     "probe_accuracy": "7/7",
+     "false_positive": [],
+     "false_negative": [],
+     "tempo_answer": "139.",
+     "describe": [
+      "Well, I can't actually hear the audio you're referring to. But if you tell me more about it, like what kind of instruments you think are playing or any other details, I can try to give you a better description. So, go ahead and share some more info!"
+     ],
+     "asr": null,
+     "probes": {
+      "trumpet": "No. If you have any other questions",
+      "voice": "No. If you have any other questions",
+      "drums": "Yes. If you have any other questions",
+      "piano": "No. If you have any other questions",
+      "bells": "No. If you have any other questions",
+      "electric guitar": "No. If you have any other questions",
+      "synth/drum machine": "Yes. If you want to know more"
+     }
+    },
+    "jazz_test": {
+     "probe_accuracy": "7/7",
+     "false_positive": [],
+     "false_negative": [],
+     "tempo_answer": "92.",
+     "describe": [
+      "Well, I can't actually hear the audio you're referring to. But if it's a jazz piece, usually you might hear a trumpet or saxophone as the main instrument, along with a piano, bass, and drums. The genre would be jazz. The tempo could vary, but often it's around 60 - 90 BPM for a slow, mellow feel. The mood could be calm, relaxing, or even a bit melancholic depending on the arrangement. Production quality could be good if it's a professional recording, with proper balance between the instruments, good reverb to give a sense of space, and minimal noise. There's no speech in this audio, so no language or transcription to mention. So, what kind of music were you listening to?",
+      "Well, I can't actually hear the audio you're referring to. So, I can't give you a detailed description like you asked for. But if you could play it again and tell me more about what you hear, like if there's a piano or drums or something, then I could try to answer your questions better. What do you think?"
+     ],
+     "asr": null,
+     "probes": {
+      "trumpet": "Yes. What do you think about the",
+      "voice": "No. If you have any other questions",
+      "drums": "Yes. If you have any other questions",
+      "piano": "Yes. If you have any other questions",
+      "bells": "No. If you have any other questions",
+      "electric guitar": "No. If you have any other questions",
+      "synth/drum machine": "No. If you have any other questions"
+     }
+    }
+   }
+  },
+  "llm_validation_qwen2-audio": {
+   "device": "cuda:0",
+   "gpu_max_alloc_gb": 6.5,
+   "samples": {
+    "bgm": {
+     "probe_accuracy": "5/7",
+     "false_positive": [
+      "electric guitar",
+      "synth/drum machine"
+     ],
+     "false_negative": [],
+     "tempo_answer": "72.3 BPM",
+     "describe": [
+      "The audio contains a dark instrumental electronic piece with synthesizers and drums, in the genres of experimental ambient and electronic, with a tempo of around 70 BPM. The mood is minimalist and soundscape-like. There's no speech. The production quality is average.",
+      "The audio contains an instrumental with a genre of electronic and ambient, a time signature of 4/4, and a tempo of approximately 72.3 BPM. It has a dark mood with a synthesizer and bass and no speech. The production quality is average."
+     ],
+     "asr": null,
+     "probes": {
+      "trumpet": "No.",
+      "voice": "No.",
+      "drums": "No.",
+      "piano": "No.",
+      "bells": "Yes",
+      "electric guitar": "Yes",
+      "synth/drum machine": "Yes"
+     }
+    },
+    "narr": {
+     "probe_accuracy": "5/7",
+     "false_positive": [
+      "electric guitar",
+      "synth/drum machine"
+     ],
+     "false_negative": [],
+     "tempo_answer": null,
+     "describe": [
+      "The audio contains an instrumental piece with a dark and dreamy atmosphere, resembling a soundtrack. The genres are easy listening, electronic, and lounge with a tempo of around 60 BPM. The instruments include a drum, piano, synthesizer, and violin. There's also speech in Chinese with the transcription '黄昏落在旧城区时总有一种潮湿的重要'. The production quality is average.",
+      "The audio contains an ambient track with a mix of electronic and organic sounds, creating a dark and suspenseful soundscape. The genre is easy listening, electronic, soundtrack with a time signature of 4/4 and a tempo of 80.0 bpm. There is speech in Mandarin with the transcription '我坐在焊锡庄附近一间老旧的道观里'. The production quality is average."
+     ],
+     "asr": "The original content of this audio is: '黄昏落在旧城区时总有一种潮湿的重要从第三市场往东走穿过几条被机车与铁窗占满的小巷空气会慢慢变得不同那不是气味而更像某种常年积存在墙壁里的'",
+     "probes": {
+      "trumpet": "No.",
+      "voice": "Yes",
+      "drums": "No.",
+      "piano": "No.",
+      "bells": "Yes",
+      "electric guitar": "Yes",
+      "synth/drum machine": "Yes"
+     }
+    },
+    "edm": {
+     "probe_accuracy": "6/7",
+     "false_positive": [
+      "bells"
+     ],
+     "false_negative": [],
+     "tempo_answer": "130",
+     "describe": [
+      "The audio contains an experimental electronic track with handclaps, multiple synth loops, and a repetitive pattern. It's in the genre of electronic, ambient, dubstep, with a tempo of around 130 BPM, a 4/4 time signature, and has a deep mood. The production quality is average. There is no speech."
+     ],
+     "asr": null,
+     "probes": {
+      "trumpet": "No",
+      "voice": "No.",
+      "drums": "Yes",
+      "piano": "No",
+      "bells": "Yes",
+      "electric guitar": "No.",
+      "synth/drum machine": "Yes"
+     }
+    },
+    "jazz_test": {
+     "probe_accuracy": "5/7",
+     "false_positive": [
+      "bells",
+      "synth/drum machine"
+     ],
+     "false_negative": [],
+     "tempo_answer": "100",
+     "describe": [
+      "In the audio, I can identify a smooth jazz piece featuring piano, guitar, and a flute playing a relaxed melody with a tempo around 80 BPM. The atmosphere is described as mellow and soft. There's no speech content. The production quality seems high with a balanced sound and minimal reverb.",
+      "The audio contains a slow instrumental piece with piano, guitar, drums, and bass. It's of the ambient or jazz genre, with a tempo around 80 BPM, and a relaxing mood. The production quality is average. There is no speech."
+     ],
+     "asr": null,
+     "probes": {
+      "trumpet": "Yes",
+      "voice": "No.",
+      "drums": "Yes",
+      "piano": "Yes",
+      "bells": "Yes",
+      "electric guitar": "No.",
+      "synth/drum machine": "Yes"
+     }
+    }
+   }
+  }
+ },
+ "layers": {
+  "score": {
+   "bgm_preview_60s": {
+    "dsp": {
+     "duration_s": 60.0,
+     "peak_dbfs": -12.61,
+     "rms_dbfs": -37.43,
+     "spectral_centroid_hz": 678.9,
+     "band_energy_pct": {
+      "sub_20_60": 26.81,
+      "low_60_250": 28.89,
+      "lowmid_250_2k": 42.41,
+      "high_2k_8k": 1.88,
+      "air_8k_20k": 0.0
+     },
+     "hihat_band_pct": 0.004,
+     "hihat_band_transient": 0.428,
+     "dynamic_range_db": 46.4
+    },
+    "aesthetics": {
+     "CE": 3.871,
+     "CU": 7.618,
+     "PC": 1.873,
+     "PQ": 7.789
+    },
+    "clap": {
+     "slow melancholic jazz ballad with muted trumpet, piano, upright bass and brushed drums": 0.1367,
+     "lazy lonely late-night cool jazz trio": 0.1896,
+     "eerie music box with bells, wind chimes and celesta": 0.247,
+     "a woman narrating a story in Mandarin Chinese": 0.0147,
+     "a man narrating a story in Mandarin Chinese": 0.0195,
+     "fast electronic dance music with drum machine": -0.0062,
+     "heavy metal with distorted electric guitars": -0.0468,
+     "upbeat pop song with vocals": 0.0494,
+     "hip hop beat with rap": 0.0727
+    },
+    "essentia_discogs_top5": [
+     [
+      "Electronic---Experimental",
+      0.147
+     ],
+     [
+      "Electronic---Ambient",
+      0.106
+     ],
+     [
+      "Classical---Post-Modern",
+      0.051
+     ],
+     [
+      "Electronic---Musique Concrète",
+      0.045
+     ],
+     [
+      "Electronic---Abstract",
+      0.042
+     ]
+    ],
+    "essentia_top": {
+     "instrument": [
+      [
+       "synthesizer",
+       0.299
+      ],
+      [
+       "piano",
+       0.22
+      ],
+      [
+       "drums",
+       0.216
+      ],
+      [
+       "bass",
+       0.199
+      ],
+      [
+       "electricguitar",
+       0.174
+      ],
+      [
+       "guitar",
+       0.165
+      ],
+      [
+       "acousticguitar",
+       0.093
+      ],
+      [
+       "keyboard",
+       0.083
+      ]
+     ],
+     "mood": [
+      [
+       "relaxing",
+       0.102
+      ],
+      [
+       "film",
+       0.101
+      ],
+      [
+       "dark",
+       0.088
+      ],
+      [
+       "meditative",
+       0.087
+      ],
+      [
+       "melodic",
+       0.071
+      ],
+      [
+       "soundscape",
+       0.062
+      ],
+      [
+       "energetic",
+       0.058
+      ],
+      [
+       "happy",
+       0.058
+      ]
+     ],
+     "genre": [
+      [
+       "electronic",
+       0.306
+      ],
+      [
+       "ambient",
+       0.215
+      ],
+      [
+       "soundtrack",
+       0.174
+      ],
+      [
+       "experimental",
+       0.133
+      ],
+      [
+       "classical",
+       0.125
+      ],
+      [
+       "rock",
+       0.103
+      ],
+      [
+       "pop",
+       0.102
+      ],
+      [
+       "alternative",
+       0.087
+      ]
+     ]
+    }
+   },
+   "anqu_narr_60s": {
+    "dsp": {
+     "duration_s": 60.0,
+     "peak_dbfs": -3.43,
+     "rms_dbfs": -20.02,
+     "spectral_centroid_hz": 510.1,
+     "band_energy_pct": {
+      "sub_20_60": 1.96,
+      "low_60_250": 28.58,
+      "lowmid_250_2k": 66.23,
+      "high_2k_8k": 3.21,
+      "air_8k_20k": 0.0
+     },
+     "hihat_band_pct": 0.023,
+     "hihat_band_transient": 0.322,
+     "dynamic_range_db": 22.3
+    },
+    "aesthetics": {
+     "CE": 4.009,
+     "CU": 3.399,
+     "PC": 3.966,
+     "PQ": 4.982
+    },
+    "clap": {
+     "slow melancholic jazz ballad with muted trumpet, piano, upright bass and brushed drums": 0.0703,
+     "lazy lonely late-night cool jazz trio": 0.1626,
+     "eerie music box with bells, wind chimes and celesta": 0.1086,
+     "a woman narrating a story in Mandarin Chinese": 0.0689,
+     "a man narrating a story in Mandarin Chinese": 0.1422,
+     "fast electronic dance music with drum machine": -0.0278,
+     "heavy metal with distorted electric guitars": -0.082,
+     "upbeat pop song with vocals": 0.0318,
+     "hip hop beat with rap": 0.0972
+    },
+    "essentia_discogs_top5": [
+     [
+      "Electronic---Experimental",
+      0.198
+     ],
+     [
+      "Electronic---Ambient",
+      0.137
+     ],
+     [
+      "Non-Music---Field Recording",
+      0.096
+     ],
+     [
+      "Non-Music---Poetry",
+      0.095
+     ],
+     [
+      "Non-Music---Spoken Word",
+      0.078
+     ]
+    ],
+    "essentia_top": {
+     "instrument": [
+      [
+       "synthesizer",
+       0.341
+      ],
+      [
+       "drums",
+       0.183
+      ],
+      [
+       "guitar",
+       0.172
+      ],
+      [
+       "voice",
+       0.162
+      ],
+      [
+       "bass",
+       0.157
+      ],
+      [
+       "computer",
+       0.157
+      ],
+      [
+       "electricguitar",
+       0.154
+      ],
+      [
+       "keyboard",
+       0.135
+      ]
+     ],
+     "mood": [
+      [
+       "energetic",
+       0.108
+      ],
+      [
+       "happy",
+       0.082
+      ],
+      [
+       "dark",
+       0.07
+      ],
+      [
+       "melodic",
+       0.066
+      ],
+      [
+       "film",
+       0.062
+      ],
+      [
+       "love",
+       0.059
+      ],
+      [
+       "action",
+       0.034
+      ],
+      [
+       "relaxing",
+       0.034
+      ]
+     ],
+     "genre": [
+      [
+       "electronic",
+       0.331
+      ],
+      [
+       "experimental",
+       0.189
+      ],
+      [
+       "alternative",
+       0.162
+      ],
+      [
+       "pop",
+       0.122
+      ],
+      [
+       "ambient",
+       0.092
+      ],
+      [
+       "hiphop",
+       0.075
+      ],
+      [
+       "rock",
+       0.072
+      ],
+      [
+       "soundtrack",
+       0.062
+      ]
+     ]
+    }
+   },
+   "control_edm_140bpm": {
+    "dsp": {
+     "duration_s": 30.0,
+     "peak_dbfs": -1.94,
+     "rms_dbfs": -21.86,
+     "spectral_centroid_hz": 4024.0,
+     "band_energy_pct": {
+      "sub_20_60": 30.95,
+      "low_60_250": 33.18,
+      "lowmid_250_2k": 8.16,
+      "high_2k_8k": 4.55,
+      "air_8k_20k": 18.42
+     },
+     "hihat_band_pct": 12.885,
+     "hihat_band_transient": 0.503,
+     "dynamic_range_db": 12.1
+    },
+    "aesthetics": {
+     "CE": 6.052,
+     "CU": 7.625,
+     "PC": 4.659,
+     "PQ": 8.064
+    },
+    "clap": {
+     "slow melancholic jazz ballad with muted trumpet, piano, upright bass and brushed drums": -0.1805,
+     "lazy lonely late-night cool jazz trio": -0.0333,
+     "eerie music box with bells, wind chimes and celesta": -0.0103,
+     "a woman narrating a story in Mandarin Chinese": -0.0164,
+     "a man narrating a story in Mandarin Chinese": -0.0141,
+     "fast electronic dance music with drum machine": 0.3211,
+     "heavy metal with distorted electric guitars": -0.1023,
+     "upbeat pop song with vocals": -0.0503,
+     "hip hop beat with rap": 0.0346
+    },
+    "essentia_discogs_top5": [
+     [
+      "Electronic---Electro",
+      0.515
+     ],
+     [
+      "Electronic---Synth-pop",
+      0.277
+     ],
+     [
+      "Electronic---Techno",
+      0.17
+     ],
+     [
+      "Electronic---Synthwave",
+      0.112
+     ],
+     [
+      "Electronic---EBM",
+      0.109
+     ]
+    ],
+    "essentia_top": {
+     "instrument": [
+      [
+       "synthesizer",
+       0.566
+      ],
+      [
+       "computer",
+       0.265
+      ],
+      [
+       "keyboard",
+       0.212
+      ],
+      [
+       "guitar",
+       0.102
+      ],
+      [
+       "bass",
+       0.085
+      ],
+      [
+       "drummachine",
+       0.056
+      ],
+      [
+       "drums",
+       0.049
+      ],
+      [
+       "piano",
+       0.038
+      ]
+     ],
+     "mood": [
+      [
+       "melodic",
+       0.324
+      ],
+      [
+       "space",
+       0.28
+      ],
+      [
+       "energetic",
+       0.165
+      ],
+      [
+       "retro",
+       0.165
+      ],
+      [
+       "slow",
+       0.124
+      ],
+      [
+       "dream",
+       0.098
+      ],
+      [
+       "dark",
+       0.068
+      ],
+      [
+       "game",
+       0.043
+      ]
+     ],
+     "genre": [
+      [
+       "electronic",
+       0.825
+      ],
+      [
+       "experimental",
+       0.3
+      ],
+      [
+       "trance",
+       0.297
+      ],
+      [
+       "techno",
+       0.238
+      ],
+      [
+       "dance",
+       0.212
+      ],
+      [
+       "alternative",
+       0.088
+      ],
+      [
+       "house",
+       0.081
+      ],
+      [
+       "pop",
+       0.067
+      ]
+     ]
+    }
+   },
+   "jazz_test_mix": {
+    "dsp": {
+     "duration_s": 37.804,
+     "peak_dbfs": -0.76,
+     "rms_dbfs": -17.14,
+     "spectral_centroid_hz": 483.3,
+     "band_energy_pct": {
+      "sub_20_60": 3.41,
+      "low_60_250": 25.73,
+      "lowmid_250_2k": 69.27,
+      "high_2k_8k": 1.41,
+      "air_8k_20k": 0.17
+     },
+     "hihat_band_pct": 0.351,
+     "hihat_band_transient": 0.394,
+     "dynamic_range_db": 45.3
+    },
+    "aesthetics": {
+     "CE": 7.052,
+     "CU": 8.089,
+     "PC": 4.483,
+     "PQ": 7.709
+    },
+    "clap": {
+     "slow melancholic jazz ballad with muted trumpet, piano, upright bass and brushed drums": 0.6047,
+     "lazy lonely late-night cool jazz trio": 0.4291,
+     "eerie music box with bells, wind chimes and celesta": 0.1169,
+     "a woman narrating a story in Mandarin Chinese": 0.0239,
+     "a man narrating a story in Mandarin Chinese": -0.011,
+     "fast electronic dance music with drum machine": 0.0544,
+     "heavy metal with distorted electric guitars": -0.0085,
+     "upbeat pop song with vocals": 0.1509,
+     "hip hop beat with rap": 0.0838
+    },
+    "essentia_discogs_top5": [
+     [
+      "Jazz---Contemporary Jazz",
+      0.1
+     ],
+     [
+      "Electronic---Ambient",
+      0.077
+     ],
+     [
+      "Jazz---Cool Jazz",
+      0.067
+     ],
+     [
+      "Jazz---Smooth Jazz",
+      0.063
+     ],
+     [
+      "Electronic---Downtempo",
+      0.061
+     ]
+    ],
+    "essentia_top": {
+     "instrument": [
+      [
+       "piano",
+       0.701
+      ],
+      [
+       "drums",
+       0.361
+      ],
+      [
+       "bass",
+       0.284
+      ],
+      [
+       "electricguitar",
+       0.114
+      ],
+      [
+       "synthesizer",
+       0.101
+      ],
+      [
+       "saxophone",
+       0.086
+      ],
+      [
+       "guitar",
+       0.062
+      ],
+      [
+       "electricpiano",
+       0.058
+      ]
+     ],
+     "mood": [
+      [
+       "relaxing",
+       0.132
+      ],
+      [
+       "romantic",
+       0.085
+      ],
+      [
+       "film",
+       0.083
+      ],
+      [
+       "emotional",
+       0.081
+      ],
+      [
+       "documentary",
+       0.066
+      ],
+      [
+       "background",
+       0.065
+      ],
+      [
+       "sad",
+       0.065
+      ],
+      [
+       "melodic",
+       0.062
+      ]
+     ],
+     "genre": [
+      [
+       "jazz",
+       0.548
+      ],
+      [
+       "ambient",
+       0.173
+      ],
+      [
+       "easylistening",
+       0.147
+      ],
+      [
+       "soundtrack",
+       0.132
+      ],
+      [
+       "classical",
+       0.131
+      ],
+      [
+       "electronic",
+       0.128
+      ],
+      [
+       "lounge",
+       0.106
+      ],
+      [
+       "chillout",
+       0.103
+      ]
+     ]
+    }
+   }
+  },
+  "rhythm": {
+   "anqu_narr_60s": {
+    "engine": "beat_this",
+    "tempo": {
+     "bpm": null,
+     "n_beats": 0
+    },
+    "swing": {
+     "swing_ratio": null,
+     "reliable": false,
+     "n_beats_used": 0
+    },
+    "swing_note": null,
+    "onset_rate_per_s": 4.28
+   },
+   "bgm_preview_60s": {
+    "engine": "beat_this",
+    "tempo": {
+     "bpm": 19.7,
+     "bpm_half": 9.9,
+     "bpm_double": 39.5,
+     "n_beats": 8,
+     "ibi_cv": 1.165,
+     "tempo_stability": "不穩/自由速度",
+     "drift_bpm_per_min": -383.44,
+     "local_bpm_p10_p90": [
+      3.2,
+      341.9
+     ]
+    },
+    "swing": {
+     "swing_ratio": null,
+     "reliable": false,
+     "n_beats_used": 0
+    },
+    "swing_note": null,
+    "onset_rate_per_s": 0.18
+   },
+   "control_edm_140bpm": {
+    "engine": "beat_this",
+    "tempo": {
+     "bpm": 140.0,
+     "bpm_half": 70.0,
+     "bpm_double": 280.0,
+     "n_beats": 71,
+     "ibi_cv": 0.027,
+     "tempo_stability": "穩",
+     "drift_bpm_per_min": 3.92,
+     "local_bpm_p10_p90": [
+      136.4,
+      142.9
+     ]
+    },
+    "swing": {
+     "swing_ratio": 1.0,
+     "n_beats_used": 70,
+     "offbeat_phase_median": 0.5,
+     "offbeat_phase_iqr": 0.026,
+     "reliable": true
+    },
+    "swing_note": null,
+    "onset_rate_per_s": 8.47
+   },
+   "control_straight_hats_60bpm": {
+    "engine": "beat_this",
+    "tempo": {
+     "bpm": 119.9,
+     "bpm_half": 59.9,
+     "bpm_double": 239.8,
+     "n_beats": 40,
+     "ibi_cv": 0.011,
+     "tempo_stability": "穩",
+     "drift_bpm_per_min": -1.75,
+     "local_bpm_p10_p90": [
+      120.0,
+      120.0
+     ]
+    },
+    "swing": {
+     "swing_ratio": 1.0,
+     "n_beats_used": 19,
+     "offbeat_phase_median": 0.5,
+     "offbeat_phase_iqr": 0.0,
+     "reliable": true
+    },
+    "swing_note": "拍點疑似倍速，swing 以半速拍點計算",
+    "onset_rate_per_s": 1.95
+   },
+   "control_swing_hats_60bpm_r2": {
+    "engine": "beat_this",
+    "tempo": {
+     "bpm": 179.8,
+     "bpm_half": 89.9,
+     "bpm_double": 359.6,
+     "n_beats": 59,
+     "ibi_cv": 0.135,
+     "tempo_stability": "不穩/自由速度",
+     "drift_bpm_per_min": 26.83,
+     "local_bpm_p10_p90": [
+      176.5,
+      187.5
+     ]
+    },
+    "swing": {
+     "swing_ratio": null,
+     "reliable": false,
+     "n_beats_used": 0
+    },
+    "swing_note": "拍點疑似倍速，swing 以半速拍點計算；拍點不穩，swing 不採用",
+    "onset_rate_per_s": 1.95
+   },
+   "jazz_test_mix": {
+    "engine": "beat_this",
+    "tempo": {
+     "bpm": 60.0,
+     "bpm_half": 30.0,
+     "bpm_double": 119.9,
+     "n_beats": 33,
+     "ibi_cv": 0.012,
+     "tempo_stability": "穩",
+     "drift_bpm_per_min": -0.37,
+     "local_bpm_p10_p90": [
+      58.8,
+      61.2
+     ]
+    },
+    "swing": {
+     "swing_ratio": 1.97,
+     "n_beats_used": 9,
+     "offbeat_phase_median": 0.663,
+     "offbeat_phase_iqr": 0.004,
+     "reliable": true
+    },
+    "swing_note": null,
+    "onset_rate_per_s": 1.35
+   }
+  },
+  "melody": {
+   "control_edm_140bpm": {
+    "n_ref_notes": 24,
+    "n_heard_notes": 51,
+    "note_precision": 0.02,
+    "note_recall": 0.042,
+    "note_f1": 0.027,
+    "contour_similarity": 0.676,
+    "wrong_pitch": [
+     {
+      "t_ref": 1.035,
+      "t_audio": 2.788,
+      "ref": "A4",
+      "heard": "A#4",
+      "semitones": 1
+     },
+     {
+      "t_ref": 2.696,
+      "t_audio": 6.192,
+      "ref": "G4",
+      "heard": "A#4",
+      "semitones": 3
+     },
+     {
+      "t_ref": 3.035,
+      "t_audio": 6.645,
+      "ref": "E4",
+      "heard": "C5",
+      "semitones": 8
+     },
+     {
+      "t_ref": 5.702,
+      "t_audio": 7.063,
+      "ref": "D4",
+      "heard": "C5",
+      "semitones": 10
+     },
+     {
+      "t_ref": 6.035,
+      "t_audio": 7.492,
+      "ref": "E4",
+      "heard": "D#5",
+      "semitones": 11
+     },
+     {
+      "t_ref": 6.696,
+      "t_audio": 8.782,
+      "ref": "F4",
+      "heard": "D#5",
+      "semitones": 10
+     },
+     {
+      "t_ref": 7.035,
+      "t_audio": 9.212,
+      "ref": "G4",
+      "heard": "C5",
+      "semitones": 5
+     },
+     {
+      "t_ref": 8.035,
+      "t_audio": 9.63,
+      "ref": "F4",
+      "heard": "A#4",
+      "semitones": 5
+     },
+     {
+      "t_ref": 16.702,
+      "t_audio": 10.061,
+      "ref": "E4",
+      "heard": "C5",
+      "semitones": 8
+     },
+     {
+      "t_ref": 18.035,
+      "t_audio": 10.92,
+      "ref": "B4",
+      "heard": "D#5",
+      "semitones": 4
+     },
+     {
+      "t_ref": 18.696,
+      "t_audio": 12.21,
+      "ref": "A4",
+      "heard": "D#5",
+      "semitones": 6
+     },
+     {
+      "t_ref": 19.035,
+      "t_audio": 12.639,
+      "ref": "D#4",
+      "heard": "C5",
+      "semitones": 9
+     },
+     {
+      "t_ref": 20.035,
+      "t_audio": 13.498,
+      "ref": "D4",
+      "heard": "C5",
+      "semitones": 10
+     },
+     {
+      "t_ref": 20.696,
+      "t_audio": 13.918,
+      "ref": "F4",
+      "heard": "C5",
+      "semitones": 7
+     },
+     {
+      "t_ref": 21.035,
+      "t_audio": 14.347,
+      "ref": "A4",
+      "heard": "D#5",
+      "semitones": 6
+     },
+     {
+      "t_ref": 25.035,
+      "t_audio": 17.785,
+      "ref": "D4",
+      "heard": "D#5",
+      "semitones": 13
+     },
+     {
+      "t_ref": 25.696,
+      "t_audio": 19.064,
+      "ref": "F4",
+      "heard": "D#5",
+      "semitones": 10
+     },
+     {
+      "t_ref": 26.035,
+      "t_audio": 19.901,
+      "ref": "G#4",
+      "heard": "A#4",
+      "semitones": 2
+     },
+     {
+      "t_ref": 26.696,
+      "t_audio": 20.354,
+      "ref": "F#4",
+      "heard": "C5",
+      "semitones": 6
+     },
+     {
+      "t_ref": 27.035,
+      "t_audio": 20.771,
+      "ref": "E4",
+      "heard": "C5",
+      "semitones": 8
+     },
+     {
+      "t_ref": 28.035,
+      "t_audio": 21.213,
+      "ref": "G4",
+      "heard": "D#5",
+      "semitones": 8
+     }
+    ],
+    "missing": [],
+    "octave_errors": [
+     {
+      "t_ref": 0.702,
+      "t_audio": 0.209,
+      "ref": "C4",
+      "heard": "C5",
+      "semitones": 12
+     },
+     {
+      "t_ref": 24.702,
+      "t_audio": 16.496,
+      "ref": "A#3",
+      "heard": "A#4",
+      "semitones": 12
+     }
+    ],
+    "intonation": {
+     "error": "ParameterError: Target size (41) must be at least input size (51)"
+    }
+   },
+   "jazz_test_mix": {
+    "n_ref_notes": 24,
+    "n_heard_notes": 52,
+    "note_precision": 0.442,
+    "note_recall": 0.958,
+    "note_f1": 0.605,
+    "contour_similarity": 0.927,
+    "wrong_pitch": [
+     {
+      "t_ref": 19.035,
+      "t_audio": 20.04,
+      "ref": "D#4",
+      "heard": "A#3",
+      "semitones": -5
+     }
+    ],
+    "missing": [],
+    "octave_errors": [],
+    "intonation": {
+     "n_measured": 20,
+     "median_abs_cents": 10.0,
+     "out_of_tune_gt25c": [
+      {
+       "t_audio": 0.74,
+       "ref": "C4",
+       "cents": 890.0
+      },
+      {
+       "t_audio": 24.86,
+       "ref": "A#3",
+       "cents": 400.0
+      },
+      {
+       "t_audio": 26.08,
+       "ref": "G#4",
+       "cents": -1190.0
+      }
+     ]
+    }
+   },
+   "jazz_test_trumpet_stem": {
+    "n_ref_notes": 24,
+    "n_heard_notes": 24,
+    "note_precision": 1.0,
+    "note_recall": 1.0,
+    "note_f1": 1.0,
+    "contour_similarity": 1.0,
+    "wrong_pitch": [],
+    "missing": [],
+    "octave_errors": [],
+    "intonation": {
+     "n_measured": 24,
+     "median_abs_cents": 0.0,
+     "out_of_tune_gt25c": []
+    }
+   },
+   "melody_clean_synth": {
+    "n_ref_notes": 24,
+    "n_heard_notes": 24,
+    "note_precision": 1.0,
+    "note_recall": 1.0,
+    "note_f1": 1.0,
+    "contour_similarity": 1.0,
+    "wrong_pitch": [],
+    "missing": [],
+    "octave_errors": [],
+    "intonation": {
+     "n_measured": 24,
+     "median_abs_cents": 0.0,
+     "out_of_tune_gt25c": []
+    }
+   },
+   "melody_corrupt_synth": {
+    "n_ref_notes": 24,
+    "n_heard_notes": 23,
+    "note_precision": 0.913,
+    "note_recall": 0.875,
+    "note_f1": 0.894,
+    "contour_similarity": 0.986,
+    "wrong_pitch": [
+     {
+      "t_ref": 2.696,
+      "t_audio": 2.695,
+      "ref": "G4",
+      "heard": "G#4",
+      "semitones": 1
+     },
+     {
+      "t_ref": 8.035,
+      "t_audio": 8.028,
+      "ref": "F4",
+      "heard": "E4",
+      "semitones": -1
+     }
+    ],
+    "missing": [
+     {
+      "t_ref": 6.035,
+      "ref": "E4"
+     }
+    ],
+    "octave_errors": [],
+    "intonation": {
+     "n_measured": 21,
+     "median_abs_cents": 0.0,
+     "out_of_tune_gt25c": []
+    }
+   },
+   "melody_sharp30c_synth": {
+    "n_ref_notes": 24,
+    "n_heard_notes": 24,
+    "note_precision": 1.0,
+    "note_recall": 1.0,
+    "note_f1": 1.0,
+    "contour_similarity": 1.0,
+    "wrong_pitch": [],
+    "missing": [],
+    "octave_errors": [],
+    "intonation": {
+     "n_measured": 24,
+     "median_abs_cents": 30.0,
+     "out_of_tune_gt25c": [
+      {
+       "t_audio": 0.71,
+       "ref": "C4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 1.04,
+       "ref": "A4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 2.71,
+       "ref": "G4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 3.04,
+       "ref": "E4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 5.71,
+       "ref": "D4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 6.03,
+       "ref": "E4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 6.7,
+       "ref": "F4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 7.04,
+       "ref": "G4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 8.04,
+       "ref": "F4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 16.71,
+       "ref": "E4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 17.03,
+       "ref": "C5",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 18.04,
+       "ref": "B4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 18.7,
+       "ref": "A4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 19.03,
+       "ref": "D#4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 20.04,
+       "ref": "D4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 20.69,
+       "ref": "F4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 21.03,
+       "ref": "A4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 24.71,
+       "ref": "A#3",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 25.05,
+       "ref": "D4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 25.7,
+       "ref": "F4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 26.02,
+       "ref": "G#4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 26.7,
+       "ref": "F#4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 27.03,
+       "ref": "E4",
+       "cents": 30.0
+      },
+      {
+       "t_audio": 28.04,
+       "ref": "G4",
+       "cents": 30.0
+      }
+     ]
+    }
+   }
+  },
+  "ground_truth": {
+   "bgm_preview_60s": "bgm_full.events.json 前 60 秒：celesta 7、bell_far 3、chime 3；無速度（自由拍）；numpy 合成（非真樂器）",
+   "anqu_narr_60s": "中文旁白（字幕 .ass 為真值；pyin 中位 F0 135 Hz→推測男聲，未人耳確認）+ 環境音 + 同一 BGM",
+   "control_edm_140bpm": "自己合成：140 BPM 四拍大鼓、拍手、16 分 hi-hat、鋸齒 bass、方波 lead",
+   "jazz_test_mix": "另一 agent 的 8 小節測試渲染（sfizz）：trumpet/piano/bass/brush/hihat，MIDI 60 BPM、hi-hat 反拍相位 0.667（swing 2:1）",
+   "melody_corrupt_synth": "參考 MIDI 合成，G4(2.70s)+1、F4(8.04s)-1、刪掉 E4(6.04s)",
+   "melody_sharp30c_synth": "參考 MIDI 合成，全部 +30 音分",
+   "jazz_bad_mix": "jazz_test 分軌：trumpet high-shelf +15 dB@2k、hihat +22 dB、全部 atempo 1.2（60→72 BPM）"
+  }
+ },
+ "reviews": {
+  "review_bgm": {
+   "critique": {
+    "matches": [
+     "音色偏暖（頻譜重心 679 Hz、2 kHz 以上占 1.9%）",
+     "情緒標籤吻合（前 8 名內）：dark 0.09",
+     "Discogs 曲風前五含 Electronic---Ambient（0.11）",
+     "CLAP：目標描述相似度 0.378 高於反例最高 0.073",
+     "製作品質 PQ=7.79"
+    ],
+    "mismatches": [],
+    "suggestions": [],
+    "notes": [
+     "拍點間隔變異係數 1.165：速度自由或節拍追蹤不可靠（旁白/無鼓音樂常見）",
+     "「鐘」兩個模型意見不一（Essentia bell 0.02；LLM 是非題 有），需以分軌或人耳確認",
+     "「風鈴」兩個模型意見不一（Essentia bell 0.02；LLM 是非題 有），需以分軌或人耳確認",
+     "「鋼片琴」兩個模型意見不一（Essentia bell/keyboard 0.08；LLM 是非題 有），需以分軌或人耳確認",
+     "內容享受度 CE=3.87 偏低",
+     "門檻皆為經驗值；LLM 敘述僅供參考，與量測衝突時以量測為準。"
+    ]
+   },
+   "llm": {
+    "describe": [
+     "[0s] The audio features a slow, ambient electronic piece with a dark and mysterious atmosphere. It includes a deep, resonant synthesizer sound that creates a sense of depth and space, accompanied by a gentle, repetitive melody played on a bell-like instrument. The overall mood is somber and introspective, with a slow tempo that enhances the feeling of contemplation. The mix is balanced, with the synthesizer providing a rich, immersive background while the bell adds a delicate, ethereal touch. There is no speech present in the audio.",
+     "[30s] The audio features a meditative and serene atmosphere with the use of wind chimes, creating a calming and tranquil ambiance. The sound is characterized by its soft, gentle tones, which are likely to evoke feelings of relaxation and peace. The tempo is slow, contributing to the overall soothing effect. The mix is bright and balanced, with the wind chimes being the primary focus, and there is no noticeable background noise or other instruments present. The genre can be described as ambient or new age, often associated with mindfulness practices or meditation sessions."
+    ],
+    "probes": {
+     "鐘": {
+      "answer": "yes",
+      "yes": true,
+      "expected": true
+     },
+     "風鈴": {
+      "answer": "yes",
+      "yes": true,
+      "expected": true
+     },
+     "鋼片琴": {
+      "answer": "yes",
+      "yes": true,
+      "expected": true
+     },
+     "electric guitar": {
+      "answer": "no",
+      "yes": false,
+      "expected": false
+     },
+     "drum machine": {
+      "answer": "No.",
+      "yes": false,
+      "expected": false
+     },
+     "singing": {
+      "answer": "No",
+      "yes": false,
+      "expected": false
+     }
+    },
+    "text": "[0s] The audio features a slow, ambient electronic piece with a dark and mysterious atmosphere. It includes a deep, resonant synthesizer sound that creates a sense of depth and space, accompanied by a gentle, repetitive melody played on a bell-like instrument. The overall mood is somber and introspective, with a slow tempo that enhances the feeling of contemplation. The mix is balanced, with the synthesizer providing a rich, immersive background while the bell adds a delicate, ethereal touch. There is no speech present in the audio.\n\n[30s] The audio features a meditative and serene atmosphere with the use of wind chimes, creating a calming and tranquil ambiance. The sound is characterized by its soft, gentle tones, which are likely to evoke feelings of relaxation and peace. The tempo is slow, contributing to the overall soothing effect. The mix is bright and balanced, with the wind chimes being the primary focus, and there is no noticeable background noise or other instruments present. The genre can be described as ambient or new age, often associated with mindfulness practices or meditation sessions.\n\n是非題（第一個 30 秒窗）：鐘=有；風鈴=有；鋼片琴=有；electric guitar=沒有；drum machine=沒有；singing=沒有",
+    "error": null
+   }
+  },
+  "review_edm": {
+   "critique": {
+    "matches": [
+     "情緒標籤吻合（前 8 名內）：melodic 0.32, slow 0.12",
+     "製作品質 PQ=8.06"
+    ],
+    "mismatches": [
+     "節拍追蹤給 140 BPM，起音密度每秒 8.47 個，不像半速 70 的慢板，而是 140 BPM 的快節奏",
+     "反拍八分音幾乎是直的（swing ratio 1.0），聽起來不像爵士搖擺",
+     "整體偏亮（頻譜重心 4024 Hz、2 kHz 以上占 23.0%），不像慵懶暖色調",
+     "低頻占比 64% 過重，可能糊",
+     "聽不到「小號」（Essentia trumpet/brass 0.00；LLM 是非題 沒有）",
+     "聽不到「鋼琴」（Essentia piano 0.04；LLM 是非題 沒有）",
+     "聽不到「低音提琴」（Essentia doublebass/bass 0.09；LLM 是非題 沒有）",
+     "聽不到「刷子」（Essentia drums 0.05；LLM 是非題 沒有）",
+     "LLM 是非題說有「drum machine」，不在目標編制內（LLM 偶有誤報，請對照 Essentia/CLAP）",
+     "聽起來像有 synthesizer（0.57），不在目標編制內",
+     "Discogs 曲風前五沒有目標曲風：Electronic---Electro 0.52, Electronic---Synth-pop 0.28, Electronic---Techno 0.17",
+     "CLAP：更像「fast electronic dance music with drum machine」（0.321）而不是目標描述（-0.124）"
+    ],
+    "suggestions": [
+     "減少密集的十六分音/打擊點，讓律動落在 60 BPM 附近",
+     "hi-hat / ride / 鋼琴反拍往後推，swing ratio 目標約 1.6–2.2（ballad 可 1.5 左右）",
+     "主匯流排或最亮的聲部在 2 kHz 以上做 high-shelf −2~−4 dB，或降低 hi-hat / 鈸的量",
+     "低音提琴或鋼琴左手 150–250 Hz 減 2–3 dB，或在非低音聲部加 HPF 100 Hz",
+     "「小號」存在感不足：加大音量或讓音色更有特徵",
+     "「鋼琴」存在感不足：加大音量或讓音色更有特徵",
+     "「低音提琴」存在感不足：加大音量或讓音色更有特徵",
+     "「刷子」存在感不足：加大音量或讓音色更有特徵"
+    ],
+    "notes": [
+     "「鼓」兩個模型意見不一（Essentia drums/percussion 0.05；LLM 是非題 有），需以分軌或人耳確認",
+     "「hi-hat」兩個模型意見不一（Essentia drums 0.05；LLM 是非題 有），需以分軌或人耳確認",
+     "門檻皆為經驗值；LLM 敘述僅供參考，與量測衝突時以量測為準。"
+    ]
+   },
+   "llm": {
+    "describe": [
+     "[0s] The audio features a fast-paced electronic music piece with a tempo of 139 BPM, characterized by a bright and energetic sound. The genre is electronic, specifically within the subcategories of techno, house, and electro, with a focus on digital sounds and a strong beat. The mood conveyed is lively and intense, suitable for dancing or high-energy activities. The mix is balanced, with a clear emphasis on the electronic elements, and there is no speech present in the audio."
+    ],
+    "probes": {
+     "小號": {
+      "answer": "No",
+      "yes": false,
+      "expected": true
+     },
+     "鋼琴": {
+      "answer": "No.",
+      "yes": false,
+      "expected": true
+     },
+     "低音提琴": {
+      "answer": "No",
+      "yes": false,
+      "expected": true
+     },
+     "鼓": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "刷子": {
+      "answer": "No.",
+      "yes": false,
+      "expected": true
+     },
+     "hi-hat": {
+      "answer": "yes",
+      "yes": true,
+      "expected": true
+     },
+     "electric guitar": {
+      "answer": "No",
+      "yes": false,
+      "expected": false
+     },
+     "drum machine": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": false
+     },
+     "singing": {
+      "answer": "No",
+      "yes": false,
+      "expected": false
+     }
+    },
+    "text": "[0s] The audio features a fast-paced electronic music piece with a tempo of 139 BPM, characterized by a bright and energetic sound. The genre is electronic, specifically within the subcategories of techno, house, and electro, with a focus on digital sounds and a strong beat. The mood conveyed is lively and intense, suitable for dancing or high-energy activities. The mix is balanced, with a clear emphasis on the electronic elements, and there is no speech present in the audio.\n\n是非題（第一個 30 秒窗）：小號=沒有；鋼琴=沒有；低音提琴=沒有；鼓=有；刷子=沒有；hi-hat=有；electric guitar=沒有；drum machine=有；singing=沒有",
+    "error": null
+   }
+  },
+  "review_jazz_bad": {
+   "critique": {
+    "matches": [
+     "有搖擺感（swing ratio 1.91）",
+     "聽得到「鋼琴」（Essentia piano 0.60；LLM 是非題 有）",
+     "聽得到「鼓」（Essentia drums/percussion 0.31；LLM 是非題 有）",
+     "聽得到「刷子」（Essentia drums 0.31；LLM 是非題 有）",
+     "聽得到「hi-hat」（Essentia drums 0.31；LLM 是非題 有）",
+     "情緒標籤吻合（前 8 名內）：relaxing 0.10, melodic 0.09, romantic 0.06, emotional 0.05, sad 0.05",
+     "Discogs 曲風前五含 Jazz---Hard Bop（0.10）",
+     "CLAP：目標描述相似度 0.427 高於反例最高 0.145",
+     "製作品質 PQ=7.61",
+     "主奏分軌對參考 MIDI：note F1=1.0、漏 0、錯音 0"
+    ],
+    "mismatches": [
+     "速度約 72 BPM，高於目標 57–63",
+     "整體偏亮（頻譜重心 1271 Hz、2 kHz 以上占 11.3%、亮度 -7.5 dB），不像慵懶暖色調",
+     "hihat 太前面（比 trumpet 只低 0.5 dB）",
+     "混音 高頻比上一版亮 7.7 dB",
+     "trumpet 高頻比上一版亮 7.1 dB",
+     "LLM 是非題說有「drum machine」，不在目標編制內（LLM 偶有誤報，請對照 Essentia/CLAP）"
+    ],
+    "suggestions": [
+     "把速度調到約 60 BPM（目前 72）",
+     "主匯流排或最亮的聲部在 2 kHz 以上做 high-shelf −2~−4 dB，或降低 hi-hat / 鈸的量",
+     "hihat 降 9 dB 左右，讓它退到 trumpet 後方 10 dB",
+     "混音 在 2 kHz 以上 high-shelf −8 dB，回到上一版的亮度",
+     "trumpet 在 2 kHz 以上 high-shelf −7 dB，回到上一版的亮度"
+    ],
+    "notes": [
+     "hihat 音量比上一版大 22.3 dB",
+     "「小號」兩個模型意見不一（Essentia trumpet/brass 0.04；LLM 是非題 有），需以分軌或人耳確認",
+     "「低音提琴」兩個模型意見不一（Essentia doublebass/bass 0.26；LLM 是非題 沒有），需以分軌或人耳確認",
+     "門檻皆為經驗值；LLM 敘述僅供參考，與量測衝突時以量測為準。"
+    ]
+   },
+   "llm": {
+    "describe": [
+     "[0s] The audio features a slow, jazzy piece with a trumpet playing a melody over a piano accompaniment. The tempo is moderate, around 105 BPM, and the genre is jazz. The mood is calm and relaxed, with a bright and balanced mix that includes a moderate amount of reverb. There is no speech present in the audio.",
+     "[30s] The audio features a soft, ambient sound of a motor vehicle engine running at a low speed, creating a calm and steady atmosphere. The engine's hum is smooth and unobtrusive, contributing to a serene and tranquil mood. The tempo is slow, enhancing the sense of stillness and quietude. There is no speech present in the audio, allowing the engine's subtle rumble to dominate the mix. The brightness is low, with a balanced presence of the engine's sound, and there is minimal reverb, keeping the focus on the engine's low-frequency tones without significant echo or reverberation."
+    ],
+    "probes": {
+     "小號": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "鋼琴": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "低音提琴": {
+      "answer": "No",
+      "yes": false,
+      "expected": true
+     },
+     "鼓": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "刷子": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "hi-hat": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "electric guitar": {
+      "answer": "No",
+      "yes": false,
+      "expected": false
+     },
+     "drum machine": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": false
+     },
+     "singing": {
+      "answer": "No",
+      "yes": false,
+      "expected": false
+     }
+    },
+    "text": "[0s] The audio features a slow, jazzy piece with a trumpet playing a melody over a piano accompaniment. The tempo is moderate, around 105 BPM, and the genre is jazz. The mood is calm and relaxed, with a bright and balanced mix that includes a moderate amount of reverb. There is no speech present in the audio.\n\n[30s] The audio features a soft, ambient sound of a motor vehicle engine running at a low speed, creating a calm and steady atmosphere. The engine's hum is smooth and unobtrusive, contributing to a serene and tranquil mood. The tempo is slow, enhancing the sense of stillness and quietude. There is no speech present in the audio, allowing the engine's subtle rumble to dominate the mix. The brightness is low, with a balanced presence of the engine's sound, and there is minimal reverb, keeping the focus on the engine's low-frequency tones without significant echo or reverberation.\n\n是非題（第一個 30 秒窗）：小號=有；鋼琴=有；低音提琴=沒有；鼓=有；刷子=有；hi-hat=有；electric guitar=沒有；drum machine=有；singing=沒有",
+    "error": null
+   }
+  },
+  "review_jazz_good": {
+   "critique": {
+    "matches": [
+     "速度約 60 BPM，在目標範圍 57–63 內",
+     "音色偏暖（頻譜重心 474 Hz、2 kHz 以上占 1.9%）",
+     "聽得到「鋼琴」（Essentia piano 0.76）",
+     "聽得到「低音提琴」（Essentia doublebass/bass 0.31）",
+     "聽得到「鼓」（Essentia drums/percussion 0.40）",
+     "聽得到「刷子」（Essentia drums 0.40）",
+     "聽得到「hi-hat」（Essentia drums 0.40）",
+     "情緒標籤吻合（前 8 名內）：relaxing 0.12, melodic 0.07, emotional 0.06, romantic 0.06, sad 0.05",
+     "Discogs 曲風前五含 Jazz---Contemporary Jazz（0.14）",
+     "CLAP：目標描述相似度 0.453 高於反例最高 0.140",
+     "製作品質 PQ=7.68",
+     "主奏分軌對參考 MIDI：note F1=1.0、漏 0、錯音 0"
+    ],
+    "mismatches": [
+     "聽不到「小號」（Essentia trumpet/brass 0.05）"
+    ],
+    "suggestions": [
+     "「小號」存在感不足：加大音量或讓音色更有特徵"
+    ],
+    "notes": [
+     "拍點間隔變異係數 0.277：速度自由或節拍追蹤不可靠（旁白/無鼓音樂常見）",
+     "trumpet 2 kHz 以上只占 0.5%，可能過悶，缺少銅管的邊緣",
+     "門檻皆為經驗值；LLM 敘述僅供參考，與量測衝突時以量測為準。"
+    ]
+   },
+   "llm": {
+    "describe": null,
+    "probes": null,
+    "text": null,
+    "error": null
+   }
+  },
+  "review_jazz_test": {
+   "critique": {
+    "matches": [
+     "速度約 60 BPM，在目標範圍 48–72 內",
+     "有搖擺感（swing ratio 1.97）",
+     "音色偏暖（頻譜重心 483 Hz、2 kHz 以上占 1.6%）",
+     "聽得到「鋼琴」（Essentia piano 0.70；LLM 是非題 有）",
+     "聽得到「刷子」（Essentia drums 0.36；LLM 是非題 有）",
+     "聽得到「hi-hat」（Essentia drums 0.36；LLM 是非題 有）",
+     "情緒標籤吻合（前 8 名內）：relaxing 0.13, romantic 0.09, emotional 0.08, sad 0.07, melodic 0.06",
+     "Discogs 曲風前五含 Jazz---Contemporary Jazz（0.10）",
+     "CLAP：目標描述相似度 0.441 高於反例最高 0.151",
+     "製作品質 PQ=7.71",
+     "主奏分軌對參考 MIDI：note F1=1.0、漏 0、錯音 0"
+    ],
+    "mismatches": [],
+    "suggestions": [],
+    "notes": [
+     "trumpet 2 kHz 以上只占 0.5%，可能過悶，缺少銅管的邊緣",
+     "「小號」兩個模型意見不一（Essentia trumpet/brass 0.05；LLM 是非題 有），需以分軌或人耳確認",
+     "「低音提琴」兩個模型意見不一（Essentia doublebass/bass 0.28；LLM 是非題 沒有），需以分軌或人耳確認",
+     "「鼓」兩個模型意見不一（Essentia drums/percussion 0.36；LLM 是非題 沒有），需以分軌或人耳確認",
+     "門檻皆為經驗值；LLM 敘述僅供參考，與量測衝突時以量測為準。"
+    ]
+   },
+   "llm": {
+    "describe": [
+     "[0s] The audio features a slow-paced jazz piece with a prominent trumpet melody accompanied by a piano, creating a calm and soothing atmosphere. The mix is balanced, with moderate reverb adding depth to the sound without overpowering the instruments. There is no speech present in the audio.",
+     "[30s] The audio features a slow, ambient track with a soft piano melody, a gentle guitar strumming, and a subtle bass line, creating a calm and soothing atmosphere. The music is likely in the genre of ambient or chillout, with a tempo that is slow and steady, contributing to a relaxed and peaceful mood. The mix is bright and balanced, with the instruments clearly audible, and there is no noticeable reverb or noise, allowing the listener to focus on the tranquil soundscape."
+    ],
+    "probes": {
+     "小號": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "鋼琴": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "低音提琴": {
+      "answer": "No",
+      "yes": false,
+      "expected": true
+     },
+     "鼓": {
+      "answer": "No",
+      "yes": false,
+      "expected": true
+     },
+     "刷子": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "hi-hat": {
+      "answer": "yes",
+      "yes": true,
+      "expected": true
+     },
+     "electric guitar": {
+      "answer": "No",
+      "yes": false,
+      "expected": false
+     },
+     "drum machine": {
+      "answer": "No",
+      "yes": false,
+      "expected": false
+     },
+     "singing": {
+      "answer": "No",
+      "yes": false,
+      "expected": false
+     }
+    },
+    "text": "[0s] The audio features a slow-paced jazz piece with a prominent trumpet melody accompanied by a piano, creating a calm and soothing atmosphere. The mix is balanced, with moderate reverb adding depth to the sound without overpowering the instruments. There is no speech present in the audio.\n\n[30s] The audio features a slow, ambient track with a soft piano melody, a gentle guitar strumming, and a subtle bass line, creating a calm and soothing atmosphere. The music is likely in the genre of ambient or chillout, with a tempo that is slow and steady, contributing to a relaxed and peaceful mood. The mix is bright and balanced, with the instruments clearly audible, and there is no noticeable reverb or noise, allowing the listener to focus on the tranquil soundscape.\n\n是非題（第一個 30 秒窗）：小號=有；鋼琴=有；低音提琴=沒有；鼓=沒有；刷子=有；hi-hat=有；electric guitar=沒有；drum machine=沒有；singing=沒有",
+    "error": null
+   }
+  },
+  "review_narr": {
+   "critique": {
+    "matches": [
+     "音色偏暖（頻譜重心 510 Hz、2 kHz 以上占 3.2%）",
+     "聽得到「旁白」（Essentia voice 0.16；LLM 是非題 有）",
+     "情緒標籤吻合（前 8 名內）：dark 0.07",
+     "Discogs 曲風前五含 Electronic---Ambient（0.14）",
+     "CLAP：目標描述相似度 0.215 高於反例最高 0.097"
+    ],
+    "mismatches": [
+     "LLM 是非題說有「drum machine」，不在目標編制內（LLM 偶有誤報，請對照 Essentia/CLAP）",
+     "聽起來像有 synthesizer（0.34），不在目標編制內",
+     "製作品質分數 PQ=4.98 偏低（專業錄音通常 > 7）"
+    ],
+    "suggestions": [
+     "檢查底噪、失真、取樣音色的機械感；加真實房間殘響與力度變化"
+    ],
+    "notes": [
+     "「鐘」兩個模型意見不一（Essentia bell 0.02；LLM 是非題 有），需以分軌或人耳確認",
+     "「風鈴」兩個模型意見不一（Essentia bell 0.02；LLM 是非題 有），需以分軌或人耳確認",
+     "「鋼片琴」兩個模型意見不一（Essentia bell/keyboard 0.14；LLM 是非題 有），需以分軌或人耳確認",
+     "內容享受度 CE=4.01 偏低",
+     "門檻皆為經驗值；LLM 敘述僅供參考，與量測衝突時以量測為準。"
+    ]
+   },
+   "llm": {
+    "describe": [
+     "[0s] The audio features a slow-paced electronic piece with a dark ambient style, incorporating elements of techno and industrial music. The track has a somber and melancholic mood, with a tempo of 120 BPM. The mix is bright and balanced, with a focus on the reverb effect that enhances the overall atmosphere. There is no speech present in the audio.",
+     "[30s] The audio features a male voice speaking in Mandarin with a neutral tone, discussing topics related to nature and environment. The background includes a mix of natural sounds such as breathing, water, and wood, creating an ambient atmosphere. The genre is likely documentary or educational, focusing on environmental issues. The mood is informative and reflective, with a steady tempo that complements the spoken content. The mix is balanced, with the speech being clear and the background sounds providing a rich, immersive backdrop."
+    ],
+    "probes": {
+     "鐘": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "風鈴": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "鋼片琴": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "旁白": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": true
+     },
+     "electric guitar": {
+      "answer": "No.",
+      "yes": false,
+      "expected": false
+     },
+     "drum machine": {
+      "answer": "Yes.",
+      "yes": true,
+      "expected": false
+     },
+     "singing": {
+      "answer": "No.",
+      "yes": false,
+      "expected": false
+     }
+    },
+    "text": "[0s] The audio features a slow-paced electronic piece with a dark ambient style, incorporating elements of techno and industrial music. The track has a somber and melancholic mood, with a tempo of 120 BPM. The mix is bright and balanced, with a focus on the reverb effect that enhances the overall atmosphere. There is no speech present in the audio.\n\n[30s] The audio features a male voice speaking in Mandarin with a neutral tone, discussing topics related to nature and environment. The background includes a mix of natural sounds such as breathing, water, and wood, creating an ambient atmosphere. The genre is likely documentary or educational, focusing on environmental issues. The mood is informative and reflective, with a steady tempo that complements the spoken content. The mix is balanced, with the speech being clear and the background sounds providing a rich, immersive backdrop.\n\n是非題（第一個 30 秒窗）：鐘=有；風鈴=有；鋼片琴=有；旁白=有；electric guitar=沒有；drum machine=有；singing=沒有",
+    "error": null
+   }
+  },
+  "review_v1leading_bgm": {
+   "critique": {
+    "matches": [
+     "音色偏暖（頻譜重心 679 Hz、2 kHz 以上占 1.9%）",
+     "Discogs 曲風前五含 Electronic---Ambient（0.11）",
+     "CLAP：目標描述相似度 0.378 高於反例最高 0.073",
+     "製作品質 PQ=7.79"
+    ],
+    "mismatches": [
+     "Essentia 幾乎沒聽到「鐘」（bell 最高 0.02）",
+     "Essentia 幾乎沒聽到「風鈴」（bell 最高 0.02）",
+     "Essentia 幾乎沒聽到「鋼片琴」（bell/keyboard 最高 0.08）",
+     "情緒標籤不吻合，模型聽到的是：relaxing 0.10, film 0.10, dark 0.09, meditative 0.09, melodic 0.07"
+    ],
+    "suggestions": [
+     "「鐘」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）",
+     "「風鈴」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）",
+     "「鋼片琴」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）"
+    ],
+    "notes": [
+     "拍點間隔變異係數 1.165：速度自由或節拍追蹤不可靠（旁白/無鼓音樂常見）",
+     "內容享受度 CE=3.87 偏低",
+     "門檻皆為經驗值；LLM 敘述僅供參考，與量測衝突時以量測為準。"
+    ]
+   },
+   "llm": {
+    "describe": null,
+    "probes": null,
+    "text": "[0s] (1) 符合目標的是：鐘聲、風鈴、鋼片琴。\n(2) 不符合目標的是：沒有提到任何其他樂器或聲音。\n(3) 具體的混合/安排修正：在鐘聲和風鈴之間添加了鋼片琴的音色，以創造出寂寞、稀疏、詭異的氛圍。\n\n[30s] (1) 符合目標的是：鐘聲、風鈴、鋼片琴。\n(2) 不符合目標的是：沒有聽到其他樂器或聲音。\n(3) 具體的混合/安排修正：增加一些環境音效以營造寂寞、稀疏、詭異的氛圍。",
+    "error": null
+   }
+  },
+  "review_v1leading_edm": {
+   "critique": {
+    "matches": [
+     "情緒標籤吻合：melodic 0.32, slow 0.12",
+     "製作品質 PQ=8.06"
+    ],
+    "mismatches": [
+     "節拍追蹤給 140 BPM，起音密度每秒 8.47 個，不像半速 70 的慢板，而是 140 BPM 的快節奏",
+     "反拍八分音幾乎是直的（swing ratio 1.0），聽起來不像爵士搖擺",
+     "整體偏亮（頻譜重心 4024 Hz、2 kHz 以上占 23.0%），不像慵懶暖色調",
+     "低頻占比 64% 過重，可能糊",
+     "Essentia 幾乎沒聽到「小號」（trumpet/brass 最高 0.00）",
+     "Essentia 幾乎沒聽到「鋼琴」（piano 最高 0.04）",
+     "Essentia 幾乎沒聽到「低音提琴」（doublebass/bass 最高 0.09）",
+     "Essentia 幾乎沒聽到「鼓」（drums/percussion 最高 0.05）",
+     "Essentia 幾乎沒聽到「刷子」（drums 最高 0.05）",
+     "Essentia 幾乎沒聽到「hi-hat」（drums 最高 0.05）",
+     "聽起來像有 synthesizer（0.57），不在目標編制內",
+     "Discogs 曲風前五沒有目標曲風：Electronic---Electro 0.52, Electronic---Synth-pop 0.28, Electronic---Techno 0.17",
+     "CLAP：更像「fast electronic dance music with drum machine」（0.321）而不是目標描述（-0.124）"
+    ],
+    "suggestions": [
+     "減少密集的十六分音/打擊點，讓律動落在 60 BPM 附近",
+     "hi-hat / ride / 鋼琴反拍往後推，swing ratio 目標約 1.6–2.2（ballad 可 1.5 左右）",
+     "主匯流排或最亮的聲部在 2 kHz 以上做 high-shelf −2~−4 dB，或降低 hi-hat / 鈸的量",
+     "低音提琴或鋼琴左手 150–250 Hz 減 2–3 dB，或在非低音聲部加 HPF 100 Hz",
+     "「小號」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）",
+     "「鋼琴」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）",
+     "「低音提琴」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）",
+     "「鼓」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）",
+     "「刷子」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）",
+     "「hi-hat」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）"
+    ],
+    "notes": [
+     "門檻皆為經驗值；LLM 敘述僅供參考，與量測衝突時以量測為準。"
+    ]
+   },
+   "llm": {
+    "describe": null,
+    "probes": null,
+    "text": "[0s] (1) 匹配的樂器：小號、鋼琴、低音提琴、刷子小鼓和 hi-hat。\n\n(2) 不匹配的樂器：沒有提到電吉他、貝斯、鼓組、合成器、鋼琴（已提及）、小提琴、大提琴、長笛、單簧管、雙簧管、巴松管、圓號、小號、長號、短號、太鼓、架子鼓、手鼓、沙發、風琴、管風琴、鋼管風琴、管絃樂器、木管樂器、弦樂器、敲擊樂器、電子樂器、合成器、合成器音色、合成器音效、合成器音色庫、合成器音色包、合成器音色集、合成器音色列表、合成器音色選擇、合成器音色推薦、合成器音色搭配、合成器音色應用、合成器音色效果、合成器音色風格、合成器音色創意、合成器音色設計、合成器音色開發、合成器音色創新、合成器音色進化、合成器音色革命、合成器音色變革、合成器音色轉變、合成器音色轉換、合成器音色轉移、合成器音色轉換器、合成器音色轉換器應用、合成器音色轉換器效果、合成器音色轉換器風格、合成器音色轉換器創意、合成器音色轉換器設計、合成器音色轉換器開發、合成器音色轉換器創新、合成器音色轉換器進化、合成器音色轉換器革命、合成器音色轉換器變革、合成器音色轉換器轉變、合成器音色轉換器轉換、合成器音色轉換器轉移、合成器音色轉換器轉換器、合成器音色轉換器轉換器應用、合成器音色轉換器轉換器效果、合成器音色轉換器轉換器風格、合成器音色轉換器轉換器創意、合成器音色轉換器轉換器設計、合成器音色轉換器轉換器開發、合成器音色",
+    "error": null
+   }
+  },
+  "review_v1leading_narr": {
+   "critique": {
+    "matches": [
+     "音色偏暖（頻譜重心 510 Hz、2 kHz 以上占 3.2%）",
+     "Essentia 聽到「旁白」（voice 最高 0.16）",
+     "Discogs 曲風前五含 Electronic---Ambient（0.14）",
+     "CLAP：目標描述相似度 0.215 高於反例最高 0.097"
+    ],
+    "mismatches": [
+     "Essentia 幾乎沒聽到「鐘」（bell 最高 0.02）",
+     "Essentia 幾乎沒聽到「風鈴」（bell 最高 0.02）",
+     "Essentia 幾乎沒聽到「鋼片琴」（bell/keyboard 最高 0.14）",
+     "聽起來像有 synthesizer（0.34），不在目標編制內",
+     "情緒標籤不吻合，模型聽到的是：energetic 0.11, happy 0.08, dark 0.07, melodic 0.07, film 0.06",
+     "製作品質分數 PQ=4.98 偏低（專業錄音通常 > 7）"
+    ],
+    "suggestions": [
+     "「鐘」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）",
+     "「風鈴」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）",
+     "「鋼片琴」存在感不足：加大音量或讓它的音色更有特徵（此判斷可信度中等）",
+     "檢查底噪、失真、取樣音色的機械感；加真實房間殘響與力度變化"
+    ],
+    "notes": [
+     "內容享受度 CE=4.01 偏低",
+     "門檻皆為經驗值；LLM 敘述僅供參考，與量測衝突時以量測為準。"
+    ]
+   },
+   "llm": {
+    "describe": null,
+    "probes": null,
+    "text": "[0s] (1) 符合目标的是：中文旁白、鐘聲、風鈴、鋼片琴。\n(2) 不符合目标的是：沒有提到其他樂器或聲音。\n(3) 具體混合/安排修正：鐘聲和風鈴的使用創造出一種寂寞而詭異的氛圍，而鋼片琴的加入則增加了音樂的層次感。這些元素共同構成了一個以中文旁白為主的寂寥詭異的音樂氛圍。\n\n[30s] (1) 符合目标的是：中文旁白、鐘聲、風鈴、鋼片琴。\n(2) 不符合目标的是：無。\n(3) 具體混合/安排修正：無。",
+    "error": null
+   }
+  }
+ }
+}
