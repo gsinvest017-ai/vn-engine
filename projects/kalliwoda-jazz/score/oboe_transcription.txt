@@ -1,0 +1,566 @@
+# Kalliwoda Op.110 oboe part, merged transcription (draft OMR + hand fixes)
+# label tokens   (PITCH:DUR in quarter notes, ~ = tie to next, g: = grace, r: = rest)
+A1 r:4   # rest/cue
+A2 r:4   # rest/cue
+A3 r:4   # rest/cue
+A4 r:4   # rest/cue
+A5 r:4   # rest/cue
+A6 r:4   # rest/cue
+A7 r:4   # rest/cue
+A8 r:4   # rest/cue
+A9 r:4   # rest/cue
+A10 r:4   # rest/cue
+A11 r:4   # rest/cue
+A12 r:4   # rest/cue
+A13 r:4   # rest/cue
+A14 r:4   # rest/cue
+A15 r:4   # rest/cue
+A16 r:4   # rest/cue
+A17 r:4   # rest/cue
+A18 r:4   # rest/cue
+A19 r:4   # rest/cue
+A20 r:4   # rest/cue
+A21 r:4   # rest/cue
+A22 r:4   # rest/cue
+A23 r:4   # rest/cue
+A24 r:4   # rest/cue
+A25 r:4   # rest/cue
+A26 r:4   # rest/cue
+A27 r:4   # rest/cue
+A28 r:4   # rest/cue
+A29 r:4   # rest/cue
+A30 r:4   # rest/cue
+A31 r:4   # rest/cue
+A32 r:4   # rest/cue
+A33 r:4   # rest/cue
+A34 r:4   # rest/cue
+A35 r:4   # rest/cue
+A36 r:4   # rest/cue
+A37 r:4   # rest/cue
+A38 r:4   # rest/cue
+A39 r:4   # rest/cue
+A40 r:4   # rest/cue
+A41 r:4   # rest/cue
+A42 r:4   # rest/cue
+A43 r:4   # rest/cue
+A44 r:4   # rest/cue
+A45 r:1 D5:1 E5:1 F5:1   # omr
+A46 G5:4~   # omr
+A47 G5:1 G5:1 A5:1 Bb5:1   # omr
+A48 C6:4~   # omr
+A49 C6:1/4 Bb5:1/4 G5:1/4 E5:1/4 C5:1/4 Bb4:1/4 G4:1/4 E4:1/4 D6:2~   # omr
+A50 D6:1 C6:1/2 Bb5:1/2 A5:1/8 Bb5:1/8 C6:1/8 Bb5:1/8 A5:1/8 G5:1/8 F#5:1/8 G5:1/8 A5:1/8 G5:1/8 F5:1/8 E5:1/8 D#5:1/8 E5:1/8 F5:1/8 E5:1/8 D5:1/8 C5:1/8 B4:1/8 C5:1/8 D5:1/8 C5:1/8 Bb4:1/8 A4:1/8 C5:1/8 Bb4:1/8 A4:1/8 G4:1/8 Bb4:1/8 A4:1/8 G4:1/16 F4:1/16 A4:1/16 G4:1/16 F4:1/16 E4:1/16 G4:1/2 F4:1/2 E4:1/2 D4:1/2   # hand-fixed; CADENZA; a piacere cadenza, hand-read (OMR garbled)
+A51 C4:1 r:1 r:1/4 E4:1/4 F4:1/4 G4:1/4 A4:1/4 B4:1/4 C5:1/4 D5:1/4   # hand-fixed; tie-in from cadenza D4 is a slur in print; kept OMR pitches
+A52 E5:1/4 F5:1/4 G5:1/2 r:1 r:1/4 G4:1/4 A4:1/4 Bb4:1/4 C5:1/4 D5:1/4 E5:1/4 F5:1/4   # omr
+A53 G5:1/4 A5:1/4 Bb5:1/2 r:1 r:1/2 C5:1/4 B4:1/4 C5:1/4 D5:1/4 E5:1/4 F5:1/4   # omr
+A54 G5:1/4 A5:1/4 Bb5:1/4 B5:1/4 C6:3/2 C6:1/2 D6:1/2 E6:1/2   # omr
+A55 F6:1 r:1 r:2   # omr
+A56 r:2 r:1 A4:3/4 Bb4:1/4   # omr
+A57 C5:3/4 B4:1/4 C5:3/4 D5:1/4 C5:3/4 E5:1/4 F5:3/4 G5:1/4   # omr
+A58 A5:3/4 G5:1/4 F5:1~ F5:3/4 F5:1/4 E5:3/4 D5:1/4   # omr
+A59 D5:1/2 C5:1/2 A5:3/4 C5:1/4 C5:1/2 Bb4:1/2 G5:3/4 Bb4:1/4   # omr
+A60 A4:3/4 G4:1/4 F4:1 r:1 A4:3/4 Bb4:1/4   # omr
+A61 C5:3/4 B4:1/4 C5:3/4 D5:1/4 C5:3/4 E5:1/4 F5:3/4 G5:1/4   # omr
+A62 A5:3/4 G5:1/4 F5:1~ F5:3/4 F5:1/4 E5:3/4 D5:1/4   # omr
+A63 C5:3/4 D5:1/4 E5:1~ E5:3/4 F5:1/4 E5:3/4 F5:1/4   # omr
+A64 E5:3/4 A5:1/4 C6:1~ C6:3/4 C6:1/4 B5:3/4 A5:1/4   # omr
+A65 A5:1/2 G5:1/2 C6:3/4 E5:1/4 E5:1/2 D5:1/2 A5:3/4 B4:1/4   # omr
+A66 C5:1 r:1 r:3/4 C5:1/4 C5:3/4 D5:1/4   # omr
+A67 E5:3/4 F5:1/4 G5:1~ G5:3/4 G5:1/4 G5:3/4 G5:1/4   # omr
+A68 G5:1/2 F#5:1/2 C5:1~ C5:1/2 Eb5:1/2 D5:3/4 C5:1/4   # hand-fixed; OMR dotted-8th misread
+A69 B4:3/4 D5:1/4 F5:1~ F5:3/4 F5:1/4 F5:3/4 F5:1/4   # omr
+A70 F5:1/2 E5:1/2 Bb4:1~ Bb4:1/2 Db5:1/2 C5:3/4 Bb4:1/4   # omr
+A71 A4:1/2 C5:1 F5:1 E5:1 Bb5:1/2~   # omr
+A72 Bb5:1~ Bb5:1/4 A5:1/4 G5:1/4 F5:1/4 G5:1~ G5:1/4 F5:1/4 E5:1/4 D5:1/4   # omr
+A73 E5:1~ E5:1/4 D5:1/4 C5:1/4 B4:1/4 D5:1~ D5:1/4 C5:1/4 B4:1/4 Bb4:1/4   # omr
+A74 A4:1/2 C5:1 F5:1 E5:1 G5:1/2~   # omr
+A75 G5:1/2 F#5:1 A5:1 G5:1 A5:1/2   # omr
+A76 Bb5:1/4 G5:1/4 D5:1/4 Bb4:1/4 D6:1~ D6:1/4 Bb5:1/4 F5:1/4 D5:1/4 F6:1~   # omr
+A77 F6:1/2 D6:1/2 B5:1/2 Ab5:1/2 F5:1/2 D5:1/2 Bb4:1/2 A4:1/2   # omr
+A78 F4:4~   # omr
+A79 F4:1/4 A4:1/4 G4:1/4 F4:1/4 D5:3/4 C5:1/4 A4:1/4 C5:1/4 Bb4:1/4 A4:1/4 G5:3/4 F5:1/4   # omr
+A80 F5:1/4 E5:1/4 D5:1/4 C5:1/4 Bb5:1/4 A5:1/4 G5:1/4 F5:1/4 D6:1/4 C6:1/4 Bb5:1/4 A5:1/4 Bb5:1/4 A5:1/4 G5:1/4 F5:1/4   # omr
+A81 E5:1/4 G5:1/4 Bb5:1/4 A5:1/4 C6:1/4 Bb5:1/4 G5:1/4 E5:1/4 C5:1/4 Bb4:1/4 G4:1/4 E4:1/4 D5:3/4 C5:1/4   # hand-fixed; OMR split voices
+A82 F4:1 r:1 r:2   # omr
+A83 r:4   # rest/cue
+A84 r:4   # rest/cue
+A85 r:4   # rest/cue
+A86 r:4   # rest/cue
+A87 r:4   # rest/cue
+A88 r:4   # rest/cue
+A89 r:4   # rest/cue
+A90 r:4   # rest/cue
+A91 r:4   # rest/cue
+A92 r:4   # rest/cue
+A93 r:2 r:1/2 G4:1/2 C5:1/2 D5:1/2   # omr
+A94 E5:1 E5:3/4 E5:1/4 E5:3/4 F5:1/8 G5:1/8 F5:3/4 E5:1/4   # omr
+A95 E5:1/2 F5:1/2 A4:3/2 B4:1/2 C5:1/2 C#5:1/2   # omr
+A96 D5:1 D5:3/4 D5:1/4 D5:3/4 E5:1/8 F5:1/8 E5:3/4 D5:1/4   # omr
+A97 B4:3/4 C5:1/4 G4:1 r:1/3 G4:1/3 A4:1/3 B4:1/3 C5:1/3 D5:1/3   # hand-fixed; sextuplet of 8ths (6 over 4)
+A98 E5:1 E5:3/4 E5:1/4 E5:1/2 D#5:1/2 E5:1/2 F#5:1/2   # omr
+A99 G5:1 G5:3/4 G5:1/4 G5:1/2 F#5:1/2 G5:1/2 A5:1/2   # omr
+A100 B5:1 B5:3/4 B5:1/4 C6:3/2 F#5:1/2   # omr
+A101 G5:3 F5:3/4 E5:1/4   # omr
+A102 D5:1 D5:3/4 D5:1/4 D5:1/2 C#5:1/2 D5:1/2 E5:1/2   # omr
+A103 F5:3/2 E5:1/2 D5:1 E5:1/2 D5:1/2   # omr
+A104 C5:1 C5:3/4 C5:1/4 C5:1/2 B4:1/2 C5:1/2 D5:1/2   # omr
+A105 E5:4~   # omr
+A106 E5:1 E5:3/4 E5:1/4 F5:1~ F5:1/3 D5:1/3 B4:1/3   # omr
+A107 G5:1 G5:3/4 G5:1/4 G#5:2   # omr
+A108 A5:1/2 B5:1/2 C6:3/2 G#5:1/4 A5:1/4 E5:1/4 F5:1/4 A4:1/4 D5:1/4   # hand-fixed; OMR false key sig (1 sharp) -> F#5 corrected to F5
+A109 D5:1 D5:1/4 C5:1/4 B4:1/4 C5:1/4 E5:1 E5:1/4 D5:1/4 C#5:1/4 D5:1/4   # hand-fixed; checked vs image
+A110 F5:1~ F5:1/4 E5:1/4 D5:1/4 E5:1/4 G5:1~ G5:1/4 F5:1/4 E5:1/4 F5:1/4   # omr
+A111 G5:1 A5:1/2 B5:1/2 C6:1/2 C6:1/2 D6:1/2 E6:1/2   # omr
+A112 F6:1/2 E6:1/2 D6:3/2 C6:1/2 B5:1/2 A5:1/2   # omr
+A113 A5:1~ A5:1/3 G5:1/3 C6:1/3 B5:1/3 F5:1/3 A5:1/3 G5:1/3 D5:1/3 E5:1/3   # hand-fixed; triplet 8ths
+A114 C5:1~ C5:1/4 G4:1/4 E4:1/4 E5:1/4 C5:1~ C5:1/4 G4:1/4 E4:1/4 E5:1/4   # omr
+A115 C5:1~ C5:1/4 C5:1/4 E5:1/4 A5:1/4 G5:1~ G5:1/4 E5:1/4 G5:1/4 C6:1/4   # omr
+A116 B5:1~ B5:1/4 D5:1/4 E5:1/4 F5:1/4 B5:1~ B5:1/4 D5:1/4 E5:1/4 F5:1/4   # omr
+A117 A5:1~ A5:1/4 G5:1/4 D5:1/4 E5:1/4 G5:1~ G5:1/4 F5:1/4 D5:1/4 B4:1/4   # omr
+A118 C5:1~ C5:1/4 G4:1/4 E4:1/4 E5:1/4 C5:1~ C5:1/4 G4:1/4 E4:1/4 E5:1/4   # omr
+A119 C5:1~ C5:1/4 C5:1/4 E5:1/4 A5:1/4 G5:1~ G5:1/4 E5:1/4 G5:1/4 C6:1/4   # omr
+A120 B5:1~ B5:1/4 D5:1/4 E5:1/4 F5:1/4 B5:1~ B5:1/4 D5:1/4 E5:1/4 F5:1/4   # omr
+A121 A5:1~ A5:1/4 G5:1/4 D5:1/4 E5:1/4 G5:1~ G5:1/4 F5:1/4 D5:1/4 B4:1/4   # omr
+A122 C5:1/2 r:1/4 E5:1/4 D5:1/4 C5:1/4 B4:1/4 A4:1/4 A4:1/4 G4:1/4 G4:1/4 G4:1/4 A4:1/4 B4:1/4 C5:1/4 D5:1/4   # hand-fixed; 16th rest misread
+A123 D#5:1/4 E5:1/4 C5:1/4 G4:1/4 F#5:1/4 G5:1/4 E5:1/4 C5:1/4 B5:1/4 A5:1/4 F5:1/4 D5:1/4 G5:1/4 F5:1/4 D5:1/4 B4:1/4   # hand-fixed; all 16ths
+A124 C5:1/2 r:1/4 E5:1/4 D5:1/4 C5:1/4 B4:1/4 A4:1/4 A4:1/4 G4:1/4 G4:1/4 G4:1/4 A4:1/4 B4:1/4 C5:1/4 D5:1/4   # hand-fixed; 16th rest misread
+A125 D#5:1/4 E5:1/4 C5:1/4 G4:1/4 F#5:1/4 G5:1/4 E5:1/4 C5:1/4 B5:1/4 A5:1/4 F5:1/4 D5:1/4 G5:1/4 F5:1/4 D5:1/4 B4:1/4   # hand-fixed; all 16ths
+A126 C5:1/2 C6:1/4 B5:1/4 C6:1/4 B5:1/4 A5:1/4 G5:1/4 F5:1/4 E5:1/4 D5:1/4 C5:1/4 B4:1/4 A4:1/4 G4:1/4 F4:1/4   # omr
+A127 D4:1/2 Bb5:1/4 A5:1/4 A5:1/4 G5:1/4 G5:1/4 F5:1/4 F5:1/4 E5:1/4 E5:1/4 D5:1/4 D5:1/4 C5:1/4 C5:1/4 Bb4:1/4   # omr
+A128 A4:1/2 F5:1/4 F5:1/4 F5:1/4 E5:1/4 D5:1/4 C5:1/4 B4:1/4 G4:1/4 G5:1/4 G5:1/4 G5:1/4 F5:1/4 E5:1/4 D5:1/4   # omr
+A129 C5:1/4 A4:1/4 A5:1/4 A5:1/4 A5:1/4 G5:1/4 F5:1/4 E5:1/4 D5:1/4 B4:1/4 B5:1/4 A5:1/4 G5:1/4 F5:1/4 E5:1/4 D5:1/4   # omr
+A130 C5:1/4 G4:1/4 C5:1/4 E5:1/4 G5:1/4 G5:1/4 G5:1/4 G5:1/4 C5:1/4 G4:1/4 C5:1/4 E5:1/4 G5:1/4 G5:1/4 G5:1/4 G5:1/4   # omr
+A131 B4:1/2 G5:1/4 G5:1/4 B5:1/2 D6:1/4 D6:1/4 F6:1 B4:1   # omr
+A132 C5:1/4 G4:1/4 C5:1/4 E5:1/4 G5:1/4 G5:1/4 G5:1/4 G5:1/4 A5:1/4 G5:1/4 E5:1/4 C5:1/4 G4:1/4 E4:1/4 D4:1/4 C4:1/4   # omr
+A133 B3:1/2 G5:1/4 G5:1/4 B5:1/2 D6:1/4 D6:1/4 F6:1 B4:1   # omr
+A134 C5:1/2 E5:1/4 G5:1/4 C6:1/2 E4:1/2 F4:1/2 A5:1/2 F#4:1/2 C6:1/2   # omr
+A135 G4:1/2 E5:1/4 G5:1/4 C6:1/2 G#4:1/2 A4:1/2 C6:1/2 Eb6:1/2 F#4:1/2   # omr
+A136 G4:1 C6:1/3 B5:1/3 Bb5:1/3 A5:1/3 Ab5:1/3 G5:1/3 F#5:1/3 F5:1/3 E5:1/3   # hand-fixed; chromatic triplet 8ths
+A137 Eb5:1/3 D5:1/3 C#5:1/3 C5:1/3 B4:1/3 Bb4:1/3 A4:1/3 Ab4:1/3 G4:1/3 C5:1/3 E5:1/3 A5:1/3   # hand-fixed; chromatic triplet 8ths
+A138 G5:4   # omr
+A139 G5:2 A5:2   # hand-fixed; trill after-notes were read as a note
+A140 Bb5:2 B5:2~   # omr
+A141 B5:3~ B5:7/8 A5:1/8   # omr
+A142 B5:1/2 C6:1/2 D6:1/2 E6:1/2 F6:1 F#6:1   # omr
+A143 G6:2~ G6:1/2 G6:1 G6:1/2   # omr
+A144 C6:1 r:1 r:2   # omr
+A145 r:4   # rest/cue
+A146 r:4   # rest/cue
+A147 r:4   # rest/cue
+A148 r:4   # rest/cue
+A149 r:4   # rest/cue
+A150 r:4   # rest/cue
+A151 r:4   # rest/cue
+A152 r:4   # rest/cue
+A153 r:4   # rest/cue
+A154 r:4   # rest/cue
+A155 r:4   # rest/cue
+A156 r:4   # rest/cue
+A157 r:4   # rest/cue
+A158 r:4   # rest/cue
+A159 r:4   # rest/cue
+A160 r:4   # rest/cue
+A161 r:4   # rest/cue
+A162 r:4   # rest/cue
+A163 r:4   # rest/cue
+A164 r:4   # rest/cue
+A165 r:4   # rest/cue
+A166 r:4   # rest/cue
+A167 r:4   # rest/cue
+R1 r:3/2   # rest/cue
+R2 r:3/2   # rest/cue
+R3 C5:1/2 Eb5:1/2 Ab5:1/2   # omr
+R4 Ab4:1 Bb4:1/4 C5:1/4   # omr
+R5 Db5:1/2 F5:1/2 Bb4:1/2   # omr
+R6 C5:3/8 Db5:1/8 Eb5:1/2 r:1/2   # omr
+R7 C5:1/2 Eb5:1/2 Ab5:1/2   # omr
+R8 Ab4:1 Ab4:1/4 Bb4:1/4   # omr
+R9 C5:1/2 Eb5:1/2 C5:3/8 Bb4:1/8   # hand-fixed; dotted-16th + 32nd
+R10 Ab4:1/2 r:1/2 r:1/2   # omr
+R11 Eb5:1/2 Eb5:1/2 Eb5:1/2   # omr
+R12 Eb5:1/2 Db5:3/8 C5:1/8 Bb4:1/2   # omr
+R13 Eb5:1/2 Eb5:1/2 Eb5:3/8 F5:1/8   # omr
+R14 Eb5:1/2 Db5:3/8 C5:1/8 Bb4:1/2   # omr
+R15 C5:1/2 g:D5 C5:1/6 B4:1/6 C5:1/6 Db5:3/8 G4:1/8   # hand-fixed; slur (not tie); grace D-natural added
+R16 Eb5:1/2 g:F5 Eb5:1/6 D5:1/6 Eb5:1/6 F5:3/8 Bb4:1/8   # hand-fixed; slur (not tie); grace F added
+R17 G5:1/2 Bb5:1~   # omr
+R18 Bb5:3/4 Ab5:1/8 G5:1/8 F5:1/8 Eb5:1/8 D5:1/8 C5:1/8   # omr
+R19 C5:3/8 Bb4:1/8 G5:3/4 Eb5:1/4   # omr
+R20 Eb5:3/8 D5:1/8 Ab5:3/4 D5:1/4   # omr
+R21 Eb5:3/2~   # omr
+R22 Eb5:1/2 E5:1/2 F5:1/2   # omr
+R23 Db5:1/2 F5:1/2 Bb5:1/2   # omr
+R24 Bb4:1 C5:1/4 Db5:1/4   # omr
+R25 C5:1/2 Gb5:3/4 F5:1/4   # omr
+R26 Eb5:3/4 Db5:1/4 C5:1/2   # omr
+R27 C5:1/2 Bb4:1/6 G4:1/6 Eb4:1/6 Ab4:1/2   # omr
+R28 Eb5:1/2 Db5:1/6 Bb4:1/6 G4:1/6 Eb5:1/2   # omr
+R29 G5:3/8 F5:1/8 G5:3/8 F5:1/8 Db5:1/4 Bb4:1/4   # omr
+R30 F5:3/8 Eb5:1/8 F5:3/8 Eb5:1/8 C5:1/4 Ab4:1/4   # omr
+R31 Bb4:1/4 A4:1/4 Bb4:1/4 C5:1/4 Db5:1/4 D5:1/4   # omr
+R32 D5:1/4 Eb5:1/4 C6:1~   # omr
+R33 C6:1/4 F5:1/4 G5:1/4 A5:1/4 Bb5:1/2~   # omr
+R34 Bb5:1/4 Eb5:1/4 F5:1/4 G5:1/4 Ab5:3/8 G5:1/8   # omr
+R35 G5:3/8 F5:1/8 Eb5:3/8 Bb4:1/8 Db5:3/8 C5:1/8   # omr
+R36 Ab4:1/2 r:1/2 r:1/2   # omr
+R37 r:3/2   # rest/cue
+R38 r:3/2   # rest/cue
+R39 r:3/2   # rest/cue
+R40 r:3/2   # rest/cue
+R41 F4:1~ F4:1/12 Ab4:1/12 C5:1/12 F5:1/12 Ab5:1/12 C6:1/12   # hand-fixed; sextuplet 32nds
+R42 Db6:1 C6:1/2   # omr
+R43 B5:3/2   # omr
+R44 C6:1/2~ C6:1/12 G5:1/12 E5:1/12 C5:1/12 G4:1/12 E4:1/12 C4:1/2   # hand-fixed; sextuplet; E4 printed w/o accidental, read as E-natural (C-major arpeggio) = editorial
+R45 Eb4:1~ Eb4:1/12 Gb4:1/12 Bb4:1/12 Eb5:1/12 Gb5:1/12 Bb5:1/12   # hand-fixed; sextuplet; G5 printed w/o flat, read as Gb (Eb-minor arpeggio, sequence of R41) = editorial
+R46 Cb6:1 Bb5:1/2   # omr
+R47 A5:3/2   # omr
+R48 Bb5:1/2~ Bb5:1/12 F5:1/12 D5:1/12 Bb4:1/12 F4:1/12 D4:1/12 Bb3:1/2   # hand-fixed; sextuplet; D4 printed w/o accidental, read as D-natural (Bb-major arpeggio) = editorial
+R49 Bb4:1/2 Db5:1/2 C5:1/8 Bb4:1/8 Ab4:1/8 G4:1/8   # omr
+R50 F4:1/2 E4:1/8 G4:1/8 C5:1/8 Eb5:1/8 G5:1/2   # omr
+R51 Bb4:1/2 Db5:3/8 C5:1/8 C5:1/12 Bb4:1/12 Ab4:1/12 Ab4:1/12 G4:1/12 F4:1/12   # omr
+R52 F4:1/2 E4:1/12 G4:1/12 Bb4:1/12 C5:1/12 E5:1/12 G5:1/12 Bb5:1/2   # omr
+R53 Ab5:7/8 G5:1/16 F5:1/16 E5:1/2   # omr
+R54 F5:1 F5:1/12 Eb5:1/12 Db5:1/12 Db5:1/12 C5:1/12 Bb4:1/12   # omr
+R55 Ab4:3/8 Bb4:1/8 C5:1/4 Db5:1/4 C5:1/4 Bb4:1/4   # omr
+R56 Ab4:1/2 r:1/2 F4:1/12 E4:1/12 F4:1/12 Ab4:1/12 C5:1/12 F5:1/12   # hand-fixed; unmarked sextuplet 32nds
+R57 Ab5:3/4 Ab5:1/12 G5:1/12 F5:1/12 E5:1/4 Db6:1/4   # omr
+R58 C6:1/2~ C6:1/4 Bb5:1/8 Ab5:1/8 G5:1/8 F5:1/8 Eb5:1/8 Db5:1/8   # omr
+R59 C5:1/8 Ab4:1/8 F4:1/8 Db5:1/8 C5:1/4 C4:1/4 Ab4:3/8 G4:1/8   # omr
+R60 F4:1/2 r:1/2 r:1/2   # omr
+R61 r:3/2   # rest/cue
+R62 r:3/2   # rest/cue
+R63 r:3/2   # rest/cue
+R64 C5:1/2 Eb5:1/2 Ab5:1/2   # hand-fixed; slur, not tie
+R65 Ab4:1 Bb4:1/4 C5:1/4   # omr
+R66 Db5:1/2 F5:1/2 Bb4:1/2   # omr
+R67 C5:1/4 Db5:1/4 Eb5:1/2 r:1/2   # omr
+R68 C5:1/2 Eb5:1/2 Ab5:1/2   # omr
+R69 Ab4:1 Ab4:1/4 Bb4:1/4   # omr
+R70 C5:1/2 Eb5:1/2 C5:3/8 Bb4:1/8   # omr
+R71 Ab4:1 r:1/2   # omr
+R72 Eb5:1/2 Eb5:1/2 Eb5:1/2   # hand-fixed; dotted quarter with 1-slash tremolo = 3 repeated 8ths (piano score writes them out)
+R73 Eb5:1/2 Db5:3/8 C5:1/8 Bb4:1/2   # omr
+R74 Eb5:1/2 Eb5:1/6 D5:1/6 Eb5:1/6 Gb5:1/6 F5:1/6 Eb5:1/6   # omr
+R75 Eb5:1/2~ Eb5:1/8 D5:1/8 Db5:1/8 C5:1/8 Bb4:1/2   # omr
+R76 C5:3/8 Bb4:1/8 C5:3/8 Bb4:1/8 G4:3/8 Eb4:1/8   # omr
+R77 Db5:3/8 C5:1/8 Db5:3/8 C5:1/8 Eb5:3/8 Ab5:1/8   # omr
+R78 Ab5:3/8 G5:1/8 Ab5:3/8 G5:1/8 Ab5:3/8 Bb5:1/8   # omr
+R79 B5:1/4 C6:1/4 C6:1/8 Bb5:1/8 Ab5:1/8 G5:1/8 F5:1/8 Eb5:1/8 Db5:1/8 C5:1/8   # omr
+R80 C5:3/8 Bb4:1/8 C5:3/8 Bb4:1/8 G4:3/8 Eb4:1/8   # omr
+R81 F5:3/8 Eb5:1/8 F5:3/8 Eb5:1/8 G5:3/8 F5:1/8   # omr
+R82 C5:3/8 Bb4:1/8 Eb5:3/8 Db5:1/8 C5:3/8 Bb4:1/8   # omr
+R83 Ab4:1 r:1/2   # omr
+R84 C5:1/2 Eb5:1/2 Ab5:1/2   # omr
+R85 Ab4:3/2   # omr
+R86 C5:1/2 Eb5:1/2 Ab5:1/2   # omr
+R87 Ab4:3/2~   # omr
+R88 Ab4:3/2~   # omr
+R89 Ab4:3/2   # omr
+V1 r:2   # rest/cue
+V2 r:2   # rest/cue
+V3 r:2   # rest/cue
+V4 r:2   # rest/cue
+V5 r:2   # rest/cue
+V6 r:2   # rest/cue
+V7 r:2   # rest/cue
+V8 r:2   # rest/cue
+V9 r:2   # rest/cue
+V10 r:2   # rest/cue
+V11 r:2   # rest/cue
+V12 r:2   # rest/cue
+V13 r:2   # rest/cue
+V14 r:2   # rest/cue
+V15 r:2   # rest/cue
+V16 r:2   # rest/cue
+V17 r:2   # rest/cue
+V18 r:2   # rest/cue
+V19 r:2   # rest/cue
+V20 r:2   # rest/cue
+V21 r:2   # hand-fixed; Viol.1 cue (F6) + cue F4
+V22 r:1 r:1/2 A5:1/6 Bb5:1/6 A5:1/6   # hand-fixed; lower-voice cue F4 removed
+V23 G5:1/2 F5:1/2 D5:1/2 E5:1/2   # omr
+V24 C5:1 D5:1/2 E5:1/4 F5:1/4   # omr
+V25 C5:1 D5:1/2 E5:1/4 F5:1/4   # omr
+V26 C5:1 r:1/2 A5:1/6 Bb5:1/6 A5:1/6   # omr
+V27 G5:1/2 F5:1/2 D5:1/2 E5:1/2   # omr
+V28 C5:1 D5:1/2 E5:1/4 F5:1/4   # omr
+V29 C5:1 D5:1/2 E5:1/4 F5:1/4   # omr
+V30 C5:1 D5:1/4 E5:1/4 F5:1/4 G5:1/4   # omr
+V31 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4   # hand-fixed; two tremolo quarters (4 dots each)
+V32 A5:1/2 D6:1/2 A5:1~   # omr
+V33 A5:1/2 G5:1/4 F5:1/4 G5:1/2 F5:1/4 E5:1/4   # omr
+V34 F5:1/4 E5:1/4 D5:3/4 E5:1/4 F5:1/4 G5:1/4   # omr
+V35 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4   # hand-fixed; two tremolo quarters (4 dots each)
+V36 A5:1/2 D6:1/2 F6:1~   # omr
+V37 F6:1/4 D6:1/4 B5:1/4 G5:1/4 F5:1/4 D5:1/4 Bb4:1/4 G4:1/4   # omr
+V38 C5:1 r:1/2 G5:1/6 A5:1/6 G5:1/6   # omr
+V39 F#5:1/2 G5:1/6 A5:1/6 G5:1/6 E5:1/2 E5:1/6 F5:1/6 E5:1/6   # omr
+V40 D5:1/2 D5:1/4 F5:1/4 A4:1   # omr
+V41 G4:1/2 F5:1/4 B4:1/4 G5:1   # omr
+V42 C5:1/2 G5:1/4 E5:1/4 C6:1/2 G5:1/6 A5:1/6 G5:1/6   # hand-fixed; triplet 16ths
+V43 F#5:1/2 G5:1/6 A5:1/6 G5:1/6 E5:1/2 E5:1/6 F5:1/6 E5:1/6   # hand-fixed; triplet 16ths
+V44 D5:1/2 D5:1/4 F5:1/4 A4:1   # omr
+V45 G4:1/2 A5:1/4 G5:1/4 F5:1/2 D5:1/4 E5:1/4   # omr
+V46 C5:1 r:1/2 B4:1/6 C5:1/6 D5:1/6   # omr
+V47 C5:1/2 r:1/2 r:1/2 F5:1/6 G5:1/6 F5:1/6   # hand-fixed; triplet 16ths
+V48 E5:1/2 r:1/2 r:1/2 B4:1/6 C5:1/6 D5:1/6   # hand-fixed; triplet 16ths
+V49 C5:1/2 r:1/2 r:1/2 F5:1/6 G5:1/6 F5:1/6   # hand-fixed; triplet 16ths
+V50 E5:1/2 G5:1/6 A5:1/6 G5:1/6 F#5:1/2 F5:1/6 G5:1/6 F5:1/6   # hand-fixed; triplet 16ths
+V51 E5:1/2 G5:1/6 A5:1/6 G5:1/6 F#5:1/2 F5:1/6 G5:1/6 F5:1/6   # hand-fixed; triplet 16ths
+V52 E5:1/2 Bb5:1/2~ Bb5:1/6 C6:1/6 Bb5:1/6 A5:1/6 Bb5:1/6 A5:1/6   # omr
+V53 G5:1/6 A5:1/6 G5:1/6 F5:1/6 G5:1/6 F5:1/6 E5:1/6 F5:1/6 E5:1/6 D5:1/6 E5:1/6 D5:1/6   # omr
+V54 C5:1/2 B4:1/6 C5:1/6 D5:1/6 C5:1/2 B4:1/6 C5:1/6 D5:1/6   # omr
+V55 C5:1/2 B4:1/6 C5:1/6 D5:1/6 C5:1/2 A5:1/6 Bb5:1/6 A5:1/6   # hand-fixed; triplet 16ths
+V56 G5:1/2 F5:1/2 D5:1/2 E5:1/2   # omr
+V57 C5:1 D5:1/2 E5:1/4 F5:1/4   # omr
+V58 C5:1 D5:1/2 E5:1/4 F5:1/4   # omr
+V59 C5:1 r:1/2 A5:1/6 Bb5:1/6 A5:1/6   # omr
+V60 G5:1/2 F5:1/2 D5:1/2 E5:1/2   # omr
+V61 C5:1/4 B4:1/4 C5:1/4 D5:1/4 E5:1/4 F5:1/4 G5:1/4 A5:1/4   # omr
+V62 Bb5:1/4 A5:1/4 G5:1/4 A5:1/4 Bb5:1/4 C6:1/4 D6:1/4 E6:1/4   # omr
+V63 F6:1 r:1   # omr
+V64 r:2   # rest/cue
+V65 r:2   # rest/cue
+V66 r:2   # rest/cue
+V67 r:2   # rest/cue
+V68 r:2   # rest/cue
+V69 r:2   # rest/cue
+V70 r:2   # rest/cue
+V71 r:2   # rest/cue
+V72 r:2   # rest/cue
+V73 r:2   # rest/cue
+V74 r:2   # rest/cue
+V75 r:2   # rest/cue
+V76 r:2   # rest/cue
+V77 r:2   # rest/cue
+V78 r:2   # rest/cue
+V79 r:2   # rest/cue
+V80 r:2   # rest/cue
+V81 r:2   # rest/cue
+V82 r:2   # rest/cue
+V83 r:2   # rest/cue
+V84 r:2   # rest/cue
+V85 r:2   # rest/cue
+V86 r:2   # rest/cue
+V87 r:2   # rest/cue
+V88 r:2   # rest/cue
+V89 F4:1/2 F5:1/4 A5:1/4 C6:1~   # omr
+V90 C6:1/2 A5:1/4 C6:1/4 F6:1~   # omr
+V91 F6:1/2 C6:1/4 Bb5:1/4 A5:1/4 G5:1/4 F5:1/4 E5:1/4   # omr
+V92 D5:1/4 C5:1/4 Bb4:1/4 A4:1/4 G4:1/4 F4:1/4 E4:1/4 Eb4:1/4   # omr
+V93 D4:1/2 D5:1/4 G5:1/4 Bb5:1~   # omr
+V94 Bb5:1/2 G5:1/4 Bb5:1/4 D6:1~   # omr
+V95 D6:1/2 C6:1/4 C6:1/4 Bb5:1/4 Bb5:1/4 A5:1/4 A5:1/4   # omr
+V96 G5:1/4 G5:1/4 F5:1/4 F5:1/4 E5:1/4 E5:1/4 D5:1/4 D5:1/4   # omr
+V97 C5:1/2 E5:1/6 F5:1/6 E5:1/6 C5:1/2 G5:1/6 A5:1/6 G5:1/6   # omr
+V98 F5:1/2 A5:1/4 C6:1/4 C5:1~   # omr
+V99 C5:1/2 G5:1/4 Bb5:1/4 C5:1~   # omr
+V100 C5:1/2 F5:1/4 A5:1/4 C5:1~   # omr
+V101 C5:1/2 E5:1/6 F5:1/6 E5:1/6 C5:1/2 G5:1/6 A5:1/6 G5:1/6   # hand-fixed; triplet 16ths
+V102 F5:1/2 A5:1/4 C6:1/4 C5:1   # omr
+V103 C#5:1/2 E5:1/4 Bb5:1/4 A5:1~   # omr
+V104 A5:1/2 F5:1/4 A5:1/4 G5:1/2 E5:1/4 G5:1/4   # omr
+V105 F5:1/2 D5:1/4 F5:1/4 E5:1/2 C#5:1/4 E5:1/4   # omr
+V106 D5:1 r:1   # omr
+V107 r:2   # hand-fixed; 1-bar rest
+V108 D5:1 D5:3/4 D5:1/4   # omr
+V109 D5:3/4 C#5:1/4 D5:3/4 E5:1/4   # omr
+V110 F5:7/4 E5:1/4   # hand-fixed; OMR merged V110+V111
+V111 D5:2   # hand-fixed; restored bar
+V112 A4:1 A4:3/4 A4:1/4   # omr
+V113 A4:3/4 G#4:1/4 A4:3/4 B4:1/4   # omr
+V114 C#5:2   # omr
+V115 E5:2   # omr
+V116 D5:1 D5:3/4 D5:1/4   # omr
+V117 D5:3/4 C#5:1/4 D5:3/4 E5:1/4   # omr
+V118 F5:7/4 E5:1/4   # hand-fixed; OMR merged V118+V119
+V119 D5:2   # hand-fixed; restored bar
+V120 A4:1 A4:3/4 A4:1/4   # omr
+V121 Bb4:3/2 C#4:1/2   # omr
+V122 D4:1 r:1/2 A5:1/4 A5:1/4   # omr
+V123 F5:1/2 F5:1/4 F5:1/4 E5:1/2 E5:1/4 E5:1/4   # omr
+V124 D5:1/2 A4:1/2 Bb4:1/2 A4:1/2   # omr
+V125 E5:1/2 A4:1/4 A4:1/4 A5:1/2 A5:1/2   # omr
+V126 F5:1 r:1/2 A5:1/4 A5:1/4   # omr
+V127 F5:1/2 F5:1/4 F5:1/4 E5:1/2 E5:1/4 E5:1/4   # omr
+V128 D5:1/2 D5:1/2 E5:1/2 F5:1/2   # omr
+V129 G5:1/2 G4:1/4 G4:1/4 E5:3/4 D5:1/4   # omr
+V130 C5:1 r:1   # omr
+V131 r:2   # hand-fixed; 1-bar rest
+V132 C5:1 C5:3/4 C5:1/4   # omr
+V133 C5:3/4 B4:1/4 C5:3/4 D5:1/4   # omr
+V134 E5:7/4 D5:1/4   # omr
+V135 C5:2   # omr
+V136 G4:1 G4:3/4 G4:1/4   # omr
+V137 G4:3/4 F#4:1/4 G4:3/4 A4:1/4   # omr
+V138 B4:2~   # omr
+V139 Bb4:2   # omr
+V140 C5:1 C5:3/4 C5:1/4   # omr
+V141 C5:3/4 B4:1/4 C5:3/4 D5:1/4   # omr
+V142 E5:2~   # omr
+V143 E5:1 C5:1   # omr
+V144 G5:1 G4:3/4 G4:1/4   # omr
+V145 Ab4:1 B3:1   # omr
+V146 C4:1 r:1/2 G5:1/6 A5:1/6 G5:1/6   # omr
+V147 F5:1/2 E5:1/6 F5:1/6 E5:1/6 D5:1/2 C5:1/6 D5:1/6 C5:1/6   # omr
+V148 G4:1 r:1/4 G4:1/4 A4:1/4 B4:1/4   # omr
+V149 C5:1/4 D5:1/4 E5:1/4 F5:1/4 G5:1/4 A5:1/4 B5:1/4 C6:1/4   # omr
+V150 G#5:1/2 A5:1/2 r:1/2 A5:1/6 B5:1/6 A5:1/6   # omr
+V151 G5:1/2 F5:1/6 G5:1/6 F5:1/6 E5:1/2 D5:1/6 E5:1/6 D5:1/6   # hand-fixed; triplet 16ths
+V152 A4:1 r:1/4 A4:1/4 B4:1/4 C#5:1/4   # hand-fixed; 16th rest misread
+V153 D5:1/4 E5:1/4 F5:1/4 G5:1/4 G#5:1/4 A5:1/4 G#5:1/4 A5:1/4   # omr
+V154 C5:1/2 B4:1/2 r:1/2 B4:1/4 C5:1/4   # omr
+V155 C#5:1/4 E5:1/4 D5:1/4 B4:1/4 G4:1/4 G4:1/4 G4:1/4 G4:1/4   # hand-fixed; tremolo quarter
+V156 D#5:1/4 F5:1/4 E5:1/4 C5:1/4 G4:1/4 G4:1/4 G4:1/4 G4:1/4   # hand-fixed; tremolo quarter
+V157 E5:1/4 F5:1/4 B4:1/4 C5:1/4 D5:1/4 E5:1/4 F5:1/4 F#5:1/4   # omr
+V158 A5:1/4 G5:1/4 G5:1/4 C6:1/4 E5:1   # omr
+V159 C#5:1/4 E5:1/4 D5:1/4 B4:1/4 G4:1/4 G4:1/4 G4:1/4 G4:1/4   # hand-fixed; tremolo quarter
+V160 D#5:1/4 F5:1/4 E5:1/4 C5:1/4 G4:1/4 G4:1/4 G4:1/4 G4:1/4   # hand-fixed; tremolo quarter
+V161 E5:1/4 F5:1/4 B4:1/4 C5:1/4 D5:1/4 E5:1/4 F5:1/4 F#5:1/4   # omr
+V162 A5:1/4 G5:1/4 G5:1/4 C6:1/4 E5:1   # omr
+V163 Bb5:1/2 A5:1/6 Bb5:1/6 A5:1/6 G5:1/6 A5:1/6 G5:1/6 F5:1/6 G5:1/6 F5:1/6   # omr
+V164 E5:1/6 F5:1/6 E5:1/6 D5:1/6 E5:1/6 D5:1/6 C5:1/6 D5:1/6 C5:1/6 Bb4:1/6 C5:1/6 Bb4:1/6   # omr
+V165 A4:1/6 B4:1/6 A4:1/6 D5:1/6 E5:1/6 D5:1/6 B4:1/6 C5:1/6 B4:1/6 E5:1/6 F5:1/6 E5:1/6   # hand-fixed; sextuplets
+V166 C5:1/6 D5:1/6 C5:1/6 F5:1/6 G5:1/6 F5:1/6 D5:1/6 E5:1/6 D5:1/6 G5:1/6 A5:1/6 G5:1/6   # hand-fixed; sextuplets
+V167 E5:1/4 G5:1/4 C6:1/4 E4:1/4 F4:1/4 A5:1/4 D4:1/4 F5:1/4   # hand-fixed; same figure as V168
+V168 E5:1/4 G5:1/4 C6:1/4 E4:1/4 F4:1/4 A5:1/4 D4:1/4 F5:1/4   # omr
+V169 E5:1/2 C4:1/4 E5:1/4 D4:1/4 F5:1/4 E4:1/4 G5:1/4   # omr
+V170 F4:1/4 A5:1/4 G4:1/4 B5:1/4 A4:1/4 C6:1/4 B4:1/4 D6:1/4   # omr
+V171 C6:1 E6:1   # omr
+V172 G6:1 F#4:1   # omr
+V173 G4:1/4 G#4:1/4 A4:1/4 Bb4:1/4 B4:1/4 C5:1/4 C#5:1/4 D5:1/4   # omr
+V174 D#5:1/4 E5:1/4 F5:1/4 F#5:1/4 G5:1/4 A5:1/4 Bb5:1/4 B5:1/4   # omr
+V175 B5:2~   # omr
+V176 B5:2   # omr
+V177 C6:1 r:1   # omr
+V178 r:2   # rest/cue
+V179 r:2   # rest/cue
+V180 r:2   # rest/cue
+V181 r:2   # rest/cue
+V182 r:2   # rest/cue
+V183 r:2   # rest/cue
+V184 r:2   # rest/cue
+V185 r:2   # rest/cue
+V186 r:2   # rest/cue
+V187 r:2   # rest/cue
+V188 r:2   # rest/cue
+V189 r:2   # rest/cue
+V190 r:2   # rest/cue
+V191 r:2   # rest/cue
+V192 r:2   # rest/cue
+V193 r:2   # rest/cue
+V194 r:2   # rest/cue
+V195 r:2   # rest/cue
+V196 r:2   # rest/cue
+V197 r:2   # rest/cue
+V198 r:2   # rest/cue
+V199 r:2   # rest/cue
+V200 r:2   # rest/cue
+V201 r:2   # rest/cue
+V202 r:2   # rest/cue
+V203 r:2   # rest/cue
+V204 r:2   # rest/cue
+V205 r:2   # hand-fixed; Viol. cue
+V206 r:2   # hand-fixed; Viol. cue
+V207 r:2   # hand-fixed; Viol. cue
+V208 r:1 r:1/2 A5:1/6 Bb5:1/6 A5:1/6   # hand-fixed; lower-voice cue removed
+V209 G5:1/2 F5:1/2 D5:1/2 E5:1/2   # omr
+V210 C5:1 D5:1/2 E5:1/4 F5:1/4   # omr
+V211 C5:1 D5:1/2 E5:1/4 F5:1/4   # omr
+V212 C5:1 r:1/2 A5:1/6 Bb5:1/6 A5:1/6   # hand-fixed; triplet 16ths
+V213 G5:1/2 F5:1/2 D5:1/2 E5:1/2   # omr
+V214 C5:1 D5:1/2 E5:1/4 F5:1/4   # omr
+V215 C5:1 D5:1/2 E5:1/4 F5:1/4   # omr
+V216 C5:1 D5:1/4 E5:1/4 F5:1/4 G5:1/4   # omr
+V217 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4   # hand-fixed; tremolo half note A5 (OMR read C5)
+V218 A5:1/2 D6:1/2 A5:1~   # omr
+V219 A5:1/2 G5:1/4 F5:1/4 G5:1/2 F5:1/4 E5:1/4   # omr
+V220 F5:1/4 E5:1/4 D5:1/2~ D5:1/4 E5:1/4 F5:1/4 G5:1/4   # omr
+V221 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4 A5:1/4   # hand-fixed; tremolo half note A5 (OMR read C5)
+V222 A5:1/2 D6:1/2 F6:1~   # omr
+V223 F6:1/4 D6:1/4 B5:1/4 G5:1/4 F5:1/4 D5:1/4 Bb4:1/4 G4:1/4   # omr
+V224 C5:1 r:1/2 G5:1/6 A5:1/6 G5:1/6   # omr
+V225 F#5:1/2 G5:1/6 A5:1/6 G5:1/6 E5:1/2 E5:1/6 F5:1/6 E5:1/6   # hand-fixed; triplet 16ths
+V226 D5:1/2 D5:1/4 F5:1/4 A4:1   # omr
+V227 G4:1/2 F5:1/4 B4:1/4 G5:1   # omr
+V228 C5:1/2 G5:1/4 E5:1/4 C6:1/2 G5:1/6 A5:1/6 G5:1/6   # omr
+V229 F#5:1/2 G5:1/6 A5:1/6 G5:1/6 E5:1/2 E5:1/6 F5:1/6 E5:1/6   # omr
+V230 D5:1/2 D5:1/4 F5:1/4 A4:1   # omr
+V231 B4:1/4 C5:1/4 D5:1/4 E5:1/4 F5:1/4 G5:1/4 A5:1/4 Bb5:1/4   # omr
+V232 C6:1 r:1/2 B4:1/6 C5:1/6 D5:1/6   # hand-fixed; triplet 16ths
+V233 C5:1/2 r:1/2 r:1/2 F5:1/6 G5:1/6 F5:1/6   # hand-fixed; triplet 16ths
+V234 E5:1/2 r:1/2 r:1/2 B4:1/6 C5:1/6 D5:1/6   # hand-fixed; triplet 16ths
+V235 C5:1/2 r:1/2 r:1/2 F5:1/6 G5:1/6 F5:1/6   # omr
+V236 E5:1/2 G5:1/6 A5:1/6 G5:1/6 F#5:1/2 F5:1/6 G5:1/6 F5:1/6   # hand-fixed; triplet 16ths
+V237 E5:1/2 G5:1/6 A5:1/6 G5:1/6 F#5:1/2 F5:1/6 G5:1/6 F5:1/6   # hand-fixed; triplet 16ths
+V238 E5:1/2 Bb5:1 A5:1/6 Bb5:1/6 A5:1/6   # hand-fixed; triplet 16ths
+V239 G5:1/6 A5:1/6 G5:1/6 F5:1/6 G5:1/6 F5:1/6 E5:1/6 F5:1/6 E5:1/6 D5:1/6 E5:1/6 D5:1/6   # hand-fixed; sextuplets
+V240 C5:1/2 G5:1 F5:1/6 G5:1/6 F5:1/6   # hand-fixed; triplet 16ths
+V241 E5:1/6 F5:1/6 E5:1/6 D5:1/6 E5:1/6 D5:1/6 C5:1/6 D5:1/6 C5:1/6 B4:1/6 C5:1/6 D5:1/6   # hand-fixed; sextuplets
+V242 C5:1/2 r:1/4 B4:1/4 C5:1/2 r:1/4 B4:1/4   # hand-fixed; 8th + 16th rest + 16th, twice
+V243 C5:3/4 C5:1/4 D5:3/4 E5:1/4   # omr
+V244 F5:1 F5:3/4 F5:1/4   # omr
+V245 F5:3/4 E5:1/4 F5:3/4 G5:1/4   # omr
+V246 A5:7/4 G5:1/4   # omr
+V247 F5:2   # omr
+V248 C5:1 C5:3/4 C5:1/4   # omr
+V249 C5:3/4 B4:1/4 C5:3/4 D5:1/4   # omr
+V250 E5:2~   # omr
+V251 E5:2   # omr
+V252 F5:1 F5:3/4 F5:1/4   # omr
+V253 F5:3/4 E5:1/4 F5:3/4 G5:1/4   # omr
+V254 A5:2~   # omr
+V255 A5:1/2 G5:1/2 F5:1/2 D5:1/2   # omr
+V256 C5:3/2 F5:1/2   # omr
+V257 E5:3/2 Bb4:1/2   # omr
+V258 A4:1 A5:1~   # omr
+V259 A5:1/2 G5:1/2 Bb5:1/2 D5:1/2   # omr
+V260 D5:1~ D5:1/3 C5:1/3 A5:1/3   # omr
+V261 Bb5:1~ Bb5:1/3 G4:1/3 E5:1/3   # hand-fixed; triplet 8ths
+V262 F5:1/2 r:1/2 G#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6   # hand-fixed; sextuplet
+V263 C5:1/2 r:1/2 G#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6   # hand-fixed; sextuplet
+V264 C5:1/2 r:1/2 C6:1~   # omr
+V265 C6:1/6 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 Bb4:1/6 A4:1/6 G4:1/6 F4:1/6   # hand-fixed; sextuplets
+V266 E4:1/2 r:1/2 F#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6   # hand-fixed; sextuplet
+V267 C5:1/2 r:1/2 F#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6   # hand-fixed; sextuplet
+V268 C5:1/2 r:1/2 Bb5:1~   # omr
+V269 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 Bb4:1/6 A4:1/6 G4:1/6 F4:1/6 E4:1/6   # hand-fixed; sextuplets
+V270 F4:1/2 r:1/2 G#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6   # hand-fixed; sextuplet
+V271 C5:1/2 r:1/2 G#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6   # hand-fixed; sextuplet
+V272 C5:1/2 r:1/2 C6:1~   # omr
+V273 C6:1/6 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 Bb4:1/6 A4:1/6 G4:1/6 F4:1/6   # hand-fixed; sextuplets
+V274 E4:1/2 r:1/2 F#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6   # hand-fixed; sextuplet
+V275 C5:1/2 r:1/2 F#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6   # hand-fixed; sextuplet
+V276 C5:1/2 r:1/2 Bb5:1~   # omr
+V277 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 Bb4:1/6 A4:1/6 G4:1/6 F4:1/6 E4:1/6   # hand-fixed; sextuplets
+V278 F4:1/2 F5:1/6 G5:1/6 F5:1/6 E5:1/2 Eb5:1/6 F5:1/6 Eb5:1/6   # hand-fixed; unmarked triplet 16ths
+V279 D5:1/4 Bb5:1/4 Bb4:1/4 G5:1/4 G4:1/4 E5:1/4 E4:1/4 C5:1/4   # omr
+V280 A4:1/2 F5:1/6 G5:1/6 F5:1/6 E5:1/6 F5:1/6 E5:1/6 Eb5:1/6 F5:1/6 Eb5:1/6   # hand-fixed; triplet + sextuplet
+V281 D5:1/4 Bb5:1/4 Bb4:1/4 G5:1/4 G4:1/4 E5:1/4 E4:1/4 C5:1/4   # omr
+V282 A4:1/4 Bb4:1/4 B4:1/4 C5:1/4 C5:1/4 D5:1/4 E5:1/4 F5:1/4   # omr
+V283 F#5:1/4 G5:1/4 G5:1/4 G5:1/4 G5:1/4 A5:1/4 Bb5:1/4 B5:1/4   # omr
+V284 C6:1/4 C5:1/4 C5:1/4 C5:1/4 C5:1/4 D5:1/4 E5:1/4 F5:1/4   # omr
+V285 F#5:1/4 G5:1/4 G5:1/4 G5:1/4 G5:1/4 A5:1/4 Bb5:1/4 B5:1/4   # omr
+V286 C6:1/4 C6:1/4 D6:1/4 E6:1/4 F6:1~   # omr
+V287 F6:1/4 G5:1/4 Bb5:1/4 C6:1/4 D6:1~   # omr
+V288 D6:1/4 F5:1/4 A5:1/4 Bb5:1/4 C6:1~   # omr
+V289 C6:1/4 Bb5:1/4 G5:1/4 E5:1/4 C5:1/4 Bb4:1/4 G4:1/4 C5:1/4   # omr
+V290 A4:1/4 C6:1/4 D6:1/4 E6:1/4 F6:1~   # omr
+V291 F6:1/4 G5:1/4 Bb5:1/4 C6:1/4 D6:1~   # omr
+V292 D6:1/4 F5:1/4 A5:1/4 Bb5:1/4 C6:1~   # omr
+V293 C6:1/4 Bb5:1/4 G5:1/4 E5:1/4 C5:1/4 Bb4:1/4 G4:1/4 E4:1/4   # omr
+V294 F4:1/4 A4:1/4 C5:1/4 F5:1/4 A5:1/2 G5:1/4 F5:1/4   # omr
+V295 E5:1/2 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 D5:1/6 E5:1/6   # hand-fixed; triplet + sextuplet
+V296 F5:1/4 A4:1/4 C5:1/4 F5:1/4 A5:1/2 G5:1/4 F5:1/4   # omr
+V297 E5:1/2 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 D5:1/6 E5:1/6   # hand-fixed; triplet + sextuplet
+V298 F5:1/6 E5:1/6 F5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 G5:1/6 C6:1/6 C5:1/2   # hand-fixed; sextuplet + triplet + 8th
+V299 F5:1/6 E5:1/6 F5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 G5:1/6 C6:1/6 C5:1/2   # hand-fixed; sextuplet + triplet + 8th
+V300 F5:1/6 G5:1/6 A5:1/6 C5:1/6 D5:1/6 E5:1/6 F5:1/6 G5:1/6 A5:1/6 C5:1/6 D5:1/6 E5:1/6   # hand-fixed; sextuplets
+V301 F5:1/6 G5:1/6 A5:1/6 C5:1/6 D5:1/6 E5:1/6 F5:1/6 G5:1/6 A5:1/6 C5:1/6 D5:1/6 E5:1/6   # hand-fixed; sextuplets
+V302 F5:1/4 F4:1/4 A4:1/4 C5:1/4 F5:1/4 A4:1/4 C5:1/4 F5:1/4   # omr
+V303 A5:1/4 C5:1/4 F5:1/4 A5:1/4 C6:1/4 F5:1/4 A5:1/4 C6:1/4   # omr
+V304 F6:1 r:1   # hand-fixed; after F6 the bar is Tutti cue
+V305 r:2   # hand-fixed; Tutti cue
+V306 r:2   # hand-fixed; Tutti cue
+V307 r:2   # hand-fixed; Tutti cue
+V308 r:2   # hand-fixed; Tutti cue (Fine)

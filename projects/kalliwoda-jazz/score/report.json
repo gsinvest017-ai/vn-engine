@@ -1,0 +1,452 @@
+{
+ "stage": "score",
+ "status": "done",
+ "sources": [
+  {
+   "id": "S1",
+   "imslp": 1006130,
+   "desc": "Alex'Not typeset oboe part",
+   "license": "CC BY-SA 4.0",
+   "url": "https://vmirror.imslp.org/files/imglnks/usimg/c/c6/IMSLP1006130-PMLP90488-KALLIWODA_Concertino_Op._110_(f-s_mod)-2.pdf",
+   "use": "primary OMR source"
+  },
+  {
+   "id": "S2",
+   "imslp": 907463,
+   "desc": "Alex'Not typeset oboe+piano score",
+   "license": "CC BY-SA 4.0",
+   "url": "https://vmirror.imslp.org/files/imglnks/usimg/e/ed/IMSLP907463-PMLP90488-KALLIWODA_Concertino_Op._110_(f-s_mod).pdf",
+   "use": "harmony, reduction, cross-check"
+  },
+  {
+   "id": "S3",
+   "imslp": 1006127,
+   "desc": "Schott first-edition oboe part scan (plate 6223, c.1841)",
+   "license": "Public Domain",
+   "url": "https://vmirror.imslp.org/files/imglnks/usimg/3/3c/IMSLP1006127-PMLP90488-Kalli_110_sch-2.pdf",
+   "use": "spot check vs PD original"
+  },
+  {
+   "id": "S4",
+   "imslp": 855240,
+   "desc": "Schott piano reduction scan",
+   "license": "Public Domain",
+   "url": "https://vmirror.imslp.org/files/imglnks/usimg/b/b0/IMSLP855240-PMLP90488-Kalli_110_sch.pdf",
+   "use": "downloaded, reference only"
+  },
+  {
+   "id": "S5",
+   "imslp": 842229,
+   "desc": "Leo Duarte typeset full score (from 1841 parts)",
+   "license": "Public Domain (dedicated)",
+   "url": "https://vmirror.imslp.org/files/imglnks/usimg/5/5f/IMSLP842229-PMLP90488-Kalliwoda_-_Concertino,_Op._110_-_Full_Score.pdf",
+   "use": "downloaded, not yet used"
+  }
+ ],
+ "work_page": "https://imslp.org/wiki/Oboe_Concertino,_Op.110_(Kalliwoda,_Johann_Wenzel)",
+ "not_used": {
+  "musescore_community": "https://musescore.com/song/oboe_concertino_op110-7056173 (login-gated, license unclear)",
+  "recordings": "none used; no basic-pitch"
+ },
+ "license_note": "Derived files (solo.*, reduction.mid, harmony*.json) come from CC BY-SA 4.0 engravings; conservatively label them CC BY-SA 4.0, credit Alex'Not. Underlying composition PD; S3 PD first edition spot-check matches.",
+ "outputs": [
+  "score/solo.musicxml",
+  "score/solo.mid",
+  "score/solo_romanze.musicxml",
+  "score/solo_romanze.mid",
+  "score/reduction.mid",
+  "score/harmony.json",
+  "score/harmony_auto.json",
+  "score/alignment.json",
+  "score/measure_map.json",
+  "score/validation.json",
+  "score/oboe_transcription.txt",
+  "score/tools/"
+ ],
+ "validation": {
+  "measures": 564,
+  "per_movement": {
+   "A": 167,
+   "R": 89,
+   "V": 308
+  },
+  "bar_length_problems": [],
+  "provenance": {
+   "rest/cue": 158,
+   "omr": 309,
+   "hand-fixed": 97
+  },
+  "range": {
+   "lowest": {
+    "label": "R48",
+    "pitch": "Bb3",
+    "midi": 58
+   },
+   "highest": {
+    "label": "A143",
+    "pitch": "G6",
+    "midi": 91
+   },
+   "notes_above_A5": 267,
+   "out_of_Bb3_A6": []
+  },
+  "omr_draft_bad_bars": 74,
+  "hand_fixed_bars": 97,
+  "cross_check_vs_piano_score_oboe_staff": {
+   "compared": 394,
+   "exact_match": 344,
+   "rate": 0.873
+  },
+  "fully_verified_by_eye": "Romanze R1-R89 all; A45-A55, A91-A144, V21-V59, V106-V177 and all flagged bars + neighbours",
+  "editorial": [
+   "R44 E4 natural",
+   "R45 Gb5",
+   "R48 D4 natural",
+   "A50 cadenza durations approximate"
+  ],
+  "not_transcribed": "dynamics, slurs, articulation, most ornaments (only R15/R16 graces)",
+  "piano_score_mvt1_bars": 168
+ },
+ "form": {
+  "I": {
+   "key": "F (C from A93)",
+   "time": "4/4",
+   "bars": 167,
+   "sections": [
+    [
+     "A1-A44",
+     "tutti exposition"
+    ],
+    [
+     "A45-A50",
+     "solo entry + cadenza"
+    ],
+    [
+     "A51-A55",
+     "a Tempo runs"
+    ],
+    [
+     "A56-A70",
+     "con grazia theme"
+    ],
+    [
+     "A71-A82",
+     "brilliant arpeggios"
+    ],
+    [
+     "A83-A92",
+     "tutti"
+    ],
+    [
+     "A93-A109",
+     "con passione / dol. 2nd theme (C)"
+    ],
+    [
+     "A110-A144",
+     "virtuoso development, G6 climax"
+    ],
+    [
+     "A145-A167",
+     "tutti + transition to Ab"
+    ]
+   ]
+  },
+  "II": {
+   "key": "Ab",
+   "time": "3/8",
+   "tempo": "Adagio (eighth~58)",
+   "bars": 89,
+   "sections": [
+    [
+     "R1-R2",
+     "intro"
+    ],
+    [
+     "R3-R10",
+     "theme a"
+    ],
+    [
+     "R11-R18",
+     "theme b"
+    ],
+    [
+     "R19-R36",
+     "a' extension"
+    ],
+    [
+     "R37-R40",
+     "tutti to f minor"
+    ],
+    [
+     "R41-R48",
+     "B risoluto (f -> eb -> Bb)"
+    ],
+    [
+     "R49-R60",
+     "B lyrical minor"
+    ],
+    [
+     "R61-R63",
+     "tutti return"
+    ],
+    [
+     "R64-R71",
+     "a reprise"
+    ],
+    [
+     "R72-R76",
+     "extension"
+    ],
+    [
+     "R77-R83",
+     "un poco piu mosso -> ritar"
+    ],
+    [
+     "R84-R89",
+     "coda pp, minor plagal"
+    ]
+   ]
+  },
+  "III": {
+   "key": "F (C V146-V197)",
+   "time": "2/4",
+   "bars": 308,
+   "sections": [
+    [
+     "V1-V20",
+     "tutti"
+    ],
+    [
+     "V21-V59",
+     "refrain scherzando"
+    ],
+    [
+     "V60-V88",
+     "brilliant+tutti"
+    ],
+    [
+     "V89-V105",
+     "con fuoco"
+    ],
+    [
+     "V106-V145",
+     "grandioso (d minor) + sequence"
+    ],
+    [
+     "V146-V177",
+     "C major episode"
+    ],
+    [
+     "V178-V204",
+     "tutti"
+    ],
+    [
+     "V205-V242",
+     "refrain return"
+    ],
+    [
+     "V243-V263",
+     "con forza grandioso in F"
+    ],
+    [
+     "V264-V308",
+     "coda"
+    ]
+   ]
+  }
+ },
+ "ballad_candidates_ranked": [
+  "R3-R10",
+  "R11-R21",
+  "R49-R60",
+  "A93-A106",
+  "R84-R89",
+  "A56-A60"
+ ],
+ "section_metrics": {
+  "R3-R10": {
+   "bars": 8,
+   "quarters": 12.0,
+   "notes": 23,
+   "notes_per_quarter": 1.92,
+   "lo": "Ab4",
+   "hi": "Ab5",
+   "span_semitones": 12,
+   "rest_ratio": 0.12
+  },
+  "R11-R18": {
+   "bars": 8,
+   "quarters": 12.0,
+   "notes": 36,
+   "notes_per_quarter": 3.0,
+   "lo": "G4",
+   "hi": "Bb5",
+   "span_semitones": 15,
+   "rest_ratio": 0.0
+  },
+  "R19-R36": {
+   "bars": 18,
+   "quarters": 27.0,
+   "notes": 73,
+   "notes_per_quarter": 2.7,
+   "lo": "Eb4",
+   "hi": "C6",
+   "span_semitones": 21,
+   "rest_ratio": 0.04
+  },
+  "R41-R48": {
+   "bars": 8,
+   "quarters": 12.0,
+   "notes": 36,
+   "notes_per_quarter": 3.0,
+   "lo": "Bb3",
+   "hi": "C#6",
+   "span_semitones": 27,
+   "rest_ratio": 0.0
+  },
+  "R49-R60": {
+   "bars": 12,
+   "quarters": 18.0,
+   "notes": 76,
+   "notes_per_quarter": 4.22,
+   "lo": "C4",
+   "hi": "C#6",
+   "span_semitones": 25,
+   "rest_ratio": 0.08
+  },
+  "R64-R76": {
+   "bars": 13,
+   "quarters": 19.5,
+   "notes": 49,
+   "notes_per_quarter": 2.51,
+   "lo": "Eb4",
+   "hi": "Ab5",
+   "span_semitones": 17,
+   "rest_ratio": 0.05
+  },
+  "R77-R89": {
+   "bars": 13,
+   "quarters": 19.5,
+   "notes": 51,
+   "notes_per_quarter": 2.62,
+   "lo": "Eb4",
+   "hi": "C6",
+   "span_semitones": 21,
+   "rest_ratio": 0.03
+  },
+  "A45-A55": {
+   "bars": 11,
+   "quarters": 48.125,
+   "notes": 97,
+   "notes_per_quarter": 2.02,
+   "lo": "C4",
+   "hi": "F6",
+   "span_semitones": 29,
+   "rest_ratio": 0.17
+  },
+  "A56-A70": {
+   "bars": 15,
+   "quarters": 60.0,
+   "notes": 99,
+   "notes_per_quarter": 1.65,
+   "lo": "F4",
+   "hi": "C6",
+   "span_semitones": 19,
+   "rest_ratio": 0.1
+  },
+  "A93-A106": {
+   "bars": 14,
+   "quarters": 56.0,
+   "notes": 82,
+   "notes_per_quarter": 1.46,
+   "lo": "G4",
+   "hi": "C6",
+   "span_semitones": 17,
+   "rest_ratio": 0.05
+  },
+  "V22-V30": {
+   "bars": 9,
+   "quarters": 18.0,
+   "notes": 36,
+   "notes_per_quarter": 2.0,
+   "lo": "C5",
+   "hi": "Bb5",
+   "span_semitones": 10,
+   "rest_ratio": 0.11
+  },
+  "V108-V121": {
+   "bars": 14,
+   "quarters": 28.0,
+   "notes": 34,
+   "notes_per_quarter": 1.21,
+   "lo": "C#4",
+   "hi": "F5",
+   "span_semitones": 16,
+   "rest_ratio": 0.0
+  }
+ },
+ "arrangement_plan": {
+  "meter": "3/4 jazz-waltz ballad, q=58-60 (Romanze eighth -> quarter, same absolute tempo); alt 4/4 = x4/3 length",
+  "suggested_key": "Eb major for trumpet (down P4)",
+  "sections": [
+   {
+    "name": "intro piano solo",
+    "src": "R3-R4 motif + R84-R89 harmony",
+    "bars": 8,
+    "sec_3_4": 30,
+    "sec_4_4": 35
+   },
+   {
+    "name": "head a+b (trumpet)",
+    "src": "R3-R18",
+    "bars": 16,
+    "sec_3_4": 48,
+    "sec_4_4": 64
+   },
+   {
+    "name": "head a'",
+    "src": "R19-R36 (or cut R22-R28)",
+    "bars": "18 (11)",
+    "sec_3_4": "54 (33)",
+    "sec_4_4": "72 (44)"
+   },
+   {
+    "name": "piano solo",
+    "src": "changes of R3-R18",
+    "bars": 16,
+    "sec_3_4": 48,
+    "sec_4_4": 64
+   },
+   {
+    "name": "trumpet 2nd theme",
+    "src": "R41-R44 harmony interlude + R49-R60 skeleton (alt A93-A106)",
+    "bars": "4+12",
+    "sec_3_4": 48,
+    "sec_4_4": 64
+   },
+   {
+    "name": "return to theme",
+    "src": "R64-R76",
+    "bars": 13,
+    "sec_3_4": 39,
+    "sec_4_4": 52
+   },
+   {
+    "name": "coda",
+    "src": "R77-R83 + R84-R89",
+    "bars": 13,
+    "sec_3_4": 45,
+    "sec_4_4": 55
+   }
+  ],
+  "total_sec_3_4": "~320-330 (~5.4 min)",
+  "total_sec_4_4": "~430 (~7.2 min; cut head a')"
+ },
+ "unverified": [
+  "harmony auto for mvts I/III",
+  "reduction.mid",
+  "~200 unchecked OMR bars in I/III (87% cross-source agreement)",
+  "Romanze harmony conf l bars: R16-R18, R22-R23 etc."
+ ],
+ "report_md": "blocked by write tool; full text in StructuredOutput summary"
+}

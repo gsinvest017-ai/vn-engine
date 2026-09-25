@@ -1,0 +1,253 @@
+{
+  "stage": "sound",
+  "date": "2026-09-25",
+  "status": "done_except_ace_step",
+  "libraries": [
+    {
+      "role": "trumpet",
+      "name": "VSCO-2-CE Trumpet (sus / harmonM-sus / straightM-sus)",
+      "url": "https://github.com/sgossner/VSCO-2-CE",
+      "license": "CC0-1.0",
+      "commit": "440300901dfe9275fd84e0b7763af1f8443ae62e",
+      "size_mb": 115,
+      "vel_layers": "sus v1/v3; harmon v1/v3; straight v1/v3; stac 3x2rr; susvib v1/v2",
+      "range_midi": "sus sample points 53-84 (SFZ 49-87); harmon 58-81 (SFZ 54-86)",
+      "sfz": "sound/sfz/trumpet_chet_open.sfz (+harmon/straight)",
+      "note_naming": "C3=MIDI60, verified"
+    },
+    {
+      "role": "piano",
+      "name": "Salamander Grand Piano V3 (Yamaha C5)",
+      "url": "https://github.com/sfzinstruments/SalamanderGrandPiano",
+      "origin": "https://archive.org/details/SalamanderGrandPianoV3",
+      "license": "CC-BY-3.0 (attribution: Alexander Holm)",
+      "commit": "3382bf9496bba2486f5ab0de55a264d1dfc38404",
+      "size_mb": 716,
+      "vel_layers": "16 layers + release/hammer/string-res/pedal noise",
+      "range_midi": "21-108 (minor-third sampling)"
+    },
+    {
+      "role": "bass",
+      "name": "Karoryfer Sneakybass (pizzicato, late-night quiet)",
+      "url": "https://github.com/sfzinstruments/karoryfer.sneakybass",
+      "license": "CC0-1.0",
+      "commit": "cc1a67e5c913678b85eaad1a3b5cb180d3be3e2d",
+      "size_mb": 402,
+      "vel_layers": "pluck 1 layer x 4 rr chromatic; ghost/mute articulations",
+      "range_midi": "keys 33-72, sounds one octave LOWER than MIDI -> config transpose +12"
+    },
+    {
+      "role": "bass_alt",
+      "name": "VSCO-2-CE Solo Contrabass Pizz",
+      "url": "https://github.com/sgossner/VSCO-2-CE",
+      "license": "CC0-1.0",
+      "size_mb": 20,
+      "vel_layers": "v1/v3 x 2rr",
+      "range_midi": "samples 28-59 (SFZ 28-63)",
+      "sfz": "sound/sfz/bass_pizz_vsco.sfz"
+    },
+    {
+      "role": "brush_snare",
+      "name": "Karoryfer Frankensnare (14x5 maple brush program)",
+      "url": "https://github.com/sfzinstruments/karoryfer.frankensnare",
+      "license": "CC0-1.0",
+      "commit": "9151c2d79fcbb73c65d63f78918d4ba7abc91a81",
+      "size_mb": 123,
+      "vel_layers": "brush hits 5 layers x 4 rr; stirs 4 x 4 rr; oh/top/btm mics",
+      "keys": "38-40 hits, 24 long stir, 28 short stir, 26 stir stop; 37 sidestick samples NOT downloaded"
+    },
+    {
+      "role": "hihat_ride",
+      "name": "Virtuosity Drums (OH mic program)",
+      "url": "https://github.com/sfzinstruments/virtuosity_drums",
+      "license": "CC0-1.0",
+      "commit": "9f04cf9a734527edfbb0a4eee1f674e45bbf71bc",
+      "size_mb": 143,
+      "vel_layers": "hh closed/half/3-4/open 4 layers, pedal 3 layers, 3-4 rr; ride 3 layers x 4 rr",
+      "keys": "42 closed, 44 pedal, 46 open, 51 ride, 53 bell, 59 flatride, 36 kick; snare/toms NOT downloaded",
+      "note": "ride played with sticks (no brush recordings)"
+    },
+    {
+      "role": "renderer",
+      "name": "sfizz 1.2.3 sfizz_render.exe (win64)",
+      "url": "https://github.com/sfztools/sfizz/releases/tag/1.2.3",
+      "license": "BSD-2-Clause",
+      "size_mb": 30,
+      "path": "_assets/bin/bin/Release/sfizz_render.exe"
+    }
+  ],
+  "test_render": {
+    "midi": "projects/kalliwoda-jazz/sound/test_ballad_8bar.mid",
+    "config": "projects/kalliwoda-jazz/sound/render_config.json",
+    "out_dir": "projects/kalliwoda-jazz/_assets/render/test",
+    "test_mix": "projects/kalliwoda-jazz/_assets/render/test/test_mix.wav",
+    "mix": {
+      "duration_s": 37.804,
+      "peak_dbfs": -1.36,
+      "true_peak_dbtp": -1.35,
+      "rms_dbfs": -19.08,
+      "lufs_integrated": -16.0,
+      "clipped_samples": 0,
+      "first_sound_s": 0.0,
+      "last_sound_s": 33.95,
+      "silence_threshold_dbfs": -60.0,
+      "longest_internal_silence_s": 0.3,
+      "spectral_centroid_hz": 494.3,
+      "band_energy_pct": {
+        "sub_20_60": 3.58,
+        "low_60_250": 25.48,
+        "lowmid_250_2k": 69.11,
+        "high_2k_8k": 1.63,
+        "air_8k_20k": 0.18
+      },
+      "path": "projects\\kalliwoda-jazz\\_assets\\render\\test\\mix.wav",
+      "target_lufs": -16.0
+    },
+    "ffmpeg_ebur128": {
+      "I_lufs": -16.0,
+      "LRA_lu": 4.2,
+      "true_peak_dbfs": -1.4
+    },
+    "tracks": {
+      "trumpet": {
+        "peak_dbfs": -39.5,
+        "true_peak_dbtp": -39.5,
+        "lufs_integrated": -52.58,
+        "clipped_samples": 0,
+        "longest_internal_silence_s": 5.75,
+        "spectral_centroid_hz": 590.1,
+        "band_energy_pct": {
+          "sub_20_60": 0.0,
+          "low_60_250": 0.35,
+          "lowmid_250_2k": 99.17,
+          "high_2k_8k": 0.47,
+          "air_8k_20k": 0.0
+        },
+        "notes": 24,
+        "dead_notes": [],
+        "pitch_range": [
+          58,
+          72
+        ],
+        "after_gain_peak_dbfs": -26.62
+      },
+      "piano": {
+        "peak_dbfs": -22.06,
+        "true_peak_dbtp": -22.05,
+        "lufs_integrated": -40.76,
+        "clipped_samples": 0,
+        "longest_internal_silence_s": 0.3,
+        "spectral_centroid_hz": 455.7,
+        "band_energy_pct": {
+          "sub_20_60": 0.11,
+          "low_60_250": 14.44,
+          "lowmid_250_2k": 84.7,
+          "high_2k_8k": 0.58,
+          "air_8k_20k": 0.0
+        },
+        "notes": 52,
+        "dead_notes": [],
+        "pitch_range": [
+          52,
+          84
+        ],
+        "after_gain_peak_dbfs": -23.41
+      },
+      "bass": {
+        "peak_dbfs": -20.27,
+        "true_peak_dbtp": -20.27,
+        "lufs_integrated": -38.5,
+        "clipped_samples": 0,
+        "longest_internal_silence_s": 0.4,
+        "spectral_centroid_hz": 76.4,
+        "band_energy_pct": {
+          "sub_20_60": 13.87,
+          "low_60_250": 85.83,
+          "lowmid_250_2k": 0.1,
+          "high_2k_8k": 0.0,
+          "air_8k_20k": 0.0
+        },
+        "notes": 19,
+        "dead_notes": [],
+        "pitch_range": [
+          41,
+          60
+        ],
+        "after_gain_peak_dbfs": -27.19
+      },
+      "brush": {
+        "peak_dbfs": -27.47,
+        "true_peak_dbtp": -27.2,
+        "lufs_integrated": -51.43,
+        "clipped_samples": 0,
+        "longest_internal_silence_s": 0.65,
+        "spectral_centroid_hz": 2975.6,
+        "band_energy_pct": {
+          "sub_20_60": 0.01,
+          "low_60_250": 6.15,
+          "lowmid_250_2k": 37.1,
+          "high_2k_8k": 52.89,
+          "air_8k_20k": 3.79
+        },
+        "notes": 58,
+        "dead_notes": [],
+        "pitch_range": [
+          24,
+          38
+        ],
+        "after_gain_peak_dbfs": -25.46
+      },
+      "hihat": {
+        "peak_dbfs": -35.94,
+        "true_peak_dbtp": -35.93,
+        "lufs_integrated": -58.67,
+        "clipped_samples": 0,
+        "longest_internal_silence_s": 1.75,
+        "spectral_centroid_hz": 5184.7,
+        "band_energy_pct": {
+          "sub_20_60": 1.03,
+          "low_60_250": 12.42,
+          "lowmid_250_2k": 29.28,
+          "high_2k_8k": 28.43,
+          "air_8k_20k": 24.83
+        },
+        "notes": 40,
+        "dead_notes": [],
+        "pitch_range": [
+          44,
+          51
+        ],
+        "after_gain_peak_dbfs": -29.82
+      }
+    },
+    "render_time_s": 7
+  },
+  "pitch_verification": {
+    "trumpet_open": "55/60/65/69/74/79 all correct",
+    "trumpet_harmon": "60/65/70/77 correct",
+    "piano": "36/48/60/72 correct",
+    "sneakybass": "sounds MIDI-12 (both HPS and comb) -> transpose +12",
+    "vsco_pizz": "HPS correct; comb method misreads 45/52 (method limitation)"
+  },
+  "tests": {
+    "file": "tools/video/test_jazz_render.py",
+    "result": "13 passed"
+  },
+  "ace_step_1_5": {
+    "status": "not_verified",
+    "reason": "20-min timebox expired while uv sync still resolving/downloading deps; no model weights, no audio produced",
+    "location": "WSL ~/ace-step-1.5-eval (partial venv)",
+    "gpu_free_gb_at_test": 18.7,
+    "doc_notes": "cover task via src_audio + audio_cover_strength (5Hz semantic codes) -> note-level melody preservation doubtful; repaint for time ranges; acceptance test proposed: melody pitch accuracy>=95%, onset<=50ms vs MIDI"
+  },
+  "unverified": [
+    "listening quality (no human listened)",
+    "trumpet timbre too dark? 2-8kHz 0.47%",
+    "brush stir continuity (stirs 10-20 dB below hits)",
+    "fluidsynth SF2 backend untested (not installed)",
+    "ACE-Step polishing"
+  ],
+  "attribution_required": [
+    "Salamander Grand Piano V3 by Alexander Holm, CC-BY 3.0"
+  ]
+}

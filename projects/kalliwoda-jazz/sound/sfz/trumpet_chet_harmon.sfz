@@ -1,0 +1,46 @@
+// 小號 harmon mute sustain
+// 自動產生：projects/kalliwoda-jazz/sound/make_sfz.py；樣本 VSCO-2-CE（CC0）
+<control>
+default_path=../../_assets/lib/VSCO-2-CE/Brass/Trumpet/harmonM-sus/
+
+<global>
+ampeg_attack=0.045
+ampeg_release=0.32
+amp_veltrack=80
+fil_type=lpf_2p
+cutoff=3200
+fil_veltrack=2400
+resonance=0
+
+<group> lokey=54 hikey=59 pitch_keycenter=58 lovel=1 hivel=84
+<region> sample=Sum_SHTrumpet_harmonM-sus_A#2_v1_rr1.wav
+<group> lokey=54 hikey=59 pitch_keycenter=58 lovel=85 hivel=127
+<region> sample=Sum_SHTrumpet_harmonM-sus_A#2_v3_rr1.wav
+<group> lokey=60 hikey=61 pitch_keycenter=60 lovel=1 hivel=84
+<region> sample=Sum_SHTrumpet_harmonM-sus_C3_v1_rr1.wav
+<group> lokey=60 hikey=61 pitch_keycenter=60 lovel=85 hivel=127
+<region> sample=Sum_SHTrumpet_harmonM-sus_C3_v3_rr1.wav
+<group> lokey=62 hikey=65 pitch_keycenter=63 lovel=1 hivel=84
+<region> sample=Sum_SHTrumpet_harmonM-sus_D#3_v1_rr1.wav
+<group> lokey=62 hikey=65 pitch_keycenter=63 lovel=85 hivel=127
+<region> sample=Sum_SHTrumpet_harmonM-sus_D#3_v3_rr1.wav
+<group> lokey=66 hikey=69 pitch_keycenter=68 lovel=1 hivel=84
+<region> sample=Sum_SHTrumpet_harmonM-sus_G#3_v1_rr1.wav
+<group> lokey=66 hikey=69 pitch_keycenter=68 lovel=85 hivel=127
+<region> sample=Sum_SHTrumpet_harmonM-sus_G#3_v3_rr1.wav
+<group> lokey=70 hikey=72 pitch_keycenter=70 lovel=1 hivel=84
+<region> sample=Sum_SHTrumpet_harmonM-sus_A#3_v1_rr1.wav
+<group> lokey=70 hikey=72 pitch_keycenter=70 lovel=85 hivel=127
+<region> sample=Sum_SHTrumpet_harmonM-sus_A#3_v3_rr1.wav
+<group> lokey=73 hikey=75 pitch_keycenter=74 lovel=1 hivel=84
+<region> sample=Sum_SHTrumpet_harmonM-sus_D4_v1_rr1.wav
+<group> lokey=73 hikey=75 pitch_keycenter=74 lovel=85 hivel=127
+<region> sample=Sum_SHTrumpet_harmonM-sus_D4_v3_rr1.wav
+<group> lokey=76 hikey=79 pitch_keycenter=77 lovel=1 hivel=84
+<region> sample=Sum_SHTrumpet_harmonM-sus_F4_v1_rr1.wav
+<group> lokey=76 hikey=79 pitch_keycenter=77 lovel=85 hivel=127
+<region> sample=Sum_SHTrumpet_harmonM-sus_F4_v3_rr1.wav
+<group> lokey=80 hikey=86 pitch_keycenter=81 lovel=1 hivel=84
+<region> sample=Sum_SHTrumpet_harmonM-sus_A4_v1_rr1.wav
+<group> lokey=80 hikey=86 pitch_keycenter=81 lovel=85 hivel=127
+<region> sample=Sum_SHTrumpet_harmonM-sus_A4_v3_rr1.wav

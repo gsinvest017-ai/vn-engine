@@ -1,0 +1,1978 @@
+{
+"piano_score_bars": 565,
+"aligned": 562,
+"compared_bars_with_notes": 394,
+"exact_melody_match": 344,
+"per_bar": [
+{
+"piano_bar": "A45",
+"oboe_bar": "A45",
+"ratio": 1.0
+},
+{
+"piano_bar": "A46",
+"oboe_bar": "A46",
+"ratio": 1.0
+},
+{
+"piano_bar": "A47",
+"oboe_bar": "A47",
+"ratio": 1.0
+},
+{
+"piano_bar": "A48",
+"oboe_bar": "A48",
+"ratio": 1.0
+},
+{
+"piano_bar": "A49",
+"oboe_bar": "A49",
+"ratio": 1.0
+},
+{
+"piano_bar": "A50",
+"oboe_bar": "A50",
+"ratio": 0.753
+},
+{
+"piano_bar": "A51",
+"oboe_bar": "A51",
+"ratio": 1.0
+},
+{
+"piano_bar": "A52",
+"oboe_bar": "A52",
+"ratio": 1.0
+},
+{
+"piano_bar": "A53",
+"oboe_bar": "A53",
+"ratio": 1.0
+},
+{
+"piano_bar": "A54",
+"oboe_bar": "A54",
+"ratio": 1.0
+},
+{
+"piano_bar": "A55",
+"oboe_bar": "A55",
+"ratio": 1.0
+},
+{
+"piano_bar": "A56",
+"oboe_bar": "A56",
+"ratio": 1.0
+},
+{
+"piano_bar": "A57",
+"oboe_bar": "A57",
+"ratio": 1.0
+},
+{
+"piano_bar": "A58",
+"oboe_bar": "A58",
+"ratio": 1.0
+},
+{
+"piano_bar": "A59",
+"oboe_bar": "A59",
+"ratio": 1.0
+},
+{
+"piano_bar": "A60",
+"oboe_bar": "A60",
+"ratio": 1.0
+},
+{
+"piano_bar": "A61",
+"oboe_bar": "A61",
+"ratio": 1.0
+},
+{
+"piano_bar": "A62",
+"oboe_bar": "A62",
+"ratio": 1.0
+},
+{
+"piano_bar": "A63",
+"oboe_bar": "A63",
+"ratio": 1.0
+},
+{
+"piano_bar": "A64",
+"oboe_bar": "A64",
+"ratio": 1.0
+},
+{
+"piano_bar": "A65",
+"oboe_bar": "A65",
+"ratio": 1.0
+},
+{
+"piano_bar": "A66",
+"oboe_bar": "A66",
+"ratio": 1.0
+},
+{
+"piano_bar": "A67",
+"oboe_bar": "A67",
+"ratio": 1.0
+},
+{
+"piano_bar": "A68",
+"oboe_bar": "A68",
+"ratio": 1.0
+},
+{
+"piano_bar": "A69",
+"oboe_bar": "A69",
+"ratio": 1.0
+},
+{
+"piano_bar": "A70",
+"oboe_bar": "A70",
+"ratio": 1.0
+},
+{
+"piano_bar": "A71",
+"oboe_bar": "A71",
+"ratio": 0.889
+},
+{
+"piano_bar": "A72",
+"oboe_bar": "A72",
+"ratio": 1.0
+},
+{
+"piano_bar": "A73",
+"oboe_bar": "A73",
+"ratio": 0.8
+},
+{
+"piano_bar": "A74",
+"oboe_bar": "A74",
+"ratio": 1.0
+},
+{
+"piano_bar": "A75",
+"oboe_bar": "A75",
+"ratio": 1.0
+},
+{
+"piano_bar": "A76",
+"oboe_bar": "A76",
+"ratio": 1.0
+},
+{
+"piano_bar": "A77",
+"oboe_bar": "A77",
+"ratio": 1.0
+},
+{
+"piano_bar": "A78",
+"oboe_bar": "A78",
+"ratio": 1.0
+},
+{
+"piano_bar": "A79",
+"oboe_bar": "A79",
+"ratio": 0.87
+},
+{
+"piano_bar": "A80",
+"oboe_bar": "A80",
+"ratio": 1.0
+},
+{
+"piano_bar": "A81",
+"oboe_bar": "A81",
+"ratio": 1.0
+},
+{
+"piano_bar": "A82",
+"oboe_bar": "A82",
+"ratio": 1.0
+},
+{
+"piano_bar": "A93",
+"oboe_bar": "A93",
+"ratio": 1.0
+},
+{
+"piano_bar": "A94",
+"oboe_bar": "A94",
+"ratio": 1.0
+},
+{
+"piano_bar": "A95",
+"oboe_bar": "A95",
+"ratio": 1.0
+},
+{
+"piano_bar": "A96",
+"oboe_bar": "A96",
+"ratio": 1.0
+},
+{
+"piano_bar": "A97",
+"oboe_bar": "A97",
+"ratio": 1.0
+},
+{
+"piano_bar": "A98",
+"oboe_bar": "A98",
+"ratio": 1.0
+},
+{
+"piano_bar": "A99",
+"oboe_bar": "A99",
+"ratio": 1.0
+},
+{
+"piano_bar": "A100",
+"oboe_bar": "A100",
+"ratio": 1.0
+},
+{
+"piano_bar": "A101",
+"oboe_bar": "A101",
+"ratio": 1.0
+},
+{
+"piano_bar": "A102",
+"oboe_bar": "A102",
+"ratio": 1.0
+},
+{
+"piano_bar": "A103",
+"oboe_bar": "A103",
+"ratio": 1.0
+},
+{
+"piano_bar": "A104",
+"oboe_bar": "A104",
+"ratio": 1.0
+},
+{
+"piano_bar": "A105",
+"oboe_bar": "A105",
+"ratio": 1.0
+},
+{
+"piano_bar": "A106",
+"oboe_bar": "A106",
+"ratio": 1.0
+},
+{
+"piano_bar": "A107",
+"oboe_bar": "A107",
+"ratio": 1.0
+},
+{
+"piano_bar": "A108",
+"oboe_bar": "A108",
+"ratio": 1.0
+},
+{
+"piano_bar": "A109",
+"oboe_bar": "A109",
+"ratio": 1.0
+},
+{
+"piano_bar": "A110",
+"oboe_bar": "A110",
+"ratio": 1.0
+},
+{
+"piano_bar": "A111",
+"oboe_bar": "A111",
+"ratio": 1.0
+},
+{
+"piano_bar": "A112",
+"oboe_bar": "A112",
+"ratio": 1.0
+},
+{
+"piano_bar": "A113",
+"oboe_bar": "A113",
+"ratio": 1.0
+},
+{
+"piano_bar": "A114",
+"oboe_bar": "A114",
+"ratio": 1.0
+},
+{
+"piano_bar": "A115",
+"oboe_bar": "A115",
+"ratio": 1.0
+},
+{
+"piano_bar": "A116",
+"oboe_bar": "A116",
+"ratio": 1.0
+},
+{
+"piano_bar": "A117",
+"oboe_bar": "A117",
+"ratio": 1.0
+},
+{
+"piano_bar": "A118",
+"oboe_bar": "A118",
+"ratio": 1.0
+},
+{
+"piano_bar": "A119",
+"oboe_bar": "A119",
+"ratio": 1.0
+},
+{
+"piano_bar": "A120",
+"oboe_bar": "A120",
+"ratio": 0.769
+},
+{
+"piano_bar": "A121",
+"oboe_bar": "A121",
+"ratio": 0.87
+},
+{
+"piano_bar": "A122",
+"oboe_bar": "A122",
+"ratio": 0.889
+},
+{
+"piano_bar": "A123",
+"oboe_bar": "A123",
+"ratio": 1.0
+},
+{
+"piano_bar": "A124",
+"oboe_bar": "A124",
+"ratio": 0.929
+},
+{
+"piano_bar": "A125",
+"oboe_bar": "A125",
+"ratio": 1.0
+},
+{
+"piano_bar": "A126",
+"oboe_bar": "A126",
+"ratio": 0.968
+},
+{
+"piano_bar": "A127",
+"oboe_bar": "A127",
+"ratio": 1.0
+},
+{
+"piano_bar": "A128",
+"oboe_bar": "A128",
+"ratio": 0.966
+},
+{
+"piano_bar": "A129",
+"oboe_bar": "A129",
+"ratio": 1.0
+},
+{
+"piano_bar": "A130",
+"oboe_bar": "A130",
+"ratio": 1.0
+},
+{
+"piano_bar": "A131",
+"oboe_bar": "A131",
+"ratio": 1.0
+},
+{
+"piano_bar": "A132",
+"oboe_bar": "A132",
+"ratio": 1.0
+},
+{
+"piano_bar": "A133",
+"oboe_bar": "A133",
+"ratio": 1.0
+},
+{
+"piano_bar": "A134",
+"oboe_bar": "A134",
+"ratio": 0.941
+},
+{
+"piano_bar": "A135",
+"oboe_bar": "A135",
+"ratio": 0.857
+},
+{
+"piano_bar": "A136",
+"oboe_bar": "A136",
+"ratio": 1.0
+},
+{
+"piano_bar": "A137",
+"oboe_bar": "A137",
+"ratio": 0.96
+},
+{
+"piano_bar": "A138",
+"oboe_bar": "A138",
+"ratio": 1.0
+},
+{
+"piano_bar": "A139",
+"oboe_bar": "A139",
+"ratio": 1.0
+},
+{
+"piano_bar": "A140",
+"oboe_bar": "A140",
+"ratio": 1.0
+},
+{
+"piano_bar": "A141",
+"oboe_bar": "A141",
+"ratio": 1.0
+},
+{
+"piano_bar": "A142",
+"oboe_bar": "A142",
+"ratio": 1.0
+},
+{
+"piano_bar": "A143",
+"oboe_bar": "A143",
+"ratio": 1.0
+},
+{
+"piano_bar": "A144",
+"oboe_bar": "A144",
+"ratio": 1.0
+},
+{
+"piano_bar": "R3",
+"oboe_bar": "R3",
+"ratio": 1.0
+},
+{
+"piano_bar": "R4",
+"oboe_bar": "R4",
+"ratio": 1.0
+},
+{
+"piano_bar": "R5",
+"oboe_bar": "R5",
+"ratio": 1.0
+},
+{
+"piano_bar": "R6",
+"oboe_bar": "R6",
+"ratio": 1.0
+},
+{
+"piano_bar": "R7",
+"oboe_bar": "R7",
+"ratio": 1.0
+},
+{
+"piano_bar": "R8",
+"oboe_bar": "R8",
+"ratio": 1.0
+},
+{
+"piano_bar": "R9",
+"oboe_bar": "R9",
+"ratio": 1.0
+},
+{
+"piano_bar": "R10",
+"oboe_bar": "R10",
+"ratio": 1.0
+},
+{
+"piano_bar": "R11",
+"oboe_bar": "R11",
+"ratio": 1.0
+},
+{
+"piano_bar": "R12",
+"oboe_bar": "R12",
+"ratio": 1.0
+},
+{
+"piano_bar": "R13",
+"oboe_bar": "R13",
+"ratio": 1.0
+},
+{
+"piano_bar": "R14",
+"oboe_bar": "R14",
+"ratio": 1.0
+},
+{
+"piano_bar": "R15",
+"oboe_bar": "R15",
+"ratio": 1.0
+},
+{
+"piano_bar": "R16",
+"oboe_bar": "R16",
+"ratio": 1.0
+},
+{
+"piano_bar": "R17",
+"oboe_bar": "R17",
+"ratio": 1.0
+},
+{
+"piano_bar": "R18",
+"oboe_bar": "R18",
+"ratio": 1.0
+},
+{
+"piano_bar": "R19",
+"oboe_bar": "R19",
+"ratio": 1.0
+},
+{
+"piano_bar": "R20",
+"oboe_bar": "R20",
+"ratio": 1.0
+},
+{
+"piano_bar": "R21",
+"oboe_bar": "R21",
+"ratio": 1.0
+},
+{
+"piano_bar": "R22",
+"oboe_bar": "R22",
+"ratio": 1.0
+},
+{
+"piano_bar": "R23",
+"oboe_bar": "R23",
+"ratio": 1.0
+},
+{
+"piano_bar": "R24",
+"oboe_bar": "R24",
+"ratio": 1.0
+},
+{
+"piano_bar": "R25",
+"oboe_bar": "R25",
+"ratio": 1.0
+},
+{
+"piano_bar": "R26",
+"oboe_bar": "R26",
+"ratio": 1.0
+},
+{
+"piano_bar": "R27",
+"oboe_bar": "R27",
+"ratio": 1.0
+},
+{
+"piano_bar": "R28",
+"oboe_bar": "R28",
+"ratio": 1.0
+},
+{
+"piano_bar": "R29",
+"oboe_bar": "R29",
+"ratio": 1.0
+},
+{
+"piano_bar": "R30",
+"oboe_bar": "R30",
+"ratio": 1.0
+},
+{
+"piano_bar": "R31",
+"oboe_bar": "R31",
+"ratio": 1.0
+},
+{
+"piano_bar": "R32",
+"oboe_bar": "R32",
+"ratio": 1.0
+},
+{
+"piano_bar": "R33",
+"oboe_bar": "R33",
+"ratio": 1.0
+},
+{
+"piano_bar": "R34",
+"oboe_bar": "R34",
+"ratio": 1.0
+},
+{
+"piano_bar": "R35",
+"oboe_bar": "R35",
+"ratio": 1.0
+},
+{
+"piano_bar": "R36",
+"oboe_bar": "R36",
+"ratio": 1.0
+},
+{
+"piano_bar": "R41",
+"oboe_bar": "R41",
+"ratio": 1.0
+},
+{
+"piano_bar": "R42",
+"oboe_bar": "R42",
+"ratio": 1.0
+},
+{
+"piano_bar": "R43",
+"oboe_bar": "R43",
+"ratio": 1.0
+},
+{
+"piano_bar": "R44",
+"oboe_bar": "R44",
+"ratio": 1.0
+},
+{
+"piano_bar": "R45",
+"oboe_bar": "R45",
+"ratio": 1.0
+},
+{
+"piano_bar": "R46",
+"oboe_bar": "R46",
+"ratio": 1.0
+},
+{
+"piano_bar": "R47",
+"oboe_bar": "R47",
+"ratio": 1.0
+},
+{
+"piano_bar": "R48",
+"oboe_bar": "R48",
+"ratio": 1.0
+},
+{
+"piano_bar": "R49",
+"oboe_bar": "R49",
+"ratio": 1.0
+},
+{
+"piano_bar": "R50",
+"oboe_bar": "R50",
+"ratio": 1.0
+},
+{
+"piano_bar": "R51",
+"oboe_bar": "R51",
+"ratio": 1.0
+},
+{
+"piano_bar": "R52",
+"oboe_bar": "R52",
+"ratio": 0.933
+},
+{
+"piano_bar": "R53",
+"oboe_bar": "R53",
+"ratio": 1.0
+},
+{
+"piano_bar": "R54",
+"oboe_bar": "R54",
+"ratio": 1.0
+},
+{
+"piano_bar": "R55",
+"oboe_bar": "R55",
+"ratio": 1.0
+},
+{
+"piano_bar": "R56",
+"oboe_bar": "R56",
+"ratio": 1.0
+},
+{
+"piano_bar": "R57",
+"oboe_bar": "R57",
+"ratio": 1.0
+},
+{
+"piano_bar": "R58",
+"oboe_bar": "R58",
+"ratio": 0.933
+},
+{
+"piano_bar": "R59",
+"oboe_bar": "R59",
+"ratio": 1.0
+},
+{
+"piano_bar": "R60",
+"oboe_bar": "R60",
+"ratio": 1.0
+},
+{
+"piano_bar": "R64",
+"oboe_bar": "R64",
+"ratio": 1.0
+},
+{
+"piano_bar": "R65",
+"oboe_bar": "R65",
+"ratio": 1.0
+},
+{
+"piano_bar": "R66",
+"oboe_bar": "R66",
+"ratio": 1.0
+},
+{
+"piano_bar": "R67",
+"oboe_bar": "R67",
+"ratio": 1.0
+},
+{
+"piano_bar": "R68",
+"oboe_bar": "R68",
+"ratio": 1.0
+},
+{
+"piano_bar": "R69",
+"oboe_bar": "R69",
+"ratio": 1.0
+},
+{
+"piano_bar": "R70",
+"oboe_bar": "R70",
+"ratio": 1.0
+},
+{
+"piano_bar": "R71",
+"oboe_bar": "R71",
+"ratio": 1.0
+},
+{
+"piano_bar": "R72",
+"oboe_bar": "R72",
+"ratio": 1.0
+},
+{
+"piano_bar": "R73",
+"oboe_bar": "R73",
+"ratio": 1.0
+},
+{
+"piano_bar": "R74",
+"oboe_bar": "R74",
+"ratio": 1.0
+},
+{
+"piano_bar": "R75",
+"oboe_bar": "R75",
+"ratio": 1.0
+},
+{
+"piano_bar": "R76",
+"oboe_bar": "R76",
+"ratio": 1.0
+},
+{
+"piano_bar": "R77",
+"oboe_bar": "R77",
+"ratio": 1.0
+},
+{
+"piano_bar": "R78",
+"oboe_bar": "R78",
+"ratio": 1.0
+},
+{
+"piano_bar": "R79",
+"oboe_bar": "R79",
+"ratio": 1.0
+},
+{
+"piano_bar": "R80",
+"oboe_bar": "R80",
+"ratio": 1.0
+},
+{
+"piano_bar": "R81",
+"oboe_bar": "R81",
+"ratio": 1.0
+},
+{
+"piano_bar": "R82",
+"oboe_bar": "R82",
+"ratio": 1.0
+},
+{
+"piano_bar": "R83",
+"oboe_bar": "R83",
+"ratio": 1.0
+},
+{
+"piano_bar": "R84",
+"oboe_bar": "R84",
+"ratio": 1.0
+},
+{
+"piano_bar": "R85",
+"oboe_bar": "R85",
+"ratio": 1.0
+},
+{
+"piano_bar": "R86",
+"oboe_bar": "R86",
+"ratio": 1.0
+},
+{
+"piano_bar": "R87",
+"oboe_bar": "R87",
+"ratio": 1.0
+},
+{
+"piano_bar": "R88",
+"oboe_bar": "R88",
+"ratio": 1.0
+},
+{
+"piano_bar": "R89",
+"oboe_bar": "R89",
+"ratio": 1.0
+},
+{
+"piano_bar": "V22",
+"oboe_bar": "V22",
+"ratio": 1.0
+},
+{
+"piano_bar": "V23",
+"oboe_bar": "V23",
+"ratio": 1.0
+},
+{
+"piano_bar": "V24",
+"oboe_bar": "V24",
+"ratio": 1.0
+},
+{
+"piano_bar": "V25",
+"oboe_bar": "V25",
+"ratio": 1.0
+},
+{
+"piano_bar": "V26",
+"oboe_bar": "V26",
+"ratio": 1.0
+},
+{
+"piano_bar": "V27",
+"oboe_bar": "V27",
+"ratio": 1.0
+},
+{
+"piano_bar": "V28",
+"oboe_bar": "V28",
+"ratio": 1.0
+},
+{
+"piano_bar": "V29",
+"oboe_bar": "V29",
+"ratio": 1.0
+},
+{
+"piano_bar": "V30",
+"oboe_bar": "V30",
+"ratio": 1.0
+},
+{
+"piano_bar": "V31",
+"oboe_bar": "V31",
+"ratio": 1.0
+},
+{
+"piano_bar": "V32",
+"oboe_bar": "V32",
+"ratio": 1.0
+},
+{
+"piano_bar": "V33",
+"oboe_bar": "V33",
+"ratio": 1.0
+},
+{
+"piano_bar": "V34",
+"oboe_bar": "V34",
+"ratio": 1.0
+},
+{
+"piano_bar": "V35",
+"oboe_bar": "V35",
+"ratio": 0.4
+},
+{
+"piano_bar": "V36",
+"oboe_bar": "V36",
+"ratio": 1.0
+},
+{
+"piano_bar": "V37",
+"oboe_bar": "V37",
+"ratio": 1.0
+},
+{
+"piano_bar": "V38",
+"oboe_bar": "V38",
+"ratio": 1.0
+},
+{
+"piano_bar": "V39",
+"oboe_bar": "V39",
+"ratio": 1.0
+},
+{
+"piano_bar": "V40",
+"oboe_bar": "V40",
+"ratio": 1.0
+},
+{
+"piano_bar": "V41",
+"oboe_bar": "V41",
+"ratio": 1.0
+},
+{
+"piano_bar": "V42",
+"oboe_bar": "V42",
+"ratio": 1.0
+},
+{
+"piano_bar": "V43",
+"oboe_bar": "V43",
+"ratio": 1.0
+},
+{
+"piano_bar": "V44",
+"oboe_bar": "V44",
+"ratio": 1.0
+},
+{
+"piano_bar": "V45",
+"oboe_bar": "V45",
+"ratio": 1.0
+},
+{
+"piano_bar": "V46",
+"oboe_bar": "V46",
+"ratio": 1.0
+},
+{
+"piano_bar": "V47",
+"oboe_bar": "V47",
+"ratio": 1.0
+},
+{
+"piano_bar": "V48",
+"oboe_bar": "V48",
+"ratio": 1.0
+},
+{
+"piano_bar": "V49",
+"oboe_bar": "V49",
+"ratio": 1.0
+},
+{
+"piano_bar": "V50",
+"oboe_bar": "V50",
+"ratio": 1.0
+},
+{
+"piano_bar": "V51",
+"oboe_bar": "V51",
+"ratio": 1.0
+},
+{
+"piano_bar": "V52",
+"oboe_bar": "V52",
+"ratio": 1.0
+},
+{
+"piano_bar": "V53",
+"oboe_bar": "V53",
+"ratio": 1.0
+},
+{
+"piano_bar": "V54",
+"oboe_bar": "V54",
+"ratio": 1.0
+},
+{
+"piano_bar": "V55",
+"oboe_bar": "V55",
+"ratio": 1.0
+},
+{
+"piano_bar": "V56",
+"oboe_bar": "V56",
+"ratio": 1.0
+},
+{
+"piano_bar": "V57",
+"oboe_bar": "V57",
+"ratio": 1.0
+},
+{
+"piano_bar": "V58",
+"oboe_bar": "V58",
+"ratio": 1.0
+},
+{
+"piano_bar": "V59",
+"oboe_bar": "V59",
+"ratio": 1.0
+},
+{
+"piano_bar": "V60",
+"oboe_bar": "V60",
+"ratio": 1.0
+},
+{
+"piano_bar": "V61",
+"oboe_bar": "V61",
+"ratio": 1.0
+},
+{
+"piano_bar": "V62",
+"oboe_bar": "V62",
+"ratio": 1.0
+},
+{
+"piano_bar": "V63",
+"oboe_bar": "V63",
+"ratio": 1.0
+},
+{
+"piano_bar": "V89",
+"oboe_bar": "V89",
+"ratio": 0.857
+},
+{
+"piano_bar": "V90",
+"oboe_bar": "V90",
+"ratio": 0.889
+},
+{
+"piano_bar": "V91",
+"oboe_bar": "V91",
+"ratio": 1.0
+},
+{
+"piano_bar": "V92",
+"oboe_bar": "V92",
+"ratio": 0.941
+},
+{
+"piano_bar": "V93",
+"oboe_bar": "V93",
+"ratio": 1.0
+},
+{
+"piano_bar": "V94",
+"oboe_bar": "V94",
+"ratio": 1.0
+},
+{
+"piano_bar": "V95",
+"oboe_bar": "V95",
+"ratio": 0.824
+},
+{
+"piano_bar": "V96",
+"oboe_bar": "V96",
+"ratio": 0.842
+},
+{
+"piano_bar": "V97",
+"oboe_bar": "V97",
+"ratio": 0.842
+},
+{
+"piano_bar": "V98",
+"oboe_bar": "V98",
+"ratio": 1.0
+},
+{
+"piano_bar": "V99",
+"oboe_bar": "V99",
+"ratio": 1.0
+},
+{
+"piano_bar": "V100",
+"oboe_bar": "V100",
+"ratio": 0.8
+},
+{
+"piano_bar": "V101",
+"oboe_bar": "V101",
+"ratio": 0.889
+},
+{
+"piano_bar": "V102",
+"oboe_bar": "V102",
+"ratio": 1.0
+},
+{
+"piano_bar": "V103",
+"oboe_bar": "V103",
+"ratio": 0.8
+},
+{
+"piano_bar": "V104",
+"oboe_bar": "V104",
+"ratio": 0.833
+},
+{
+"piano_bar": "V105",
+"oboe_bar": "V105",
+"ratio": 0.923
+},
+{
+"piano_bar": "V106",
+"oboe_bar": "V106",
+"ratio": 1.0
+},
+{
+"piano_bar": "V108",
+"oboe_bar": "V108",
+"ratio": 1.0
+},
+{
+"piano_bar": "V109",
+"oboe_bar": "V109",
+"ratio": 1.0
+},
+{
+"piano_bar": "V110",
+"oboe_bar": "V110",
+"ratio": 1.0
+},
+{
+"piano_bar": "V111",
+"oboe_bar": "V111",
+"ratio": 1.0
+},
+{
+"piano_bar": "V112",
+"oboe_bar": "V112",
+"ratio": 1.0
+},
+{
+"piano_bar": "V113",
+"oboe_bar": "V113",
+"ratio": 1.0
+},
+{
+"piano_bar": "V114",
+"oboe_bar": "V114",
+"ratio": 1.0
+},
+{
+"piano_bar": "V115",
+"oboe_bar": "V115",
+"ratio": 1.0
+},
+{
+"piano_bar": "V116",
+"oboe_bar": "V116",
+"ratio": 1.0
+},
+{
+"piano_bar": "V117",
+"oboe_bar": "V117",
+"ratio": 1.0
+},
+{
+"piano_bar": "V118",
+"oboe_bar": "V118",
+"ratio": 1.0
+},
+{
+"piano_bar": "V119",
+"oboe_bar": "V119",
+"ratio": 1.0
+},
+{
+"piano_bar": "V120",
+"oboe_bar": "V120",
+"ratio": 1.0
+},
+{
+"piano_bar": "V121",
+"oboe_bar": "V121",
+"ratio": 1.0
+},
+{
+"piano_bar": "V122",
+"oboe_bar": "V122",
+"ratio": 1.0
+},
+{
+"piano_bar": "V123",
+"oboe_bar": "V123",
+"ratio": 0.923
+},
+{
+"piano_bar": "V124",
+"oboe_bar": "V124",
+"ratio": 1.0
+},
+{
+"piano_bar": "V125",
+"oboe_bar": "V125",
+"ratio": 1.0
+},
+{
+"piano_bar": "V126",
+"oboe_bar": "V126",
+"ratio": 1.0
+},
+{
+"piano_bar": "V127",
+"oboe_bar": "V127",
+"ratio": 0.923
+},
+{
+"piano_bar": "V128",
+"oboe_bar": "V128",
+"ratio": 1.0
+},
+{
+"piano_bar": "V129",
+"oboe_bar": "V129",
+"ratio": 0.571
+},
+{
+"piano_bar": "V130",
+"oboe_bar": "V130",
+"ratio": 1.0
+},
+{
+"piano_bar": "V132",
+"oboe_bar": "V132",
+"ratio": 1.0
+},
+{
+"piano_bar": "V133",
+"oboe_bar": "V133",
+"ratio": 1.0
+},
+{
+"piano_bar": "V134",
+"oboe_bar": "V134",
+"ratio": 1.0
+},
+{
+"piano_bar": "V135",
+"oboe_bar": "V135",
+"ratio": 1.0
+},
+{
+"piano_bar": "V136",
+"oboe_bar": "V136",
+"ratio": 1.0
+},
+{
+"piano_bar": "V137",
+"oboe_bar": "V137",
+"ratio": 1.0
+},
+{
+"piano_bar": "V138",
+"oboe_bar": "V138",
+"ratio": 1.0
+},
+{
+"piano_bar": "V139",
+"oboe_bar": "V139",
+"ratio": 1.0
+},
+{
+"piano_bar": "V140",
+"oboe_bar": "V140",
+"ratio": 1.0
+},
+{
+"piano_bar": "V141",
+"oboe_bar": "V141",
+"ratio": 1.0
+},
+{
+"piano_bar": "V142",
+"oboe_bar": "V142",
+"ratio": 1.0
+},
+{
+"piano_bar": "V143",
+"oboe_bar": "V143",
+"ratio": 1.0
+},
+{
+"piano_bar": "V144",
+"oboe_bar": "V144",
+"ratio": 1.0
+},
+{
+"piano_bar": "V145",
+"oboe_bar": "V145",
+"ratio": 1.0
+},
+{
+"piano_bar": "V146",
+"oboe_bar": "V146",
+"ratio": 1.0
+},
+{
+"piano_bar": "V147",
+"oboe_bar": "V147",
+"ratio": 1.0
+},
+{
+"piano_bar": "V148",
+"oboe_bar": "V148",
+"ratio": 1.0
+},
+{
+"piano_bar": "V149",
+"oboe_bar": "V149",
+"ratio": 1.0
+},
+{
+"piano_bar": "V150",
+"oboe_bar": "V150",
+"ratio": 1.0
+},
+{
+"piano_bar": "V151",
+"oboe_bar": "V151",
+"ratio": 0.8
+},
+{
+"piano_bar": "V152",
+"oboe_bar": "V152",
+"ratio": 1.0
+},
+{
+"piano_bar": "V153",
+"oboe_bar": "V153",
+"ratio": 1.0
+},
+{
+"piano_bar": "V154",
+"oboe_bar": "V154",
+"ratio": 0.889
+},
+{
+"piano_bar": "V155",
+"oboe_bar": "V155",
+"ratio": 1.0
+},
+{
+"piano_bar": "V156",
+"oboe_bar": "V156",
+"ratio": 1.0
+},
+{
+"piano_bar": "V157",
+"oboe_bar": "V157",
+"ratio": 1.0
+},
+{
+"piano_bar": "V158",
+"oboe_bar": "V158",
+"ratio": 1.0
+},
+{
+"piano_bar": "V159",
+"oboe_bar": "V159",
+"ratio": 0.769
+},
+{
+"piano_bar": "V160",
+"oboe_bar": "V160",
+"ratio": 0.769
+},
+{
+"piano_bar": "V161",
+"oboe_bar": "V161",
+"ratio": 1.0
+},
+{
+"piano_bar": "V162",
+"oboe_bar": "V162",
+"ratio": 1.0
+},
+{
+"piano_bar": "V163",
+"oboe_bar": "V163",
+"ratio": 0.64
+},
+{
+"piano_bar": "V164",
+"oboe_bar": "V164",
+"ratio": 0.828
+},
+{
+"piano_bar": "V165",
+"oboe_bar": "V165",
+"ratio": 1.0
+},
+{
+"piano_bar": "V166",
+"oboe_bar": "V166",
+"ratio": 0.828
+},
+{
+"piano_bar": "V168",
+"oboe_bar": "V167",
+"ratio": 1.0
+},
+{
+"piano_bar": "V169",
+"oboe_bar": "V168",
+"ratio": 0.333
+},
+{
+"piano_bar": "V170",
+"oboe_bar": "V170",
+"ratio": 1.0
+},
+{
+"piano_bar": "V171",
+"oboe_bar": "V171",
+"ratio": 1.0
+},
+{
+"piano_bar": "V172",
+"oboe_bar": "V172",
+"ratio": 1.0
+},
+{
+"piano_bar": "V173",
+"oboe_bar": "V173",
+"ratio": 1.0
+},
+{
+"piano_bar": "V174",
+"oboe_bar": "V174",
+"ratio": 1.0
+},
+{
+"piano_bar": "V175",
+"oboe_bar": "V175",
+"ratio": 1.0
+},
+{
+"piano_bar": "V176",
+"oboe_bar": "V176",
+"ratio": 1.0
+},
+{
+"piano_bar": "V177",
+"oboe_bar": "V177",
+"ratio": 1.0
+},
+{
+"piano_bar": "V208",
+"oboe_bar": "V208",
+"ratio": 1.0
+},
+{
+"piano_bar": "V209",
+"oboe_bar": "V209",
+"ratio": 1.0
+},
+{
+"piano_bar": "V210",
+"oboe_bar": "V210",
+"ratio": 1.0
+},
+{
+"piano_bar": "V211",
+"oboe_bar": "V211",
+"ratio": 1.0
+},
+{
+"piano_bar": "V212",
+"oboe_bar": "V212",
+"ratio": 0.8
+},
+{
+"piano_bar": "V213",
+"oboe_bar": "V213",
+"ratio": 1.0
+},
+{
+"piano_bar": "V214",
+"oboe_bar": "V214",
+"ratio": 1.0
+},
+{
+"piano_bar": "V215",
+"oboe_bar": "V215",
+"ratio": 1.0
+},
+{
+"piano_bar": "V216",
+"oboe_bar": "V216",
+"ratio": 1.0
+},
+{
+"piano_bar": "V217",
+"oboe_bar": "V217",
+"ratio": 0.2
+},
+{
+"piano_bar": "V218",
+"oboe_bar": "V218",
+"ratio": 1.0
+},
+{
+"piano_bar": "V219",
+"oboe_bar": "V219",
+"ratio": 1.0
+},
+{
+"piano_bar": "V220",
+"oboe_bar": "V220",
+"ratio": 1.0
+},
+{
+"piano_bar": "V221",
+"oboe_bar": "V221",
+"ratio": 0.182
+},
+{
+"piano_bar": "V222",
+"oboe_bar": "V222",
+"ratio": 1.0
+},
+{
+"piano_bar": "V223",
+"oboe_bar": "V223",
+"ratio": 1.0
+},
+{
+"piano_bar": "V224",
+"oboe_bar": "V224",
+"ratio": 1.0
+},
+{
+"piano_bar": "V225",
+"oboe_bar": "V225",
+"ratio": 1.0
+},
+{
+"piano_bar": "V226",
+"oboe_bar": "V226",
+"ratio": 0.889
+},
+{
+"piano_bar": "V227",
+"oboe_bar": "V227",
+"ratio": 1.0
+},
+{
+"piano_bar": "V228",
+"oboe_bar": "V228",
+"ratio": 1.0
+},
+{
+"piano_bar": "V229",
+"oboe_bar": "V229",
+"ratio": 1.0
+},
+{
+"piano_bar": "V230",
+"oboe_bar": "V230",
+"ratio": 1.0
+},
+{
+"piano_bar": "V231",
+"oboe_bar": "V231",
+"ratio": 0.875
+},
+{
+"piano_bar": "V232",
+"oboe_bar": "V232",
+"ratio": 1.0
+},
+{
+"piano_bar": "V233",
+"oboe_bar": "V233",
+"ratio": 0.889
+},
+{
+"piano_bar": "V234",
+"oboe_bar": "V234",
+"ratio": 1.0
+},
+{
+"piano_bar": "V235",
+"oboe_bar": "V235",
+"ratio": 0.8
+},
+{
+"piano_bar": "V237",
+"oboe_bar": "V236",
+"ratio": 1.0
+},
+{
+"piano_bar": "V238",
+"oboe_bar": "V237",
+"ratio": 0.267
+},
+{
+"piano_bar": "V239",
+"oboe_bar": "V238",
+"ratio": 0.091
+},
+{
+"piano_bar": "V240",
+"oboe_bar": "V240",
+"ratio": 1.0
+},
+{
+"piano_bar": "V241",
+"oboe_bar": "V241",
+"ratio": 0.541
+},
+{
+"piano_bar": "V242",
+"oboe_bar": "V242",
+"ratio": 1.0
+},
+{
+"piano_bar": "V243",
+"oboe_bar": "V243",
+"ratio": 1.0
+},
+{
+"piano_bar": "V244",
+"oboe_bar": "V244",
+"ratio": 1.0
+},
+{
+"piano_bar": "V245",
+"oboe_bar": "V245",
+"ratio": 1.0
+},
+{
+"piano_bar": "V246",
+"oboe_bar": "V246",
+"ratio": 1.0
+},
+{
+"piano_bar": "V247",
+"oboe_bar": "V247",
+"ratio": 1.0
+},
+{
+"piano_bar": "V248",
+"oboe_bar": "V248",
+"ratio": 1.0
+},
+{
+"piano_bar": "V249",
+"oboe_bar": "V249",
+"ratio": 1.0
+},
+{
+"piano_bar": "V250",
+"oboe_bar": "V250",
+"ratio": 1.0
+},
+{
+"piano_bar": "V251",
+"oboe_bar": "V251",
+"ratio": 1.0
+},
+{
+"piano_bar": "V252",
+"oboe_bar": "V252",
+"ratio": 1.0
+},
+{
+"piano_bar": "V253",
+"oboe_bar": "V253",
+"ratio": 1.0
+},
+{
+"piano_bar": "V254",
+"oboe_bar": "V254",
+"ratio": 1.0
+},
+{
+"piano_bar": "V255",
+"oboe_bar": "V255",
+"ratio": 1.0
+},
+{
+"piano_bar": "V256",
+"oboe_bar": "V256",
+"ratio": 1.0
+},
+{
+"piano_bar": "V257",
+"oboe_bar": "V257",
+"ratio": 1.0
+},
+{
+"piano_bar": "V258",
+"oboe_bar": "V258",
+"ratio": 1.0
+},
+{
+"piano_bar": "V259",
+"oboe_bar": "V259",
+"ratio": 1.0
+},
+{
+"piano_bar": "V260",
+"oboe_bar": "V260",
+"ratio": 1.0
+},
+{
+"piano_bar": "V261",
+"oboe_bar": "V261",
+"ratio": 0.667
+},
+{
+"piano_bar": "V262",
+"oboe_bar": "V262",
+"ratio": 1.0
+},
+{
+"piano_bar": "V263",
+"oboe_bar": "V263",
+"ratio": 1.0
+},
+{
+"piano_bar": "V264",
+"oboe_bar": "V264",
+"ratio": 1.0
+},
+{
+"piano_bar": "V265",
+"oboe_bar": "V265",
+"ratio": 1.0
+},
+{
+"piano_bar": "V266",
+"oboe_bar": "V266",
+"ratio": 1.0
+},
+{
+"piano_bar": "V267",
+"oboe_bar": "V267",
+"ratio": 1.0
+},
+{
+"piano_bar": "V268",
+"oboe_bar": "V268",
+"ratio": 1.0
+},
+{
+"piano_bar": "V269",
+"oboe_bar": "V269",
+"ratio": 1.0
+},
+{
+"piano_bar": "V270",
+"oboe_bar": "V270",
+"ratio": 1.0
+},
+{
+"piano_bar": "V271",
+"oboe_bar": "V271",
+"ratio": 1.0
+},
+{
+"piano_bar": "V272",
+"oboe_bar": "V272",
+"ratio": 1.0
+},
+{
+"piano_bar": "V273",
+"oboe_bar": "V273",
+"ratio": 1.0
+},
+{
+"piano_bar": "V274",
+"oboe_bar": "V274",
+"ratio": 1.0
+},
+{
+"piano_bar": "V275",
+"oboe_bar": "V275",
+"ratio": 1.0
+},
+{
+"piano_bar": "V276",
+"oboe_bar": "V276",
+"ratio": 1.0
+},
+{
+"piano_bar": "V277",
+"oboe_bar": "V277",
+"ratio": 1.0
+},
+{
+"piano_bar": "V278",
+"oboe_bar": "V278",
+"ratio": 1.0
+},
+{
+"piano_bar": "V279",
+"oboe_bar": "V279",
+"ratio": 1.0
+},
+{
+"piano_bar": "V280",
+"oboe_bar": "V280",
+"ratio": 1.0
+},
+{
+"piano_bar": "V281",
+"oboe_bar": "V281",
+"ratio": 1.0
+},
+{
+"piano_bar": "V282",
+"oboe_bar": "V282",
+"ratio": 1.0
+},
+{
+"piano_bar": "V283",
+"oboe_bar": "V283",
+"ratio": 1.0
+},
+{
+"piano_bar": "V284",
+"oboe_bar": "V284",
+"ratio": 1.0
+},
+{
+"piano_bar": "V285",
+"oboe_bar": "V285",
+"ratio": 0.941
+},
+{
+"piano_bar": "V286",
+"oboe_bar": "V286",
+"ratio": 1.0
+},
+{
+"piano_bar": "V287",
+"oboe_bar": "V287",
+"ratio": 1.0
+},
+{
+"piano_bar": "V288",
+"oboe_bar": "V288",
+"ratio": 1.0
+},
+{
+"piano_bar": "V289",
+"oboe_bar": "V289",
+"ratio": 1.0
+},
+{
+"piano_bar": "V290",
+"oboe_bar": "V290",
+"ratio": 1.0
+},
+{
+"piano_bar": "V291",
+"oboe_bar": "V291",
+"ratio": 1.0
+},
+{
+"piano_bar": "V292",
+"oboe_bar": "V292",
+"ratio": 1.0
+},
+{
+"piano_bar": "V293",
+"oboe_bar": "V293",
+"ratio": 1.0
+},
+{
+"piano_bar": "V294",
+"oboe_bar": "V294",
+"ratio": 1.0
+},
+{
+"piano_bar": "V295",
+"oboe_bar": "V295",
+"ratio": 1.0
+},
+{
+"piano_bar": "V296",
+"oboe_bar": "V296",
+"ratio": 1.0
+},
+{
+"piano_bar": "V297",
+"oboe_bar": "V297",
+"ratio": 1.0
+},
+{
+"piano_bar": "V298",
+"oboe_bar": "V298",
+"ratio": 1.0
+},
+{
+"piano_bar": "V299",
+"oboe_bar": "V299",
+"ratio": 1.0
+},
+{
+"piano_bar": "V300",
+"oboe_bar": "V300",
+"ratio": 1.0
+},
+{
+"piano_bar": "V301",
+"oboe_bar": "V301",
+"ratio": 1.0
+},
+{
+"piano_bar": "V302",
+"oboe_bar": "V302",
+"ratio": 1.0
+},
+{
+"piano_bar": "V303",
+"oboe_bar": "V303",
+"ratio": 1.0
+},
+{
+"piano_bar": "V304",
+"oboe_bar": "V304",
+"ratio": 1.0
+}
+]
+}

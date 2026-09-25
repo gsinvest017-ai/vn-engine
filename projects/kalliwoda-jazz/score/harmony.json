@@ -1,0 +1,10974 @@
+{
+ "work": "J. W. Kalliwoda, Concertino for Oboe and Orchestra in F, Op.110",
+ "numbering": "oboe-part bar numbers per movement: A=I. Allegro con fuoco (1-167), R=II. Romanze (1-89), V=III. Vivace (1-308). The piano score has one extra tutti bar in mvt I (168 bars); auto labels were aligned via the oboe staff.",
+ "method": {
+  "manual": "Romanze: read bar by bar from the piano reduction images (Alex'Not, IMSLP #907463); bass + chord tones of both hands; conf h/m/l. auto_guess = OMR template match for comparison.",
+  "auto": "Allegro/Vivace: Audiveris OMR of the piano staves, pitches re-derived from the true key signature, duration-weighted template matching per half bar. NOT hand-verified; expect errors where OMR misread chords, tremolos or cue notes. 'fit' ~1.0+ = clean triad/7th."
+ },
+ "chord_symbol_format": "root[quality][/bass]; quality in '', m, 7, maj7, m7, dim, dim7, m7b5, aug",
+ "bars": [
+  {
+   "bar": "A1",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.84
+    },
+    {
+     "beat": 3,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A1"
+  },
+  {
+   "bar": "A2",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    },
+    {
+     "beat": 3,
+     "symbol": "D7/C",
+     "roman": "VI42",
+     "fit": 0.72
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A2"
+  },
+  {
+   "bar": "A3",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/C",
+     "roman": "vi42",
+     "fit": 0.96
+    },
+    {
+     "beat": 3,
+     "symbol": "C7/G",
+     "roman": "V43",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A3"
+  },
+  {
+   "bar": "A4",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.84
+    },
+    {
+     "beat": 3,
+     "symbol": "F7/Eb",
+     "roman": "I42",
+     "fit": 0.54
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A4"
+  },
+  {
+   "bar": "A5",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bbmaj7/C",
+     "roman": "IVmaj/C",
+     "fit": 0.752
+    },
+    {
+     "beat": 3,
+     "symbol": "Bbmaj7/A",
+     "roman": "IVmaj42",
+     "fit": 0.71
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A5"
+  },
+  {
+   "bar": "A6",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm",
+     "roman": "ii",
+     "fit": 1.003
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A6"
+  },
+  {
+   "bar": "A7",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G",
+     "roman": "II",
+     "fit": 0.84
+    },
+    {
+     "beat": 3,
+     "symbol": "Gm/D",
+     "roman": "ii64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A7"
+  },
+  {
+   "bar": "A8",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "D",
+     "roman": "VI",
+     "fit": 0.84
+    },
+    {
+     "beat": 3,
+     "symbol": "Ebmaj7/D",
+     "roman": "bVIImaj42",
+     "fit": 0.72
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A8"
+  },
+  {
+   "bar": "A9",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ebmaj7/D",
+     "roman": "bVIImaj42",
+     "fit": 0.96
+    },
+    {
+     "beat": 3,
+     "symbol": "D7/A",
+     "roman": "VI43",
+     "fit": 0.715
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A9"
+  },
+  {
+   "bar": "A10",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G",
+     "roman": "II",
+     "fit": 0.84
+    },
+    {
+     "beat": 3,
+     "symbol": "G7/F",
+     "roman": "II42",
+     "fit": 0.524
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A10"
+  },
+  {
+   "bar": "A11",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/D",
+     "roman": "V/D",
+     "fit": 0.786
+    },
+    {
+     "beat": 3,
+     "symbol": "E7/B",
+     "roman": "VII43",
+     "fit": 0.71
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A11"
+  },
+  {
+   "bar": "A12",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "A",
+     "roman": "III",
+     "fit": 0.993
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A12"
+  },
+  {
+   "bar": "A13",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bbmaj7/A",
+     "roman": "IVmaj42",
+     "fit": 0.8
+    },
+    {
+     "beat": 3,
+     "symbol": "Bb",
+     "roman": "IV",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A13"
+  },
+  {
+   "bar": "A14",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/A",
+     "roman": "I6",
+     "fit": 0.967
+    },
+    {
+     "beat": 3,
+     "symbol": "F/A",
+     "roman": "I6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A14"
+  },
+  {
+   "bar": "A15",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm/F#",
+     "roman": "ii42",
+     "fit": 0.92
+    },
+    {
+     "beat": 3,
+     "symbol": "Gm",
+     "roman": "ii",
+     "fit": 0.693
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A15"
+  },
+  {
+   "bar": "A16",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 0.978
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A16"
+  },
+  {
+   "bar": "A17",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7/D",
+     "roman": "II43",
+     "fit": 0.96
+    },
+    {
+     "beat": 3,
+     "symbol": "G7/B",
+     "roman": "II65",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A17"
+  },
+  {
+   "bar": "A18",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A18"
+  },
+  {
+   "bar": "A19",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 0.984
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A19"
+  },
+  {
+   "bar": "A20",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.024
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A20"
+  },
+  {
+   "bar": "A21",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Am7/G",
+     "roman": "iii42",
+     "fit": 0.84
+    },
+    {
+     "beat": 3,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A21"
+  },
+  {
+   "bar": "A22",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.675
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A22"
+  },
+  {
+   "bar": "A23",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.714
+    },
+    {
+     "beat": 3,
+     "symbol": "Fmaj7/C",
+     "roman": "Imaj43",
+     "fit": 0.673
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A23"
+  },
+  {
+   "bar": "A24",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "Gm",
+     "roman": "ii",
+     "fit": 0.716
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A24"
+  },
+  {
+   "bar": "A25",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.657
+    },
+    {
+     "beat": 3,
+     "symbol": "Am7/C",
+     "roman": "iii65",
+     "fit": 0.673
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A25"
+  },
+  {
+   "bar": "A26",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7/E",
+     "roman": "V65",
+     "fit": 0.96
+    },
+    {
+     "beat": 3,
+     "symbol": "Am7/C",
+     "roman": "iii65",
+     "fit": 0.793
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A26"
+  },
+  {
+   "bar": "A27",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.922
+    },
+    {
+     "beat": 3,
+     "symbol": "Fmaj7",
+     "roman": "Imaj7",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A27"
+  },
+  {
+   "bar": "A28",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.986
+    },
+    {
+     "beat": 3,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.738
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A28"
+  },
+  {
+   "bar": "A29",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.732
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A29"
+  },
+  {
+   "bar": "A30",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/A",
+     "roman": "I6",
+     "fit": 0.938
+    },
+    {
+     "beat": 3,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.018
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A30"
+  },
+  {
+   "bar": "A31",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.98
+    },
+    {
+     "beat": 3,
+     "symbol": "Fmaj7",
+     "roman": "Imaj7",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A31"
+  },
+  {
+   "bar": "A32",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Faug",
+     "roman": "I+",
+     "fit": 1.009
+    },
+    {
+     "beat": 3,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 0.87
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A32"
+  },
+  {
+   "bar": "A33",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C7/F",
+     "roman": "V/F",
+     "fit": 0.793
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A33"
+  },
+  {
+   "bar": "A34",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.035
+    },
+    {
+     "beat": 3,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A34"
+  },
+  {
+   "bar": "A35",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.937
+    },
+    {
+     "beat": 3,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.937
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A35"
+  },
+  {
+   "bar": "A36",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.009
+    },
+    {
+     "beat": 3,
+     "symbol": "Fmaj7",
+     "roman": "Imaj7",
+     "fit": 0.826
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A36"
+  },
+  {
+   "bar": "A37",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A37"
+  },
+  {
+   "bar": "A38",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fmaj7/E",
+     "roman": "Imaj42",
+     "fit": 0.96
+    },
+    {
+     "beat": 3,
+     "symbol": "C7/G",
+     "roman": "V43",
+     "fit": 0.59
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A38"
+  },
+  {
+   "bar": "A39",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "D7/C",
+     "roman": "VI42",
+     "fit": 0.686
+    },
+    {
+     "beat": 3,
+     "symbol": "A7",
+     "roman": "III7",
+     "fit": 0.425
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A39"
+  },
+  {
+   "bar": "A40",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm7/F",
+     "roman": "ii42",
+     "fit": 0.59
+    },
+    {
+     "beat": 3,
+     "symbol": "E7/D",
+     "roman": "VII42",
+     "fit": 0.59
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A40"
+  },
+  {
+   "bar": "A41",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.955
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A41"
+  },
+  {
+   "bar": "A42",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.957
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A42"
+  },
+  {
+   "bar": "A43",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.917
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm7/C",
+     "roman": "vi42",
+     "fit": 0.849
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A43"
+  },
+  {
+   "bar": "A44",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ddim7/C",
+     "roman": "vi°42",
+     "fit": 0.793
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm7b5/C",
+     "roman": "viø42",
+     "fit": 0.793
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A44"
+  },
+  {
+   "bar": "A45",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7b5/C",
+     "roman": "viø42",
+     "fit": 0.793
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A45"
+  },
+  {
+   "bar": "A46",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.94
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A46"
+  },
+  {
+   "bar": "A47",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.873
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A47"
+  },
+  {
+   "bar": "A48",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Cdim7",
+     "roman": "v°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A48"
+  },
+  {
+   "bar": "A49",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A49"
+  },
+  {
+   "bar": "A50",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A50"
+  },
+  {
+   "bar": "A51",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A51"
+  },
+  {
+   "bar": "A52",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A52"
+  },
+  {
+   "bar": "A53",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A53"
+  },
+  {
+   "bar": "A54",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A54"
+  },
+  {
+   "bar": "A55",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A55"
+  },
+  {
+   "bar": "A56",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A56"
+  },
+  {
+   "bar": "A57",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A57"
+  },
+  {
+   "bar": "A58",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Faug",
+     "roman": "I+",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A58"
+  },
+  {
+   "bar": "A59",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A59"
+  },
+  {
+   "bar": "A60",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A60"
+  },
+  {
+   "bar": "A61",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A61"
+  },
+  {
+   "bar": "A62",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A62"
+  },
+  {
+   "bar": "A63",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Am/E",
+     "roman": "iii64",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "E",
+     "roman": "VII",
+     "fit": 0.98
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A63"
+  },
+  {
+   "bar": "A64",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Am",
+     "roman": "iii",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "F#dim7",
+     "roman": "#i°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A64"
+  },
+  {
+   "bar": "A65",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "V64",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A65"
+  },
+  {
+   "bar": "A66",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.96
+    },
+    {
+     "beat": 3,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A66"
+  },
+  {
+   "bar": "A67",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.949
+    },
+    {
+     "beat": 3,
+     "symbol": "Bbdim",
+     "roman": "iv°",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A67"
+  },
+  {
+   "bar": "A68",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Cdim7",
+     "roman": "v°7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "Cdim7",
+     "roman": "v°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A68"
+  },
+  {
+   "bar": "A69",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7b5/C",
+     "roman": "viø42",
+     "fit": 0.86
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm7b5/C",
+     "roman": "viø42",
+     "fit": 0.64
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A69"
+  },
+  {
+   "bar": "A70",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.62
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A70"
+  },
+  {
+   "bar": "A71",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C7/G",
+     "roman": "V43",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A71"
+  },
+  {
+   "bar": "A72",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "G7/B",
+     "roman": "II65",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A72"
+  },
+  {
+   "bar": "A73",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A73"
+  },
+  {
+   "bar": "A74",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C7/G",
+     "roman": "V43",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A74"
+  },
+  {
+   "bar": "A75",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Adim7",
+     "roman": "iii°7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "F#aug",
+     "roman": "bII+",
+     "fit": 0.705
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A75"
+  },
+  {
+   "bar": "A76",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm",
+     "roman": "ii",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A76"
+  },
+  {
+   "bar": "A77",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ddim7",
+     "roman": "vi°7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "Abdim7",
+     "roman": "#ii°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A77"
+  },
+  {
+   "bar": "A78",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ddim7",
+     "roman": "vi°7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm7b5/B",
+     "roman": "viø42",
+     "fit": 0.71
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A78"
+  },
+  {
+   "bar": "A79",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A79"
+  },
+  {
+   "bar": "A80",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "F/A",
+     "roman": "I6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A80"
+  },
+  {
+   "bar": "A81",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A81"
+  },
+  {
+   "bar": "A82",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "Am7/C",
+     "roman": "iii65",
+     "fit": 0.673
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A82"
+  },
+  {
+   "bar": "A83",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A83"
+  },
+  {
+   "bar": "A84",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm",
+     "roman": "ii",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "Bbmaj7/D",
+     "roman": "IVmaj65",
+     "fit": 0.673
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A84"
+  },
+  {
+   "bar": "A85",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A85"
+  },
+  {
+   "bar": "A86",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bbmaj7/A",
+     "roman": "IVmaj42",
+     "fit": 0.84
+    },
+    {
+     "beat": 3,
+     "symbol": "Am",
+     "roman": "iii",
+     "fit": 0.835
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A86"
+  },
+  {
+   "bar": "A87",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 0.957
+    },
+    {
+     "beat": 3,
+     "symbol": "C/E",
+     "roman": "V6",
+     "fit": 0.909
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A87"
+  },
+  {
+   "bar": "A88",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F#dim7",
+     "roman": "#i°7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "Ebdim7",
+     "roman": "#vi°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A88"
+  },
+  {
+   "bar": "A89",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Adim7",
+     "roman": "iii°7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "Gmaj7/F#",
+     "roman": "IImaj42",
+     "fit": 0.47
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A89"
+  },
+  {
+   "bar": "A90",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "V64",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "Am7/G",
+     "roman": "iii42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A90"
+  },
+  {
+   "bar": "A91",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A91"
+  },
+  {
+   "bar": "A92",
+   "time": "4/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A92"
+  },
+  {
+   "bar": "A93",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A93"
+  },
+  {
+   "bar": "A94",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Caug",
+     "roman": "I+",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A94"
+  },
+  {
+   "bar": "A95",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "IV64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A95"
+  },
+  {
+   "bar": "A96",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fm/C",
+     "roman": "iv64",
+     "fit": 0.947
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A96"
+  },
+  {
+   "bar": "A97",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A97"
+  },
+  {
+   "bar": "A98",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Cmaj7/B",
+     "roman": "Imaj42",
+     "fit": 0.71
+    },
+    {
+     "beat": 3,
+     "symbol": "B7",
+     "roman": "VII7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A98"
+  },
+  {
+   "bar": "A99",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Cmaj7/D",
+     "roman": "Imaj/D",
+     "fit": 0.849
+    },
+    {
+     "beat": 3,
+     "symbol": "D7",
+     "roman": "II7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A99"
+  },
+  {
+   "bar": "A100",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ddim7",
+     "roman": "ii°7",
+     "fit": 0.915
+    },
+    {
+     "beat": 3,
+     "symbol": "D7",
+     "roman": "II7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A100"
+  },
+  {
+   "bar": "A101",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "A7/G",
+     "roman": "VI42",
+     "fit": 0.686
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A101"
+  },
+  {
+   "bar": "A102",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "ii",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "D",
+     "roman": "II",
+     "fit": 0.793
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A102"
+  },
+  {
+   "bar": "A103",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "ii",
+     "fit": 0.997
+    },
+    {
+     "beat": 3,
+     "symbol": "Bdim7",
+     "roman": "vii°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A103"
+  },
+  {
+   "bar": "A104",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "F",
+     "roman": "IV",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A104"
+  },
+  {
+   "bar": "A105",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "E",
+     "roman": "III",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "G",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A105"
+  },
+  {
+   "bar": "A106",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 0.944
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A106"
+  },
+  {
+   "bar": "A107",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Cmaj7",
+     "roman": "Imaj7",
+     "fit": 0.882
+    },
+    {
+     "beat": 3,
+     "symbol": "E",
+     "roman": "III",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A107"
+  },
+  {
+   "bar": "A108",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "IV",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm/F",
+     "roman": "ii6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A108"
+  },
+  {
+   "bar": "A109",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "G",
+     "roman": "V",
+     "fit": 0.898
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A109"
+  },
+  {
+   "bar": "A110",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 0.886
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A110"
+  },
+  {
+   "bar": "A111",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 0.96
+    },
+    {
+     "beat": 3,
+     "symbol": "A",
+     "roman": "VI",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A111"
+  },
+  {
+   "bar": "A112",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/F",
+     "roman": "ii6",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm/F",
+     "roman": "ii6",
+     "fit": 0.88
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A112"
+  },
+  {
+   "bar": "A113",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "Bdim",
+     "roman": "vii°",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A113"
+  },
+  {
+   "bar": "A114",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A114"
+  },
+  {
+   "bar": "A115",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A115"
+  },
+  {
+   "bar": "A116",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/F",
+     "roman": "ii6",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm/F",
+     "roman": "ii6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A116"
+  },
+  {
+   "bar": "A117",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A117"
+  },
+  {
+   "bar": "A118",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Am7/G",
+     "roman": "vi42",
+     "fit": 0.96
+    },
+    {
+     "beat": 3,
+     "symbol": "Am7/G",
+     "roman": "vi42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A118"
+  },
+  {
+   "bar": "A119",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Am7/G",
+     "roman": "vi42",
+     "fit": 0.96
+    },
+    {
+     "beat": 3,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A119"
+  },
+  {
+   "bar": "A120",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/F",
+     "roman": "ii6",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm/F",
+     "roman": "ii6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A120"
+  },
+  {
+   "bar": "A121",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A121"
+  },
+  {
+   "bar": "A122",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A122"
+  },
+  {
+   "bar": "A123",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 0.915
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A123"
+  },
+  {
+   "bar": "A124",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A124"
+  },
+  {
+   "bar": "A125",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 0.915
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A125"
+  },
+  {
+   "bar": "A126",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A126"
+  },
+  {
+   "bar": "A127",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "I7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "C7/G",
+     "roman": "I43",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A127"
+  },
+  {
+   "bar": "A128",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7",
+     "roman": "ii7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "Em7",
+     "roman": "iii7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A128"
+  },
+  {
+   "bar": "A129",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fmaj7",
+     "roman": "IVmaj7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A129"
+  },
+  {
+   "bar": "A130",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 0.938
+    },
+    {
+     "beat": 3,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A130"
+  },
+  {
+   "bar": "A131",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 0.977
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A131"
+  },
+  {
+   "bar": "A132",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 0.923
+    },
+    {
+     "beat": 3,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A132"
+  },
+  {
+   "bar": "A133",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 0.977
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A133"
+  },
+  {
+   "bar": "A134",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 0.96
+    },
+    {
+     "beat": 3,
+     "symbol": "Fmaj7",
+     "roman": "IVmaj7",
+     "fit": 0.753
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A134"
+  },
+  {
+   "bar": "A135",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 0.833
+    },
+    {
+     "beat": 3,
+     "symbol": "F#m7b5",
+     "roman": "#ivø7",
+     "fit": 0.873
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A135"
+  },
+  {
+   "bar": "A136",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A136"
+  },
+  {
+   "bar": "A137",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [],
+   "source": "auto",
+   "piano_score_bar": "A137"
+  },
+  {
+   "bar": "A138",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/E",
+     "roman": "I6",
+     "fit": 1.0
+    },
+    {
+     "beat": 3,
+     "symbol": "B/D",
+     "roman": "VII6",
+     "fit": 0.6
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A138"
+  },
+  {
+   "bar": "A139",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "I7",
+     "fit": 0.92
+    },
+    {
+     "beat": 3,
+     "symbol": "F7",
+     "roman": "IV7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A139"
+  },
+  {
+   "bar": "A140",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb7",
+     "roman": "bVII7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 0.72
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A140"
+  },
+  {
+   "bar": "A141",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A141"
+  },
+  {
+   "bar": "A142",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A142"
+  },
+  {
+   "bar": "A143",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 0.897
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A143"
+  },
+  {
+   "bar": "A144",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.016
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A144"
+  },
+  {
+   "bar": "A145",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G/B",
+     "roman": "V6",
+     "fit": 0.97
+    },
+    {
+     "beat": 3,
+     "symbol": "G/B",
+     "roman": "V6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A145"
+  },
+  {
+   "bar": "A146",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "ii",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "Dm",
+     "roman": "ii",
+     "fit": 1.009
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A146"
+  },
+  {
+   "bar": "A147",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Am/C",
+     "roman": "vi6",
+     "fit": 0.97
+    },
+    {
+     "beat": 3,
+     "symbol": "Am/C",
+     "roman": "vi6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A147"
+  },
+  {
+   "bar": "A148",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dbaug/E",
+     "roman": "bII+6",
+     "fit": 0.702
+    },
+    {
+     "beat": 3,
+     "symbol": "A",
+     "roman": "VI",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A148"
+  },
+  {
+   "bar": "A149",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/C",
+     "roman": "ii42",
+     "fit": 0.869
+    },
+    {
+     "beat": 3,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A149"
+  },
+  {
+   "bar": "A150",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Cmaj7",
+     "roman": "Imaj7",
+     "fit": 0.64
+    },
+    {
+     "beat": 3,
+     "symbol": "Em7/G",
+     "roman": "iii65",
+     "fit": 0.71
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A150"
+  },
+  {
+   "bar": "A151",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A151"
+  },
+  {
+   "bar": "A152",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 0.84
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "I7",
+     "fit": 0.675
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A152"
+  },
+  {
+   "bar": "A153",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "IV64",
+     "fit": 0.692
+    },
+    {
+     "beat": 3,
+     "symbol": "Fmaj7/C",
+     "roman": "IVmaj43",
+     "fit": 0.609
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A153"
+  },
+  {
+   "bar": "A154",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "I7",
+     "fit": 0.955
+    },
+    {
+     "beat": 3,
+     "symbol": "C7/G",
+     "roman": "I43",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A154"
+  },
+  {
+   "bar": "A155",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "I7",
+     "fit": 0.723
+    },
+    {
+     "beat": 3,
+     "symbol": "F/C",
+     "roman": "IV64",
+     "fit": 0.68
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A155"
+  },
+  {
+   "bar": "A156",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7/E",
+     "roman": "I65",
+     "fit": 0.96
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "I7",
+     "fit": 1.004
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A156"
+  },
+  {
+   "bar": "A157",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "I7",
+     "fit": 0.805
+    },
+    {
+     "beat": 3,
+     "symbol": "Em7b5/G",
+     "roman": "iiiø65",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A157"
+  },
+  {
+   "bar": "A158",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Em7b5",
+     "roman": "iiiø7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "Gm/Bb",
+     "roman": "v6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A158"
+  },
+  {
+   "bar": "A159",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gdim",
+     "roman": "v°",
+     "fit": 1.08
+    },
+    {
+     "beat": 3,
+     "symbol": "Dbdim7",
+     "roman": "#i°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A159"
+  },
+  {
+   "bar": "A160",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gdim7",
+     "roman": "v°7",
+     "fit": 1.04
+    },
+    {
+     "beat": 3,
+     "symbol": "Edim7",
+     "roman": "iii°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A160"
+  },
+  {
+   "bar": "A161",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ebaug",
+     "roman": "bIII+",
+     "fit": 0.767
+    },
+    {
+     "beat": 3,
+     "symbol": "Eb7",
+     "roman": "bIII7",
+     "fit": 0.977
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A161"
+  },
+  {
+   "bar": "A162",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "bVI",
+     "fit": 1.018
+    },
+    {
+     "beat": 3,
+     "symbol": "Db",
+     "roman": "bII",
+     "fit": 0.997
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A162"
+  },
+  {
+   "bar": "A163",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bbm",
+     "roman": "bvii",
+     "fit": 0.767
+    },
+    {
+     "beat": 3,
+     "symbol": "Eb",
+     "roman": "bIII",
+     "fit": 0.997
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A163"
+  },
+  {
+   "bar": "A164",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "bVI",
+     "fit": 1.03
+    },
+    {
+     "beat": 3,
+     "symbol": "Cmaj7/G",
+     "roman": "Imaj43",
+     "fit": 0.86
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A164"
+  },
+  {
+   "bar": "A165",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F7",
+     "roman": "IV7",
+     "fit": 0.977
+    },
+    {
+     "beat": 3,
+     "symbol": "Bbm",
+     "roman": "bvii",
+     "fit": 0.767
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A165"
+  },
+  {
+   "bar": "A166",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab/Eb",
+     "roman": "bVI64",
+     "fit": 0.95
+    },
+    {
+     "beat": 3,
+     "symbol": "Gm7/F",
+     "roman": "v42",
+     "fit": 0.59
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A166"
+  },
+  {
+   "bar": "A167",
+   "time": "4/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Db7/D",
+     "roman": "bII/D",
+     "fit": 0.59
+    },
+    {
+     "beat": 3,
+     "symbol": "Eb7/Bb",
+     "roman": "bIII43",
+     "fit": 0.71
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "A167"
+  },
+  {
+   "bar": "R1",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R2",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R3",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R4",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab7/Gb",
+     "roman": "I42"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab7"
+   ]
+  },
+  {
+   "bar": "R5",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Db/Ab",
+     "roman": "IV64"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Db/Ab"
+   ]
+  },
+  {
+   "bar": "R6",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab/Eb",
+     "roman": "I64"
+    },
+    {
+     "beat": 3,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Abmaj7"
+   ]
+  },
+  {
+   "bar": "R7",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R8",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Db/F",
+     "roman": "IV6"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Dbmaj7"
+   ]
+  },
+  {
+   "bar": "R9",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab/Eb",
+     "roman": "I64"
+    },
+    {
+     "beat": 3,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Abmaj7/Eb"
+   ]
+  },
+  {
+   "bar": "R10",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R11",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab/Eb"
+   ]
+  },
+  {
+   "bar": "R12",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7/Bb",
+     "roman": "V43"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Eb7"
+   ]
+  },
+  {
+   "bar": "R13",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    },
+    {
+     "beat": 3,
+     "symbol": "Adim7",
+     "roman": "#i°7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Ab7/Eb"
+   ]
+  },
+  {
+   "bar": "R14",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7/Bb",
+     "roman": "V43"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Eb7"
+   ]
+  },
+  {
+   "bar": "R15",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Abmaj7/G"
+   ]
+  },
+  {
+   "bar": "R16",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab/C",
+     "roman": "I6"
+    },
+    {
+     "beat": 3,
+     "symbol": "Bb7/D",
+     "roman": "II65"
+    }
+   ],
+   "source": "manual",
+   "confidence": "l",
+   "auto_guess": [
+    "Cm7/Bb"
+   ]
+  },
+  {
+   "bar": "R17",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "l",
+   "auto_guess": [
+    "Eb7"
+   ]
+  },
+  {
+   "bar": "R18",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fm/Ab",
+     "roman": "vi6"
+    },
+    {
+     "beat": 3,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "l",
+   "auto_guess": [
+    "Fm/Ab"
+   ]
+  },
+  {
+   "bar": "R19",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb/Bb",
+     "roman": "V64"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Eb/Bb"
+   ]
+  },
+  {
+   "bar": "R20",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb7",
+     "roman": "II7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Bb7"
+   ]
+  },
+  {
+   "bar": "R21",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb",
+     "roman": "V"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Eb"
+   ]
+  },
+  {
+   "bar": "R22",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7/E",
+     "roman": "III65"
+    }
+   ],
+   "source": "manual",
+   "confidence": "l",
+   "auto_guess": [
+    null
+   ]
+  },
+  {
+   "bar": "R23",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bbm7",
+     "roman": "ii7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "l",
+   "auto_guess": [
+    null
+   ]
+  },
+  {
+   "bar": "R24",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gb/Bb",
+     "roman": "bVII6"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "F#/Bb"
+   ]
+  },
+  {
+   "bar": "R25",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab7/C",
+     "roman": "I65"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Cm7b5/Eb"
+   ]
+  },
+  {
+   "bar": "R26",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bbm7",
+     "roman": "ii7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Bbm7/Ab"
+   ]
+  },
+  {
+   "bar": "R27",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Eb7"
+   ]
+  },
+  {
+   "bar": "R28",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Eb7"
+   ]
+  },
+  {
+   "bar": "R29",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bbm/Db",
+     "roman": "ii6"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Bbm/Db"
+   ]
+  },
+  {
+   "bar": "R30",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab/Eb",
+     "roman": "I64"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab/Eb"
+   ]
+  },
+  {
+   "bar": "R31",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Eb7"
+   ]
+  },
+  {
+   "bar": "R32",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    },
+    {
+     "beat": 3,
+     "symbol": "Ab7",
+     "roman": "I7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab7"
+   ]
+  },
+  {
+   "bar": "R33",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F7",
+     "roman": "VI7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "F7"
+   ]
+  },
+  {
+   "bar": "R34",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bbm7",
+     "roman": "ii7"
+    },
+    {
+     "beat": 3,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Bbm7/Eb"
+   ]
+  },
+  {
+   "bar": "R35",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Bbm7/Db"
+   ]
+  },
+  {
+   "bar": "R36",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab/C"
+   ]
+  },
+  {
+   "bar": "R37",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab/C",
+     "roman": "I6"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "C7"
+   ]
+  },
+  {
+   "bar": "R38",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "III7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "C7"
+   ]
+  },
+  {
+   "bar": "R39",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "III7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Caug"
+   ]
+  },
+  {
+   "bar": "R40",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fm",
+     "roman": "vi"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Fm"
+   ]
+  },
+  {
+   "bar": "R41",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fm",
+     "roman": "i"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Fm"
+   ]
+  },
+  {
+   "bar": "R42",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bbm/F",
+     "roman": "iv64"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Bbm/F"
+   ]
+  },
+  {
+   "bar": "R43",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bdim7/F",
+     "roman": "#iv°43"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Fdim7"
+   ]
+  },
+  {
+   "bar": "R44",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "C"
+   ]
+  },
+  {
+   "bar": "R45",
+   "time": "3/8",
+   "key": "Eb minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ebm",
+     "roman": "i"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ebm"
+   ]
+  },
+  {
+   "bar": "R46",
+   "time": "3/8",
+   "key": "Eb minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Cb/Eb",
+     "roman": "VI6"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "B/Eb"
+   ]
+  },
+  {
+   "bar": "R47",
+   "time": "3/8",
+   "key": "Eb minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Adim7/Eb",
+     "roman": "#iv°43"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ebdim7"
+   ]
+  },
+  {
+   "bar": "R48",
+   "time": "3/8",
+   "key": "Eb minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb",
+     "roman": "V"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Bb"
+   ]
+  },
+  {
+   "bar": "R49",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bbm",
+     "roman": "iv"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Bbm"
+   ]
+  },
+  {
+   "bar": "R50",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "C7"
+   ]
+  },
+  {
+   "bar": "R51",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bbm",
+     "roman": "iv"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Bbm"
+   ]
+  },
+  {
+   "bar": "R52",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "C7"
+   ]
+  },
+  {
+   "bar": "R53",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fm",
+     "roman": "i"
+    },
+    {
+     "beat": 3,
+     "symbol": "C7/G",
+     "roman": "V43"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Fm"
+   ]
+  },
+  {
+   "bar": "R54",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dbmaj7/Ab",
+     "roman": "VImaj43"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Dbmaj7/Ab"
+   ]
+  },
+  {
+   "bar": "R55",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dbmaj7/C",
+     "roman": "VImaj42"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Dbmaj7/C"
+   ]
+  },
+  {
+   "bar": "R56",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fm",
+     "roman": "i"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Fm"
+   ]
+  },
+  {
+   "bar": "R57",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fm",
+     "roman": "i"
+    },
+    {
+     "beat": 3,
+     "symbol": "C7/G",
+     "roman": "V43"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Fm"
+   ]
+  },
+  {
+   "bar": "R58",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fm",
+     "roman": "i"
+    },
+    {
+     "beat": 3,
+     "symbol": "Bbm7",
+     "roman": "iv7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Fm"
+   ]
+  },
+  {
+   "bar": "R59",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fm/C",
+     "roman": "i64"
+    },
+    {
+     "beat": 3,
+     "symbol": "C7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Fm/C"
+   ]
+  },
+  {
+   "bar": "R60",
+   "time": "3/8",
+   "key": "F minor",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fm",
+     "roman": "i"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Fm"
+   ]
+  },
+  {
+   "bar": "R61",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Db/F",
+     "roman": "IV6"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Db/F"
+   ]
+  },
+  {
+   "bar": "R62",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bdim7/F",
+     "roman": "#ii°43"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Bb7/F"
+   ]
+  },
+  {
+   "bar": "R63",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Eb7"
+   ]
+  },
+  {
+   "bar": "R64",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R65",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab7",
+     "roman": "I7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab7"
+   ]
+  },
+  {
+   "bar": "R66",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Db/Ab",
+     "roman": "IV64"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Db/Ab"
+   ]
+  },
+  {
+   "bar": "R67",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    },
+    {
+     "beat": 3,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Abmaj7"
+   ]
+  },
+  {
+   "bar": "R68",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R69",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Db/F",
+     "roman": "IV6"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Dbmaj7"
+   ]
+  },
+  {
+   "bar": "R70",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    },
+    {
+     "beat": 3,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Abmaj7"
+   ]
+  },
+  {
+   "bar": "R71",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R72",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab/Eb",
+     "roman": "I64"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab/Eb"
+   ]
+  },
+  {
+   "bar": "R73",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7/Bb",
+     "roman": "V43"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Eb7"
+   ]
+  },
+  {
+   "bar": "R74",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    },
+    {
+     "beat": 3,
+     "symbol": "Ab7",
+     "roman": "I7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Ab7/Eb"
+   ]
+  },
+  {
+   "bar": "R75",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7/Db",
+     "roman": "V42"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Eb7"
+   ]
+  },
+  {
+   "bar": "R76",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Eb7"
+   ]
+  },
+  {
+   "bar": "R77",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab/Eb",
+     "roman": "I64"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab/Eb"
+   ]
+  },
+  {
+   "bar": "R78",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Eb7"
+   ]
+  },
+  {
+   "bar": "R79",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab/Eb",
+     "roman": "I64"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Ab/Eb"
+   ]
+  },
+  {
+   "bar": "R80",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Eb7/Db",
+     "roman": "V42"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Eb7/Db"
+   ]
+  },
+  {
+   "bar": "R81",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab/C",
+     "roman": "I6"
+    },
+    {
+     "beat": 3,
+     "symbol": "Bbm7/Db",
+     "roman": "ii65"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Ab/Bb"
+   ]
+  },
+  {
+   "bar": "R82",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Db",
+     "roman": "IV"
+    },
+    {
+     "beat": 3,
+     "symbol": "Eb7",
+     "roman": "V7"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Eb7/Db"
+   ]
+  },
+  {
+   "bar": "R83",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R84",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R85",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dbm/Ab",
+     "roman": "iv64"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Dbm/Ab"
+   ]
+  },
+  {
+   "bar": "R86",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R87",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Db/Ab",
+     "roman": "IV64"
+    }
+   ],
+   "source": "manual",
+   "confidence": "m",
+   "auto_guess": [
+    "Db/Ab"
+   ]
+  },
+  {
+   "bar": "R88",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "R89",
+   "time": "3/8",
+   "key": "Ab major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Ab",
+     "roman": "I"
+    }
+   ],
+   "source": "manual",
+   "confidence": "h",
+   "auto_guess": [
+    "Ab"
+   ]
+  },
+  {
+   "bar": "V1",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V1"
+  },
+  {
+   "bar": "V2",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V2"
+  },
+  {
+   "bar": "V3",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.753
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.667
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V3"
+  },
+  {
+   "bar": "V4",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.83
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V4"
+  },
+  {
+   "bar": "V5",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V5"
+  },
+  {
+   "bar": "V6",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V6"
+  },
+  {
+   "bar": "V7",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.858
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.747
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V7"
+  },
+  {
+   "bar": "V8",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Caug",
+     "roman": "V+",
+     "fit": 0.955
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V8"
+  },
+  {
+   "bar": "V9",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V9"
+  },
+  {
+   "bar": "V10",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V10"
+  },
+  {
+   "bar": "V11",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "E",
+     "roman": "VII",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "A",
+     "roman": "III",
+     "fit": 0.98
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V11"
+  },
+  {
+   "bar": "V12",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Am7",
+     "roman": "iii7",
+     "fit": 0.99
+    },
+    {
+     "beat": 2,
+     "symbol": "A7",
+     "roman": "III7",
+     "fit": 0.94
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V12"
+  },
+  {
+   "bar": "V13",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V13"
+  },
+  {
+   "bar": "V14",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm",
+     "roman": "ii",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm/Bb",
+     "roman": "ii6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V14"
+  },
+  {
+   "bar": "V15",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.88
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V15"
+  },
+  {
+   "bar": "V16",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.88
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V16"
+  },
+  {
+   "bar": "V17",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Caug",
+     "roman": "V+",
+     "fit": 0.817
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V17"
+  },
+  {
+   "bar": "V18",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F#dim/C",
+     "roman": "#i°64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Fm/C",
+     "roman": "i64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V18"
+  },
+  {
+   "bar": "V19",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.753
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.795
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V19"
+  },
+  {
+   "bar": "V20",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.915
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.857
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V20"
+  },
+  {
+   "bar": "V21",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V21"
+  },
+  {
+   "bar": "V22",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V22"
+  },
+  {
+   "bar": "V23",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm7/F",
+     "roman": "ii42",
+     "fit": 0.64
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V23"
+  },
+  {
+   "bar": "V24",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fdim",
+     "roman": "i°",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V24"
+  },
+  {
+   "bar": "V25",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fdim",
+     "roman": "i°",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V25"
+  },
+  {
+   "bar": "V26",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V26"
+  },
+  {
+   "bar": "V27",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm7/F",
+     "roman": "ii42",
+     "fit": 0.64
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V27"
+  },
+  {
+   "bar": "V28",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fdim",
+     "roman": "i°",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V28"
+  },
+  {
+   "bar": "V29",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fdim",
+     "roman": "i°",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V29"
+  },
+  {
+   "bar": "V30",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V30"
+  },
+  {
+   "bar": "V31",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "A7/E",
+     "roman": "III43",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V31"
+  },
+  {
+   "bar": "V32",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V32"
+  },
+  {
+   "bar": "V33",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/A",
+     "roman": "vi64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "A7",
+     "roman": "III7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V33"
+  },
+  {
+   "bar": "V34",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V34"
+  },
+  {
+   "bar": "V35",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "A7/E",
+     "roman": "III43",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V35"
+  },
+  {
+   "bar": "V36",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm7b5/C",
+     "roman": "viø42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V36"
+  },
+  {
+   "bar": "V37",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7/B",
+     "roman": "II65",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V37"
+  },
+  {
+   "bar": "V38",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V38"
+  },
+  {
+   "bar": "V39",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V39"
+  },
+  {
+   "bar": "V40",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/C",
+     "roman": "vi42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V40"
+  },
+  {
+   "bar": "V41",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7/C",
+     "roman": "II/C",
+     "fit": 0.627
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V41"
+  },
+  {
+   "bar": "V42",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V42"
+  },
+  {
+   "bar": "V43",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V43"
+  },
+  {
+   "bar": "V44",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/C",
+     "roman": "vi42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V44"
+  },
+  {
+   "bar": "V45",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7/C",
+     "roman": "II/C",
+     "fit": 0.627
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V45"
+  },
+  {
+   "bar": "V46",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V46"
+  },
+  {
+   "bar": "V47",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F#dim/C",
+     "roman": "#i°64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "F#dim/C",
+     "roman": "#i°64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V47"
+  },
+  {
+   "bar": "V48",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V48"
+  },
+  {
+   "bar": "V49",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F#dim/C",
+     "roman": "#i°64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Fm/C",
+     "roman": "i64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V49"
+  },
+  {
+   "bar": "V50",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.75
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V50"
+  },
+  {
+   "bar": "V51",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.75
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V51"
+  },
+  {
+   "bar": "V52",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V52"
+  },
+  {
+   "bar": "V53",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [],
+   "source": "auto",
+   "piano_score_bar": "V53"
+  },
+  {
+   "bar": "V54",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [],
+   "source": "auto",
+   "piano_score_bar": "V54"
+  },
+  {
+   "bar": "V55",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [],
+   "source": "auto",
+   "piano_score_bar": "V55"
+  },
+  {
+   "bar": "V56",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm7/F",
+     "roman": "ii42",
+     "fit": 0.64
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V56"
+  },
+  {
+   "bar": "V57",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fdim7",
+     "roman": "i°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V57"
+  },
+  {
+   "bar": "V58",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fdim7",
+     "roman": "i°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V58"
+  },
+  {
+   "bar": "V59",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V59"
+  },
+  {
+   "bar": "V60",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm7/F",
+     "roman": "ii42",
+     "fit": 0.64
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V60"
+  },
+  {
+   "bar": "V61",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F/A",
+     "roman": "I6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V61"
+  },
+  {
+   "bar": "V62",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7/G",
+     "roman": "V43",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V62"
+  },
+  {
+   "bar": "V63",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V63"
+  },
+  {
+   "bar": "V64",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fdim7",
+     "roman": "i°7",
+     "fit": 0.809
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V64"
+  },
+  {
+   "bar": "V65",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "Cm7b5/D",
+     "roman": "vø/D",
+     "fit": 0.71
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V65"
+  },
+  {
+   "bar": "V66",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7/E",
+     "roman": "V65",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V66"
+  },
+  {
+   "bar": "V67",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V67"
+  },
+  {
+   "bar": "V68",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fdim7",
+     "roman": "i°7",
+     "fit": 0.809
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V68"
+  },
+  {
+   "bar": "V69",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "Cm7b5/D",
+     "roman": "vø/D",
+     "fit": 0.71
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V69"
+  },
+  {
+   "bar": "V70",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7/E",
+     "roman": "V65",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V70"
+  },
+  {
+   "bar": "V71",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.784
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V71"
+  },
+  {
+   "bar": "V72",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.784
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V72"
+  },
+  {
+   "bar": "V73",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm/Bb",
+     "roman": "ii6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V73"
+  },
+  {
+   "bar": "V74",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V74"
+  },
+  {
+   "bar": "V75",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fmaj7",
+     "roman": "Imaj7",
+     "fit": 0.762
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V75"
+  },
+  {
+   "bar": "V76",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fmaj7",
+     "roman": "Imaj7",
+     "fit": 0.762
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V76"
+  },
+  {
+   "bar": "V77",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm/Bb",
+     "roman": "ii6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V77"
+  },
+  {
+   "bar": "V78",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V78"
+  },
+  {
+   "bar": "V79",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V79"
+  },
+  {
+   "bar": "V80",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F#dim/C",
+     "roman": "#i°64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm7/A",
+     "roman": "ii/A",
+     "fit": 0.59
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V80"
+  },
+  {
+   "bar": "V81",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.753
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V81"
+  },
+  {
+   "bar": "V82",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.587
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.873
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V82"
+  },
+  {
+   "bar": "V83",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V83"
+  },
+  {
+   "bar": "V84",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F#dim/C",
+     "roman": "#i°64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.75
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V84"
+  },
+  {
+   "bar": "V85",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.753
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V85"
+  },
+  {
+   "bar": "V86",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.587
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.873
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V86"
+  },
+  {
+   "bar": "V87",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V87"
+  },
+  {
+   "bar": "V88",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V88"
+  },
+  {
+   "bar": "V89",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V89"
+  },
+  {
+   "bar": "V90",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V90"
+  },
+  {
+   "bar": "V91",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V91"
+  },
+  {
+   "bar": "V92",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V92"
+  },
+  {
+   "bar": "V93",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm7/F",
+     "roman": "ii42",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V93"
+  },
+  {
+   "bar": "V94",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm7/F",
+     "roman": "ii42",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V94"
+  },
+  {
+   "bar": "V95",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm7/F",
+     "roman": "ii42",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V95"
+  },
+  {
+   "bar": "V96",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm7/F",
+     "roman": "ii42",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V96"
+  },
+  {
+   "bar": "V97",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7/F",
+     "roman": "V/F",
+     "fit": 0.76
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V97"
+  },
+  {
+   "bar": "V98",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V98"
+  },
+  {
+   "bar": "V99",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7/F",
+     "roman": "V/F",
+     "fit": 0.793
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V99"
+  },
+  {
+   "bar": "V100",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V100"
+  },
+  {
+   "bar": "V101",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7/F",
+     "roman": "V/F",
+     "fit": 0.76
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V101"
+  },
+  {
+   "bar": "V102",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V102"
+  },
+  {
+   "bar": "V103",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "A7",
+     "roman": "III7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V103"
+  },
+  {
+   "bar": "V104",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Edim/G",
+     "roman": "vii°6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V104"
+  },
+  {
+   "bar": "V105",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/A",
+     "roman": "vi64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "A7",
+     "roman": "III7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V105"
+  },
+  {
+   "bar": "V106",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V106"
+  },
+  {
+   "bar": "V107",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/A",
+     "roman": "vi64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V107"
+  },
+  {
+   "bar": "V108",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V108"
+  },
+  {
+   "bar": "V109",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb",
+     "roman": "IV",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V109"
+  },
+  {
+   "bar": "V110",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm7",
+     "roman": "ii7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V110"
+  },
+  {
+   "bar": "V111",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V111"
+  },
+  {
+   "bar": "V112",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "A",
+     "roman": "III",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "A/E",
+     "roman": "III64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V112"
+  },
+  {
+   "bar": "V113",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/A",
+     "roman": "vi64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V113"
+  },
+  {
+   "bar": "V114",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "A",
+     "roman": "III",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "A/E",
+     "roman": "III64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V114"
+  },
+  {
+   "bar": "V115",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "A",
+     "roman": "III",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "A/Db",
+     "roman": "III6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V115"
+  },
+  {
+   "bar": "V116",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/A",
+     "roman": "vi64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V116"
+  },
+  {
+   "bar": "V117",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb",
+     "roman": "IV",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb",
+     "roman": "IV",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V117"
+  },
+  {
+   "bar": "V118",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm7",
+     "roman": "ii7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb",
+     "roman": "IV",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V118"
+  },
+  {
+   "bar": "V119",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Abdim7",
+     "roman": "#ii°7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "Bdim",
+     "roman": "#iv°",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V119"
+  },
+  {
+   "bar": "V120",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/A",
+     "roman": "vi64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/A",
+     "roman": "vi64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V120"
+  },
+  {
+   "bar": "V121",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "A7",
+     "roman": "III7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "Dbdim/G",
+     "roman": "#v°64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V121"
+  },
+  {
+   "bar": "V122",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V122"
+  },
+  {
+   "bar": "V123",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dmaj7",
+     "roman": "VImaj7",
+     "fit": 0.67
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V123"
+  },
+  {
+   "bar": "V124",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V124"
+  },
+  {
+   "bar": "V125",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "A7/D",
+     "roman": "III/D",
+     "fit": 0.793
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V125"
+  },
+  {
+   "bar": "V126",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V126"
+  },
+  {
+   "bar": "V127",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "A7",
+     "roman": "III7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V127"
+  },
+  {
+   "bar": "V128",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm7b5/C",
+     "roman": "viø42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V128"
+  },
+  {
+   "bar": "V129",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7/B",
+     "roman": "II65",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V129"
+  },
+  {
+   "bar": "V130",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V130"
+  },
+  {
+   "bar": "V131",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "V64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "E",
+     "roman": "VII",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V131"
+  },
+  {
+   "bar": "V132",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C/G",
+     "roman": "V64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V132"
+  },
+  {
+   "bar": "V133",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Am",
+     "roman": "iii",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Am",
+     "roman": "iii",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V133"
+  },
+  {
+   "bar": "V134",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "E7/Ab",
+     "roman": "VII65",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "E7/B",
+     "roman": "VII43",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V134"
+  },
+  {
+   "bar": "V135",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Am",
+     "roman": "iii",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Am",
+     "roman": "iii",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V135"
+  },
+  {
+   "bar": "V136",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C/G",
+     "roman": "V64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V136"
+  },
+  {
+   "bar": "V137",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Am7/C",
+     "roman": "iii65",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V137"
+  },
+  {
+   "bar": "V138",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bmaj7/Bb",
+     "roman": "#IVmaj42",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "B",
+     "roman": "#IV",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V138"
+  },
+  {
+   "bar": "V139",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm7",
+     "roman": "ii7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V139"
+  },
+  {
+   "bar": "V140",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C/G",
+     "roman": "V64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V140"
+  },
+  {
+   "bar": "V141",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F/A",
+     "roman": "I6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V141"
+  },
+  {
+   "bar": "V142",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C/G",
+     "roman": "V64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V142"
+  },
+  {
+   "bar": "V143",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F#m7b5",
+     "roman": "biiø7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "Am",
+     "roman": "iii",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V143"
+  },
+  {
+   "bar": "V144",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "V64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "C/G",
+     "roman": "V64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V144"
+  },
+  {
+   "bar": "V145",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G",
+     "roman": "II",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "G",
+     "roman": "II",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V145"
+  },
+  {
+   "bar": "V146",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V146"
+  },
+  {
+   "bar": "V147",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V147"
+  },
+  {
+   "bar": "V148",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V148"
+  },
+  {
+   "bar": "V149",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V149"
+  },
+  {
+   "bar": "V150",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/C",
+     "roman": "ii42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V150"
+  },
+  {
+   "bar": "V151",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/C",
+     "roman": "ii42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V151"
+  },
+  {
+   "bar": "V152",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/C",
+     "roman": "ii42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V152"
+  },
+  {
+   "bar": "V153",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/C",
+     "roman": "ii42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V153"
+  },
+  {
+   "bar": "V154",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7b5/C",
+     "roman": "iiø42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V154"
+  },
+  {
+   "bar": "V155",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7/C",
+     "roman": "V/C",
+     "fit": 0.793
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V155"
+  },
+  {
+   "bar": "V156",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V156"
+  },
+  {
+   "bar": "V157",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7/C",
+     "roman": "V/C",
+     "fit": 0.793
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V157"
+  },
+  {
+   "bar": "V158",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V158"
+  },
+  {
+   "bar": "V159",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Cmaj7",
+     "roman": "Imaj7",
+     "fit": 0.72
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V159"
+  },
+  {
+   "bar": "V160",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V160"
+  },
+  {
+   "bar": "V161",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7/C",
+     "roman": "V/C",
+     "fit": 0.793
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V161"
+  },
+  {
+   "bar": "V162",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Am7/C",
+     "roman": "vi65",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V162"
+  },
+  {
+   "bar": "V163",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "I7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V163"
+  },
+  {
+   "bar": "V164",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Cmaj7",
+     "roman": "Imaj7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V164"
+  },
+  {
+   "bar": "V165",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/F",
+     "roman": "ii65",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "Em/G",
+     "roman": "iii6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V165"
+  },
+  {
+   "bar": "V166",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fmaj7/A",
+     "roman": "IVmaj65",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "G/B",
+     "roman": "V6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V166"
+  },
+  {
+   "bar": "V167",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "G7/D",
+     "roman": "V43",
+     "fit": 0.835
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V168"
+  },
+  {
+   "bar": "V168",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V169"
+  },
+  {
+   "bar": "V169",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V169"
+  },
+  {
+   "bar": "V170",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [],
+   "source": "auto",
+   "piano_score_bar": "V170"
+  },
+  {
+   "bar": "V171",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [],
+   "source": "auto",
+   "piano_score_bar": "V171"
+  },
+  {
+   "bar": "V172",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 2,
+     "symbol": "Adim",
+     "roman": "vi°",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V172"
+  },
+  {
+   "bar": "V173",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/G",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V173"
+  },
+  {
+   "bar": "V174",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C/E",
+     "roman": "I6",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V174"
+  },
+  {
+   "bar": "V175",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V175"
+  },
+  {
+   "bar": "V176",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V176"
+  },
+  {
+   "bar": "V177",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V177"
+  },
+  {
+   "bar": "V178",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Cdim7",
+     "roman": "i°7",
+     "fit": 0.858
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V178"
+  },
+  {
+   "bar": "V179",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "G7/F#",
+     "roman": "V42",
+     "fit": 0.64
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V179"
+  },
+  {
+   "bar": "V180",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/Ab",
+     "roman": "ii64",
+     "fit": 0.875
+    },
+    {
+     "beat": 2,
+     "symbol": "Bmaj7/Bb",
+     "roman": "VIImaj42",
+     "fit": 0.72
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V180"
+  },
+  {
+   "bar": "V181",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V181"
+  },
+  {
+   "bar": "V182",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Cdim7",
+     "roman": "i°7",
+     "fit": 0.858
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V182"
+  },
+  {
+   "bar": "V183",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "G7/F#",
+     "roman": "V42",
+     "fit": 0.64
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V183"
+  },
+  {
+   "bar": "V184",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/Ab",
+     "roman": "ii64",
+     "fit": 0.875
+    },
+    {
+     "beat": 2,
+     "symbol": "Bmaj7/Bb",
+     "roman": "VIImaj42",
+     "fit": 0.72
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V184"
+  },
+  {
+   "bar": "V185",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "IV64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V185"
+  },
+  {
+   "bar": "V186",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "IV64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V186"
+  },
+  {
+   "bar": "V187",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fmaj7",
+     "roman": "IVmaj7",
+     "fit": 0.873
+    },
+    {
+     "beat": 2,
+     "symbol": "Fmaj7",
+     "roman": "IVmaj7",
+     "fit": 0.873
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V187"
+  },
+  {
+   "bar": "V188",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V188"
+  },
+  {
+   "bar": "V189",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Abdim/B",
+     "roman": "#v°6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V189"
+  },
+  {
+   "bar": "V190",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Am",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dbm7b5/G",
+     "roman": "biiø43",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V190"
+  },
+  {
+   "bar": "V191",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/F",
+     "roman": "ii6",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "A7/E",
+     "roman": "VI43",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V191"
+  },
+  {
+   "bar": "V192",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "ii",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V192"
+  },
+  {
+   "bar": "V193",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "ii",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/F",
+     "roman": "ii6",
+     "fit": 0.88
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V193"
+  },
+  {
+   "bar": "V194",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fdim7",
+     "roman": "iv°7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "C/E",
+     "roman": "I6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V194"
+  },
+  {
+   "bar": "V195",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/F",
+     "roman": "ii65",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "G7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V195"
+  },
+  {
+   "bar": "V196",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V196"
+  },
+  {
+   "bar": "V197",
+   "time": "2/4",
+   "key": "C major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 0.84
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "I",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V197"
+  },
+  {
+   "bar": "V198",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V198"
+  },
+  {
+   "bar": "V199",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.88
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V199"
+  },
+  {
+   "bar": "V200",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    },
+    {
+     "beat": 2,
+     "symbol": "D7/C",
+     "roman": "VI42",
+     "fit": 0.52
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V200"
+  },
+  {
+   "bar": "V201",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V201"
+  },
+  {
+   "bar": "V202",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V202"
+  },
+  {
+   "bar": "V203",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F#dim/C",
+     "roman": "#i°64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Fm/C",
+     "roman": "i64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V203"
+  },
+  {
+   "bar": "V204",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm7/C",
+     "roman": "vi42",
+     "fit": 0.84
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V204"
+  },
+  {
+   "bar": "V205",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.87
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V205"
+  },
+  {
+   "bar": "V206",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.929
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.99
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V206"
+  },
+  {
+   "bar": "V207",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V207"
+  },
+  {
+   "bar": "V208",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V208"
+  },
+  {
+   "bar": "V209",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm7/F",
+     "roman": "ii42",
+     "fit": 0.64
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V209"
+  },
+  {
+   "bar": "V210",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fdim7",
+     "roman": "i°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V210"
+  },
+  {
+   "bar": "V211",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Fdim7",
+     "roman": "i°7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V211"
+  },
+  {
+   "bar": "V212",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V212"
+  },
+  {
+   "bar": "V213",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm7/F",
+     "roman": "ii42",
+     "fit": 0.64
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V213"
+  },
+  {
+   "bar": "V214",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb",
+     "roman": "IV",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V214"
+  },
+  {
+   "bar": "V215",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb",
+     "roman": "IV",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V215"
+  },
+  {
+   "bar": "V216",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V216"
+  },
+  {
+   "bar": "V217",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "A7/E",
+     "roman": "III43",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V217"
+  },
+  {
+   "bar": "V218",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V218"
+  },
+  {
+   "bar": "V219",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/A",
+     "roman": "vi64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "A7",
+     "roman": "III7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V219"
+  },
+  {
+   "bar": "V220",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V220"
+  },
+  {
+   "bar": "V221",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm/F",
+     "roman": "vi6",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "A7/E",
+     "roman": "III43",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V221"
+  },
+  {
+   "bar": "V222",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm7b5/C",
+     "roman": "viø42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V222"
+  },
+  {
+   "bar": "V223",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7/B",
+     "roman": "II65",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "G7",
+     "roman": "II7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V223"
+  },
+  {
+   "bar": "V224",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V224"
+  },
+  {
+   "bar": "V225",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V225"
+  },
+  {
+   "bar": "V226",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/C",
+     "roman": "vi42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V226"
+  },
+  {
+   "bar": "V227",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7/C",
+     "roman": "II/C",
+     "fit": 0.76
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V227"
+  },
+  {
+   "bar": "V228",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V228"
+  },
+  {
+   "bar": "V229",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V229"
+  },
+  {
+   "bar": "V230",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm7/C",
+     "roman": "vi42",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V230"
+  },
+  {
+   "bar": "V231",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "G7/C",
+     "roman": "II/C",
+     "fit": 0.76
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V231"
+  },
+  {
+   "bar": "V232",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V232"
+  },
+  {
+   "bar": "V233",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F#dim/C",
+     "roman": "#i°64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Fm/C",
+     "roman": "i64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V233"
+  },
+  {
+   "bar": "V234",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V234"
+  },
+  {
+   "bar": "V235",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F#dim/C",
+     "roman": "#i°64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Fm/C",
+     "roman": "i64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V235"
+  },
+  {
+   "bar": "V236",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.75
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V237"
+  },
+  {
+   "bar": "V237",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V238"
+  },
+  {
+   "bar": "V238",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [],
+   "source": "auto",
+   "piano_score_bar": "V239"
+  },
+  {
+   "bar": "V239",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [],
+   "source": "auto",
+   "piano_score_bar": "V239"
+  },
+  {
+   "bar": "V240",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V240"
+  },
+  {
+   "bar": "V241",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [],
+   "source": "auto",
+   "piano_score_bar": "V241"
+  },
+  {
+   "bar": "V242",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [],
+   "source": "auto",
+   "piano_score_bar": "V242"
+  },
+  {
+   "bar": "V243",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [],
+   "source": "auto",
+   "piano_score_bar": "V243"
+  },
+  {
+   "bar": "V244",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F/A",
+     "roman": "I6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V244"
+  },
+  {
+   "bar": "V245",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/A",
+     "roman": "vi64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V245"
+  },
+  {
+   "bar": "V246",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "A/Db",
+     "roman": "III6",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "A",
+     "roman": "III",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V246"
+  },
+  {
+   "bar": "V247",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Dm",
+     "roman": "vi",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm/A",
+     "roman": "vi64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V247"
+  },
+  {
+   "bar": "V248",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Am",
+     "roman": "iii",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V248"
+  },
+  {
+   "bar": "V249",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Dm7/F",
+     "roman": "vi65",
+     "fit": 0.96
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V249"
+  },
+  {
+   "bar": "V250",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "E",
+     "roman": "VII",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "E/B",
+     "roman": "VII64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V250"
+  },
+  {
+   "bar": "V251",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V251"
+  },
+  {
+   "bar": "V252",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F/A",
+     "roman": "I6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V252"
+  },
+  {
+   "bar": "V253",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb",
+     "roman": "IV",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb",
+     "roman": "IV",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V253"
+  },
+  {
+   "bar": "V254",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F/A",
+     "roman": "I6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V254"
+  },
+  {
+   "bar": "V255",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb",
+     "roman": "IV",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "Bb",
+     "roman": "IV",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V255"
+  },
+  {
+   "bar": "V256",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V256"
+  },
+  {
+   "bar": "V257",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "Edim/Bb",
+     "roman": "vii°64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V257"
+  },
+  {
+   "bar": "V258",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "A7/Db",
+     "roman": "III65",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "Cdim7",
+     "roman": "v°7",
+     "fit": 0.79
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V258"
+  },
+  {
+   "bar": "V259",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm/Bb",
+     "roman": "ii6",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm",
+     "roman": "ii",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V259"
+  },
+  {
+   "bar": "V260",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V260"
+  },
+  {
+   "bar": "V261",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "Edim/Bb",
+     "roman": "vii°64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V261"
+  },
+  {
+   "bar": "V262",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V262"
+  },
+  {
+   "bar": "V263",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V263"
+  },
+  {
+   "bar": "V264",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V264"
+  },
+  {
+   "bar": "V265",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fmaj7",
+     "roman": "Imaj7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V265"
+  },
+  {
+   "bar": "V266",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V266"
+  },
+  {
+   "bar": "V267",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V267"
+  },
+  {
+   "bar": "V268",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V268"
+  },
+  {
+   "bar": "V269",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "Edim",
+     "roman": "vii°",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V269"
+  },
+  {
+   "bar": "V270",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V270"
+  },
+  {
+   "bar": "V271",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V271"
+  },
+  {
+   "bar": "V272",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V272"
+  },
+  {
+   "bar": "V273",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V273"
+  },
+  {
+   "bar": "V274",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V274"
+  },
+  {
+   "bar": "V275",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V275"
+  },
+  {
+   "bar": "V276",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V276"
+  },
+  {
+   "bar": "V277",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    },
+    {
+     "beat": 2,
+     "symbol": "C",
+     "roman": "V",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V277"
+  },
+  {
+   "bar": "V278",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "F/G",
+     "roman": "I/G",
+     "fit": 0.6
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V278"
+  },
+  {
+   "bar": "V279",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 0.9
+    },
+    {
+     "beat": 2,
+     "symbol": "Fmaj7",
+     "roman": "Imaj7",
+     "fit": 0.62
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V279"
+  },
+  {
+   "bar": "V280",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 0.96
+    },
+    {
+     "beat": 2,
+     "symbol": "F/G",
+     "roman": "I/G",
+     "fit": 0.6
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V280"
+  },
+  {
+   "bar": "V281",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Bb/F",
+     "roman": "IV64",
+     "fit": 0.9
+    },
+    {
+     "beat": 2,
+     "symbol": "Fmaj7",
+     "roman": "Imaj7",
+     "fit": 0.62
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V281"
+  },
+  {
+   "bar": "V282",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V282"
+  },
+  {
+   "bar": "V283",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fmaj7",
+     "roman": "Imaj7",
+     "fit": 0.753
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V283"
+  },
+  {
+   "bar": "V284",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V284"
+  },
+  {
+   "bar": "V285",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Fmaj7",
+     "roman": "Imaj7",
+     "fit": 0.753
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V285"
+  },
+  {
+   "bar": "V286",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V286"
+  },
+  {
+   "bar": "V287",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm/Bb",
+     "roman": "ii6",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm/Bb",
+     "roman": "ii6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V287"
+  },
+  {
+   "bar": "V288",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V288"
+  },
+  {
+   "bar": "V289",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V289"
+  },
+  {
+   "bar": "V290",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V290"
+  },
+  {
+   "bar": "V291",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "Gm/Bb",
+     "roman": "ii6",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "Gm/Bb",
+     "roman": "ii6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V291"
+  },
+  {
+   "bar": "V292",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V292"
+  },
+  {
+   "bar": "V293",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V293"
+  },
+  {
+   "bar": "V294",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V294"
+  },
+  {
+   "bar": "V295",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V295"
+  },
+  {
+   "bar": "V296",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V296"
+  },
+  {
+   "bar": "V297",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 0.92
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V297"
+  },
+  {
+   "bar": "V298",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V298"
+  },
+  {
+   "bar": "V299",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "C7",
+     "roman": "V7",
+     "fit": 1.04
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V299"
+  },
+  {
+   "bar": "V300",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.875
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.875
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V300"
+  },
+  {
+   "bar": "V301",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.875
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 0.875
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V301"
+  },
+  {
+   "bar": "V302",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V302"
+  },
+  {
+   "bar": "V303",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V303"
+  },
+  {
+   "bar": "V304",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V304"
+  },
+  {
+   "bar": "V305",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F/A",
+     "roman": "I6",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V305"
+  },
+  {
+   "bar": "V306",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    },
+    {
+     "beat": 2,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V306"
+  },
+  {
+   "bar": "V307",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F/A",
+     "roman": "I6",
+     "fit": 1.0
+    },
+    {
+     "beat": 2,
+     "symbol": "F/C",
+     "roman": "I64",
+     "fit": 1.0
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V307"
+  },
+  {
+   "bar": "V308",
+   "time": "2/4",
+   "key": "F major",
+   "chords": [
+    {
+     "beat": 1,
+     "symbol": "F",
+     "roman": "I",
+     "fit": 1.08
+    }
+   ],
+   "source": "auto",
+   "piano_score_bar": "V308"
+  }
+ ]
+}
