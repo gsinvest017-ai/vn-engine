@@ -1,0 +1,707 @@
+{
+ "subject": "v1 成片 anqu_narrated.mp4 片段銜接檢測",
+ "video": {
+  "duration_video": 554.833,
+  "duration_audio": 551.351,
+  "frames": 13312,
+  "fps": 24,
+  "plan_total": 554.77,
+  "real_total_norm": 554.846,
+  "max_cumulative_video_drift_s": 0.076
+ },
+ "boundaries": 52,
+ "segments": 53,
+ "findings": [
+  {
+   "id": "T01",
+   "where": "全片 52 個 clip 邊界（環境音）",
+   "issue": "每段各自編 AAC 後 concat -c copy：每個邊界多出上一段尾端 padding 與下一段 encoder priming（共 26052 個 AAC 封包 x1024 = 555.776s 樣本，但時間戳只有 554.859s）。解碼時這些樣本被當成真的聲音串進去 → 每個邊界 15–45ms 掉音/靜音洞（多數跌到 -130~-150 dB 數位靜音），且環境音相對畫面累積漂移，片尾達 +1.056s。",
+   "severity": "high",
+   "fix": "全程 PCM 組裝：norm 段改輸出 pcm_s16le（.mov/.mkv）或只輸出影像，音訊另用 filter_complex concat/acrossfade 一次串成；成片最後才編一次 AAC。局部修（免重生影像）：沿用 joined 影像，由原始 clip 以 atrim/atempo/afade 逐段在 filter 內 concat 重建環境音軌，再重混旁白。",
+   "metrics": {
+    "ambient_drift_s": {
+     "47s": 0.09,
+     "178s": 0.22,
+     "312s": 0.56,
+     "451s": 0.85,
+     "545s": 1.056
+    },
+    "decoded_ambient_s": 555.776,
+    "pts_ambient_s": 554.859,
+    "boundaries_with_gap": 52,
+    "audible_in_final": [
+     1,
+     13,
+     16,
+     22,
+     23,
+     24,
+     27,
+     32,
+     38,
+     40,
+     49,
+     52
+    ]
+   }
+  },
+  {
+   "id": "T02",
+   "where": "成片尾 9:11.351–9:14.833",
+   "issue": "成片音軌只有 551.351s、影像 554.833s：最後 3.48 秒完全無聲（淡出前仍有畫面）。原因：sidechaincompress 在旁白（narration.wav 551.35s）結束時就停止輸出，amix duration=first 跟著結束。",
+   "severity": "medium",
+   "fix": "旁白軌 apad 到影片長度（例如 [1:a]apad=whole_dur=554.833）或 sidechain 分支加 apad；最後 -t 對齊影像長度。只需重跑最終混音，不動影像。",
+   "metrics": {
+    "audio_len": 551.351,
+    "video_len": 554.833
+   }
+  },
+  {
+   "id": "T03",
+   "where": "i2v 接續邊界 k1 (0:11.00)、k2 (0:21.96)、k18 (3:04.33)",
+   "issue": "接續 clip 以上一段『完整生成檔』最後一幀當首幀，但組裝只取前 secs 秒（226f=9.417s 只用 8.752s；192f=8.0s 只用 6.34s）→ 上一段尾巴 0.665s / 1.66s 的運動被剪掉，接點出現鏡位跳動（MAD 33.7 / 38.0，SSIM 0.24 / 0.31；k18 MAD 8.8、SSIM 0.87，並伴隨暗角強度跳變）。",
+   "severity": "high",
+   "fix": "局部修（免重生）：k1/k2 讓上一段用滿整個生成檔（-t 9.417，speed 改為 10.94/9.417=1.162），並丟掉下一段第 1 幀（與上一段末幀重複）；k18 改成從 第一章_02_0_192f 的 -ss 1.66 起取 6.34s（剪頭不剪尾），讓尾幀正好是接續段首幀。管線修：generate() 取 last_frame 時用實際會用到的最後一幀 (head+secs/speed)，或接續段的前一段一律用到檔尾。",
+   "metrics": {
+    "k1": {
+     "dY": 1.16,
+     "dU": -0.64,
+     "dV": 1.75,
+     "dSat": 5.03,
+     "Y_pre": 70.4,
+     "Y_post": 71.6,
+     "cut_mad": 33.7,
+     "cut_ssim": 0.2436,
+     "motion_ctx_mad": 4.38,
+     "motion_pre": 4.54,
+     "motion_post": 4.06,
+     "dup_frames_near": 2,
+     "lap_pre": 1579.7,
+     "lap_post": 1620.5
+    },
+    "k2": {
+     "dY": -0.78,
+     "dU": 0.77,
+     "dV": -1.05,
+     "dSat": -1.22,
+     "Y_pre": 100.0,
+     "Y_post": 99.2,
+     "cut_mad": 37.95,
+     "cut_ssim": 0.3129,
+     "motion_ctx_mad": 7.1,
+     "motion_pre": 5.54,
+     "motion_post": 8.07,
+     "dup_frames_near": 2,
+     "lap_pre": 1452.0,
+     "lap_post": 1369.2
+    },
+    "k18": {
+     "dY": -5.84,
+     "dU": 0.11,
+     "dV": -0.09,
+     "dSat": 1.6,
+     "Y_pre": 138.6,
+     "Y_post": 132.8,
+     "cut_mad": 8.85,
+     "cut_ssim": 0.8724,
+     "motion_ctx_mad": 5.59,
+     "motion_pre": 0.82,
+     "motion_post": 9.97,
+     "dup_frames_near": 6,
+     "lap_pre": 2441.5,
+     "lap_post": 2492.2
+    }
+   }
+  },
+  {
+   "id": "T04",
+   "where": "35 個 speed=1.25 慢動作段",
+   "issue": "minterpolate mi_mode=blend：每 5 輸出幀只有 1 幀是原始幀，其餘 4 幀是兩幀疊加 → 明顯殘影（雙邊緣）與每 5 幀一次的銳利度脈動（Laplacian 變異的相位差最高 54%，speed=1.0 段 <3%）。另外 23/35 段段尾重複最後 1–2 幀（42–83ms 微凍結），緊接硬切。",
+   "severity": "high",
+   "fix": "慢動作改 RIFE 補幀（Practical-RIFE 或 rife-ncnn-vulkan；先補到 30fps 再 setpts 放慢為 24fps），或至少 minterpolate=mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1；輸出以幀數截斷（-frames:v round(out_secs*24)），避免 fps 濾鏡補重複幀。只需重跑 norm 段。",
+   "metrics": {
+    "worst": [
+     [
+      50,
+      "第三章_00_6_294f_t",
+      0.536
+     ],
+     [
+      40,
+      "第二章_01_1_260f_t",
+      0.514
+     ],
+     [
+      42,
+      "第二章_01_3_260f_t",
+      0.512
+     ],
+     [
+      32,
+      "第二章_00_2_277f_t",
+      0.409
+     ],
+     [
+      39,
+      "第二章_01_0_209f",
+      0.409
+     ],
+     [
+      47,
+      "第三章_00_3_294f_t",
+      0.352
+     ],
+     [
+      20,
+      "第一章_03_1_294f_t",
+      0.318
+     ],
+     [
+      10,
+      "第一章_01_5_294f_t",
+      0.296
+     ]
+    ],
+    "tail_dup_segments": 23
+   }
+  },
+  {
+   "id": "T05",
+   "where": "同場景換角度 clip（_t，全部 t2v 無參考圖）",
+   "issue": "shrine_interior 28 段：神桌位置（左/中/右）、窗戶位置、神像畫數量、牆面（白牆/黴斑）每段都不同；窗外有的是白天（k15 第一章_01_10、k16 第一章_01_11、k33 第二章_00_3 可見亮綠樹/街道），有的是全黑夜晚（k20、k26）。亮度中位 Y=60.7，範圍 35–90。old_city_dusk k0–k2 為陰天白晝、k3–k4 為入夜藍調（日夜不一致，k3 邊界 dSat +53.8）。第三章 shrine_entrance_night 每段是不同廟宇建築（k44 巷口、k48 石獅廟門、k49 燕尾脊廟）。",
+   "severity": "medium",
+   "fix": "免重生的局部修：(1) 對離群段做曝光/飽和度匹配（見 exposure_match，建議半強度）；(2) 亮度落差大的邊界改 xfade 溶接；(3) 窗外白天的段可局部遮罩壓暗窗戶（drawbox/overlay 遮罩 + eq，或 SAM2 追蹤窗框後調色）。根治需重生：_t 換角度也餵場景 ref 圖、提示詞固定時段（night / dusk）。",
+   "metrics": {
+    "exposure_match": {
+     "1": {
+      "scene_median_Y": 61.8,
+      "scene_median_Sat": 111.8,
+      "Y": 90.4,
+      "Sat": 108.1,
+      "eq_half": "eq=gamma=0.87:saturation=1.02",
+      "eq_full": "eq=gamma=0.73:saturation=1.03"
+     },
+     "2": {
+      "scene_median_Y": 61.8,
+      "scene_median_Sat": 111.8,
+      "Y": 75.0,
+      "Sat": 80.1,
+      "eq_half": "eq=gamma=0.93:saturation=1.20",
+      "eq_full": "eq=gamma=0.86:saturation=1.40"
+     },
+     "3": {
+      "scene_median_Y": 61.8,
+      "scene_median_Sat": 111.8,
+      "Y": 41.3,
+      "Sat": 152.2,
+      "eq_half": "eq=gamma=1.14:saturation=0.87",
+      "eq_full": "eq=gamma=1.28:saturation=0.73"
+     },
+     "11": {
+      "scene_median_Y": 60.65,
+      "scene_median_Sat": 94.7,
+      "Y": 39.9,
+      "Sat": 118.9,
+      "eq_half": "eq=gamma=1.15:saturation=0.90",
+      "eq_full": "eq=gamma=1.29:saturation=0.80"
+     },
+     "20": {
+      "scene_median_Y": 60.65,
+      "scene_median_Sat": 94.7,
+      "Y": 41.6,
+      "Sat": 99.9,
+      "eq_half": "eq=gamma=1.13:saturation=0.97",
+      "eq_full": "eq=gamma=1.26:saturation=0.95"
+     },
+     "26": {
+      "scene_median_Y": 60.65,
+      "scene_median_Sat": 94.7,
+      "Y": 35.1,
+      "Sat": 54.7,
+      "eq_half": "eq=gamma=1.19:saturation=1.30",
+      "eq_full": "eq=gamma=1.38:saturation=1.40"
+     },
+     "27": {
+      "scene_median_Y": 60.65,
+      "scene_median_Sat": 94.7,
+      "Y": 37.0,
+      "Sat": 121.7,
+      "eq_half": "eq=gamma=1.17:saturation=0.89",
+      "eq_full": "eq=gamma=1.34:saturation=0.78"
+     },
+     "33": {
+      "scene_median_Y": 60.65,
+      "scene_median_Sat": 94.7,
+      "Y": 78.5,
+      "Sat": 98.9,
+      "eq_half": "eq=gamma=0.91:saturation=0.98",
+      "eq_full": "eq=gamma=0.82:saturation=0.96"
+     },
+     "36": {
+      "scene_median_Y": 60.65,
+      "scene_median_Sat": 94.7,
+      "Y": 90.5,
+      "Sat": 127.4,
+      "eq_half": "eq=gamma=0.86:saturation=0.87",
+      "eq_full": "eq=gamma=0.72:saturation=0.74"
+     },
+     "38": {
+      "scene_median_Y": 60.65,
+      "scene_median_Sat": 94.7,
+      "Y": 50.7,
+      "Sat": 148.5,
+      "eq_half": "eq=gamma=1.06:saturation=0.82",
+      "eq_full": "eq=gamma=1.12:saturation=0.64"
+     },
+     "39": {
+      "scene_median_Y": 50.2,
+      "scene_median_Sat": 98.3,
+      "Y": 49.5,
+      "Sat": 65.9,
+      "eq_half": "eq=gamma=1.00:saturation=1.25",
+      "eq_full": "eq=gamma=1.01:saturation=1.40"
+     },
+     "41": {
+      "scene_median_Y": 50.2,
+      "scene_median_Sat": 98.3,
+      "Y": 70.4,
+      "Sat": 98.3,
+      "eq_half": "eq=gamma=0.90:saturation=1.00",
+      "eq_full": "eq=gamma=0.79:saturation=1.00"
+     },
+     "42": {
+      "scene_median_Y": 50.2,
+      "scene_median_Sat": 98.3,
+      "Y": 76.4,
+      "Sat": 78.4,
+      "eq_half": "eq=gamma=0.87:saturation=1.13",
+      "eq_full": "eq=gamma=0.74:saturation=1.25"
+     },
+     "44": {
+      "scene_median_Y": 32.2,
+      "scene_median_Sat": 95.2,
+      "Y": 28.0,
+      "Sat": 132.7,
+      "eq_half": "eq=gamma=1.03:saturation=0.86",
+      "eq_full": "eq=gamma=1.07:saturation=0.72"
+     },
+     "45": {
+      "scene_median_Y": 32.2,
+      "scene_median_Sat": 95.2,
+      "Y": 32.4,
+      "Sat": 163.1,
+      "eq_half": "eq=gamma=1.00:saturation=0.79",
+      "eq_full": "eq=gamma=1.00:saturation=0.60"
+     }
+    }
+   }
+  },
+  {
+   "id": "T06",
+   "where": "H3 生成檔內部硬切（非邊界）",
+   "issue": "8 個 clip 在使用範圍內自帶一刀硬切（scdet>=10）：第一章_01_2 @1:15.3、第一章_01_4 @1:43.0、第一章_01_6 @2:05.6、第一章_03_2 @3:39.1、第一章_03_6 @4:23.7、第二章_00_4 @5:58.7、第三章_00_1 @7:45.3、第三章_00_7 @8:56.9（來源檔時間 5.33/7.96/6.54/7.0/4.04/5.5/4.33/3.42s）。構圖突然換掉，觀感像跳剪。",
+   "severity": "medium",
+   "fix": "局部修：在該切點把段落拆兩段，切點改 xfade 0.3s；或把取用區間移到切點前/後（調整 -ss/-t，放慢倍率同步重算）。不需重生。",
+   "metrics": {
+    "source_cut_times": [
+     "第一章_00_0_226f: ",
+     "第一章_00_1_226f: ",
+     "第一章_00_2_226f: ",
+     "第一章_00_3_243f_t: ",
+     "第一章_00_4_243f_t: ",
+     "第一章_01_0_243f: ",
+     "第一章_01_1_294f_t: ",
+     "第一章_01_2_294f_t: 5.333333 ",
+     "第一章_01_3_294f_t: ",
+     "第一章_01_4_294f_t: 7.958333 ",
+     "第一章_01_5_294f_t: ",
+     "第一章_01_6_294f_t: 6.541667 ",
+     "第一章_01_7_277f_t: ",
+     "第一章_01_8_277f_t: ",
+     "第一章_01_9_277f_t: ",
+     "第一章_01_10_277f_t: ",
+     "第一章_01_11_277f_t: ",
+     "第一章_02_0_192f: ",
+     "第一章_02_1_124f: ",
+     "第一章_03_0_243f_c: ",
+     "第一章_03_1_294f_t: ",
+     "第一章_03_2_294f_t: 7 ",
+     "第一章_03_3_294f_t: ",
+     "第一章_03_4_294f_t: ",
+     "第一章_03_5_294f_t: ",
+     "第一章_03_6_294f_t: 4.041667 ",
+     "第一章_03_7_294f_t: ",
+     "第一章_03_8_294f_t: ",
+     "第一章_03_9_294f_t: ",
+     "第一章_03_10_294f_t: ",
+     "第二章_00_0_209f_c: ",
+     "第二章_00_1_277f_t: ",
+     "第二章_00_2_277f_t: ",
+     "第二章_00_3_277f_t: ",
+     "第二章_00_4_277f_t: 5.5 ",
+     "第二章_00_5_277f_t: ",
+     "第二章_00_6_260f_t: ",
+     "第二章_00_7_260f_t: ",
+     "第二章_00_8_260f_t: ",
+     "第二章_01_0_209f: ",
+     "第二章_01_1_260f_t: ",
+     "第二章_01_2_260f_t: ",
+     "第二章_01_3_260f_t: ",
+     "第二章_01_4_294f_t: ",
+     "第三章_00_0_243f: ",
+     "第三章_00_1_294f_t: 4.333333 ",
+     "第三章_00_2_294f_t: 0.125 ",
+     "第三章_00_3_294f_t: ",
+     "第三章_00_4_294f_t: ",
+     "第三章_00_5_294f_t: ",
+     "第三章_00_6_294f_t: ",
+     "第三章_00_7_294f_t: 3.416667 ",
+     "第三章_00_8_294f_t:"
+    ]
+   }
+  },
+  {
+   "id": "T07",
+   "where": "近乎靜止（凍結感）段",
+   "issue": "freezedetect(-55dB) 偵測：第一章_01_2 1:11.7–1:15.3（約 3.5s）、第一章_01_4 1:36.2–1:42.7（約 6.5s）、第二章_01_4 7:21.9–7:30.5（8.6s，幾乎是一張靜止圖，幀差中位 0.11）。",
+   "severity": "medium",
+   "fix": "局部修：加極慢 zoompan 推鏡（例如 zoompan=z='min(zoom+0.0006,1.08)':d=1:s=1920x1080:fps=24）或疊輕微雨絲/灰塵粒子層掩蓋；第二章_01_4 可改用 第二章_01_3 未用到的尾段補時間。",
+   "metrics": {
+    "freezes": [
+     [
+      71.74,
+      75.29
+     ],
+     [
+      96.16,
+      102.66
+     ],
+     [
+      441.92,
+      450.54
+     ]
+    ]
+   }
+  },
+  {
+   "id": "T08",
+   "where": "第三章夜景 7:51.5–7:55.3、7:55.6–7:56.7、7:57.1–7:57.8、8:05.9–8:07.5；第一章 3:20.3–3:21.4",
+   "issue": "成片 blackdetect（pic_th 0.95）判為全黑：第三章_00_1/00_2 原本 Y 約 10–20，再被統一 GRADE（gamma 0.82）壓到全黑，前後段亮度落差大（k46 +45.4）。k20 前段 第一章_03_0_243f_c 尾端也暗到近全黑後硬切到亮畫面（dY +33）。",
+   "severity": "medium",
+   "fix": "局部修：第三章段落用較輕的調色（gamma 0.95–1.0 或 curves 抬暗部），或對 Y<25 的段落局部 eq=gamma=1.3；k20 改 xfade 0.5s。",
+   "metrics": {}
+  },
+  {
+   "id": "T09",
+   "where": "k46 7:55.21 第三章_00_1 → 第三章_00_2",
+   "issue": "後段開頭約 6 幀是亮的石獅廟門（Y 55），隨後 0.25s 內暗到 Y 20（生成檔開頭曝光收斂），形成一次閃白。",
+   "severity": "medium",
+   "fix": "第三章_00_2 取用起點往後 0.3s（-ss 2.8），或邊界 xfade 0.4s。",
+   "metrics": {}
+  },
+  {
+   "id": "T10",
+   "where": "shot 交界（k5 0:47.3、k17 2:58.0、k19 3:09.3、k30 5:12.2、k39 6:40.6、k44 7:30.9）",
+   "issue": "畫面淡出淡入與環境音淡出淡入因 T01 漂移而錯開：3:09 錯 0.29s、5:12 錯 0.55s、7:30 錯 0.85s（環境音在畫面亮起後才淡入）。",
+   "severity": "low",
+   "fix": "隨 T01 修正自動消失；或重建環境音軌時對齊畫面邊界。",
+   "metrics": {}
+  },
+  {
+   "id": "T11",
+   "where": "成片容器",
+   "issue": "成片影像 start_time 0.041s、音訊 0s（影像晚 41ms）；joined 的影像也有 0.021s 偏移（concat 以 AAC priming 的負 pts 為基準）。旁白是畫外音，影響極小。",
+   "severity": "low",
+   "fix": "PCM 組裝後自然消失；或最終 mux 加 -avoid_negative_ts make_zero 並檢查 start_time。",
+   "metrics": {}
+  }
+ ],
+ "top_boundaries": [
+  {
+   "k": 1,
+   "timecode": "0:10.999",
+   "prev": "第一章_00_0_226f",
+   "next": "第一章_00_1_226f",
+   "type": "cont(i2v)",
+   "score": 8.3,
+   "dY": 1.16,
+   "dSat": 5.03,
+   "dU": -0.64,
+   "dV": 1.75,
+   "cut_mad": 33.7,
+   "cut_ssim": 0.2436,
+   "audio_gap_ms": 30,
+   "final_dip_ms": 30,
+   "click_ratio": 0.96,
+   "spec_dist_db": 2.79,
+   "ambient_drift_s": 0.007,
+   "contact_sheet": "contact/boundary_k01.png",
+   "visual_check": "同一條老街，構圖相近但鏡位往前跳一截（電線桿、招牌位移），是 0.665s 運動被剪掉的跳格。",
+   "suggest": "丟掉接續段第 1 幀並讓上一段用滿生成檔（見 T03）；曝光匹配 k1: eq=gamma=0.87:saturation=1.02；音訊 acrossfade=d=0.08（修 T01）"
+  },
+  {
+   "k": 6,
+   "timecode": "0:59.541",
+   "prev": "第一章_01_0_243f",
+   "next": "第一章_01_1_294f_t",
+   "type": "cut(_t)",
+   "score": 8.0,
+   "dY": -59.15,
+   "dSat": 63.87,
+   "dU": 3.36,
+   "dV": -2.31,
+   "cut_mad": 69.49,
+   "cut_ssim": 0.1003,
+   "audio_gap_ms": 45,
+   "final_dip_ms": 0,
+   "click_ratio": 0.23,
+   "spec_dist_db": 12.81,
+   "ambient_drift_s": 0.105,
+   "contact_sheet": "contact/boundary_k06.png",
+   "visual_check": "日光燈照亮的神桌全景 → 幾乎全黑、只剩窗戶亮的角度（dY -59）。",
+   "suggest": "xfade=transition=fade:duration=0.5"
+  },
+  {
+   "k": 43,
+   "timecode": "7:21.791",
+   "prev": "第二章_01_3_260f_t",
+   "next": "第二章_01_4_294f_t",
+   "type": "cut(_t)",
+   "score": 8.0,
+   "dY": -66.72,
+   "dSat": 40.5,
+   "dU": 5.85,
+   "dV": -6.67,
+   "cut_mad": 75.78,
+   "cut_ssim": 0.1341,
+   "audio_gap_ms": 15,
+   "final_dip_ms": 0,
+   "click_ratio": 0.69,
+   "spec_dist_db": 10.63,
+   "ambient_drift_s": 0.789,
+   "contact_sheet": "contact/boundary_k43.png",
+   "visual_check": "明亮紙頁特寫（燒字幕壓在白紙上幾乎看不清）→ 深綠昏暗長廊；後段 8.6s 近乎靜止。",
+   "suggest": "xfade=transition=fade:duration=0.5；曝光匹配 k42: eq=gamma=0.87:saturation=1.13"
+  },
+  {
+   "k": 46,
+   "timecode": "7:55.208",
+   "prev": "第三章_00_1_294f_t",
+   "next": "第三章_00_2_294f_t",
+   "type": "cut(_t)",
+   "score": 6.7,
+   "dY": 45.42,
+   "dSat": -65.35,
+   "dU": -4.5,
+   "dV": 4.78,
+   "cut_mad": 51.17,
+   "cut_ssim": 0.1706,
+   "audio_gap_ms": 25,
+   "final_dip_ms": 0,
+   "click_ratio": 1.47,
+   "spec_dist_db": 11.81,
+   "ambient_drift_s": 0.887,
+   "contact_sheet": "contact/boundary_k46.png",
+   "visual_check": "暗紅燈籠 → 亮的石獅廟門，隨即 0.25s 內變暗（閃白）。",
+   "suggest": "xfade=transition=fade:duration=0.5；曝光匹配 k45: eq=gamma=1.00:saturation=0.79"
+  },
+  {
+   "k": 18,
+   "timecode": "3:04.333",
+   "prev": "第一章_02_0_192f",
+   "next": "第一章_02_1_124f",
+   "type": "cont(i2v)",
+   "score": 6.6,
+   "dY": -5.84,
+   "dSat": 1.6,
+   "dU": 0.11,
+   "dV": -0.09,
+   "cut_mad": 8.85,
+   "cut_ssim": 0.8724,
+   "audio_gap_ms": 35,
+   "final_dip_ms": 0,
+   "click_ratio": 1.02,
+   "spec_dist_db": 16.71,
+   "ambient_drift_s": 0.263,
+   "contact_sheet": "contact/boundary_k18.png",
+   "visual_check": "舊地圖接續，畫面連續但暗角與邊緣亮度突然變化，同時字幕消失。",
+   "suggest": "丟掉接續段第 1 幀並讓上一段用滿生成檔（見 T03）"
+  },
+  {
+   "k": 2,
+   "timecode": "0:21.958",
+   "prev": "第一章_00_1_226f",
+   "next": "第一章_00_2_226f",
+   "type": "cont(i2v)",
+   "score": 6.1,
+   "dY": -0.78,
+   "dSat": -1.22,
+   "dU": 0.77,
+   "dV": -1.05,
+   "cut_mad": 37.95,
+   "cut_ssim": 0.3129,
+   "audio_gap_ms": 35,
+   "final_dip_ms": 0,
+   "click_ratio": 1.37,
+   "spec_dist_db": 4.59,
+   "ambient_drift_s": 0.014,
+   "contact_sheet": "contact/boundary_k02.png",
+   "visual_check": "同上，蔬果攤與遠處機車位置跳一截。",
+   "suggest": "丟掉接續段第 1 幀並讓上一段用滿生成檔（見 T03）；曝光匹配 k1: eq=gamma=0.87:saturation=1.02 / k2: eq=gamma=0.93:saturation=1.20"
+  },
+  {
+   "k": 3,
+   "timecode": "0:32.916",
+   "prev": "第一章_00_2_226f",
+   "next": "第一章_00_3_243f_t",
+   "type": "cut(_t)",
+   "score": 6.0,
+   "dY": -21.91,
+   "dSat": 53.82,
+   "dU": 1.95,
+   "dV": -2.69,
+   "cut_mad": 47.95,
+   "cut_ssim": 0.1646,
+   "audio_gap_ms": 20,
+   "final_dip_ms": 0,
+   "click_ratio": 8.07,
+   "spec_dist_db": 12.24,
+   "ambient_drift_s": -0.0,
+   "contact_sheet": "contact/boundary_k03.png",
+   "visual_check": "陰天白晝巷弄 → 入夜藍調、店家燈亮的街景，時段不一致，飽和度暴增。",
+   "suggest": "xfade=transition=fade:duration=0.3；曝光匹配 k2: eq=gamma=0.93:saturation=1.20 / k3: eq=gamma=1.14:saturation=0.87"
+  },
+  {
+   "k": 40,
+   "timecode": "6:50.916",
+   "prev": "第二章_01_0_209f",
+   "next": "第二章_01_1_260f_t",
+   "type": "cut(_t)",
+   "score": 5.3,
+   "dY": -8.15,
+   "dSat": 13.76,
+   "dU": -1.82,
+   "dV": 0.51,
+   "cut_mad": 49.13,
+   "cut_ssim": 0.1693,
+   "audio_gap_ms": 25,
+   "final_dip_ms": 55,
+   "click_ratio": 11.11,
+   "spec_dist_db": 22.82,
+   "ambient_drift_s": 0.688,
+   "contact_sheet": "contact/boundary_k40.png",
+   "visual_check": "正面檔案架加日光燈 → 兩側書架夾出的走道（格局不同）；邊界有取樣點突變（click 比 11.1）與 55ms 可聽掉音。",
+   "suggest": "xfade=transition=fade:duration=0.3；曝光匹配 k39: eq=gamma=1.00:saturation=1.25；音訊 acrossfade=d=0.08（修 T01）"
+  },
+  {
+   "k": 42,
+   "timecode": "7:11.499",
+   "prev": "第二章_01_2_260f_t",
+   "next": "第二章_01_3_260f_t",
+   "type": "cut(_t)",
+   "score": 5.3,
+   "dY": -43.32,
+   "dSat": -29.13,
+   "dU": 6.71,
+   "dV": -5.15,
+   "cut_mad": 60.08,
+   "cut_ssim": 0.1501,
+   "audio_gap_ms": 30,
+   "final_dip_ms": 0,
+   "click_ratio": 0.75,
+   "spec_dist_db": 5.06,
+   "ambient_drift_s": 0.755,
+   "contact_sheet": "contact/boundary_k42.png",
+   "visual_check": "有燈泡的明亮檔案架 → 沒有燈泡、昏暗的檔案架，同一檔案室光源不一致。",
+   "suggest": "xfade=transition=fade:duration=0.5；曝光匹配 k41: eq=gamma=0.90:saturation=1.00 / k42: eq=gamma=0.87:saturation=1.13"
+  },
+  {
+   "k": 47,
+   "timecode": "8:07.374",
+   "prev": "第三章_00_2_294f_t",
+   "next": "第三章_00_3_294f_t",
+   "type": "cut(_t)",
+   "score": 4.9,
+   "dY": 25.86,
+   "dSat": -10.84,
+   "dU": -2.74,
+   "dV": 1.88,
+   "cut_mad": 34.38,
+   "cut_ssim": 0.2447,
+   "audio_gap_ms": 25,
+   "final_dip_ms": 0,
+   "click_ratio": 4.15,
+   "spec_dist_db": 6.55,
+   "ambient_drift_s": 0.901,
+   "contact_sheet": "contact/boundary_k47.png",
+   "visual_check": "近全黑的石獅特寫 → 紅燈籠廟門與濕巷，亮度跳升；有輕微取樣點突變（click 比 4.2）。",
+   "suggest": "xfade=transition=fade:duration=0.5"
+  },
+  {
+   "k": 15,
+   "timecode": "2:39.916",
+   "prev": "第一章_01_9_277f_t",
+   "next": "第一章_01_10_277f_t",
+   "type": "cut(_t)",
+   "score": 4.8,
+   "dY": 35.57,
+   "dSat": -37.11,
+   "dU": -2.19,
+   "dV": 5.43,
+   "cut_mad": 58.54,
+   "cut_ssim": 0.1813,
+   "audio_gap_ms": 35,
+   "final_dip_ms": 0,
+   "click_ratio": 1.02,
+   "spec_dist_db": 2.55,
+   "ambient_drift_s": 0.168,
+   "contact_sheet": "contact/boundary_k15.png",
+   "visual_check": "（未另做對照圖）數值：dY +35.6、dSat -37。",
+   "suggest": "xfade=transition=fade:duration=0.5"
+  },
+  {
+   "k": 37,
+   "timecode": "6:24.374",
+   "prev": "第二章_00_6_260f_t",
+   "next": "第二章_00_7_260f_t",
+   "type": "cut(_t)",
+   "score": 4.7,
+   "dY": -32.3,
+   "dSat": -44.83,
+   "dU": 8.18,
+   "dV": -4.07,
+   "cut_mad": 78.34,
+   "cut_ssim": 0.1811,
+   "audio_gap_ms": 25,
+   "final_dip_ms": 0,
+   "click_ratio": 0.61,
+   "spec_dist_db": 5.03,
+   "ambient_drift_s": 0.563,
+   "contact_sheet": "contact/boundary_k37.png",
+   "visual_check": "（未另做對照圖，僅數值）",
+   "suggest": "xfade=transition=fade:duration=0.5；曝光匹配 k36: eq=gamma=0.86:saturation=0.87"
+  }
+ ],
+ "method": [
+  "shots.json 與 render log 重建 53 段 clip（檔名、head、取用秒數、倍率），以 norm/NNN.mp4 實際長度累加交叉驗證（影像累積差 0.076s）",
+  "逐幀（480x270，排除下方 22% 字幕區）YUV 均值、HSV 飽和度、相鄰幀 MAD/SSIM、Laplacian 銳利度：成片與 joined（未調色）各一份",
+  "ffmpeg freezedetect/blackdetect/scdet/silencedetect 交叉確認；每個來源 clip 做 scdet 找生成檔內部硬切",
+  "音訊以逐樣本解碼的 joined 環境音與成片混音量測 RMS、5ms 掉音、取樣點突變、16 頻帶頻譜距離",
+  "12 張邊界對照圖、2 張場景總覽格、2 張慢動作殘影放大圖，由本 session 目視確認（未使用 Ollama VLM：GPU 被佔用，改自行讀圖）"
+ ],
+ "unverified": [
+  "T01 修正後的實際聽感（未實作重建）",
+  "RIFE 在 GPU 被佔用時的可用性與速度（未測）",
+  "場景一致性為目視判斷，未經第二位審閱者或 VLM 確認",
+  "k15、k37、k45 等未逐一目視的邊界只有數值"
+ ],
+ "artifacts": [
+  "segments.json",
+  "boundaries.json",
+  "segment_stats.json",
+  "scdet_sources.txt",
+  "ffdetect_final.log",
+  "ffdetect_joined.log",
+  "contact/*.png"
+ ]
+}

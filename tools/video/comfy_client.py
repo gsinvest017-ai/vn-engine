@@ -39,6 +39,7 @@ class ClipJob:
     seed: int = 1
     turbo: bool = True          # 8-step turbo LoRA；False = 原生 20 步
     last_frame: str | None = None
+    ref_image: str | None = None  # 設了就改走 ReferenceToVideo：同一場景、不同鏡頭（提示詞用 <Picture 1>）
     prefix: str = "video/anqu"
 
 
@@ -66,7 +67,15 @@ def build_prompt(job: ClipJob) -> dict:
         g["2"] = {"class_type": "LoraLoaderModelOnly",
                   "inputs": {"model": ["1", 0], "lora_name": TURBO_LORA, "strength_model": 1.0}}
         model = ["2", 0]
-    if job.first_frame:
+    if job.ref_image:
+        g["6"] = {"class_type": "LoadImage", "inputs": {"image": job.ref_image}}
+        g["7"] = {"class_type": "MiniMaxH3ReferenceToVideo", "inputs": {
+            "clip": ["3", 0], "vae": ["4", 0], "audio_vae": ["5", 0], "prompt": job.prompt,
+            "width": job.width, "height": job.height, "length": snap_length(job.seconds),
+            "ref_image_size": "match",
+            # Autogrow 輸入在 API 格式裡是「群組.前綴+序號」；鍵名錯了不會報錯，只會被默默忽略
+            "ref_images.ref_image_0": ["6", 0]}}
+    elif job.first_frame:
         g["6"] = {"class_type": "LoadImage", "inputs": {"image": job.first_frame}}
         g["7"]["inputs"]["first_frame"] = ["6", 0]
     if job.last_frame:

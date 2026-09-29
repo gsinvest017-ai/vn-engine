@@ -1,0 +1,184 @@
+{
+ "clip": "第三章_00_8_294f_t.mp4",
+ "note": "第三章 道壇門口緩推（f111 切到石獅特寫）。H099 主匾 4 格假字→「翰溪道壇」rtl（四字位）；H100 主匾下紅色小匾→「威靈顯赫」rtl；H101 門兩側紅聯拆兩物件（右上聯／左下聯），原約 8 格放 7 字",
+ "objects": [
+  {
+   "id": "H099",
+   "mode": "replace",
+   "text": "翰溪道壇",
+   "direction": "h",
+   "order": "rtl",
+   "range": [
+    0,
+    4.6
+   ],
+   "anchors": [
+    {
+     "t": 2.0,
+     "quad": [
+      [
+       436,
+       38
+      ],
+      [
+       625,
+       38
+      ],
+      [
+       625,
+       68
+      ],
+      [
+       436,
+       68
+      ]
+     ]
+    }
+   ],
+   "font": "kaiu",
+   "keep_aspect": true,
+   "pad": [
+    0.03,
+    0.04
+   ],
+   "track": {
+    "pad": 20,
+    "smooth": 15
+   }
+  },
+  {
+   "id": "H100",
+   "mode": "replace",
+   "text": "威靈顯赫",
+   "direction": "h",
+   "order": "rtl",
+   "range": [
+    0,
+    4.6
+   ],
+   "anchors": [
+    {
+     "t": 2.0,
+     "quad": [
+      [
+       495,
+       78
+      ],
+      [
+       558,
+       78
+      ],
+      [
+       558,
+       93
+      ],
+      [
+       495,
+       93
+      ]
+     ]
+    }
+   ],
+   "font": "kaiu",
+   "keep_aspect": true,
+   "pad": [
+    0.04,
+    0.06
+   ],
+   "track": {
+    "pad": 20,
+    "smooth": 15
+   }
+  },
+  {
+   "id": "H101R",
+   "mode": "replace",
+   "text": "翰墨書符驅疫厲",
+   "direction": "v",
+   "range": [
+    0,
+    4.6
+   ],
+   "anchors": [
+    {
+     "t": 2.0,
+     "quad": [
+      [
+       605,
+       113
+      ],
+      [
+       629,
+       113
+      ],
+      [
+       629,
+       284
+      ],
+      [
+       605,
+       284
+      ]
+     ]
+    }
+   ],
+   "font": "kaiu",
+   "keep_aspect": true,
+   "pad": [
+    0.09,
+    0.06
+   ],
+   "track": {
+    "pad": 14,
+    "smooth": 15
+   },
+   "mask_dilate": 2.0,
+   "text_rel": 0.4
+  },
+  {
+   "id": "H101L",
+   "mode": "replace",
+   "text": "溪流護境保安寧",
+   "direction": "v",
+   "range": [
+    0,
+    4.6
+   ],
+   "anchors": [
+    {
+     "t": 2.0,
+     "quad": [
+      [
+       427,
+       113
+      ],
+      [
+       451,
+       113
+      ],
+      [
+       451,
+       284
+      ],
+      [
+       427,
+       284
+      ]
+     ]
+    }
+   ],
+   "font": "kaiu",
+   "keep_aspect": true,
+   "pad": [
+    0.09,
+    0.06
+   ],
+   "track": {
+    "pad": 14,
+    "smooth": 15
+   },
+   "mask_dilate": 2.0,
+   "text_rel": 0.4
+  }
+ ]
+}

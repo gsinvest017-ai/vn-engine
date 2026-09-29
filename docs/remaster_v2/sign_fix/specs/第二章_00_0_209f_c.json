@@ -1,0 +1,13 @@
+{
+ "clip": "第二章_00_0_209f_c.mp4",
+ "note": "H064 道壇門邊直匾（鏡頭右搖，匾往左出畫，約 7s 後完全出畫）；原字「居□皓美食」5 格 →「翰溪庄道壇」直書",
+ "objects": [
+  {"id": "H064", "mode": "replace", "text": "翰溪庄道壇", "direction": "v",
+   "range": [0, 7.0],
+   "anchors": [{"t": 0.0, "quad": [[22, 182], [68, 182], [66, 424], [20, 424]]}],
+   "font": "kaiu", "pad": [0.06, 0.04], "mask_thresh": 33, "mask_dilate": 2.0,
+   "text_color": [8, 6, 5], "text_color2": [18, 15, 13], "weight": 0.25,
+   "track": {"pad": 30, "smooth": 9},
+   "_hanzi": {"object_type": "門邊直匾", "seen_text": "居□皓美食", "object_motion": "緩推/緩移", "note": "同 H020"}}
+ ]
+}

@@ -1,0 +1,202 @@
+{
+ "task": "bgm",
+ "status": "done",
+ "outputs": {
+  "bgm_full.wav": "48 kHz 立體聲 16-bit PCM（TPDF dither），554.874 s，md5 d39122944459904ba6fa68025c5db4a2",
+  "bgm_preview_60s.mp3": "開場 60 秒 192k",
+  "preview_mix_90s.mp4": "v1 成片開頭 90 秒 + bgm（旁白 sidechain 壓低），影像 copy",
+  "bgm_full.stats.json": "完整量測",
+  "bgm_full.events.json": "每個音符事件（時間/樂器/頻率/力度/來源）",
+  "bgm_overview.png": "短期響度 vs 旁白區間 + 事件散佈圖",
+  "narration_key_90s.wav": "試聽用旁白 sidechain key",
+  "make_previews.py": "重建 mp3/mp4 試聽",
+  "code": [
+   "tools/video/bgm_synth.py",
+   "tools/video/test_bgm_synth.py"
+  ]
+ },
+ "reproduce": "python tools/video/bgm_synth.py --shots video_out/anqu_narrated.shots.json --duration 554.874349 --seed 7 --out video_out/remaster_v2/bgm/bgm_full.wav && python video_out/remaster_v2/bgm/make_previews.py",
+ "reproducibility_verified": "最終版同 seed 另跑一次 md5 相同（d391229…）；pytest test_reproducible_with_seed 通過",
+ "tests": "pytest tools/video/test_bgm_synth.py 9 passed；既有 test_video_tools.py 一併通過",
+ "cross_check": {
+  "ffmpeg_ebur128_I": -30.0,
+  "ffmpeg_true_peak_dbfs": -10.0,
+  "ffmpeg_LRA": 23.5
+ },
+ "metrics": {
+  "duration_sec": 554.874,
+  "sample_rate": 48000,
+  "integrated_lufs": -29.99,
+  "sample_peak_dbfs": -10.04,
+  "true_peak_dbtp_4x": -10.02,
+  "has_nan": false,
+  "centroid_hz": 461.9,
+  "events_total": 103,
+  "notes_per_min": 11.14,
+  "notes_per_min_in_speech": 7.48,
+  "notes_per_min_outside_speech": 38.25,
+  "speech_sec": 489.0,
+  "rms_db_speech": -44.31,
+  "rms_db_non_speech": -30.98,
+  "chapters": [
+   {
+    "chapter": 1,
+    "start": 0.0,
+    "end": 312.12,
+    "notes_per_min": 9.61,
+    "by_kind": {
+     "celesta": 15,
+     "chime": 21,
+     "bell": 3,
+     "bell_far": 11
+    },
+    "rms_db": -41.12,
+    "centroid_hz": 771.4,
+    "lufs": -31.47
+   },
+   {
+    "chapter": 2,
+    "start": 312.12,
+    "end": 450.78,
+    "notes_per_min": 12.98,
+    "by_kind": {
+     "celesta": 17,
+     "chime": 8,
+     "bell": 1,
+     "bell_far": 4
+    },
+    "rms_db": -38.62,
+    "centroid_hz": 547.0,
+    "lufs": -28.57
+   },
+   {
+    "chapter": 3,
+    "start": 450.78,
+    "end": 554.87,
+    "notes_per_min": 13.26,
+    "by_kind": {
+     "celesta": 11,
+     "chime": 6,
+     "bell": 0,
+     "bell_far": 6
+    },
+    "rms_db": -35.78,
+    "centroid_hz": 130.7,
+    "lufs": -28.83
+   }
+  ],
+  "by_tag": {
+   "title": 3,
+   "title-motif": 12,
+   "gap-note": 7,
+   "drone": 13,
+   "random": 10,
+   "gap-gust": 11,
+   "shot-gust": 8,
+   "fill": 13,
+   "shot-bell": 2,
+   "random-gust": 7,
+   "motif": 7,
+   "storm-gust": 6,
+   "dark-cue": 1,
+   "deep-cue": 1,
+   "ending": 2
+  },
+  "dark": {
+   "dark_start": 458.05,
+   "rms_db_dark": -42.59,
+   "lufs_dark": -33.48,
+   "lufs_ch1_2": -30.35,
+   "rms_db_ch1_2": -40.19,
+   "centroid_hz_dark": 181.4,
+   "centroid_hz_before_dark_ch1_2": 672.9,
+   "notes_per_min_dark": 7.44,
+   "events_before_dark_in_chapter": 11
+  },
+  "seed": 7,
+  "shots": "video_out\\anqu_narrated.shots.json",
+  "render": {
+   "pre_norm_lufs": -29.41147474074982,
+   "norm_gain_db": -0.5885252592501796,
+   "speech_duck_db": -5.0,
+   "dark_db": -5.0,
+   "cut_sec": 13.6
+  },
+  "timeline": {
+   "titles": [
+    [
+     0.0,
+     1
+    ],
+    [
+     312.12,
+     2
+    ],
+    [
+     450.78,
+     3
+    ]
+   ],
+   "dark_start": 458.0458461538461,
+   "deep_cues": [
+    488.39744444444443
+   ],
+   "chapters": [
+    [
+     0.0,
+     312.12,
+     1
+    ],
+    [
+     312.12,
+     450.78,
+     2
+    ],
+    [
+     450.78,
+     554.874349,
+     3
+    ]
+   ],
+   "n_speech_segments": 62
+  }
+ },
+ "findings": [
+  {
+   "id": "BGM-1",
+   "where": "bgm_full.wav 全片",
+   "issue": "音樂極稀疏：3 秒短期響度有 32% 時間 < -60 LUFS、46% < -50 LUFS，LRA 23.5 LU；旁白下常有 10–18 秒近乎無聲",
+   "severity": "medium",
+   "fix": "若主控混音後覺得太空：調高 bgm_synth.MAX_SILENCE 以下的值（例 10 秒）或把 6b 底層低鐘 vel 從 0.2–0.28 提到 0.35，重跑同 seed 即可"
+  },
+  {
+   "id": "BGM-2",
+   "where": "第三章 450.78–458.05 s（標題卡＋暴雨前）",
+   "issue": "第三章整章積分響度 -28.8 LUFS 反而比第一章 -31.5 高，來源是標題鐘＋標題動機＋停電前急風風鈴；停電後暗段本身 -33.5 LUFS、頻譜重心 181 Hz（第一二章 673 Hz）",
+   "severity": "low",
+   "fix": "若要整章都更暗，把第三章標題鐘 vel 0.55 再降或 storm-gust 拿掉（compose() 第 1、2 段）"
+  },
+  {
+   "id": "BGM-3",
+   "where": "暗段 472–555 s",
+   "issue": "未加權 RMS 暗段 -42.6 dB 只比第一二章 -40.2 dB 低 2.4 dB（低頻遠鐘能量大、K-weighting 後才差 3.1 LU）；小喇叭上低鐘可能聽不太到",
+   "severity": "low",
+   "fix": "主控混音時可對 bgm 做 60 Hz 以下 shelf 或把 DARK_CFG bell_note 從 34 升到 38"
+  },
+  {
+   "id": "BGM-4",
+   "where": "preview_mix_90s.mp4",
+   "issue": "試聽 sidechain 參數（threshold 0.03、ratio 3、attack 40 ms、release 900 ms）只是示範；bgm 在旁白中再被壓約 8 dB（-43.5 → -51.8 dB RMS），成片混音 -17.2 LUFS 與 v1 -17.1 相同",
+   "severity": "low",
+   "fix": "主控正式混音時自訂 ducking；sidechain key 用純旁白軌（make_previews.py 已示範如何重建）"
+  },
+  {
+   "id": "BGM-5",
+   "where": "全部",
+   "issue": "未經人耳試聽：音色、恐怖感、樂器辨識度只用量測自我檢查",
+   "severity": "medium",
+   "fix": "請使用者聽 bgm_preview_60s.mp3 與 preview_mix_90s.mp4 再決定是否調參"
+  }
+ ],
+ "license": "全部由 numpy/scipy 合成（BSD），無取樣、無外部音檔，可商用"
+}

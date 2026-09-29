@@ -1,0 +1,12 @@
+{
+ "clip": "第三章_00_5_294f_t.mp4",
+ "note": "H094 夜間道壇廟門匾額（緩推），燈管在匾前；原字 4 格假字 →「翰溪壇」三字、傳統右→左",
+ "objects": [
+  {"id": "H094", "mode": "replace", "text": "翰溪壇", "direction": "h", "order": "rtl",
+   "anchors": [{"t": 3.0, "quad": [[480, 166], [577, 166], [577, 188], [480, 188]]},
+               {"t": 12.0, "quad": [[479, 192], [579, 192], [579, 214], [479, 214]]}],
+   "base_anchor": 1, "font": "kaiu", "keep_aspect": true, "pad": [0.02, 0.04],
+   "protect_luma": 200, "mask_thresh": 30, "mask_dilate": 2.0, 
+   "track": {"pad": 40, "smooth": 15}}
+ ]
+}

@@ -1,0 +1,58 @@
+{
+ "clip": "第一章_03_0_243f_c.mp4",
+ "note": "H045 門邊直匾（紙條、暗字；鏡頭緩推，約 3.2s 後出畫左緣）；原 5 格假字 →「翰溪庄道壇」",
+ "objects": [
+  {
+   "id": "H045",
+   "mode": "replace",
+   "text": "翰溪庄道壇",
+   "direction": "v",
+   "range": [
+    0,
+    3.3
+   ],
+   "anchors": [
+    {
+     "t": 0.0,
+     "quad": [
+      [
+       15,
+       166
+      ],
+      [
+       58,
+       166
+      ],
+      [
+       58,
+       426
+      ],
+      [
+       15,
+       426
+      ]
+     ]
+    }
+   ],
+   "font": "kaiu",
+   "keep_aspect": true,
+   "track": {
+    "pad": 25,
+    "smooth": 9
+   },
+   "text_color": [
+    10,
+    10,
+    10
+   ],
+   "text_color2": [
+    18,
+    17,
+    16
+   ],
+   "mask_thresh": 22,
+   "mask_dilate": 2.0,
+   "weight": 1.25
+  }
+ ]
+}
