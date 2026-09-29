@@ -1,0 +1,80 @@
+// Chet 風小號：open / harmon（CC110 切換）＋氣音層；自動產生：tools/video/jazz_arrange.py sfz
+// 樣本 VSCO-2-CE（CC0）
+<control>
+default_path=../../_assets/lib/VSCO-2-CE/Brass/Trumpet/
+
+<global>
+ampeg_attack=0.05
+ampeg_release=0.35
+amp_veltrack=70
+fil_type=lpf_2p
+resonance=0
+
+<master> hicc110=63
+cutoff=3400
+fil_veltrack=1800
+<group> lokey=49 hikey=55 pitch_keycenter=53 xfout_lovel=60 xfout_hivel=127
+<region> sample=sus/Sum_SHTrumpet_sus_F2_v1_rr1.wav
+<group> lokey=49 hikey=55 pitch_keycenter=53 xfin_lovel=20 xfin_hivel=110 volume=-20
+<region> sample=sus/Sum_SHTrumpet_sus_F2_v3_rr1.wav
+<group> lokey=56 hikey=58 pitch_keycenter=57 xfout_lovel=60 xfout_hivel=127
+<region> sample=sus/Sum_SHTrumpet_sus_A2_v1_rr1.wav
+<group> lokey=56 hikey=58 pitch_keycenter=57 xfin_lovel=20 xfin_hivel=110 volume=-20
+<region> sample=sus/Sum_SHTrumpet_sus_A2_v3_rr1.wav
+<group> lokey=59 hikey=61 pitch_keycenter=60 xfout_lovel=60 xfout_hivel=127
+<region> sample=sus/Sum_SHTrumpet_sus_C3_v1_rr1.wav
+<group> lokey=59 hikey=61 pitch_keycenter=60 xfin_lovel=20 xfin_hivel=110 volume=-20
+<region> sample=sus/Sum_SHTrumpet_sus_C3_v3_rr1.wav
+<group> lokey=62 hikey=65 pitch_keycenter=63 xfout_lovel=60 xfout_hivel=127
+<region> sample=sus/Sum_SHTrumpet_sus_D#3_v1_rr1.wav
+<group> lokey=62 hikey=65 pitch_keycenter=63 xfin_lovel=20 xfin_hivel=110 volume=-20
+<region> sample=sus/Sum_SHTrumpet_sus_D#3_v3_rr1.wav
+<group> lokey=66 hikey=68 pitch_keycenter=67 xfout_lovel=60 xfout_hivel=127
+<region> sample=sus/Sum_SHTrumpet_sus_G3_v1_rr1.wav
+<group> lokey=66 hikey=68 pitch_keycenter=67 xfin_lovel=20 xfin_hivel=110 volume=-20
+<region> sample=sus/Sum_SHTrumpet_sus_G3_v3_rr1.wav
+<group> lokey=69 hikey=72 pitch_keycenter=70 xfout_lovel=60 xfout_hivel=127
+<region> sample=sus/Sum_SHTrumpet_sus_A#3_v1_rr1.wav
+<group> lokey=69 hikey=72 pitch_keycenter=70 xfin_lovel=20 xfin_hivel=110 volume=-20
+<region> sample=sus/Sum_SHTrumpet_sus_A#3_v3_rr1.wav
+<group> lokey=73 hikey=75 pitch_keycenter=74 xfout_lovel=60 xfout_hivel=127
+<region> sample=sus/Sum_SHTrumpet_sus_D4_v1_rr1.wav
+<group> lokey=73 hikey=75 pitch_keycenter=74 xfin_lovel=20 xfin_hivel=110 volume=-20
+<region> sample=sus/Sum_SHTrumpet_sus_D4_v3_rr1.wav
+<group> lokey=76 hikey=79 pitch_keycenter=77 xfout_lovel=60 xfout_hivel=127
+<region> sample=sus/Sum_SHTrumpet_sus_F4_v1_rr1.wav
+<group> lokey=76 hikey=79 pitch_keycenter=77 xfin_lovel=20 xfin_hivel=110 volume=-20
+<region> sample=sus/Sum_SHTrumpet_sus_F4_v3_rr1.wav
+<group> lokey=80 hikey=82 pitch_keycenter=81 xfout_lovel=60 xfout_hivel=127
+<region> sample=sus/Sum_SHTrumpet_sus_A4_v1_rr1.wav
+<group> lokey=80 hikey=82 pitch_keycenter=81 xfin_lovel=20 xfin_hivel=110 volume=-20
+<region> sample=sus/Sum_SHTrumpet_sus_A4_v3_rr1.wav
+<group> lokey=83 hikey=87 pitch_keycenter=84 xfout_lovel=60 xfout_hivel=127
+<region> sample=sus/Sum_SHTrumpet_sus_C5_v1_rr1.wav
+<group> lokey=83 hikey=87 pitch_keycenter=84 xfin_lovel=20 xfin_hivel=110 volume=-20
+<region> sample=sus/Sum_SHTrumpet_sus_C5_v3_rr1.wav
+
+<master> locc110=64
+cutoff=2600
+fil_veltrack=900
+volume=-2
+<group> lokey=54 hikey=59 pitch_keycenter=58
+<region> sample=harmonM-sus/Sum_SHTrumpet_harmonM-sus_A#2_v1_rr1.wav
+<group> lokey=60 hikey=61 pitch_keycenter=60
+<region> sample=harmonM-sus/Sum_SHTrumpet_harmonM-sus_C3_v1_rr1.wav
+<group> lokey=62 hikey=65 pitch_keycenter=63
+<region> sample=harmonM-sus/Sum_SHTrumpet_harmonM-sus_D#3_v1_rr1.wav
+<group> lokey=66 hikey=69 pitch_keycenter=68
+<region> sample=harmonM-sus/Sum_SHTrumpet_harmonM-sus_G#3_v1_rr1.wav
+<group> lokey=70 hikey=72 pitch_keycenter=70
+<region> sample=harmonM-sus/Sum_SHTrumpet_harmonM-sus_A#3_v1_rr1.wav
+<group> lokey=73 hikey=75 pitch_keycenter=74
+<region> sample=harmonM-sus/Sum_SHTrumpet_harmonM-sus_D4_v1_rr1.wav
+<group> lokey=76 hikey=79 pitch_keycenter=77
+<region> sample=harmonM-sus/Sum_SHTrumpet_harmonM-sus_F4_v1_rr1.wav
+<group> lokey=80 hikey=86 pitch_keycenter=81
+<region> sample=harmonM-sus/Sum_SHTrumpet_harmonM-sus_A4_v1_rr1.wav
+
+// 氣音：帶通雜訊，起音明顯、持續音時很淡
+<master> volume=-48 fil_type=bpf_2p cutoff=5000 ampeg_attack=0.01 ampeg_decay=0.22 ampeg_sustain=25 ampeg_release=0.2 amp_veltrack=100
+<region> sample=*noise lokey=47 hikey=90

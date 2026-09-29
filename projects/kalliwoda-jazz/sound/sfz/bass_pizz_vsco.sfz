@@ -1,0 +1,69 @@
+// 低音提琴撥奏（VSCO2 Solo Contrabass Pizz）
+// 自動產生：projects/kalliwoda-jazz/sound/make_sfz.py；樣本 VSCO-2-CE（CC0）
+<control>
+default_path=../../_assets/lib/VSCO-2-CE/Strings/Solo Contrabass/Pizz/
+
+<global>
+ampeg_release=0.18
+amp_veltrack=70
+
+<group> lokey=28 hikey=29 pitch_keycenter=28 lovel=1 hivel=84 seq_length=2
+<region> sample=BKCtbss_Pizz_E0_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_E0_v1_rr2.wav seq_position=2
+<group> lokey=28 hikey=29 pitch_keycenter=28 lovel=85 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_E0_v3_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_E0_v3_rr2.wav seq_position=2
+<group> lokey=30 hikey=30 pitch_keycenter=30 lovel=1 hivel=84 seq_length=2
+<region> sample=BKCtbss_Pizz_F#0_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_F#0_v1_rr2.wav seq_position=2
+<group> lokey=30 hikey=30 pitch_keycenter=30 lovel=85 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_F#0_v3_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_F#0_v3_rr2.wav seq_position=2
+<group> lokey=31 hikey=32 pitch_keycenter=31 lovel=1 hivel=84 seq_length=2
+<region> sample=BKCtbss_Pizz_G0_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_G0_v1_rr2.wav seq_position=2
+<group> lokey=31 hikey=32 pitch_keycenter=31 lovel=85 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_G0_v3_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_G0_v3_rr2.wav seq_position=2
+<group> lokey=33 hikey=35 pitch_keycenter=34 lovel=1 hivel=84 seq_length=2
+<region> sample=BKCtbss_Pizz_A#0_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_A#0_v1_rr2.wav seq_position=2
+<group> lokey=33 hikey=35 pitch_keycenter=34 lovel=85 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_A#0_v3_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_A#0_v3_rr2.wav seq_position=2
+<group> lokey=36 hikey=37 pitch_keycenter=36 lovel=1 hivel=84 seq_length=2
+<region> sample=BKCtbss_Pizz_C1_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_C1_v1_rr2.wav seq_position=2
+<group> lokey=36 hikey=37 pitch_keycenter=36 lovel=85 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_C1_v3_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_C1_v3_rr2.wav seq_position=2
+<group> lokey=38 hikey=39 pitch_keycenter=38 lovel=1 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_D1_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_D1_v1_rr2.wav seq_position=2
+<group> lokey=40 hikey=41 pitch_keycenter=40 lovel=1 hivel=84 seq_length=2
+<region> sample=BKCtbss_Pizz_E1_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_E1_v1_rr2.wav seq_position=2
+<group> lokey=40 hikey=41 pitch_keycenter=40 lovel=85 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_E1_v3_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_E1_v3_rr2.wav seq_position=2
+<group> lokey=42 hikey=43 pitch_keycenter=42 lovel=1 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_F#1_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_F#1_v1_rr2.wav seq_position=2
+<group> lokey=44 hikey=44 pitch_keycenter=44 lovel=1 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_G#1_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_G#1_v1_rr2.wav seq_position=2
+<group> lokey=45 hikey=47 pitch_keycenter=45 lovel=1 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_A1_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_A1_v1_rr2.wav seq_position=2
+<group> lokey=48 hikey=50 pitch_keycenter=49 lovel=1 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_C#2_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_C#2_v1_rr2.wav seq_position=2
+<group> lokey=51 hikey=54 pitch_keycenter=52 lovel=1 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_E2_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_E2_v1_rr2.wav seq_position=2
+<group> lokey=55 hikey=57 pitch_keycenter=56 lovel=1 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_G#2_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_G#2_v1_rr2.wav seq_position=2
+<group> lokey=58 hikey=63 pitch_keycenter=59 lovel=1 hivel=127 seq_length=2
+<region> sample=BKCtbss_Pizz_B2_v1_rr1.wav seq_position=1
+<region> sample=BKCtbss_Pizz_B2_v1_rr2.wav seq_position=2

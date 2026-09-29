@@ -1,0 +1,85 @@
+{
+  "samplerate": 48000,
+  "tail_sec": 5.0,
+  "tracks": [
+    {
+      "name": "trumpet",
+      "midi_track": "trumpet",
+      "sfz": "sfz/trumpet_chet_open.sfz",
+      "gain_db": 12.0,
+      "pan": -0.12,
+      "reverb_send": 0.32,
+      "hpf_hz": 120,
+      "lpf_hz": 0
+    },
+    {
+      "name": "piano",
+      "midi_track": "piano",
+      "sfz": "../_assets/lib/SalamanderGrandPiano/Salamander Grand Piano V3.sfz",
+      "gain_db": -2.0,
+      "pan": 0.12,
+      "reverb_send": 0.25,
+      "hpf_hz": 50,
+      "lpf_hz": 0,
+      "init_cc": {
+        "64": 0,
+        "20": 64,
+        "21": 40,
+        "22": 30
+      }
+    },
+    {
+      "name": "bass",
+      "midi_track": "bass",
+      "sfz": "../_assets/lib/sneakybass/Programs/02-sneakybass_pluck.sfz",
+      "gain_db": -6.0,
+      "pan": 0.0,
+      "reverb_send": 0.08,
+      "hpf_hz": 30,
+      "lpf_hz": 0,
+      "transpose": 12,
+      "fold_range": [
+        33,
+        72
+      ]
+    },
+    {
+      "name": "brush",
+      "midi_track": "brush",
+      "sfz": "../_assets/lib/frankensnare/Programs/05-14x5maplebrush.sfz",
+      "gain_db": 2.0,
+      "pan": 0.05,
+      "reverb_send": 0.2,
+      "hpf_hz": 80,
+      "lpf_hz": 0,
+      "init_cc": {
+        "20": 40,
+        "21": 120,
+        "22": 100
+      }
+    },
+    {
+      "name": "hihat",
+      "midi_track": "hihat",
+      "sfz": "../_assets/lib/virtuosity_drums/Programs/05-oh-mic.sfz",
+      "gain_db": 4.0,
+      "pan": 0.25,
+      "reverb_send": 0.15,
+      "hpf_hz": 150,
+      "lpf_hz": 0
+    }
+  ],
+  "reverb": {
+    "t60_low": 2.1,
+    "t60_high": 0.9,
+    "predelay": 0.022,
+    "seed": 7,
+    "wet_db": -4.0,
+    "engine": "ffmpeg"
+  },
+  "bus": {
+    "compressor": "threshold=0.125:ratio=2:attack=25:release=300:knee=4",
+    "limit_db": -1.0
+  },
+  "target_lufs": -16.0
+}

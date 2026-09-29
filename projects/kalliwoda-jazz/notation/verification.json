@@ -1,0 +1,609 @@
+{
+ "stems": "/mnt/c/Users/User/vn-engine-jazz/projects/kalliwoda-jazz/_render/music/iter6/stems",
+ "method": "basic-pitch (ICASSP 2022, ONNX) transcription of iter6 stems vs notated events; tempo map converts seconds↔beats",
+ "trumpet": {
+  "n_score": 249,
+  "n_heard": 254,
+  "pairs": 249,
+  "pitch_match_rate_of_pairs": 1.0,
+  "pitch_or_octave_match_rate_of_pairs": 1.0,
+  "score_notes_recalled_exact_pitch": 1.0,
+  "pitch_match_rate_pairs_from_C2_up": 1.0,
+  "pairs_below_C2": 0,
+  "note_f1_listen": 0.99,
+  "beat_position_match_rate": 1.0,
+  "bar_match_rate_after_lag": 1.0,
+  "median_lag_beats": 0.16,
+  "p10_p90_lag_beats": [
+   0.093,
+   0.269
+  ],
+  "wrong_pitch_examples": [],
+  "missing_examples": []
+ },
+ "bass": {
+  "n_score": 186,
+  "n_heard": 242,
+  "pairs": 186,
+  "pitch_match_rate_of_pairs": 0.9086,
+  "pitch_or_octave_match_rate_of_pairs": 0.9355,
+  "score_notes_recalled_exact_pitch": 0.9086,
+  "pitch_match_rate_pairs_from_C2_up": 0.9814,
+  "pairs_below_C2": 25,
+  "note_f1_listen": 0.79,
+  "beat_position_match_rate": 1.0,
+  "bar_match_rate_after_lag": 1.0,
+  "median_lag_beats": 0.03,
+  "p10_p90_lag_beats": [
+   0.005,
+   0.093
+  ],
+  "wrong_pitch_examples": [
+   {
+    "t_ref": 33.103,
+    "t_audio": 33.144,
+    "ref": "A1",
+    "heard": "G#2",
+    "semitones": 11
+   },
+   {
+    "t_ref": 36.207,
+    "t_audio": 36.235,
+    "ref": "A#1",
+    "heard": "G#2",
+    "semitones": 10
+   },
+   {
+    "t_ref": 51.724,
+    "t_audio": 51.756,
+    "ref": "A#1",
+    "heard": "G#2",
+    "semitones": 10
+   },
+   {
+    "t_ref": 73.448,
+    "t_audio": 73.491,
+    "ref": "A#1",
+    "heard": "G#2",
+    "semitones": 10
+   },
+   {
+    "t_ref": 132.069,
+    "t_audio": 132.102,
+    "ref": "A#1",
+    "heard": "G#2",
+    "semitones": 10
+   },
+   {
+    "t_ref": 150.0,
+    "t_audio": 150.016,
+    "ref": "A#1",
+    "heard": "G#2",
+    "semitones": 10
+   },
+   {
+    "t_ref": 151.034,
+    "t_audio": 151.062,
+    "ref": "B1",
+    "heard": "G#2",
+    "semitones": 9
+   },
+   {
+    "t_ref": 156.207,
+    "t_audio": 156.254,
+    "ref": "A1",
+    "heard": "G#2",
+    "semitones": 11
+   }
+  ],
+  "missing_examples": []
+ },
+ "piano": {
+  "bars": [
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   36,
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   71,
+   72,
+   73,
+   74,
+   75,
+   76,
+   77,
+   78
+  ],
+  "mean_pc_recall": 0.993,
+  "mean_pc_precision": 1.0,
+  "bars_full_recall": 22,
+  "rows": [
+   {
+    "bar": 9,
+    "score_pcs": [
+     2,
+     3,
+     5,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     2,
+     3,
+     5,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 10,
+    "score_pcs": [
+     0,
+     1,
+     5,
+     7
+    ],
+    "heard_pcs": [
+     0,
+     1,
+     5,
+     7
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 11,
+    "score_pcs": [
+     0,
+     2,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 12,
+    "score_pcs": [
+     0,
+     2,
+     3,
+     5,
+     7,
+     8
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     3,
+     5,
+     7,
+     8
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 13,
+    "score_pcs": [
+     2,
+     5,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     2,
+     5,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 14,
+    "score_pcs": [
+     0,
+     2,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 15,
+    "score_pcs": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     6,
+     8
+    ],
+    "heard_pcs": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     6,
+     8
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 16,
+    "score_pcs": [
+     2,
+     5,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     2,
+     5,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 36,
+    "score_pcs": [
+     2,
+     3,
+     5,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     2,
+     3,
+     5,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 37,
+    "score_pcs": [
+     0,
+     1,
+     5,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     1,
+     5,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 38,
+    "score_pcs": [
+     0,
+     2,
+     3,
+     7,
+     8,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     3,
+     7,
+     8,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 39,
+    "score_pcs": [
+     0,
+     2,
+     3,
+     5,
+     7,
+     8
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     3,
+     5,
+     8
+    ],
+    "recall": 0.833,
+    "precision": 1.0
+   },
+   {
+    "bar": 40,
+    "score_pcs": [
+     0,
+     2,
+     4,
+     5,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     4,
+     5,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 41,
+    "score_pcs": [
+     0,
+     2,
+     3,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     3,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 42,
+    "score_pcs": [
+     0,
+     2,
+     3,
+     5,
+     7,
+     8,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     3,
+     5,
+     7,
+     8,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 43,
+    "score_pcs": [
+     0,
+     2,
+     5,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     5,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 71,
+    "score_pcs": [
+     0,
+     2,
+     5,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     5,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 72,
+    "score_pcs": [
+     0,
+     1,
+     5,
+     7,
+     8
+    ],
+    "heard_pcs": [
+     0,
+     1,
+     5,
+     7,
+     8
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 73,
+    "score_pcs": [
+     0,
+     2,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 74,
+    "score_pcs": [
+     0,
+     2,
+     5,
+     7,
+     8,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     5,
+     7,
+     8,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 75,
+    "score_pcs": [],
+    "heard_pcs": [],
+    "recall": null,
+    "precision": null
+   },
+   {
+    "bar": 76,
+    "score_pcs": [
+     0,
+     2,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     0,
+     2,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 77,
+    "score_pcs": [
+     1,
+     2,
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    "heard_pcs": [
+     1,
+     2,
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   },
+   {
+    "bar": 78,
+    "score_pcs": [
+     2,
+     5,
+     7,
+     10
+    ],
+    "heard_pcs": [
+     2,
+     5,
+     7,
+     10
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+   }
+  ]
+ },
+ "score_vs_rendered_midi": {
+  "trumpet": {
+   "midi_notes": 249,
+   "matched_same_pitch_within_1_beat": 249,
+   "match_rate": 1.0,
+   "within_half_beat": 0.992,
+   "median_humanize_offset_beats": 0.14,
+   "score_notes": 249
+  },
+  "bass": {
+   "midi_notes": 186,
+   "matched_same_pitch_within_1_beat": 186,
+   "match_rate": 1.0,
+   "within_half_beat": 1.0,
+   "median_humanize_offset_beats": 0.01,
+   "score_notes": 186
+  },
+  "piano": {
+   "midi_notes": 654,
+   "matched_same_pitch_within_1_beat": 654,
+   "match_rate": 1.0,
+   "within_half_beat": 0.9954,
+   "median_humanize_offset_beats": 0.022,
+   "score_notes": 654
+  }
+ }
+}

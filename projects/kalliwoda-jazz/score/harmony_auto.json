@@ -1,0 +1,10650 @@
+[
+{
+"piano_bar": "A1",
+"oboe_bar": "A1",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.84
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A2",
+"oboe_bar": "A2",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+},
+{
+"name": "D7/C",
+"root": "D",
+"quality": "7",
+"bass": "C",
+"fit": 0.72
+}
+]
+},
+{
+"piano_bar": "A3",
+"oboe_bar": "A3",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.96
+},
+{
+"name": "C7/G",
+"root": "C",
+"quality": "7",
+"bass": "G",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A4",
+"oboe_bar": "A4",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.84
+},
+{
+"name": "F7/Eb",
+"root": "F",
+"quality": "7",
+"bass": "Eb",
+"fit": 0.54
+}
+]
+},
+{
+"piano_bar": "A5",
+"oboe_bar": "A5",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bbmaj7/C",
+"root": "Bb",
+"quality": "maj7",
+"bass": "C",
+"fit": 0.752
+},
+{
+"name": "Bbmaj7/A",
+"root": "Bb",
+"quality": "maj7",
+"bass": "A",
+"fit": 0.71
+}
+]
+},
+{
+"piano_bar": "A6",
+"oboe_bar": "A6",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm",
+"root": "G",
+"quality": "m",
+"bass": "G",
+"fit": 1.003
+},
+null
+]
+},
+{
+"piano_bar": "A7",
+"oboe_bar": "A7",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G",
+"root": "G",
+"quality": "",
+"bass": "G",
+"fit": 0.84
+},
+{
+"name": "Gm/D",
+"root": "G",
+"quality": "m",
+"bass": "D",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A8",
+"oboe_bar": "A8",
+"key_fifths": -1,
+"chords": [
+{
+"name": "D",
+"root": "D",
+"quality": "",
+"bass": "D",
+"fit": 0.84
+},
+{
+"name": "Ebmaj7/D",
+"root": "Eb",
+"quality": "maj7",
+"bass": "D",
+"fit": 0.72
+}
+]
+},
+{
+"piano_bar": "A9",
+"oboe_bar": "A9",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Ebmaj7/D",
+"root": "Eb",
+"quality": "maj7",
+"bass": "D",
+"fit": 0.96
+},
+{
+"name": "D7/A",
+"root": "D",
+"quality": "7",
+"bass": "A",
+"fit": 0.715
+}
+]
+},
+{
+"piano_bar": "A10",
+"oboe_bar": "A10",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G",
+"root": "G",
+"quality": "",
+"bass": "G",
+"fit": 0.84
+},
+{
+"name": "G7/F",
+"root": "G",
+"quality": "7",
+"bass": "F",
+"fit": 0.524
+}
+]
+},
+{
+"piano_bar": "A11",
+"oboe_bar": "A11",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C/D",
+"root": "C",
+"quality": "",
+"bass": "D",
+"fit": 0.786
+},
+{
+"name": "E7/B",
+"root": "E",
+"quality": "7",
+"bass": "B",
+"fit": 0.71
+}
+]
+},
+{
+"piano_bar": "A12",
+"oboe_bar": "A12",
+"key_fifths": -1,
+"chords": [
+{
+"name": "A",
+"root": "A",
+"quality": "",
+"bass": "A",
+"fit": 0.993
+},
+null
+]
+},
+{
+"piano_bar": "A13",
+"oboe_bar": "A13",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bbmaj7/A",
+"root": "Bb",
+"quality": "maj7",
+"bass": "A",
+"fit": 0.8
+},
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A14",
+"oboe_bar": "A14",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/A",
+"root": "F",
+"quality": "",
+"bass": "A",
+"fit": 0.967
+},
+{
+"name": "F/A",
+"root": "F",
+"quality": "",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A15",
+"oboe_bar": "A15",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm/F#",
+"root": "G",
+"quality": "m",
+"bass": "F#",
+"fit": 0.92
+},
+{
+"name": "Gm",
+"root": "G",
+"quality": "m",
+"bass": "G",
+"fit": 0.693
+}
+]
+},
+{
+"piano_bar": "A16",
+"oboe_bar": "A16",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 0.978
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A17",
+"oboe_bar": "A17",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7/D",
+"root": "G",
+"quality": "7",
+"bass": "D",
+"fit": 0.96
+},
+{
+"name": "G7/B",
+"root": "G",
+"quality": "7",
+"bass": "B",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "A18",
+"oboe_bar": "A18",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A19",
+"oboe_bar": "A19",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.984
+}
+]
+},
+{
+"piano_bar": "A20",
+"oboe_bar": "A20",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.024
+},
+null
+]
+},
+{
+"piano_bar": "A21",
+"oboe_bar": "A21",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Am7/G",
+"root": "A",
+"quality": "m7",
+"bass": "G",
+"fit": 0.84
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A22",
+"oboe_bar": "A22",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.675
+}
+]
+},
+{
+"piano_bar": "A23",
+"oboe_bar": "A23",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.714
+},
+{
+"name": "Fmaj7/C",
+"root": "F",
+"quality": "maj7",
+"bass": "C",
+"fit": 0.673
+}
+]
+},
+{
+"piano_bar": "A24",
+"oboe_bar": "A24",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "Gm",
+"root": "G",
+"quality": "m",
+"bass": "G",
+"fit": 0.716
+}
+]
+},
+{
+"piano_bar": "A25",
+"oboe_bar": "A25",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.657
+},
+{
+"name": "Am7/C",
+"root": "A",
+"quality": "m7",
+"bass": "C",
+"fit": 0.673
+}
+]
+},
+{
+"piano_bar": "A26",
+"oboe_bar": "A26",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7/E",
+"root": "C",
+"quality": "7",
+"bass": "E",
+"fit": 0.96
+},
+{
+"name": "Am7/C",
+"root": "A",
+"quality": "m7",
+"bass": "C",
+"fit": 0.793
+}
+]
+},
+{
+"piano_bar": "A27",
+"oboe_bar": "A27",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.922
+},
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A28",
+"oboe_bar": "A28",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.986
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.738
+}
+]
+},
+{
+"piano_bar": "A29",
+"oboe_bar": "A29",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.732
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A30",
+"oboe_bar": "A30",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/A",
+"root": "F",
+"quality": "",
+"bass": "A",
+"fit": 0.938
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.018
+}
+]
+},
+{
+"piano_bar": "A31",
+"oboe_bar": "A31",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.98
+},
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "A32",
+"oboe_bar": "A32",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Faug",
+"root": "F",
+"quality": "aug",
+"bass": "F",
+"fit": 1.009
+},
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 0.87
+}
+]
+},
+{
+"piano_bar": "A33",
+"oboe_bar": "A33",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "C7/F",
+"root": "C",
+"quality": "7",
+"bass": "F",
+"fit": 0.793
+}
+]
+},
+{
+"piano_bar": "A34",
+"oboe_bar": "A34",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.035
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A35",
+"oboe_bar": "A35",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.937
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.937
+}
+]
+},
+{
+"piano_bar": "A36",
+"oboe_bar": "A36",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.009
+},
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.826
+}
+]
+},
+{
+"piano_bar": "A37",
+"oboe_bar": "A37",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A38",
+"oboe_bar": "A38",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Fmaj7/E",
+"root": "F",
+"quality": "maj7",
+"bass": "E",
+"fit": 0.96
+},
+{
+"name": "C7/G",
+"root": "C",
+"quality": "7",
+"bass": "G",
+"fit": 0.59
+}
+]
+},
+{
+"piano_bar": "A39",
+"oboe_bar": "A39",
+"key_fifths": -1,
+"chords": [
+{
+"name": "D7/C",
+"root": "D",
+"quality": "7",
+"bass": "C",
+"fit": 0.686
+},
+{
+"name": "A7",
+"root": "A",
+"quality": "7",
+"bass": "A",
+"fit": 0.425
+}
+]
+},
+{
+"piano_bar": "A40",
+"oboe_bar": "A40",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.59
+},
+{
+"name": "E7/D",
+"root": "E",
+"quality": "7",
+"bass": "D",
+"fit": 0.59
+}
+]
+},
+{
+"piano_bar": "A41",
+"oboe_bar": "A41",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.955
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "A42",
+"oboe_bar": "A42",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.957
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A43",
+"oboe_bar": "A43",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.917
+},
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.849
+}
+]
+},
+{
+"piano_bar": "A44",
+"oboe_bar": "A44",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Ddim7/C",
+"root": "D",
+"quality": "dim7",
+"bass": "C",
+"fit": 0.793
+},
+{
+"name": "Dm7b5/C",
+"root": "D",
+"quality": "m7b5",
+"bass": "C",
+"fit": 0.793
+}
+]
+},
+{
+"piano_bar": "A45",
+"oboe_bar": "A45",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm7b5/C",
+"root": "D",
+"quality": "m7b5",
+"bass": "C",
+"fit": 0.793
+},
+null
+]
+},
+{
+"piano_bar": "A46",
+"oboe_bar": "A46",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.94
+},
+null
+]
+},
+{
+"piano_bar": "A47",
+"oboe_bar": "A47",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.873
+},
+null
+]
+},
+{
+"piano_bar": "A48",
+"oboe_bar": "A48",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Cdim7",
+"root": "C",
+"quality": "dim7",
+"bass": "C",
+"fit": 1.04
+},
+null
+]
+},
+{
+"piano_bar": "A49",
+"oboe_bar": "A49",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A50",
+"oboe_bar": "A50",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+null
+]
+},
+{
+"piano_bar": "A51",
+"oboe_bar": "A51",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A52",
+"oboe_bar": "A52",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A53",
+"oboe_bar": "A53",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A54",
+"oboe_bar": "A54",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A55",
+"oboe_bar": "A55",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A56",
+"oboe_bar": "A56",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A57",
+"oboe_bar": "A57",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A58",
+"oboe_bar": "A58",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Faug",
+"root": "F",
+"quality": "aug",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A59",
+"oboe_bar": "A59",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A60",
+"oboe_bar": "A60",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A61",
+"oboe_bar": "A61",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A62",
+"oboe_bar": "A62",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A63",
+"oboe_bar": "A63",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Am/E",
+"root": "A",
+"quality": "m",
+"bass": "E",
+"fit": 1.0
+},
+{
+"name": "E",
+"root": "E",
+"quality": "",
+"bass": "E",
+"fit": 0.98
+}
+]
+},
+{
+"piano_bar": "A64",
+"oboe_bar": "A64",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Am",
+"root": "A",
+"quality": "m",
+"bass": "A",
+"fit": 1.08
+},
+{
+"name": "F#dim7",
+"root": "F#",
+"quality": "dim7",
+"bass": "F#",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A65",
+"oboe_bar": "A65",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A66",
+"oboe_bar": "A66",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.96
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A67",
+"oboe_bar": "A67",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.949
+},
+{
+"name": "Bbdim",
+"root": "Bb",
+"quality": "dim",
+"bass": "Bb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A68",
+"oboe_bar": "A68",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Cdim7",
+"root": "C",
+"quality": "dim7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "Cdim7",
+"root": "C",
+"quality": "dim7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A69",
+"oboe_bar": "A69",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm7b5/C",
+"root": "D",
+"quality": "m7b5",
+"bass": "C",
+"fit": 0.86
+},
+{
+"name": "Dm7b5/C",
+"root": "D",
+"quality": "m7b5",
+"bass": "C",
+"fit": 0.64
+}
+]
+},
+{
+"piano_bar": "A70",
+"oboe_bar": "A70",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.62
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A71",
+"oboe_bar": "A71",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "C7/G",
+"root": "C",
+"quality": "7",
+"bass": "G",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "A72",
+"oboe_bar": "A72",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "G7/B",
+"root": "G",
+"quality": "7",
+"bass": "B",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "A73",
+"oboe_bar": "A73",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A74",
+"oboe_bar": "A74",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "C7/G",
+"root": "C",
+"quality": "7",
+"bass": "G",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A75",
+"oboe_bar": "A75",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Adim7",
+"root": "A",
+"quality": "dim7",
+"bass": "A",
+"fit": 1.04
+},
+{
+"name": "F#aug",
+"root": "F#",
+"quality": "aug",
+"bass": "F#",
+"fit": 0.705
+}
+]
+},
+{
+"piano_bar": "A76",
+"oboe_bar": "A76",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm",
+"root": "G",
+"quality": "m",
+"bass": "G",
+"fit": 1.08
+},
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A77",
+"oboe_bar": "A77",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Ddim7",
+"root": "D",
+"quality": "dim7",
+"bass": "D",
+"fit": 1.04
+},
+{
+"name": "Abdim7",
+"root": "Ab",
+"quality": "dim7",
+"bass": "Ab",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A78",
+"oboe_bar": "A78",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Ddim7",
+"root": "D",
+"quality": "dim7",
+"bass": "D",
+"fit": 1.04
+},
+{
+"name": "Dm7b5/B",
+"root": "D",
+"quality": "m7b5",
+"bass": "B",
+"fit": 0.71
+}
+]
+},
+{
+"piano_bar": "A79",
+"oboe_bar": "A79",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A80",
+"oboe_bar": "A80",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "F/A",
+"root": "F",
+"quality": "",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A81",
+"oboe_bar": "A81",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A82",
+"oboe_bar": "A82",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Am7/C",
+"root": "A",
+"quality": "m7",
+"bass": "C",
+"fit": 0.673
+}
+]
+},
+{
+"piano_bar": "A83",
+"oboe_bar": "A83",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A84",
+"oboe_bar": "A84",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm",
+"root": "G",
+"quality": "m",
+"bass": "G",
+"fit": 1.08
+},
+{
+"name": "Bbmaj7/D",
+"root": "Bb",
+"quality": "maj7",
+"bass": "D",
+"fit": 0.673
+}
+]
+},
+{
+"piano_bar": "A85",
+"oboe_bar": "A85",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A86",
+"oboe_bar": "A86",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bbmaj7/A",
+"root": "Bb",
+"quality": "maj7",
+"bass": "A",
+"fit": 0.84
+},
+{
+"name": "Am",
+"root": "A",
+"quality": "m",
+"bass": "A",
+"fit": 0.835
+}
+]
+},
+{
+"piano_bar": "A87",
+"oboe_bar": "A87",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.957
+},
+{
+"name": "C/E",
+"root": "C",
+"quality": "",
+"bass": "E",
+"fit": 0.909
+}
+]
+},
+{
+"piano_bar": "A88",
+"oboe_bar": "A88",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F#dim7",
+"root": "F#",
+"quality": "dim7",
+"bass": "F#",
+"fit": 1.04
+},
+{
+"name": "Ebdim7",
+"root": "Eb",
+"quality": "dim7",
+"bass": "Eb",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A89",
+"oboe_bar": "A89",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Adim7",
+"root": "A",
+"quality": "dim7",
+"bass": "A",
+"fit": 1.04
+},
+{
+"name": "Gmaj7/F#",
+"root": "G",
+"quality": "maj7",
+"bass": "F#",
+"fit": 0.47
+}
+]
+},
+{
+"piano_bar": "A90",
+"oboe_bar": "A90",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+},
+{
+"name": "Am7/G",
+"root": "A",
+"quality": "m7",
+"bass": "G",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "A91",
+"oboe_bar": "A91",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A92",
+"oboe_bar": "A92",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A93",
+"oboe_bar": "A93",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "A94",
+"oboe_bar": "A94",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Caug",
+"root": "C",
+"quality": "aug",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "A95",
+"oboe_bar": "A95",
+"key_fifths": 0,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+null
+]
+},
+{
+"piano_bar": "A96",
+"oboe_bar": "A96",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Fm/C",
+"root": "F",
+"quality": "m",
+"bass": "C",
+"fit": 0.947
+},
+null
+]
+},
+{
+"piano_bar": "A97",
+"oboe_bar": "A97",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "A98",
+"oboe_bar": "A98",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Cmaj7/B",
+"root": "C",
+"quality": "maj7",
+"bass": "B",
+"fit": 0.71
+},
+{
+"name": "B7",
+"root": "B",
+"quality": "7",
+"bass": "B",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "A99",
+"oboe_bar": "A99",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Cmaj7/D",
+"root": "C",
+"quality": "maj7",
+"bass": "D",
+"fit": 0.849
+},
+{
+"name": "D7",
+"root": "D",
+"quality": "7",
+"bass": "D",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A100",
+"oboe_bar": "A100",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Ddim7",
+"root": "D",
+"quality": "dim7",
+"bass": "D",
+"fit": 0.915
+},
+{
+"name": "D7",
+"root": "D",
+"quality": "7",
+"bass": "D",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A101",
+"oboe_bar": "A101",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G",
+"root": "G",
+"quality": "",
+"bass": "G",
+"fit": 1.08
+},
+{
+"name": "A7/G",
+"root": "A",
+"quality": "7",
+"bass": "G",
+"fit": 0.686
+}
+]
+},
+{
+"piano_bar": "A102",
+"oboe_bar": "A102",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "D",
+"root": "D",
+"quality": "",
+"bass": "D",
+"fit": 0.793
+}
+]
+},
+{
+"piano_bar": "A103",
+"oboe_bar": "A103",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 0.997
+},
+{
+"name": "Bdim7",
+"root": "B",
+"quality": "dim7",
+"bass": "B",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A104",
+"oboe_bar": "A104",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A105",
+"oboe_bar": "A105",
+"key_fifths": 0,
+"chords": [
+{
+"name": "E",
+"root": "E",
+"quality": "",
+"bass": "E",
+"fit": 1.08
+},
+{
+"name": "G",
+"root": "G",
+"quality": "",
+"bass": "G",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A106",
+"oboe_bar": "A106",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 0.944
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "A107",
+"oboe_bar": "A107",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Cmaj7",
+"root": "C",
+"quality": "maj7",
+"bass": "C",
+"fit": 0.882
+},
+{
+"name": "E",
+"root": "E",
+"quality": "",
+"bass": "E",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A108",
+"oboe_bar": "A108",
+"key_fifths": 0,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A109",
+"oboe_bar": "A109",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+},
+{
+"name": "G",
+"root": "G",
+"quality": "",
+"bass": "G",
+"fit": 0.898
+}
+]
+},
+{
+"piano_bar": "A110",
+"oboe_bar": "A110",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.886
+}
+]
+},
+{
+"piano_bar": "A111",
+"oboe_bar": "A111",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.96
+},
+{
+"name": "A",
+"root": "A",
+"quality": "",
+"bass": "A",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A112",
+"oboe_bar": "A112",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 0.88
+}
+]
+},
+{
+"piano_bar": "A113",
+"oboe_bar": "A113",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+},
+{
+"name": "Bdim",
+"root": "B",
+"quality": "dim",
+"bass": "B",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A114",
+"oboe_bar": "A114",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A115",
+"oboe_bar": "A115",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "A116",
+"oboe_bar": "A116",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A117",
+"oboe_bar": "A117",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A118",
+"oboe_bar": "A118",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Am7/G",
+"root": "A",
+"quality": "m7",
+"bass": "G",
+"fit": 0.96
+},
+{
+"name": "Am7/G",
+"root": "A",
+"quality": "m7",
+"bass": "G",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "A119",
+"oboe_bar": "A119",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Am7/G",
+"root": "A",
+"quality": "m7",
+"bass": "G",
+"fit": 0.96
+},
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A120",
+"oboe_bar": "A120",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A121",
+"oboe_bar": "A121",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A122",
+"oboe_bar": "A122",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A123",
+"oboe_bar": "A123",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.915
+}
+]
+},
+{
+"piano_bar": "A124",
+"oboe_bar": "A124",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A125",
+"oboe_bar": "A125",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.915
+}
+]
+},
+{
+"piano_bar": "A126",
+"oboe_bar": "A126",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A127",
+"oboe_bar": "A127",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7/G",
+"root": "C",
+"quality": "7",
+"bass": "G",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "A128",
+"oboe_bar": "A128",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm7",
+"root": "D",
+"quality": "m7",
+"bass": "D",
+"fit": 1.04
+},
+{
+"name": "Em7",
+"root": "E",
+"quality": "m7",
+"bass": "E",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A129",
+"oboe_bar": "A129",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 1.04
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A130",
+"oboe_bar": "A130",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 0.938
+},
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A131",
+"oboe_bar": "A131",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.977
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A132",
+"oboe_bar": "A132",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 0.923
+},
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A133",
+"oboe_bar": "A133",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.977
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A134",
+"oboe_bar": "A134",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.96
+},
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.753
+}
+]
+},
+{
+"piano_bar": "A135",
+"oboe_bar": "A135",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 0.833
+},
+{
+"name": "F#m7b5",
+"root": "F#",
+"quality": "m7b5",
+"bass": "F#",
+"fit": 0.873
+}
+]
+},
+{
+"piano_bar": "A136",
+"oboe_bar": "A136",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+},
+null
+]
+},
+{
+"piano_bar": "A137",
+"oboe_bar": "A137",
+"key_fifths": 0,
+"chords": [
+null,
+null
+]
+},
+{
+"piano_bar": "A138",
+"oboe_bar": "A138",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C/E",
+"root": "C",
+"quality": "",
+"bass": "E",
+"fit": 1.0
+},
+{
+"name": "B/D",
+"root": "B",
+"quality": "",
+"bass": "D",
+"fit": 0.6
+}
+]
+},
+{
+"piano_bar": "A139",
+"oboe_bar": "A139",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+},
+{
+"name": "F7",
+"root": "F",
+"quality": "7",
+"bass": "F",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A140",
+"oboe_bar": "A140",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Bb7",
+"root": "Bb",
+"quality": "7",
+"bass": "Bb",
+"fit": 1.04
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.72
+}
+]
+},
+{
+"piano_bar": "A141",
+"oboe_bar": "A141",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+},
+null
+]
+},
+{
+"piano_bar": "A142",
+"oboe_bar": "A142",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+},
+null
+]
+},
+{
+"piano_bar": "A143",
+"oboe_bar": "A143",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.897
+},
+null
+]
+},
+{
+"piano_bar": "A144",
+"oboe_bar": "A144",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.016
+}
+]
+},
+{
+"piano_bar": "A145",
+"oboe_bar": "A145",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G/B",
+"root": "G",
+"quality": "",
+"bass": "B",
+"fit": 0.97
+},
+{
+"name": "G/B",
+"root": "G",
+"quality": "",
+"bass": "B",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A146",
+"oboe_bar": "A146",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.009
+}
+]
+},
+{
+"piano_bar": "A147",
+"oboe_bar": "A147",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Am/C",
+"root": "A",
+"quality": "m",
+"bass": "C",
+"fit": 0.97
+},
+{
+"name": "Am/C",
+"root": "A",
+"quality": "m",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A148",
+"oboe_bar": "A148",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dbaug/E",
+"root": "Db",
+"quality": "aug",
+"bass": "E",
+"fit": 0.702
+},
+{
+"name": "A",
+"root": "A",
+"quality": "",
+"bass": "A",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "A149",
+"oboe_bar": "A149",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.869
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A150",
+"oboe_bar": "A150",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Cmaj7",
+"root": "C",
+"quality": "maj7",
+"bass": "C",
+"fit": 0.64
+},
+{
+"name": "Em7/G",
+"root": "E",
+"quality": "m7",
+"bass": "G",
+"fit": 0.71
+}
+]
+},
+{
+"piano_bar": "A151",
+"oboe_bar": "A151",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A152",
+"oboe_bar": "A152",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.675
+}
+]
+},
+{
+"piano_bar": "A153",
+"oboe_bar": "A153",
+"key_fifths": 0,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.692
+},
+{
+"name": "Fmaj7/C",
+"root": "F",
+"quality": "maj7",
+"bass": "C",
+"fit": 0.609
+}
+]
+},
+{
+"piano_bar": "A154",
+"oboe_bar": "A154",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.955
+},
+{
+"name": "C7/G",
+"root": "C",
+"quality": "7",
+"bass": "G",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "A155",
+"oboe_bar": "A155",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.723
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.68
+}
+]
+},
+{
+"piano_bar": "A156",
+"oboe_bar": "A156",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C7/E",
+"root": "C",
+"quality": "7",
+"bass": "E",
+"fit": 0.96
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.004
+}
+]
+},
+{
+"piano_bar": "A157",
+"oboe_bar": "A157",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.805
+},
+{
+"name": "Em7b5/G",
+"root": "E",
+"quality": "m7b5",
+"bass": "G",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "A158",
+"oboe_bar": "A158",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Em7b5",
+"root": "E",
+"quality": "m7b5",
+"bass": "E",
+"fit": 1.04
+},
+{
+"name": "Gm/Bb",
+"root": "G",
+"quality": "m",
+"bass": "Bb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "A159",
+"oboe_bar": "A159",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Gdim",
+"root": "G",
+"quality": "dim",
+"bass": "G",
+"fit": 1.08
+},
+{
+"name": "Dbdim7",
+"root": "Db",
+"quality": "dim7",
+"bass": "Db",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A160",
+"oboe_bar": "A160",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Gdim7",
+"root": "G",
+"quality": "dim7",
+"bass": "G",
+"fit": 1.04
+},
+{
+"name": "Edim7",
+"root": "E",
+"quality": "dim7",
+"bass": "E",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "A161",
+"oboe_bar": "A161",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Ebaug",
+"root": "Eb",
+"quality": "aug",
+"bass": "Eb",
+"fit": 0.767
+},
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 0.977
+}
+]
+},
+{
+"piano_bar": "A162",
+"oboe_bar": "A162",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.018
+},
+{
+"name": "Db",
+"root": "Db",
+"quality": "",
+"bass": "Db",
+"fit": 0.997
+}
+]
+},
+{
+"piano_bar": "A163",
+"oboe_bar": "A163",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Bbm",
+"root": "Bb",
+"quality": "m",
+"bass": "Bb",
+"fit": 0.767
+},
+{
+"name": "Eb",
+"root": "Eb",
+"quality": "",
+"bass": "Eb",
+"fit": 0.997
+}
+]
+},
+{
+"piano_bar": "A164",
+"oboe_bar": "A164",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.03
+},
+{
+"name": "Cmaj7/G",
+"root": "C",
+"quality": "maj7",
+"bass": "G",
+"fit": 0.86
+}
+]
+},
+{
+"piano_bar": "A165",
+"oboe_bar": "A165",
+"key_fifths": 0,
+"chords": [
+{
+"name": "F7",
+"root": "F",
+"quality": "7",
+"bass": "F",
+"fit": 0.977
+},
+{
+"name": "Bbm",
+"root": "Bb",
+"quality": "m",
+"bass": "Bb",
+"fit": 0.767
+}
+]
+},
+{
+"piano_bar": "A166",
+"oboe_bar": "A166",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Ab/Eb",
+"root": "Ab",
+"quality": "",
+"bass": "Eb",
+"fit": 0.95
+},
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.59
+}
+]
+},
+{
+"piano_bar": "A167",
+"oboe_bar": "A167",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Db7/D",
+"root": "Db",
+"quality": "7",
+"bass": "D",
+"fit": 0.59
+},
+{
+"name": "Eb7/Bb",
+"root": "Eb",
+"quality": "7",
+"bass": "Bb",
+"fit": 0.71
+}
+]
+},
+{
+"piano_bar": "A168",
+"oboe_bar": null,
+"key_fifths": 0,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.96
+},
+null
+]
+},
+{
+"piano_bar": "R1",
+"oboe_bar": "R1",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R2",
+"oboe_bar": "R2",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R3",
+"oboe_bar": "R3",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R4",
+"oboe_bar": "R4",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab7",
+"root": "Ab",
+"quality": "7",
+"bass": "Ab",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "R5",
+"oboe_bar": "R5",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Db/Ab",
+"root": "Db",
+"quality": "",
+"bass": "Ab",
+"fit": 0.833
+}
+]
+},
+{
+"piano_bar": "R6",
+"oboe_bar": "R6",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Abmaj7",
+"root": "Ab",
+"quality": "maj7",
+"bass": "Ab",
+"fit": 0.873
+}
+]
+},
+{
+"piano_bar": "R7",
+"oboe_bar": "R7",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R8",
+"oboe_bar": "R8",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Dbmaj7",
+"root": "Db",
+"quality": "maj7",
+"bass": "Db",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "R9",
+"oboe_bar": "R9",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Abmaj7/Eb",
+"root": "Ab",
+"quality": "maj7",
+"bass": "Eb",
+"fit": 0.939
+}
+]
+},
+{
+"piano_bar": "R10",
+"oboe_bar": "R10",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R11",
+"oboe_bar": "R11",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab/Eb",
+"root": "Ab",
+"quality": "",
+"bass": "Eb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R12",
+"oboe_bar": "R12",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 0.873
+}
+]
+},
+{
+"piano_bar": "R13",
+"oboe_bar": "R13",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab7/Eb",
+"root": "Ab",
+"quality": "7",
+"bass": "Eb",
+"fit": 0.849
+}
+]
+},
+{
+"piano_bar": "R14",
+"oboe_bar": "R14",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 0.984
+}
+]
+},
+{
+"piano_bar": "R15",
+"oboe_bar": "R15",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Abmaj7/G",
+"root": "Ab",
+"quality": "maj7",
+"bass": "G",
+"fit": 0.781
+}
+]
+},
+{
+"piano_bar": "R16",
+"oboe_bar": "R16",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Cm7/Bb",
+"root": "C",
+"quality": "m7",
+"bass": "Bb",
+"fit": 0.781
+}
+]
+},
+{
+"piano_bar": "R17",
+"oboe_bar": "R17",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 0.873
+}
+]
+},
+{
+"piano_bar": "R18",
+"oboe_bar": "R18",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Fm/Ab",
+"root": "F",
+"quality": "m",
+"bass": "Ab",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R19",
+"oboe_bar": "R19",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb/Bb",
+"root": "Eb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R20",
+"oboe_bar": "R20",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Bb7",
+"root": "Bb",
+"quality": "7",
+"bass": "Bb",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "R21",
+"oboe_bar": "R21",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb",
+"root": "Eb",
+"quality": "",
+"bass": "Eb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R22",
+"oboe_bar": "R22",
+"key_fifths": -4,
+"chords": [
+null
+]
+},
+{
+"piano_bar": "R23",
+"oboe_bar": "R23",
+"key_fifths": -4,
+"chords": [
+null
+]
+},
+{
+"piano_bar": "R24",
+"oboe_bar": "R24",
+"key_fifths": -4,
+"chords": [
+{
+"name": "F#/Bb",
+"root": "F#",
+"quality": "",
+"bass": "Bb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R25",
+"oboe_bar": "R25",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Cm7b5/Eb",
+"root": "C",
+"quality": "m7b5",
+"bass": "Eb",
+"fit": 0.755
+}
+]
+},
+{
+"piano_bar": "R26",
+"oboe_bar": "R26",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Bbm7/Ab",
+"root": "Bb",
+"quality": "m7",
+"bass": "Ab",
+"fit": 0.71
+}
+]
+},
+{
+"piano_bar": "R27",
+"oboe_bar": "R27",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 0.895
+}
+]
+},
+{
+"piano_bar": "R28",
+"oboe_bar": "R28",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "R29",
+"oboe_bar": "R29",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Bbm/Db",
+"root": "Bb",
+"quality": "m",
+"bass": "Db",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R30",
+"oboe_bar": "R30",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab/Eb",
+"root": "Ab",
+"quality": "",
+"bass": "Eb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R31",
+"oboe_bar": "R31",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "R32",
+"oboe_bar": "R32",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab7",
+"root": "Ab",
+"quality": "7",
+"bass": "Ab",
+"fit": 0.957
+}
+]
+},
+{
+"piano_bar": "R33",
+"oboe_bar": "R33",
+"key_fifths": -4,
+"chords": [
+{
+"name": "F7",
+"root": "F",
+"quality": "7",
+"bass": "F",
+"fit": 0.767
+}
+]
+},
+{
+"piano_bar": "R34",
+"oboe_bar": "R34",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Bbm7/Eb",
+"root": "Bb",
+"quality": "m7",
+"bass": "Eb",
+"fit": 0.668
+}
+]
+},
+{
+"piano_bar": "R35",
+"oboe_bar": "R35",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Bbm7/Db",
+"root": "Bb",
+"quality": "m7",
+"bass": "Db",
+"fit": 0.71
+}
+]
+},
+{
+"piano_bar": "R36",
+"oboe_bar": "R36",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab/C",
+"root": "Ab",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R37",
+"oboe_bar": "R37",
+"key_fifths": -4,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.682
+}
+]
+},
+{
+"piano_bar": "R38",
+"oboe_bar": "R38",
+"key_fifths": -4,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.897
+}
+]
+},
+{
+"piano_bar": "R39",
+"oboe_bar": "R39",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Caug",
+"root": "C",
+"quality": "aug",
+"bass": "C",
+"fit": 0.641
+}
+]
+},
+{
+"piano_bar": "R40",
+"oboe_bar": "R40",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Fm",
+"root": "F",
+"quality": "m",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R41",
+"oboe_bar": "R41",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Fm",
+"root": "F",
+"quality": "m",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R42",
+"oboe_bar": "R42",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Bbm/F",
+"root": "Bb",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R43",
+"oboe_bar": "R43",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Fdim7",
+"root": "F",
+"quality": "dim7",
+"bass": "F",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "R44",
+"oboe_bar": "R44",
+"key_fifths": -4,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R45",
+"oboe_bar": "R45",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ebm",
+"root": "Eb",
+"quality": "m",
+"bass": "Eb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R46",
+"oboe_bar": "R46",
+"key_fifths": -4,
+"chords": [
+{
+"name": "B/Eb",
+"root": "B",
+"quality": "",
+"bass": "Eb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R47",
+"oboe_bar": "R47",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ebdim7",
+"root": "Eb",
+"quality": "dim7",
+"bass": "Eb",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "R48",
+"oboe_bar": "R48",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R49",
+"oboe_bar": "R49",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Bbm",
+"root": "Bb",
+"quality": "m",
+"bass": "Bb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R50",
+"oboe_bar": "R50",
+"key_fifths": -4,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.949
+}
+]
+},
+{
+"piano_bar": "R51",
+"oboe_bar": "R51",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Bbm",
+"root": "Bb",
+"quality": "m",
+"bass": "Bb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R52",
+"oboe_bar": "R52",
+"key_fifths": -4,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.888
+}
+]
+},
+{
+"piano_bar": "R53",
+"oboe_bar": "R53",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Fm",
+"root": "F",
+"quality": "m",
+"bass": "F",
+"fit": 0.709
+}
+]
+},
+{
+"piano_bar": "R54",
+"oboe_bar": "R54",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Dbmaj7/Ab",
+"root": "Db",
+"quality": "maj7",
+"bass": "Ab",
+"fit": 0.797
+}
+]
+},
+{
+"piano_bar": "R55",
+"oboe_bar": "R55",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Dbmaj7/C",
+"root": "Db",
+"quality": "maj7",
+"bass": "C",
+"fit": 0.824
+}
+]
+},
+{
+"piano_bar": "R56",
+"oboe_bar": "R56",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Fm",
+"root": "F",
+"quality": "m",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R57",
+"oboe_bar": "R57",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Fm",
+"root": "F",
+"quality": "m",
+"bass": "F",
+"fit": 0.747
+}
+]
+},
+{
+"piano_bar": "R58",
+"oboe_bar": "R58",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Fm",
+"root": "F",
+"quality": "m",
+"bass": "F",
+"fit": 0.778
+}
+]
+},
+{
+"piano_bar": "R59",
+"oboe_bar": "R59",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Fm/C",
+"root": "F",
+"quality": "m",
+"bass": "C",
+"fit": 0.833
+}
+]
+},
+{
+"piano_bar": "R60",
+"oboe_bar": "R60",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Fm",
+"root": "F",
+"quality": "m",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R61",
+"oboe_bar": "R61",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Db/F",
+"root": "Db",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R62",
+"oboe_bar": "R62",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Bb7/F",
+"root": "Bb",
+"quality": "7",
+"bass": "F",
+"fit": 0.915
+}
+]
+},
+{
+"piano_bar": "R63",
+"oboe_bar": "R63",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 1.007
+}
+]
+},
+{
+"piano_bar": "R64",
+"oboe_bar": "R64",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R65",
+"oboe_bar": "R65",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab7",
+"root": "Ab",
+"quality": "7",
+"bass": "Ab",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "R66",
+"oboe_bar": "R66",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Db/Ab",
+"root": "Db",
+"quality": "",
+"bass": "Ab",
+"fit": 0.833
+}
+]
+},
+{
+"piano_bar": "R67",
+"oboe_bar": "R67",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Abmaj7",
+"root": "Ab",
+"quality": "maj7",
+"bass": "Ab",
+"fit": 0.873
+}
+]
+},
+{
+"piano_bar": "R68",
+"oboe_bar": "R68",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R69",
+"oboe_bar": "R69",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Dbmaj7",
+"root": "Db",
+"quality": "maj7",
+"bass": "Db",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "R70",
+"oboe_bar": "R70",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Abmaj7",
+"root": "Ab",
+"quality": "maj7",
+"bass": "Ab",
+"fit": 0.957
+}
+]
+},
+{
+"piano_bar": "R71",
+"oboe_bar": "R71",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R72",
+"oboe_bar": "R72",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab/Eb",
+"root": "Ab",
+"quality": "",
+"bass": "Eb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R73",
+"oboe_bar": "R73",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "R74",
+"oboe_bar": "R74",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab7/Eb",
+"root": "Ab",
+"quality": "7",
+"bass": "Eb",
+"fit": 0.849
+}
+]
+},
+{
+"piano_bar": "R75",
+"oboe_bar": "R75",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "R76",
+"oboe_bar": "R76",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "R77",
+"oboe_bar": "R77",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab/Eb",
+"root": "Ab",
+"quality": "",
+"bass": "Eb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R78",
+"oboe_bar": "R78",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7",
+"root": "Eb",
+"quality": "7",
+"bass": "Eb",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "R79",
+"oboe_bar": "R79",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab/Eb",
+"root": "Ab",
+"quality": "",
+"bass": "Eb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R80",
+"oboe_bar": "R80",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7/Db",
+"root": "Eb",
+"quality": "7",
+"bass": "Db",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "R81",
+"oboe_bar": "R81",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab/Bb",
+"root": "Ab",
+"quality": "",
+"bass": "Bb",
+"fit": 0.778
+}
+]
+},
+{
+"piano_bar": "R82",
+"oboe_bar": "R82",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Eb7/Db",
+"root": "Eb",
+"quality": "7",
+"bass": "Db",
+"fit": 0.827
+}
+]
+},
+{
+"piano_bar": "R83",
+"oboe_bar": "R83",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R84",
+"oboe_bar": "R84",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R85",
+"oboe_bar": "R85",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Dbm/Ab",
+"root": "Db",
+"quality": "m",
+"bass": "Ab",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R86",
+"oboe_bar": "R86",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R87",
+"oboe_bar": "R87",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Db/Ab",
+"root": "Db",
+"quality": "",
+"bass": "Ab",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "R88",
+"oboe_bar": "R88",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "R89",
+"oboe_bar": "R89",
+"key_fifths": -4,
+"chords": [
+{
+"name": "Ab",
+"root": "Ab",
+"quality": "",
+"bass": "Ab",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V1",
+"oboe_bar": "V1",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V2",
+"oboe_bar": "V2",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V3",
+"oboe_bar": "V3",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.753
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.667
+}
+]
+},
+{
+"piano_bar": "V4",
+"oboe_bar": "V4",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.83
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V5",
+"oboe_bar": "V5",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V6",
+"oboe_bar": "V6",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V7",
+"oboe_bar": "V7",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.858
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.747
+}
+]
+},
+{
+"piano_bar": "V8",
+"oboe_bar": "V8",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Caug",
+"root": "C",
+"quality": "aug",
+"bass": "C",
+"fit": 0.955
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V9",
+"oboe_bar": "V9",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V10",
+"oboe_bar": "V10",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V11",
+"oboe_bar": "V11",
+"key_fifths": -1,
+"chords": [
+{
+"name": "E",
+"root": "E",
+"quality": "",
+"bass": "E",
+"fit": 0.84
+},
+{
+"name": "A",
+"root": "A",
+"quality": "",
+"bass": "A",
+"fit": 0.98
+}
+]
+},
+{
+"piano_bar": "V12",
+"oboe_bar": "V12",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Am7",
+"root": "A",
+"quality": "m7",
+"bass": "A",
+"fit": 0.99
+},
+{
+"name": "A7",
+"root": "A",
+"quality": "7",
+"bass": "A",
+"fit": 0.94
+}
+]
+},
+{
+"piano_bar": "V13",
+"oboe_bar": "V13",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V14",
+"oboe_bar": "V14",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm",
+"root": "G",
+"quality": "m",
+"bass": "G",
+"fit": 1.08
+},
+{
+"name": "Gm/Bb",
+"root": "G",
+"quality": "m",
+"bass": "Bb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V15",
+"oboe_bar": "V15",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.88
+}
+]
+},
+{
+"piano_bar": "V16",
+"oboe_bar": "V16",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.88
+}
+]
+},
+{
+"piano_bar": "V17",
+"oboe_bar": "V17",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Caug",
+"root": "C",
+"quality": "aug",
+"bass": "C",
+"fit": 0.817
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V18",
+"oboe_bar": "V18",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F#dim/C",
+"root": "F#",
+"quality": "dim",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "Fm/C",
+"root": "F",
+"quality": "m",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V19",
+"oboe_bar": "V19",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.753
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.795
+}
+]
+},
+{
+"piano_bar": "V20",
+"oboe_bar": "V20",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.915
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.857
+}
+]
+},
+{
+"piano_bar": "V21",
+"oboe_bar": "V21",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V22",
+"oboe_bar": "V22",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V23",
+"oboe_bar": "V23",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.64
+}
+]
+},
+{
+"piano_bar": "V24",
+"oboe_bar": "V24",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fdim",
+"root": "F",
+"quality": "dim",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V25",
+"oboe_bar": "V25",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fdim",
+"root": "F",
+"quality": "dim",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V26",
+"oboe_bar": "V26",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V27",
+"oboe_bar": "V27",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.64
+}
+]
+},
+{
+"piano_bar": "V28",
+"oboe_bar": "V28",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fdim",
+"root": "F",
+"quality": "dim",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V29",
+"oboe_bar": "V29",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fdim",
+"root": "F",
+"quality": "dim",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V30",
+"oboe_bar": "V30",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V31",
+"oboe_bar": "V31",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "A7/E",
+"root": "A",
+"quality": "7",
+"bass": "E",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V32",
+"oboe_bar": "V32",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V33",
+"oboe_bar": "V33",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm/A",
+"root": "D",
+"quality": "m",
+"bass": "A",
+"fit": 1.0
+},
+{
+"name": "A7",
+"root": "A",
+"quality": "7",
+"bass": "A",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V34",
+"oboe_bar": "V34",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V35",
+"oboe_bar": "V35",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "A7/E",
+"root": "A",
+"quality": "7",
+"bass": "E",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V36",
+"oboe_bar": "V36",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm7b5/C",
+"root": "D",
+"quality": "m7b5",
+"bass": "C",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V37",
+"oboe_bar": "V37",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7/B",
+"root": "G",
+"quality": "7",
+"bass": "B",
+"fit": 0.96
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V38",
+"oboe_bar": "V38",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V39",
+"oboe_bar": "V39",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V40",
+"oboe_bar": "V40",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.96
+},
+null
+]
+},
+{
+"piano_bar": "V41",
+"oboe_bar": "V41",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7/C",
+"root": "G",
+"quality": "7",
+"bass": "C",
+"fit": 0.627
+},
+null
+]
+},
+{
+"piano_bar": "V42",
+"oboe_bar": "V42",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V43",
+"oboe_bar": "V43",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V44",
+"oboe_bar": "V44",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.96
+},
+null
+]
+},
+{
+"piano_bar": "V45",
+"oboe_bar": "V45",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7/C",
+"root": "G",
+"quality": "7",
+"bass": "C",
+"fit": 0.627
+},
+null
+]
+},
+{
+"piano_bar": "V46",
+"oboe_bar": "V46",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V47",
+"oboe_bar": "V47",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F#dim/C",
+"root": "F#",
+"quality": "dim",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "F#dim/C",
+"root": "F#",
+"quality": "dim",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V48",
+"oboe_bar": "V48",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V49",
+"oboe_bar": "V49",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F#dim/C",
+"root": "F#",
+"quality": "dim",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "Fm/C",
+"root": "F",
+"quality": "m",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V50",
+"oboe_bar": "V50",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.75
+}
+]
+},
+{
+"piano_bar": "V51",
+"oboe_bar": "V51",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.75
+}
+]
+},
+{
+"piano_bar": "V52",
+"oboe_bar": "V52",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V53",
+"oboe_bar": "V53",
+"key_fifths": -1,
+"chords": [
+null,
+null
+]
+},
+{
+"piano_bar": "V54",
+"oboe_bar": "V54",
+"key_fifths": -1,
+"chords": [
+null,
+null
+]
+},
+{
+"piano_bar": "V55",
+"oboe_bar": "V55",
+"key_fifths": -1,
+"chords": [
+null,
+null
+]
+},
+{
+"piano_bar": "V56",
+"oboe_bar": "V56",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.64
+}
+]
+},
+{
+"piano_bar": "V57",
+"oboe_bar": "V57",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fdim7",
+"root": "F",
+"quality": "dim7",
+"bass": "F",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V58",
+"oboe_bar": "V58",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fdim7",
+"root": "F",
+"quality": "dim7",
+"bass": "F",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V59",
+"oboe_bar": "V59",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V60",
+"oboe_bar": "V60",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.64
+}
+]
+},
+{
+"piano_bar": "V61",
+"oboe_bar": "V61",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F/A",
+"root": "F",
+"quality": "",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V62",
+"oboe_bar": "V62",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7/G",
+"root": "C",
+"quality": "7",
+"bass": "G",
+"fit": 0.96
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V63",
+"oboe_bar": "V63",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V64",
+"oboe_bar": "V64",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fdim7",
+"root": "F",
+"quality": "dim7",
+"bass": "F",
+"fit": 0.809
+}
+]
+},
+{
+"piano_bar": "V65",
+"oboe_bar": "V65",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "Cm7b5/D",
+"root": "C",
+"quality": "m7b5",
+"bass": "D",
+"fit": 0.71
+}
+]
+},
+{
+"piano_bar": "V66",
+"oboe_bar": "V66",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7/E",
+"root": "C",
+"quality": "7",
+"bass": "E",
+"fit": 0.96
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V67",
+"oboe_bar": "V67",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V68",
+"oboe_bar": "V68",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fdim7",
+"root": "F",
+"quality": "dim7",
+"bass": "F",
+"fit": 0.809
+}
+]
+},
+{
+"piano_bar": "V69",
+"oboe_bar": "V69",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "Cm7b5/D",
+"root": "C",
+"quality": "m7b5",
+"bass": "D",
+"fit": 0.71
+}
+]
+},
+{
+"piano_bar": "V70",
+"oboe_bar": "V70",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7/E",
+"root": "C",
+"quality": "7",
+"bass": "E",
+"fit": 0.96
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V71",
+"oboe_bar": "V71",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.784
+}
+]
+},
+{
+"piano_bar": "V72",
+"oboe_bar": "V72",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.784
+}
+]
+},
+{
+"piano_bar": "V73",
+"oboe_bar": "V73",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Gm/Bb",
+"root": "G",
+"quality": "m",
+"bass": "Bb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V74",
+"oboe_bar": "V74",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V75",
+"oboe_bar": "V75",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.762
+}
+]
+},
+{
+"piano_bar": "V76",
+"oboe_bar": "V76",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.762
+}
+]
+},
+{
+"piano_bar": "V77",
+"oboe_bar": "V77",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Gm/Bb",
+"root": "G",
+"quality": "m",
+"bass": "Bb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V78",
+"oboe_bar": "V78",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V79",
+"oboe_bar": "V79",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V80",
+"oboe_bar": "V80",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F#dim/C",
+"root": "F#",
+"quality": "dim",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "Gm7/A",
+"root": "G",
+"quality": "m7",
+"bass": "A",
+"fit": 0.59
+}
+]
+},
+{
+"piano_bar": "V81",
+"oboe_bar": "V81",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.753
+}
+]
+},
+{
+"piano_bar": "V82",
+"oboe_bar": "V82",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.587
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.873
+}
+]
+},
+{
+"piano_bar": "V83",
+"oboe_bar": "V83",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V84",
+"oboe_bar": "V84",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F#dim/C",
+"root": "F#",
+"quality": "dim",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.75
+}
+]
+},
+{
+"piano_bar": "V85",
+"oboe_bar": "V85",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.753
+}
+]
+},
+{
+"piano_bar": "V86",
+"oboe_bar": "V86",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.587
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.873
+}
+]
+},
+{
+"piano_bar": "V87",
+"oboe_bar": "V87",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V88",
+"oboe_bar": "V88",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V89",
+"oboe_bar": "V89",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.96
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V90",
+"oboe_bar": "V90",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.96
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V91",
+"oboe_bar": "V91",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.96
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V92",
+"oboe_bar": "V92",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.96
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V93",
+"oboe_bar": "V93",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.84
+},
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V94",
+"oboe_bar": "V94",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.84
+},
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V95",
+"oboe_bar": "V95",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.84
+},
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V96",
+"oboe_bar": "V96",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.84
+},
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V97",
+"oboe_bar": "V97",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7/F",
+"root": "C",
+"quality": "7",
+"bass": "F",
+"fit": 0.76
+},
+null
+]
+},
+{
+"piano_bar": "V98",
+"oboe_bar": "V98",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V99",
+"oboe_bar": "V99",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7/F",
+"root": "C",
+"quality": "7",
+"bass": "F",
+"fit": 0.793
+},
+null
+]
+},
+{
+"piano_bar": "V100",
+"oboe_bar": "V100",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V101",
+"oboe_bar": "V101",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7/F",
+"root": "C",
+"quality": "7",
+"bass": "F",
+"fit": 0.76
+},
+null
+]
+},
+{
+"piano_bar": "V102",
+"oboe_bar": "V102",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V103",
+"oboe_bar": "V103",
+"key_fifths": -1,
+"chords": [
+{
+"name": "A7",
+"root": "A",
+"quality": "7",
+"bass": "A",
+"fit": 1.04
+},
+null
+]
+},
+{
+"piano_bar": "V104",
+"oboe_bar": "V104",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Edim/G",
+"root": "E",
+"quality": "dim",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V105",
+"oboe_bar": "V105",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm/A",
+"root": "D",
+"quality": "m",
+"bass": "A",
+"fit": 1.0
+},
+{
+"name": "A7",
+"root": "A",
+"quality": "7",
+"bass": "A",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V106",
+"oboe_bar": "V106",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V107",
+"oboe_bar": "V107",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm/A",
+"root": "D",
+"quality": "m",
+"bass": "A",
+"fit": 1.0
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V108",
+"oboe_bar": "V108",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V109",
+"oboe_bar": "V109",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.08
+},
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V110",
+"oboe_bar": "V110",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm7",
+"root": "G",
+"quality": "m7",
+"bass": "G",
+"fit": 1.04
+},
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V111",
+"oboe_bar": "V111",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V112",
+"oboe_bar": "V112",
+"key_fifths": -1,
+"chords": [
+{
+"name": "A",
+"root": "A",
+"quality": "",
+"bass": "A",
+"fit": 1.08
+},
+{
+"name": "A/E",
+"root": "A",
+"quality": "",
+"bass": "E",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V113",
+"oboe_bar": "V113",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm/A",
+"root": "D",
+"quality": "m",
+"bass": "A",
+"fit": 1.0
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V114",
+"oboe_bar": "V114",
+"key_fifths": -1,
+"chords": [
+{
+"name": "A",
+"root": "A",
+"quality": "",
+"bass": "A",
+"fit": 1.08
+},
+{
+"name": "A/E",
+"root": "A",
+"quality": "",
+"bass": "E",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V115",
+"oboe_bar": "V115",
+"key_fifths": -1,
+"chords": [
+{
+"name": "A",
+"root": "A",
+"quality": "",
+"bass": "A",
+"fit": 1.08
+},
+{
+"name": "A/Db",
+"root": "A",
+"quality": "",
+"bass": "Db",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V116",
+"oboe_bar": "V116",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm/A",
+"root": "D",
+"quality": "m",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V117",
+"oboe_bar": "V117",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.08
+},
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V118",
+"oboe_bar": "V118",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm7",
+"root": "G",
+"quality": "m7",
+"bass": "G",
+"fit": 1.04
+},
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V119",
+"oboe_bar": "V119",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Abdim7",
+"root": "Ab",
+"quality": "dim7",
+"bass": "Ab",
+"fit": 1.04
+},
+{
+"name": "Bdim",
+"root": "B",
+"quality": "dim",
+"bass": "B",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V120",
+"oboe_bar": "V120",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm/A",
+"root": "D",
+"quality": "m",
+"bass": "A",
+"fit": 1.0
+},
+{
+"name": "Dm/A",
+"root": "D",
+"quality": "m",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V121",
+"oboe_bar": "V121",
+"key_fifths": -1,
+"chords": [
+{
+"name": "A7",
+"root": "A",
+"quality": "7",
+"bass": "A",
+"fit": 1.04
+},
+{
+"name": "Dbdim/G",
+"root": "Db",
+"quality": "dim",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V122",
+"oboe_bar": "V122",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V123",
+"oboe_bar": "V123",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dmaj7",
+"root": "D",
+"quality": "maj7",
+"bass": "D",
+"fit": 0.67
+}
+]
+},
+{
+"piano_bar": "V124",
+"oboe_bar": "V124",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V125",
+"oboe_bar": "V125",
+"key_fifths": -1,
+"chords": [
+{
+"name": "A7/D",
+"root": "A",
+"quality": "7",
+"bass": "D",
+"fit": 0.793
+},
+null
+]
+},
+{
+"piano_bar": "V126",
+"oboe_bar": "V126",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V127",
+"oboe_bar": "V127",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "A7",
+"root": "A",
+"quality": "7",
+"bass": "A",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V128",
+"oboe_bar": "V128",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm7b5/C",
+"root": "D",
+"quality": "m7b5",
+"bass": "C",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V129",
+"oboe_bar": "V129",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7/B",
+"root": "G",
+"quality": "7",
+"bass": "B",
+"fit": 0.96
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V130",
+"oboe_bar": "V130",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V131",
+"oboe_bar": "V131",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+},
+{
+"name": "E",
+"root": "E",
+"quality": "",
+"bass": "E",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V132",
+"oboe_bar": "V132",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V133",
+"oboe_bar": "V133",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Am",
+"root": "A",
+"quality": "m",
+"bass": "A",
+"fit": 1.08
+},
+{
+"name": "Am",
+"root": "A",
+"quality": "m",
+"bass": "A",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V134",
+"oboe_bar": "V134",
+"key_fifths": -1,
+"chords": [
+{
+"name": "E7/Ab",
+"root": "E",
+"quality": "7",
+"bass": "Ab",
+"fit": 0.96
+},
+{
+"name": "E7/B",
+"root": "E",
+"quality": "7",
+"bass": "B",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V135",
+"oboe_bar": "V135",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Am",
+"root": "A",
+"quality": "m",
+"bass": "A",
+"fit": 1.08
+},
+{
+"name": "Am",
+"root": "A",
+"quality": "m",
+"bass": "A",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V136",
+"oboe_bar": "V136",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V137",
+"oboe_bar": "V137",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "Am7/C",
+"root": "A",
+"quality": "m7",
+"bass": "C",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V138",
+"oboe_bar": "V138",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bmaj7/Bb",
+"root": "B",
+"quality": "maj7",
+"bass": "Bb",
+"fit": 0.96
+},
+{
+"name": "B",
+"root": "B",
+"quality": "",
+"bass": "B",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V139",
+"oboe_bar": "V139",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm7",
+"root": "G",
+"quality": "m7",
+"bass": "G",
+"fit": 1.04
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V140",
+"oboe_bar": "V140",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V141",
+"oboe_bar": "V141",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F/A",
+"root": "F",
+"quality": "",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V142",
+"oboe_bar": "V142",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V143",
+"oboe_bar": "V143",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F#m7b5",
+"root": "F#",
+"quality": "m7b5",
+"bass": "F#",
+"fit": 1.04
+},
+{
+"name": "Am",
+"root": "A",
+"quality": "m",
+"bass": "A",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V144",
+"oboe_bar": "V144",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+},
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V145",
+"oboe_bar": "V145",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G",
+"root": "G",
+"quality": "",
+"bass": "G",
+"fit": 1.08
+},
+{
+"name": "G",
+"root": "G",
+"quality": "",
+"bass": "G",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V146",
+"oboe_bar": "V146",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V147",
+"oboe_bar": "V147",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V148",
+"oboe_bar": "V148",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V149",
+"oboe_bar": "V149",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V150",
+"oboe_bar": "V150",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.96
+},
+null
+]
+},
+{
+"piano_bar": "V151",
+"oboe_bar": "V151",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.96
+},
+null
+]
+},
+{
+"piano_bar": "V152",
+"oboe_bar": "V152",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.96
+},
+null
+]
+},
+{
+"piano_bar": "V153",
+"oboe_bar": "V153",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.96
+},
+null
+]
+},
+{
+"piano_bar": "V154",
+"oboe_bar": "V154",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm7b5/C",
+"root": "D",
+"quality": "m7b5",
+"bass": "C",
+"fit": 0.96
+},
+null
+]
+},
+{
+"piano_bar": "V155",
+"oboe_bar": "V155",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7/C",
+"root": "G",
+"quality": "7",
+"bass": "C",
+"fit": 0.793
+},
+null
+]
+},
+{
+"piano_bar": "V156",
+"oboe_bar": "V156",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V157",
+"oboe_bar": "V157",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7/C",
+"root": "G",
+"quality": "7",
+"bass": "C",
+"fit": 0.793
+},
+null
+]
+},
+{
+"piano_bar": "V158",
+"oboe_bar": "V158",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V159",
+"oboe_bar": "V159",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Cmaj7",
+"root": "C",
+"quality": "maj7",
+"bass": "C",
+"fit": 0.72
+},
+null
+]
+},
+{
+"piano_bar": "V160",
+"oboe_bar": "V160",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V161",
+"oboe_bar": "V161",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7/C",
+"root": "G",
+"quality": "7",
+"bass": "C",
+"fit": 0.793
+},
+null
+]
+},
+{
+"piano_bar": "V162",
+"oboe_bar": "V162",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Am7/C",
+"root": "A",
+"quality": "m7",
+"bass": "C",
+"fit": 0.96
+},
+null
+]
+},
+{
+"piano_bar": "V163",
+"oboe_bar": "V163",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+null
+]
+},
+{
+"piano_bar": "V164",
+"oboe_bar": "V164",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Cmaj7",
+"root": "C",
+"quality": "maj7",
+"bass": "C",
+"fit": 1.04
+},
+null
+]
+},
+{
+"piano_bar": "V165",
+"oboe_bar": "V165",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm7/F",
+"root": "D",
+"quality": "m7",
+"bass": "F",
+"fit": 0.96
+},
+{
+"name": "Em/G",
+"root": "E",
+"quality": "m",
+"bass": "G",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V166",
+"oboe_bar": "V166",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Fmaj7/A",
+"root": "F",
+"quality": "maj7",
+"bass": "A",
+"fit": 0.96
+},
+{
+"name": "G/B",
+"root": "G",
+"quality": "",
+"bass": "B",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V167",
+"oboe_bar": null,
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "G7/D",
+"root": "G",
+"quality": "7",
+"bass": "D",
+"fit": 0.835
+}
+]
+},
+{
+"piano_bar": "V168",
+"oboe_bar": "V167",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "G7/D",
+"root": "G",
+"quality": "7",
+"bass": "D",
+"fit": 0.835
+}
+]
+},
+{
+"piano_bar": "V169",
+"oboe_bar": "V168",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V170",
+"oboe_bar": "V170",
+"key_fifths": 0,
+"chords": [
+null,
+null
+]
+},
+{
+"piano_bar": "V171",
+"oboe_bar": "V171",
+"key_fifths": 0,
+"chords": [
+null,
+null
+]
+},
+{
+"piano_bar": "V172",
+"oboe_bar": "V172",
+"key_fifths": 0,
+"chords": [
+null,
+{
+"name": "Adim",
+"root": "A",
+"quality": "dim",
+"bass": "A",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V173",
+"oboe_bar": "V173",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C/G",
+"root": "C",
+"quality": "",
+"bass": "G",
+"fit": 1.0
+},
+null
+]
+},
+{
+"piano_bar": "V174",
+"oboe_bar": "V174",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C/E",
+"root": "C",
+"quality": "",
+"bass": "E",
+"fit": 1.0
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V175",
+"oboe_bar": "V175",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+},
+null
+]
+},
+{
+"piano_bar": "V176",
+"oboe_bar": "V176",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+},
+null
+]
+},
+{
+"piano_bar": "V177",
+"oboe_bar": "V177",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V178",
+"oboe_bar": "V178",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "Cdim7",
+"root": "C",
+"quality": "dim7",
+"bass": "C",
+"fit": 0.858
+}
+]
+},
+{
+"piano_bar": "V179",
+"oboe_bar": "V179",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+},
+{
+"name": "G7/F#",
+"root": "G",
+"quality": "7",
+"bass": "F#",
+"fit": 0.64
+}
+]
+},
+{
+"piano_bar": "V180",
+"oboe_bar": "V180",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm/Ab",
+"root": "D",
+"quality": "m",
+"bass": "Ab",
+"fit": 0.875
+},
+{
+"name": "Bmaj7/Bb",
+"root": "B",
+"quality": "maj7",
+"bass": "Bb",
+"fit": 0.72
+}
+]
+},
+{
+"piano_bar": "V181",
+"oboe_bar": "V181",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V182",
+"oboe_bar": "V182",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "Cdim7",
+"root": "C",
+"quality": "dim7",
+"bass": "C",
+"fit": 0.858
+}
+]
+},
+{
+"piano_bar": "V183",
+"oboe_bar": "V183",
+"key_fifths": 0,
+"chords": [
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+},
+{
+"name": "G7/F#",
+"root": "G",
+"quality": "7",
+"bass": "F#",
+"fit": 0.64
+}
+]
+},
+{
+"piano_bar": "V184",
+"oboe_bar": "V184",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm/Ab",
+"root": "D",
+"quality": "m",
+"bass": "Ab",
+"fit": 0.875
+},
+{
+"name": "Bmaj7/Bb",
+"root": "B",
+"quality": "maj7",
+"bass": "Bb",
+"fit": 0.72
+}
+]
+},
+{
+"piano_bar": "V185",
+"oboe_bar": "V185",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.96
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V186",
+"oboe_bar": "V186",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V187",
+"oboe_bar": "V187",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.873
+},
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.873
+}
+]
+},
+{
+"piano_bar": "V188",
+"oboe_bar": "V188",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V189",
+"oboe_bar": "V189",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "Abdim/B",
+"root": "Ab",
+"quality": "dim",
+"bass": "B",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V190",
+"oboe_bar": "V190",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Am",
+"root": "A",
+"quality": "m",
+"bass": "A",
+"fit": 1.08
+},
+{
+"name": "Dbm7b5/G",
+"root": "Db",
+"quality": "m7b5",
+"bass": "G",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V191",
+"oboe_bar": "V191",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "A7/E",
+"root": "A",
+"quality": "7",
+"bass": "E",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V192",
+"oboe_bar": "V192",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V193",
+"oboe_bar": "V193",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 0.88
+}
+]
+},
+{
+"piano_bar": "V194",
+"oboe_bar": "V194",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Fdim7",
+"root": "F",
+"quality": "dim7",
+"bass": "F",
+"fit": 1.04
+},
+{
+"name": "C/E",
+"root": "C",
+"quality": "",
+"bass": "E",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V195",
+"oboe_bar": "V195",
+"key_fifths": 0,
+"chords": [
+{
+"name": "Dm7/F",
+"root": "D",
+"quality": "m7",
+"bass": "F",
+"fit": 0.96
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V196",
+"oboe_bar": "V196",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.96
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V197",
+"oboe_bar": "V197",
+"key_fifths": 0,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V198",
+"oboe_bar": "V198",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V199",
+"oboe_bar": "V199",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.88
+}
+]
+},
+{
+"piano_bar": "V200",
+"oboe_bar": "V200",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+},
+{
+"name": "D7/C",
+"root": "D",
+"quality": "7",
+"bass": "C",
+"fit": 0.52
+}
+]
+},
+{
+"piano_bar": "V201",
+"oboe_bar": "V201",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V202",
+"oboe_bar": "V202",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V203",
+"oboe_bar": "V203",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F#dim/C",
+"root": "F#",
+"quality": "dim",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "Fm/C",
+"root": "F",
+"quality": "m",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V204",
+"oboe_bar": "V204",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.84
+}
+]
+},
+{
+"piano_bar": "V205",
+"oboe_bar": "V205",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 0.96
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.87
+}
+]
+},
+{
+"piano_bar": "V206",
+"oboe_bar": "V206",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.929
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.99
+}
+]
+},
+{
+"piano_bar": "V207",
+"oboe_bar": "V207",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V208",
+"oboe_bar": "V208",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V209",
+"oboe_bar": "V209",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.64
+}
+]
+},
+{
+"piano_bar": "V210",
+"oboe_bar": "V210",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fdim7",
+"root": "F",
+"quality": "dim7",
+"bass": "F",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V211",
+"oboe_bar": "V211",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Fdim7",
+"root": "F",
+"quality": "dim7",
+"bass": "F",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V212",
+"oboe_bar": "V212",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V213",
+"oboe_bar": "V213",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "Gm7/F",
+"root": "G",
+"quality": "m7",
+"bass": "F",
+"fit": 0.64
+}
+]
+},
+{
+"piano_bar": "V214",
+"oboe_bar": "V214",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V215",
+"oboe_bar": "V215",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V216",
+"oboe_bar": "V216",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V217",
+"oboe_bar": "V217",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "A7/E",
+"root": "A",
+"quality": "7",
+"bass": "E",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V218",
+"oboe_bar": "V218",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V219",
+"oboe_bar": "V219",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm/A",
+"root": "D",
+"quality": "m",
+"bass": "A",
+"fit": 1.0
+},
+{
+"name": "A7",
+"root": "A",
+"quality": "7",
+"bass": "A",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V220",
+"oboe_bar": "V220",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V221",
+"oboe_bar": "V221",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm/F",
+"root": "D",
+"quality": "m",
+"bass": "F",
+"fit": 1.0
+},
+{
+"name": "A7/E",
+"root": "A",
+"quality": "7",
+"bass": "E",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V222",
+"oboe_bar": "V222",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm7b5/C",
+"root": "D",
+"quality": "m7b5",
+"bass": "C",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V223",
+"oboe_bar": "V223",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7/B",
+"root": "G",
+"quality": "7",
+"bass": "B",
+"fit": 0.96
+},
+{
+"name": "G7",
+"root": "G",
+"quality": "7",
+"bass": "G",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V224",
+"oboe_bar": "V224",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V225",
+"oboe_bar": "V225",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V226",
+"oboe_bar": "V226",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.96
+},
+null
+]
+},
+{
+"piano_bar": "V227",
+"oboe_bar": "V227",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7/C",
+"root": "G",
+"quality": "7",
+"bass": "C",
+"fit": 0.76
+},
+null
+]
+},
+{
+"piano_bar": "V228",
+"oboe_bar": "V228",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V229",
+"oboe_bar": "V229",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V230",
+"oboe_bar": "V230",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm7/C",
+"root": "D",
+"quality": "m7",
+"bass": "C",
+"fit": 0.96
+},
+null
+]
+},
+{
+"piano_bar": "V231",
+"oboe_bar": "V231",
+"key_fifths": -1,
+"chords": [
+{
+"name": "G7/C",
+"root": "G",
+"quality": "7",
+"bass": "C",
+"fit": 0.76
+},
+null
+]
+},
+{
+"piano_bar": "V232",
+"oboe_bar": "V232",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V233",
+"oboe_bar": "V233",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F#dim/C",
+"root": "F#",
+"quality": "dim",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "Fm/C",
+"root": "F",
+"quality": "m",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V234",
+"oboe_bar": "V234",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V235",
+"oboe_bar": "V235",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F#dim/C",
+"root": "F#",
+"quality": "dim",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "Fm/C",
+"root": "F",
+"quality": "m",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V236",
+"oboe_bar": null,
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.75
+}
+]
+},
+{
+"piano_bar": "V237",
+"oboe_bar": "V236",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.75
+}
+]
+},
+{
+"piano_bar": "V238",
+"oboe_bar": "V237",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V239",
+"oboe_bar": "V238",
+"key_fifths": -1,
+"chords": [
+null,
+null
+]
+},
+{
+"piano_bar": "V240",
+"oboe_bar": "V240",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V241",
+"oboe_bar": "V241",
+"key_fifths": -1,
+"chords": [
+null,
+null
+]
+},
+{
+"piano_bar": "V242",
+"oboe_bar": "V242",
+"key_fifths": -1,
+"chords": [
+null,
+null
+]
+},
+{
+"piano_bar": "V243",
+"oboe_bar": "V243",
+"key_fifths": -1,
+"chords": [
+null,
+null
+]
+},
+{
+"piano_bar": "V244",
+"oboe_bar": "V244",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F/A",
+"root": "F",
+"quality": "",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V245",
+"oboe_bar": "V245",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm/A",
+"root": "D",
+"quality": "m",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V246",
+"oboe_bar": "V246",
+"key_fifths": -1,
+"chords": [
+{
+"name": "A/Db",
+"root": "A",
+"quality": "",
+"bass": "Db",
+"fit": 1.0
+},
+{
+"name": "A",
+"root": "A",
+"quality": "",
+"bass": "A",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V247",
+"oboe_bar": "V247",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Dm",
+"root": "D",
+"quality": "m",
+"bass": "D",
+"fit": 1.08
+},
+{
+"name": "Dm/A",
+"root": "D",
+"quality": "m",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V248",
+"oboe_bar": "V248",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Am",
+"root": "A",
+"quality": "m",
+"bass": "A",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V249",
+"oboe_bar": "V249",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "Dm7/F",
+"root": "D",
+"quality": "m7",
+"bass": "F",
+"fit": 0.96
+}
+]
+},
+{
+"piano_bar": "V250",
+"oboe_bar": "V250",
+"key_fifths": -1,
+"chords": [
+{
+"name": "E",
+"root": "E",
+"quality": "",
+"bass": "E",
+"fit": 1.08
+},
+{
+"name": "E/B",
+"root": "E",
+"quality": "",
+"bass": "B",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V251",
+"oboe_bar": "V251",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+null
+]
+},
+{
+"piano_bar": "V252",
+"oboe_bar": "V252",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F/A",
+"root": "F",
+"quality": "",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V253",
+"oboe_bar": "V253",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.08
+},
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V254",
+"oboe_bar": "V254",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F/A",
+"root": "F",
+"quality": "",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V255",
+"oboe_bar": "V255",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.08
+},
+{
+"name": "Bb",
+"root": "Bb",
+"quality": "",
+"bass": "Bb",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V256",
+"oboe_bar": "V256",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V257",
+"oboe_bar": "V257",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "Edim/Bb",
+"root": "E",
+"quality": "dim",
+"bass": "Bb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V258",
+"oboe_bar": "V258",
+"key_fifths": -1,
+"chords": [
+{
+"name": "A7/Db",
+"root": "A",
+"quality": "7",
+"bass": "Db",
+"fit": 0.96
+},
+{
+"name": "Cdim7",
+"root": "C",
+"quality": "dim7",
+"bass": "C",
+"fit": 0.79
+}
+]
+},
+{
+"piano_bar": "V259",
+"oboe_bar": "V259",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm/Bb",
+"root": "G",
+"quality": "m",
+"bass": "Bb",
+"fit": 1.0
+},
+{
+"name": "Gm",
+"root": "G",
+"quality": "m",
+"bass": "G",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V260",
+"oboe_bar": "V260",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V261",
+"oboe_bar": "V261",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "Edim/Bb",
+"root": "E",
+"quality": "dim",
+"bass": "Bb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V262",
+"oboe_bar": "V262",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V263",
+"oboe_bar": "V263",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V264",
+"oboe_bar": "V264",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V265",
+"oboe_bar": "V265",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 1.04
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V266",
+"oboe_bar": "V266",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V267",
+"oboe_bar": "V267",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V268",
+"oboe_bar": "V268",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V269",
+"oboe_bar": "V269",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "Edim",
+"root": "E",
+"quality": "dim",
+"bass": "E",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V270",
+"oboe_bar": "V270",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V271",
+"oboe_bar": "V271",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V272",
+"oboe_bar": "V272",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V273",
+"oboe_bar": "V273",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V274",
+"oboe_bar": "V274",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V275",
+"oboe_bar": "V275",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V276",
+"oboe_bar": "V276",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V277",
+"oboe_bar": "V277",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+},
+{
+"name": "C",
+"root": "C",
+"quality": "",
+"bass": "C",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V278",
+"oboe_bar": "V278",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.96
+},
+{
+"name": "F/G",
+"root": "F",
+"quality": "",
+"bass": "G",
+"fit": 0.6
+}
+]
+},
+{
+"piano_bar": "V279",
+"oboe_bar": "V279",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 0.9
+},
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.62
+}
+]
+},
+{
+"piano_bar": "V280",
+"oboe_bar": "V280",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 0.96
+},
+{
+"name": "F/G",
+"root": "F",
+"quality": "",
+"bass": "G",
+"fit": 0.6
+}
+]
+},
+{
+"piano_bar": "V281",
+"oboe_bar": "V281",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Bb/F",
+"root": "Bb",
+"quality": "",
+"bass": "F",
+"fit": 0.9
+},
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.62
+}
+]
+},
+{
+"piano_bar": "V282",
+"oboe_bar": "V282",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V283",
+"oboe_bar": "V283",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.753
+},
+null
+]
+},
+{
+"piano_bar": "V284",
+"oboe_bar": "V284",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+null
+]
+},
+{
+"piano_bar": "V285",
+"oboe_bar": "V285",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Fmaj7",
+"root": "F",
+"quality": "maj7",
+"bass": "F",
+"fit": 0.753
+},
+null
+]
+},
+{
+"piano_bar": "V286",
+"oboe_bar": "V286",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V287",
+"oboe_bar": "V287",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm/Bb",
+"root": "G",
+"quality": "m",
+"bass": "Bb",
+"fit": 1.0
+},
+{
+"name": "Gm/Bb",
+"root": "G",
+"quality": "m",
+"bass": "Bb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V288",
+"oboe_bar": "V288",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V289",
+"oboe_bar": "V289",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V290",
+"oboe_bar": "V290",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V291",
+"oboe_bar": "V291",
+"key_fifths": -1,
+"chords": [
+{
+"name": "Gm/Bb",
+"root": "G",
+"quality": "m",
+"bass": "Bb",
+"fit": 1.0
+},
+{
+"name": "Gm/Bb",
+"root": "G",
+"quality": "m",
+"bass": "Bb",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V292",
+"oboe_bar": "V292",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V293",
+"oboe_bar": "V293",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V294",
+"oboe_bar": "V294",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V295",
+"oboe_bar": "V295",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V296",
+"oboe_bar": "V296",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V297",
+"oboe_bar": "V297",
+"key_fifths": -1,
+"chords": [
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 0.92
+}
+]
+},
+{
+"piano_bar": "V298",
+"oboe_bar": "V298",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V299",
+"oboe_bar": "V299",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "C7",
+"root": "C",
+"quality": "7",
+"bass": "C",
+"fit": 1.04
+}
+]
+},
+{
+"piano_bar": "V300",
+"oboe_bar": "V300",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.875
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.875
+}
+]
+},
+{
+"piano_bar": "V301",
+"oboe_bar": "V301",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.875
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 0.875
+}
+]
+},
+{
+"piano_bar": "V302",
+"oboe_bar": "V302",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V303",
+"oboe_bar": "V303",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V304",
+"oboe_bar": "V304",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V305",
+"oboe_bar": "V305",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F/A",
+"root": "F",
+"quality": "",
+"bass": "A",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V306",
+"oboe_bar": "V306",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+}
+]
+},
+{
+"piano_bar": "V307",
+"oboe_bar": "V307",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F/A",
+"root": "F",
+"quality": "",
+"bass": "A",
+"fit": 1.0
+},
+{
+"name": "F/C",
+"root": "F",
+"quality": "",
+"bass": "C",
+"fit": 1.0
+}
+]
+},
+{
+"piano_bar": "V308",
+"oboe_bar": "V308",
+"key_fifths": -1,
+"chords": [
+{
+"name": "F",
+"root": "F",
+"quality": "",
+"bass": "F",
+"fit": 1.08
+},
+null
+]
+}
+]

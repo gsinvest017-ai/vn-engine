@@ -29,3 +29,7 @@ www/
 
 # 影片版渲染輸出（tools/video/render.py）
 video_out/
+
+# Kalliwoda jazz 專案：音色庫、模型、下載樂譜、渲染中間檔
+projects/kalliwoda-jazz/_assets/
+projects/kalliwoda-jazz/_render/

@@ -1,0 +1,105 @@
+# Hand corrections applied on top of the Audiveris draft (omr_to_draft.py).
+# Every line was checked against the Alex'Not oboe part (IMSLP #1006130) page
+# images at 240-650 dpi.  Format: <label> <tokens>  # reason
+# Special token "CADENZA" on a line marks a free-time bar (length check skipped).
+# Token "trem8:PITCH" = half note with 2-slash tremolo, expanded to 8 x 16th.
+# Token "trem4:PITCH" = quarter note with 2-slash tremolo, expanded to 4 x 16th.
+
+A50 D6:1 C6:1/2 Bb5:1/2 A5:1/8 Bb5:1/8 C6:1/8 Bb5:1/8 A5:1/8 G5:1/8 F#5:1/8 G5:1/8 A5:1/8 G5:1/8 F5:1/8 E5:1/8 D#5:1/8 E5:1/8 F5:1/8 E5:1/8 D5:1/8 C5:1/8 B4:1/8 C5:1/8 D5:1/8 C5:1/8 Bb4:1/8 A4:1/8 C5:1/8 Bb4:1/8 A4:1/8 G4:1/8 Bb4:1/8 A4:1/8 G4:1/16 F4:1/16 A4:1/16 G4:1/16 F4:1/16 E4:1/16 G4:1/2 F4:1/2 E4:1/2 D4:1/2 CADENZA  # a piacere cadenza, hand-read (OMR garbled)
+A51 C4:1 r:1 r:1/4 E4:1/4 F4:1/4 G4:1/4 A4:1/4 B4:1/4 C5:1/4 D5:1/4  # tie-in from cadenza D4 is a slur in print; kept OMR pitches
+A68 G5:1/2 F#5:1/2 C5:1~ C5:1/2 Eb5:1/2 D5:3/4 C5:1/4  # OMR dotted-8th misread
+A81 E5:1/4 G5:1/4 Bb5:1/4 A5:1/4 C6:1/4 Bb5:1/4 G5:1/4 E5:1/4 C5:1/4 Bb4:1/4 G4:1/4 E4:1/4 D5:3/4 C5:1/4  # OMR split voices
+A97 B4:3/4 C5:1/4 G4:1 r:1/3 G4:1/3 A4:1/3 B4:1/3 C5:1/3 D5:1/3  # sextuplet of 8ths (6 over 4)
+A108 A5:1/2 B5:1/2 C6:3/2 G#5:1/4 A5:1/4 E5:1/4 F5:1/4 A4:1/4 D5:1/4  # OMR false key sig (1 sharp) -> F#5 corrected to F5
+A109 D5:1 D5:1/4 C5:1/4 B4:1/4 C5:1/4 E5:1 E5:1/4 D5:1/4 C#5:1/4 D5:1/4  # checked vs image
+A113 A5:1~ A5:1/3 G5:1/3 C6:1/3 B5:1/3 F5:1/3 A5:1/3 G5:1/3 D5:1/3 E5:1/3  # triplet 8ths
+A122 C5:1/2 r:1/4 E5:1/4 D5:1/4 C5:1/4 B4:1/4 A4:1/4 A4:1/4 G4:1/4 G4:1/4 G4:1/4 A4:1/4 B4:1/4 C5:1/4 D5:1/4  # 16th rest misread
+A123 D#5:1/4 E5:1/4 C5:1/4 G4:1/4 F#5:1/4 G5:1/4 E5:1/4 C5:1/4 B5:1/4 A5:1/4 F5:1/4 D5:1/4 G5:1/4 F5:1/4 D5:1/4 B4:1/4  # all 16ths
+A124 C5:1/2 r:1/4 E5:1/4 D5:1/4 C5:1/4 B4:1/4 A4:1/4 A4:1/4 G4:1/4 G4:1/4 G4:1/4 A4:1/4 B4:1/4 C5:1/4 D5:1/4  # 16th rest misread
+A125 D#5:1/4 E5:1/4 C5:1/4 G4:1/4 F#5:1/4 G5:1/4 E5:1/4 C5:1/4 B5:1/4 A5:1/4 F5:1/4 D5:1/4 G5:1/4 F5:1/4 D5:1/4 B4:1/4  # all 16ths
+A136 G4:1 C6:1/3 B5:1/3 Bb5:1/3 A5:1/3 Ab5:1/3 G5:1/3 F#5:1/3 F5:1/3 E5:1/3  # chromatic triplet 8ths
+A137 Eb5:1/3 D5:1/3 C#5:1/3 C5:1/3 B4:1/3 Bb4:1/3 A4:1/3 Ab4:1/3 G4:1/3 C5:1/3 E5:1/3 A5:1/3  # chromatic triplet 8ths
+A139 G5:2 A5:2  # trill after-notes were read as a note
+R9 C5:1/2 Eb5:1/2 C5:3/8 Bb4:1/8  # dotted-16th + 32nd
+R15 C5:1/2 g:D5 C5:1/6 B4:1/6 C5:1/6 Db5:3/8 G4:1/8  # slur (not tie); grace D-natural added
+R16 Eb5:1/2 g:F5 Eb5:1/6 D5:1/6 Eb5:1/6 F5:3/8 Bb4:1/8  # slur (not tie); grace F added
+R41 F4:1~ F4:1/12 Ab4:1/12 C5:1/12 F5:1/12 Ab5:1/12 C6:1/12  # sextuplet 32nds
+R44 C6:1/2~ C6:1/12 G5:1/12 E5:1/12 C5:1/12 G4:1/12 E4:1/12 C4:1/2  # sextuplet; E4 printed w/o accidental, read as E-natural (C-major arpeggio) = editorial
+R45 Eb4:1~ Eb4:1/12 Gb4:1/12 Bb4:1/12 Eb5:1/12 Gb5:1/12 Bb5:1/12  # sextuplet; G5 printed w/o flat, read as Gb (Eb-minor arpeggio, sequence of R41) = editorial
+R48 Bb5:1/2~ Bb5:1/12 F5:1/12 D5:1/12 Bb4:1/12 F4:1/12 D4:1/12 Bb3:1/2  # sextuplet; D4 printed w/o accidental, read as D-natural (Bb-major arpeggio) = editorial
+R56 Ab4:1/2 r:1/2 F4:1/12 E4:1/12 F4:1/12 Ab4:1/12 C5:1/12 F5:1/12  # unmarked sextuplet 32nds
+R64 C5:1/2 Eb5:1/2 Ab5:1/2  # slur, not tie
+V21 r:2  # Viol.1 cue (F6) + cue F4
+V22 r:1 r:1/2 A5:1/6 Bb5:1/6 A5:1/6  # lower-voice cue F4 removed
+V42 C5:1/2 G5:1/4 E5:1/4 C6:1/2 G5:1/6 A5:1/6 G5:1/6  # triplet 16ths
+V43 F#5:1/2 G5:1/6 A5:1/6 G5:1/6 E5:1/2 E5:1/6 F5:1/6 E5:1/6  # triplet 16ths
+V47 C5:1/2 r:1/2 r:1/2 F5:1/6 G5:1/6 F5:1/6  # triplet 16ths
+V48 E5:1/2 r:1/2 r:1/2 B4:1/6 C5:1/6 D5:1/6  # triplet 16ths
+V49 C5:1/2 r:1/2 r:1/2 F5:1/6 G5:1/6 F5:1/6  # triplet 16ths
+V50 E5:1/2 G5:1/6 A5:1/6 G5:1/6 F#5:1/2 F5:1/6 G5:1/6 F5:1/6  # triplet 16ths
+V51 E5:1/2 G5:1/6 A5:1/6 G5:1/6 F#5:1/2 F5:1/6 G5:1/6 F5:1/6  # triplet 16ths
+V55 C5:1/2 B4:1/6 C5:1/6 D5:1/6 C5:1/2 A5:1/6 Bb5:1/6 A5:1/6  # triplet 16ths
+V101 C5:1/2 E5:1/6 F5:1/6 E5:1/6 C5:1/2 G5:1/6 A5:1/6 G5:1/6  # triplet 16ths
+V107 r:2  # 1-bar rest
+V110 F5:7/4 E5:1/4  # OMR merged V110+V111
+V111 D5:2  # restored bar
+V118 F5:7/4 E5:1/4  # OMR merged V118+V119
+V119 D5:2  # restored bar
+V131 r:2  # 1-bar rest
+V151 G5:1/2 F5:1/6 G5:1/6 F5:1/6 E5:1/2 D5:1/6 E5:1/6 D5:1/6  # triplet 16ths
+V152 A4:1 r:1/4 A4:1/4 B4:1/4 C#5:1/4  # 16th rest misread
+V155 C#5:1/4 E5:1/4 D5:1/4 B4:1/4 trem4:G4  # tremolo quarter
+V156 D#5:1/4 F5:1/4 E5:1/4 C5:1/4 trem4:G4  # tremolo quarter
+V159 C#5:1/4 E5:1/4 D5:1/4 B4:1/4 trem4:G4  # tremolo quarter
+V160 D#5:1/4 F5:1/4 E5:1/4 C5:1/4 trem4:G4  # tremolo quarter
+V165 A4:1/6 B4:1/6 A4:1/6 D5:1/6 E5:1/6 D5:1/6 B4:1/6 C5:1/6 B4:1/6 E5:1/6 F5:1/6 E5:1/6  # sextuplets
+V166 C5:1/6 D5:1/6 C5:1/6 F5:1/6 G5:1/6 F5:1/6 D5:1/6 E5:1/6 D5:1/6 G5:1/6 A5:1/6 G5:1/6  # sextuplets
+V167 E5:1/4 G5:1/4 C6:1/4 E4:1/4 F4:1/4 A5:1/4 D4:1/4 F5:1/4  # same figure as V168
+V205 r:2  # Viol. cue
+V206 r:2  # Viol. cue
+V207 r:2  # Viol. cue
+V208 r:1 r:1/2 A5:1/6 Bb5:1/6 A5:1/6  # lower-voice cue removed
+V212 C5:1 r:1/2 A5:1/6 Bb5:1/6 A5:1/6  # triplet 16ths
+V217 trem8:A5  # tremolo half note A5 (OMR read C5)
+V221 trem8:A5  # tremolo half note A5 (OMR read C5)
+V225 F#5:1/2 G5:1/6 A5:1/6 G5:1/6 E5:1/2 E5:1/6 F5:1/6 E5:1/6  # triplet 16ths
+V232 C6:1 r:1/2 B4:1/6 C5:1/6 D5:1/6  # triplet 16ths
+V233 C5:1/2 r:1/2 r:1/2 F5:1/6 G5:1/6 F5:1/6  # triplet 16ths
+V234 E5:1/2 r:1/2 r:1/2 B4:1/6 C5:1/6 D5:1/6  # triplet 16ths
+V236 E5:1/2 G5:1/6 A5:1/6 G5:1/6 F#5:1/2 F5:1/6 G5:1/6 F5:1/6  # triplet 16ths
+V237 E5:1/2 G5:1/6 A5:1/6 G5:1/6 F#5:1/2 F5:1/6 G5:1/6 F5:1/6  # triplet 16ths
+V238 E5:1/2 Bb5:1 A5:1/6 Bb5:1/6 A5:1/6  # triplet 16ths
+V239 G5:1/6 A5:1/6 G5:1/6 F5:1/6 G5:1/6 F5:1/6 E5:1/6 F5:1/6 E5:1/6 D5:1/6 E5:1/6 D5:1/6  # sextuplets
+V240 C5:1/2 G5:1 F5:1/6 G5:1/6 F5:1/6  # triplet 16ths
+V241 E5:1/6 F5:1/6 E5:1/6 D5:1/6 E5:1/6 D5:1/6 C5:1/6 D5:1/6 C5:1/6 B4:1/6 C5:1/6 D5:1/6  # sextuplets
+V242 C5:1/2 r:1/4 B4:1/4 C5:1/2 r:1/4 B4:1/4  # 8th + 16th rest + 16th, twice
+V261 Bb5:1~ Bb5:1/3 G4:1/3 E5:1/3  # triplet 8ths
+V262 F5:1/2 r:1/2 G#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6  # sextuplet
+V263 C5:1/2 r:1/2 G#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6  # sextuplet
+V265 C6:1/6 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 Bb4:1/6 A4:1/6 G4:1/6 F4:1/6  # sextuplets
+V266 E4:1/2 r:1/2 F#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6  # sextuplet
+V267 C5:1/2 r:1/2 F#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6  # sextuplet
+V269 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 Bb4:1/6 A4:1/6 G4:1/6 F4:1/6 E4:1/6  # sextuplets
+V270 F4:1/2 r:1/2 G#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6  # sextuplet
+V271 C5:1/2 r:1/2 G#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6  # sextuplet
+V273 C6:1/6 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 Bb4:1/6 A4:1/6 G4:1/6 F4:1/6  # sextuplets
+V274 E4:1/2 r:1/2 F#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6  # sextuplet
+V275 C5:1/2 r:1/2 F#5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6  # sextuplet
+V277 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 Bb4:1/6 A4:1/6 G4:1/6 F4:1/6 E4:1/6  # sextuplets
+V278 F4:1/2 F5:1/6 G5:1/6 F5:1/6 E5:1/2 Eb5:1/6 F5:1/6 Eb5:1/6  # unmarked triplet 16ths
+V280 A4:1/2 F5:1/6 G5:1/6 F5:1/6 E5:1/6 F5:1/6 E5:1/6 Eb5:1/6 F5:1/6 Eb5:1/6  # triplet + sextuplet
+V295 E5:1/2 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 D5:1/6 E5:1/6  # triplet + sextuplet
+V297 E5:1/2 Bb5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 D5:1/6 C5:1/6 D5:1/6 E5:1/6  # triplet + sextuplet
+V298 F5:1/6 E5:1/6 F5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 G5:1/6 C6:1/6 C5:1/2  # sextuplet + triplet + 8th
+V299 F5:1/6 E5:1/6 F5:1/6 A5:1/6 G5:1/6 F5:1/6 E5:1/6 G5:1/6 C6:1/6 C5:1/2  # sextuplet + triplet + 8th
+V300 F5:1/6 G5:1/6 A5:1/6 C5:1/6 D5:1/6 E5:1/6 F5:1/6 G5:1/6 A5:1/6 C5:1/6 D5:1/6 E5:1/6  # sextuplets
+V301 F5:1/6 G5:1/6 A5:1/6 C5:1/6 D5:1/6 E5:1/6 F5:1/6 G5:1/6 A5:1/6 C5:1/6 D5:1/6 E5:1/6  # sextuplets
+V304 F6:1 r:1  # after F6 the bar is Tutti cue
+V305 r:2  # Tutti cue
+V306 r:2  # Tutti cue
+V307 r:2  # Tutti cue
+V308 r:2  # Tutti cue (Fine)
+# --- added after cross-checking against the oboe staff of the piano score (IMSLP #907463) ---
+R72 Eb5:1/2 Eb5:1/2 Eb5:1/2  # dotted quarter with 1-slash tremolo = 3 repeated 8ths (piano score writes them out)
+V31 trem4:A5 trem4:A5  # two tremolo quarters (4 dots each)
+V35 trem4:A5 trem4:A5  # two tremolo quarters (4 dots each)
