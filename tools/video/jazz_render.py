@@ -25,6 +25,7 @@
       "target_lufs": -16.0
     }
     - "transpose"：半音數（選填，先套用）；"fold_range"：[lo, hi]，transpose 後仍超出音色音域的音以八度摺回（選填）；"init_cc"：tick 0 送出的 CC（選填）。
+    - "eq"：[{"type": "highshelf"|"lowshelf"|"peak", "f": Hz, "gain_db": dB, "q": 0.7}, ...]（選填，RBJ biquad，在 HPF/LPF 之後）。
     - "midi_track"：用 MIDI 軌名（track name meta）比對，也可給整數索引。
     - 音色：".sfz" 走 sfizz_render；".sf2"/".sf3" 走 fluidsynth（需在 PATH 上；目前未實測）。
     - sfizz_render 位置：設定檔 "sfizz_render"、環境變數 SFIZZ_RENDER、PATH，
@@ -364,6 +365,36 @@ def filt(x: np.ndarray, hpf: float, lpf: float, sr: int = SR) -> np.ndarray:
     return x
 
 
+def biquad(kind: str, f: float, gain_db: float, q: float = 0.707, sr: int = SR) -> np.ndarray:
+    """RBJ Audio EQ Cookbook 的 highshelf / lowshelf / peak 係數，回傳 sos（1×6）。"""
+    A = 10 ** (gain_db / 40)
+    w0 = 2 * np.pi * min(f, sr * 0.49) / sr
+    cw, sw = np.cos(w0), np.sin(w0)
+    alpha = sw / (2 * q)
+    if kind == "peak":
+        b = [1 + alpha * A, -2 * cw, 1 - alpha * A]
+        a = [1 + alpha / A, -2 * cw, 1 - alpha / A]
+    elif kind in ("highshelf", "lowshelf"):
+        s = 1 if kind == "highshelf" else -1
+        sq = 2 * np.sqrt(A) * alpha
+        b = [A * ((A + 1) + s * (A - 1) * cw + sq), -2 * s * A * ((A - 1) + s * (A + 1) * cw),
+             A * ((A + 1) + s * (A - 1) * cw - sq)]
+        a = [(A + 1) - s * (A - 1) * cw + sq, 2 * s * ((A - 1) - s * (A + 1) * cw),
+             (A + 1) - s * (A - 1) * cw - sq]
+    else:
+        raise ValueError(f"不支援的 EQ 類型：{kind}")
+    b, a = np.array(b) / a[0], np.array(a) / a[0]
+    return np.concatenate([b, a])[None, :]
+
+
+def apply_eq(x: np.ndarray, bands: list[dict] | None, sr: int = SR) -> np.ndarray:
+    for bd in bands or []:
+        sos = biquad(bd.get("type", "peak"), float(bd["f"]), float(bd.get("gain_db", 0.0)),
+                     float(bd.get("q", 0.707)), sr)
+        x = signal.sosfilt(sos, x, axis=0)
+    return x
+
+
 def db(v: float) -> float:
     return float(20 * np.log10(max(v, 1e-12)))
 
@@ -545,6 +576,7 @@ def render(midi_path: Path, config: dict, out_dir: Path, config_dir: Path | None
         render_stem(inst, smid, raw, sr, sfizz, tc.get("render_args"))
         x = load_wav(raw, sr)
         x = filt(x, tc.get("hpf_hz", 0), tc.get("lpf_hz", 0), sr)
+        x = apply_eq(x, tc.get("eq"), sr)
         x = pan_gain(x, tc.get("pan", 0.0), tc.get("gain_db", 0.0))
         stems[name] = x
         sends[name] = float(tc.get("reverb_send", 0.0))

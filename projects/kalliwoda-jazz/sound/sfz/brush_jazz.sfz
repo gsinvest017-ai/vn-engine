@@ -1,0 +1,43 @@
+// 爵士刷子（掃刷可持續＋刷擊）；自動產生：tools/video/jazz_arrange.py sfz
+// 樣本 Karoryfer Frankensnare 14x5 maple brush（CC0）
+<control>
+default_path=../../_assets/lib/frankensnare/Samples/14d_brush/
+
+<global>
+pitch_keytrack=0
+
+<group> key=24 lovel=1 hivel=80 loop_mode=no_loop ampeg_attack=0.16 ampeg_sustain=100 ampeg_release=0.3 volume=12 amp_veltrack=75 offset_random=120000 seq_length=4
+<region> sample=oh/stir_dl3_rr1.wav seq_position=1
+<region> sample=oh/stir_dl3_rr2.wav seq_position=2
+<region> sample=oh/stir_dl3_rr3.wav seq_position=3
+<region> sample=oh/stir_dl3_rr4.wav seq_position=4
+<group> key=24 lovel=81 hivel=127 loop_mode=no_loop ampeg_attack=0.16 ampeg_sustain=100 ampeg_release=0.3 volume=12 amp_veltrack=75 offset_random=120000 seq_length=4
+<region> sample=oh/stir_dl4_rr1.wav seq_position=1
+<region> sample=oh/stir_dl4_rr2.wav seq_position=2
+<region> sample=oh/stir_dl4_rr3.wav seq_position=3
+<region> sample=oh/stir_dl4_rr4.wav seq_position=4
+<group> key=38 lovel=1 hivel=25 loop_mode=one_shot volume=0 amp_veltrack=60 seq_length=4
+<region> sample=oh/sb_vl1_rr1.flac seq_position=1
+<region> sample=oh/sb_vl1_rr2.flac seq_position=2
+<region> sample=oh/sb_vl1_rr3.flac seq_position=3
+<region> sample=oh/sb_vl1_rr4.flac seq_position=4
+<group> key=38 lovel=26 hivel=50 loop_mode=one_shot volume=0 amp_veltrack=60 seq_length=4
+<region> sample=oh/sb_vl2_rr1.flac seq_position=1
+<region> sample=oh/sb_vl2_rr2.flac seq_position=2
+<region> sample=oh/sb_vl2_rr3.flac seq_position=3
+<region> sample=oh/sb_vl2_rr4.flac seq_position=4
+<group> key=38 lovel=51 hivel=76 loop_mode=one_shot volume=0 amp_veltrack=60 seq_length=4
+<region> sample=oh/sb_vl3_rr1.flac seq_position=1
+<region> sample=oh/sb_vl3_rr2.flac seq_position=2
+<region> sample=oh/sb_vl3_rr3.flac seq_position=3
+<region> sample=oh/sb_vl3_rr4.flac seq_position=4
+<group> key=38 lovel=77 hivel=101 loop_mode=one_shot volume=0 amp_veltrack=60 seq_length=4
+<region> sample=oh/sb_vl4_rr1.flac seq_position=1
+<region> sample=oh/sb_vl4_rr2.flac seq_position=2
+<region> sample=oh/sb_vl4_rr3.flac seq_position=3
+<region> sample=oh/sb_vl4_rr4.flac seq_position=4
+<group> key=38 lovel=102 hivel=127 loop_mode=one_shot volume=0 amp_veltrack=60 seq_length=4
+<region> sample=oh/sb_vl5_rr1.flac seq_position=1
+<region> sample=oh/sb_vl5_rr2.flac seq_position=2
+<region> sample=oh/sb_vl5_rr3.flac seq_position=3
+<region> sample=oh/sb_vl5_rr4.flac seq_position=4

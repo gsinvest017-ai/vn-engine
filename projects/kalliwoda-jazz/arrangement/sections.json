@@ -1,0 +1,380 @@
+{
+ "seed": 7,
+ "params": {
+  "bpm": 58.0,
+  "swing": 0.63,
+  "trumpet": {
+   "lay_back": [
+    0.06,
+    0.16
+   ],
+   "jitter": 0.025,
+   "p_rhythm_variant": 0.55,
+   "p_anticipate": 0.18,
+   "p_grace": 0.1,
+   "p_passing": 0.3,
+   "vel_base": 60,
+   "vel_arch": 8,
+   "vel_min": 42,
+   "vel_max": 76,
+   "breath_gap": 0.5,
+   "dim_to": 58,
+   "phrase_end_dim_to": 40,
+   "range": [
+    55,
+    79
+   ],
+   "offbeat_vel_drop": 9,
+   "harmon_theme2": true
+  },
+  "piano": {
+   "comp_vel": [
+    36,
+    50
+   ],
+   "p_rest": 0.12,
+   "p_inner": 0.35,
+   "p_fill": 0.7,
+   "solo_vel": [
+    50,
+    66
+   ],
+   "solo_range": [
+    65,
+    86
+   ],
+   "pedal": true
+  },
+  "bass": {
+   "vel_down": 80,
+   "vel_other": 66,
+   "p_approach": 0.55,
+   "p_one": 0.15,
+   "p_slide": 0.1,
+   "range": [
+    31,
+    50
+   ]
+  },
+  "drums": {
+   "sweep_vel": 62,
+   "tap_vel": 38,
+   "ghost_vel": 20,
+   "p_ghost": 0.2,
+   "hat_vel": 36,
+   "ride_vel": 34,
+   "jitter": 0.012
+  },
+  "rit": {
+   "start_bar_src": 81,
+   "to_bpm": 50.0,
+   "coda_bpm": 47.0,
+   "last_bpm": 40.0
+  }
+ },
+ "total_s": 312.664,
+ "midi": "kalliwoda_ballad.mid",
+ "note": "秒數：各段起點來自 MIDI tempo map（渲染從 0 秒開始、無位移）；最後一段終點＝實際混音長度",
+ "credits": {
+  "style_note": "in the style of Chet Baker & Bill Evans（僅風格模仿，非其演奏、非其聲音）",
+  "work": "Johann Wenzel Kalliwoda: Oboe Concertino Op.110, II. Romanze（公有領域）",
+  "score_sources": [
+   "IMSLP Alex'Not 打譜（CC BY-SA 4.0）",
+   "Schott 初版（公有領域）"
+  ],
+  "samples": [
+   "Salamander Grand Piano V3 by Alexander Holm（CC-BY 3.0）",
+   "VSCO-2-CE（CC0）",
+   "Karoryfer Sneakybass / Frankensnare（CC0）",
+   "Virtuosity Drums（CC0）"
+  ]
+ },
+ "sections": [
+  {
+   "name": "intro",
+   "label": "前奏（鋼琴獨奏，主題動機）",
+   "start_s": 0.0,
+   "end_s": 24.828,
+   "bars": [
+    1,
+    8
+   ],
+   "source_bars": "R3–R6 動機＋R84–R89 和聲色彩",
+   "source_bar_list": [],
+   "lead": "piano",
+   "trumpet": null,
+   "mood": "夜深、獨白、猶豫地開口",
+   "visual_keywords": [
+    "rain streaks on a dark window at night",
+    "empty jazz club with one warm table lamp",
+    "grand piano keys in soft focus, shallow depth of field",
+    "blue-hour city lights bokeh"
+   ]
+  },
+  {
+   "name": "head_ab",
+   "label": "小號主題 a＋b",
+   "start_s": 24.828,
+   "end_s": 74.483,
+   "bars": [
+    9,
+    24
+   ],
+   "source_bars": "R3–R18",
+   "source_bar_list": [
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15",
+    "R16",
+    "R17",
+    "R18"
+   ],
+   "lead": "trumpet",
+   "trumpet": "open",
+   "mood": "慵懶、溫柔地陳述",
+   "visual_keywords": [
+    "backlit trumpet silhouette with drifting haze, face hidden",
+    "wet pavement under a lone street lamp",
+    "slow dolly through an empty bar, chairs on tables",
+    "reflections of neon in puddles"
+   ]
+  },
+  {
+   "name": "head_a2",
+   "label": "主題後半 a′（刪 R22–R28）",
+   "start_s": 74.483,
+   "end_s": 108.621,
+   "bars": [
+    25,
+    35
+   ],
+   "source_bars": "R19–R21＋R29–R36",
+   "source_bar_list": [
+    "R19",
+    "R20",
+    "R21",
+    "R29",
+    "R30",
+    "R31",
+    "R32",
+    "R33",
+    "R34",
+    "R35",
+    "R36"
+   ],
+   "lead": "trumpet",
+   "trumpet": "open",
+   "mood": "情緒稍稍升起又放下",
+   "visual_keywords": [
+    "night city seen from a moving car, light streaks",
+    "old photographs scattered on a wooden table",
+    "curtain moving in the night breeze",
+    "a half-empty glass catching lamp light"
+   ]
+  },
+  {
+   "name": "piano_solo",
+   "label": "鋼琴獨奏（主題和聲）",
+   "start_s": 108.621,
+   "end_s": 158.276,
+   "bars": [
+    36,
+    51
+   ],
+   "source_bars": "R3–R18 和聲進行",
+   "source_bar_list": [
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15",
+    "R16",
+    "R17",
+    "R18"
+   ],
+   "lead": "piano",
+   "trumpet": null,
+   "mood": "內省、流動、輕輕搖擺",
+   "visual_keywords": [
+    "inside a grand piano: hammers and strings in warm light",
+    "reflections gliding on a glossy piano lid",
+    "drizzle on a skylight",
+    "slow abstract light patterns"
+   ]
+  },
+  {
+   "name": "interlude",
+   "label": "間奏（轉 c 小調）",
+   "start_s": 158.276,
+   "end_s": 170.69,
+   "bars": [
+    52,
+    55
+   ],
+   "source_bars": "R41–R44",
+   "source_bar_list": [
+    "R41",
+    "R42",
+    "R43",
+    "R44"
+   ],
+   "lead": "piano",
+   "trumpet": null,
+   "mood": "陰影落下",
+   "visual_keywords": [
+    "clouds sliding over the moon",
+    "an empty chair beside a rain-streaked window",
+    "a clock pendulum in dim light"
+   ]
+  },
+  {
+   "name": "theme2",
+   "label": "小號第二主題（harmon 弱音器）",
+   "start_s": 170.69,
+   "end_s": 207.931,
+   "bars": [
+    56,
+    67
+   ],
+   "source_bars": "R49–R60 骨幹",
+   "source_bar_list": [
+    "R49",
+    "R50",
+    "R51",
+    "R52",
+    "R53",
+    "R54",
+    "R55",
+    "R56",
+    "R57",
+    "R58",
+    "R59",
+    "R60"
+   ],
+   "lead": "trumpet",
+   "trumpet": "harmon",
+   "mood": "寂寥、低語、帶點苦澀",
+   "visual_keywords": [
+    "a flickering neon sign in the rain, blue and violet",
+    "fog over a harbour at night",
+    "a lone boat light on dark water",
+    "empty train platform at 3 a.m."
+   ]
+  },
+  {
+   "name": "link",
+   "label": "回主題的過門",
+   "start_s": 207.931,
+   "end_s": 217.241,
+   "bars": [
+    68,
+    70
+   ],
+   "source_bars": "R61–R63",
+   "source_bar_list": [
+    "R61",
+    "R62",
+    "R63"
+   ],
+   "lead": "piano",
+   "trumpet": null,
+   "mood": "轉身、微光",
+   "visual_keywords": [
+    "first grey light at the window edge",
+    "steam rising from a cup"
+   ]
+  },
+  {
+   "name": "return",
+   "label": "回到主題",
+   "start_s": 217.241,
+   "end_s": 257.586,
+   "bars": [
+    71,
+    83
+   ],
+   "source_bars": "R64–R76",
+   "source_bar_list": [
+    "R64",
+    "R65",
+    "R66",
+    "R67",
+    "R68",
+    "R69",
+    "R70",
+    "R71",
+    "R72",
+    "R73",
+    "R74",
+    "R75",
+    "R76"
+   ],
+   "lead": "trumpet",
+   "trumpet": "open",
+   "mood": "釋懷、更輕",
+   "visual_keywords": [
+    "the same street, now in pale dawn light",
+    "a record spinning slowly",
+    "sunlight crawling across wooden floorboards"
+   ]
+  },
+  {
+   "name": "coda",
+   "label": "尾聲（漸慢、下屬變格、延長和弦）",
+   "start_s": 257.586,
+   "end_s": 312.664,
+   "bars": [
+    84,
+    96
+   ],
+   "source_bars": "R77–R89",
+   "source_bar_list": [
+    "R77",
+    "R78",
+    "R79",
+    "R80",
+    "R81",
+    "R82",
+    "R83",
+    "R84",
+    "R85",
+    "R86",
+    "R87",
+    "R88",
+    "R89"
+   ],
+   "lead": "trumpet",
+   "trumpet": "open",
+   "mood": "告別、漸弱至無聲",
+   "visual_keywords": [
+    "a lamp switched off, room fading to dark",
+    "last notes over an empty stage",
+    "slow fade to black with end credits"
+   ]
+  }
+ ],
+ "mix_lufs": -16.0,
+ "mix_true_peak_dbtp": -1.15,
+ "check_trumpet_first_onset_s": {
+  "measured": 24.946,
+  "section_start": 24.828
+ }
+}

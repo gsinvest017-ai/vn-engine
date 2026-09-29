@@ -1,0 +1,104 @@
+{
+ "full_score.musicxml": {
+  "ok": true,
+  "parts": 5,
+  "measures": 96,
+  "time": "3/4",
+  "key_sharps_first_part": -1,
+  "chord_symbols": 260,
+  "measures_not_3_beats": [],
+  "trumpet_notes_match": {
+   "read": 249,
+   "expected": 249,
+   "identical": true
+  },
+  "bass_notes_match": {
+   "read": 186,
+   "expected": 186,
+   "identical": true
+  }
+ },
+ "lead_sheet_Bb.musicxml": {
+  "ok": true,
+  "parts": 1,
+  "measures": 96,
+  "time": "3/4",
+  "key_sharps_first_part": -1,
+  "chord_symbols": 130,
+  "measures_not_3_beats": [],
+  "trumpet_notes_match": {
+   "read": 249,
+   "expected": 249,
+   "identical": true
+  }
+ },
+ "lead_sheet_C.musicxml": {
+  "ok": true,
+  "parts": 1,
+  "measures": 96,
+  "time": "3/4",
+  "key_sharps_first_part": -3,
+  "chord_symbols": 130,
+  "measures_not_3_beats": [],
+  "trumpet_notes_match": {
+   "read": 249,
+   "expected": 249,
+   "identical": true
+  }
+ },
+ "parts/bass.musicxml": {
+  "ok": true,
+  "parts": 1,
+  "measures": 96,
+  "time": "3/4",
+  "key_sharps_first_part": -3,
+  "chord_symbols": 130,
+  "measures_not_3_beats": [],
+  "bass_notes_match": {
+   "read": 186,
+   "expected": 186,
+   "identical": true
+  }
+ },
+ "parts/drums.musicxml": {
+  "ok": true,
+  "parts": 1,
+  "measures": 96,
+  "time": "3/4",
+  "key_sharps_first_part": 0,
+  "chord_symbols": 0,
+  "measures_not_3_beats": []
+ },
+ "parts/piano.musicxml": {
+  "ok": true,
+  "parts": 2,
+  "measures": 96,
+  "time": "3/4",
+  "key_sharps_first_part": -3,
+  "chord_symbols": 130,
+  "measures_not_3_beats": []
+ },
+ "parts/piano_comp_slash.musicxml": {
+  "ok": true,
+  "parts": 2,
+  "measures": 96,
+  "time": "3/4",
+  "key_sharps_first_part": -3,
+  "chord_symbols": 130,
+  "measures_not_3_beats": []
+ },
+ "parts/trumpet_bb.musicxml": {
+  "ok": true,
+  "parts": 1,
+  "measures": 96,
+  "time": "3/4",
+  "key_sharps_first_part": -1,
+  "chord_symbols": 95,
+  "measures_not_3_beats": [],
+  "trumpet_notes_match": {
+   "read": 249,
+   "expected": 249,
+   "identical": true
+  }
+ }
+}

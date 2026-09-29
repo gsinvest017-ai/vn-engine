@@ -1,0 +1,776 @@
+{
+ "clips": [
+  {
+   "id": "intro_01",
+   "file": "_render/clips/intro_01.mp4",
+   "section": "intro",
+   "section_zh": "前奏（鋼琴）",
+   "desc": "Night rain streaks down the large window of a small empty jazz bar seen from the street, warm amber lamps glowing inside, soft out-of-focus red and blue city lights reflected in the wet glass and in puddles below. The window glass is clear with no signs, no neon tubes, no lettering.",
+   "camera": "Very slow push-in toward the window.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 0.0,
+   "music_sec": 10.0,
+   "seed": 8101,
+   "attempts": 2,
+   "gen_time_s": 350.4,
+   "quality": "ok",
+   "issues": [
+    "窗內兩團霓虹色光斑（失焦、不可讀）",
+    "OCR: [mirror] Z3-, [2x] we, [mirror] Te.."
+   ],
+   "note": "第 3 版（seed 8101，改掉 neon 字眼）：雨窗、空店、暖燈；v0 有人臉、v1 有假字都已作廢",
+   "frames": [
+    "intro_01_f0.jpg",
+    "intro_01_f1.jpg",
+    "intro_01_f2.jpg"
+   ]
+  },
+  {
+   "id": "intro_02",
+   "file": "_render/clips/intro_02.mp4",
+   "section": "intro",
+   "section_zh": "前奏（鋼琴）",
+   "desc": "Wide view from a corner of a tiny empty jazz club late at night, facing the low stage and a dark back wall: a few small round tables, a black upright bass leaning in the corner, a grand piano under one amber lamp, smoke hanging in the light. No doors, no windows and no signs in view",
+   "camera": "Slow lateral dolly across the room.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 10.0,
+   "music_sec": 10.0,
+   "seed": 8102,
+   "attempts": 2,
+   "gen_time_s": 350.2,
+   "quality": "ok",
+   "issues": [
+    "右側窗邊有一個很小的綠色出口燈（無可讀字）"
+   ],
+   "note": "第 2 版（seed 8102）：從角落看空酒吧、舞台、低音提琴、鋼琴檯燈；v1 的 EXIT 與鏡像假字已消失",
+   "frames": [
+    "intro_02_f0.jpg",
+    "intro_02_f1.jpg",
+    "intro_02_f2.jpg"
+   ]
+  },
+  {
+   "id": "intro_03",
+   "file": "_render/clips/intro_03.mp4",
+   "section": "intro",
+   "section_zh": "前奏（鋼琴）",
+   "desc": "Close-up of a grand piano keyboard in dim amber light, a pair of hands resting gently on the keys and pressing a soft chord, only hands and wrists visible.",
+   "camera": "Static, extremely slow drift.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 20.0,
+   "music_sec": 10.0,
+   "seed": 7103,
+   "attempts": 1,
+   "gen_time_s": 335.5,
+   "quality": "ok",
+   "issues": [],
+   "note": "只見手與琴鍵，暖光，極佳",
+   "frames": [
+    "intro_03_f0.jpg",
+    "intro_03_f1.jpg",
+    "intro_03_f2.jpg"
+   ]
+  },
+  {
+   "id": "head_ab_01",
+   "file": "_render/clips/head_ab_01.mp4",
+   "section": "head_ab",
+   "section_zh": "小號主題 a+b",
+   "desc": "A brass trumpet resting on an empty wooden chair on a small stage, a single warm spotlight from above, dust floating in the beam; behind the chair only a heavy dark velvet curtain fills the background, no windows, no lights with signs",
+   "camera": "Slow push-in toward the trumpet.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 30.0,
+   "music_sec": 9.6,
+   "seed": 9201,
+   "attempts": 3,
+   "gen_time_s": 345.3,
+   "quality": "ok",
+   "issues": [
+    "前段畫面左緣有門窗與綠色出口燈（箭頭＋小人圖示，無字母；OCR 把圖示讀成 K-H），推近後出框",
+    "OCR: K-H, CI, [2x] CE, [2x] SER"
+   ],
+   "note": "第 3 版（seed 9201，最後一次）：絲絨布幕前的椅子與小號、頂光。v1 小 EXIT＋霓虹、v2 霓虹假字 BOZZ 都作廢",
+   "frames": [
+    "head_ab_01_f0.jpg",
+    "head_ab_01_f1.jpg",
+    "head_ab_01_f2.jpg"
+   ]
+  },
+  {
+   "id": "head_ab_02",
+   "file": "_render/clips/head_ab_02.mp4",
+   "section": "head_ab",
+   "section_zh": "小號主題 a+b",
+   "desc": "Macro close-up of the trumpet bell, its polished brass reflecting the amber lamp and the blurred room, fine scratches on the metal.",
+   "camera": "Very slow orbit around the bell.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 39.6,
+   "music_sec": 9.6,
+   "seed": 7202,
+   "attempts": 1,
+   "gen_time_s": 410.5,
+   "quality": "ok",
+   "issues": [],
+   "note": "號口特寫；Haar 誤判（號口反光）",
+   "frames": [
+    "head_ab_02_f0.jpg",
+    "head_ab_02_f1.jpg",
+    "head_ab_02_f2.jpg"
+   ]
+  },
+  {
+   "id": "head_ab_03",
+   "file": "_render/clips/head_ab_03.mp4",
+   "section": "head_ab",
+   "section_zh": "小號主題 a+b",
+   "desc": "From behind and far away, the out-of-focus dark silhouette of a musician's back and shoulder against hazy stage light, holding a trumpet, face never visible.",
+   "camera": "Static, soft focus breathing.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 49.2,
+   "music_sec": 9.6,
+   "seed": 7203,
+   "attempts": 1,
+   "gen_time_s": 350.5,
+   "quality": "ok",
+   "issues": [
+    "OCR: [mirror] 0000, [mirror] m000, [mirror] 000"
+   ],
+   "note": "樂手後腦與肩膀剪影，看不到臉；中段小號放下，只剩背影與麥克風",
+   "frames": [
+    "head_ab_03_f0.jpg",
+    "head_ab_03_f1.jpg",
+    "head_ab_03_f2.jpg"
+   ]
+  },
+  {
+   "id": "head_ab_04",
+   "file": "_render/clips/head_ab_04.mp4",
+   "section": "head_ab",
+   "section_zh": "小號主題 a+b",
+   "desc": "Rain-covered bar window at night seen from inside, droplets sliding down, blurred warm and cold city lights behind the glass, a plain unmarked awning outside.",
+   "camera": "Very slow rack focus.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 58.8,
+   "music_sec": 9.6,
+   "seed": 7204,
+   "attempts": 1,
+   "gen_time_s": 355.5,
+   "quality": "ok",
+   "issues": [],
+   "note": "雨窗散景，招牌完全失焦不可讀",
+   "frames": [
+    "head_ab_04_f0.jpg",
+    "head_ab_04_f1.jpg",
+    "head_ab_04_f2.jpg"
+   ]
+  },
+  {
+   "id": "head_ab_05",
+   "file": "_render/clips/head_ab_05.mp4",
+   "section": "head_ab",
+   "section_zh": "小號主題 a+b",
+   "desc": "A half-empty glass of whiskey on the black lid of a grand piano, ice slowly melting, a ring of water on the lacquer, lamp light glinting.",
+   "camera": "Slow push-in.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 68.4,
+   "music_sec": 9.6,
+   "seed": 7205,
+   "attempts": 1,
+   "gen_time_s": 345.5,
+   "quality": "ok",
+   "issues": [
+    "鋼琴蓋造型抽象（像疊層木板）"
+   ],
+   "note": "威士忌杯＋冰塊，雨窗散景",
+   "frames": [
+    "head_ab_05_f0.jpg",
+    "head_ab_05_f1.jpg",
+    "head_ab_05_f2.jpg"
+   ]
+  },
+  {
+   "id": "head_a2_01",
+   "file": "_render/clips/head_a2_01.mp4",
+   "section": "head_a2",
+   "section_zh": "主題後半 a'",
+   "desc": "Close-up of the thick strings of an upright double bass, fingers plucking slowly, the wooden body glowing amber, shallow depth of field, only the hand visible.",
+   "camera": "Slow tilt down along the strings.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 78.0,
+   "music_sec": 11.0,
+   "seed": 7301,
+   "attempts": 1,
+   "gen_time_s": 365.5,
+   "quality": "ok",
+   "issues": [],
+   "note": "手撥低音提琴弦，袖口入鏡、無臉",
+   "frames": [
+    "head_a2_01_f0.jpg",
+    "head_a2_01_f1.jpg",
+    "head_a2_01_f2.jpg"
+   ]
+  },
+  {
+   "id": "head_a2_02",
+   "file": "_render/clips/head_a2_02.mp4",
+   "section": "head_a2",
+   "section_zh": "主題後半 a'",
+   "desc": "Wire jazz brushes sweeping slow circles on the white coated head of a snare drum, a hi-hat blurred in the background, only hands and brushes visible.",
+   "camera": "Static low angle.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 89.0,
+   "music_sec": 11.0,
+   "seed": 8302,
+   "attempts": 2,
+   "gen_time_s": 345.3,
+   "quality": "fix",
+   "issues": [
+    "小鼓鼓皮右側有淡淡的假 logo 壓印（第 1、2 版都有，第 2 版較淡）"
+   ],
+   "note": "第 2 版（seed 8302）採用；刷子掃鼓皮動作自然。建議 sign_fix defocus 那塊 logo（位置約 x 850–950, y 360–420）",
+   "frames": [
+    "head_a2_02_f0.jpg",
+    "head_a2_02_f1.jpg",
+    "head_a2_02_f2.jpg"
+   ]
+  },
+  {
+   "id": "head_a2_03",
+   "file": "_render/clips/head_a2_03.mp4",
+   "section": "head_a2",
+   "section_zh": "主題後半 a'",
+   "desc": "Looking straight up at a slowly turning ceiling fan and a single hanging amber lamp, cigarette smoke drifting through the light; the dark wooden ceiling fills the whole frame, no walls in view",
+   "camera": "Slow upward tilt.",
+   "duration": 12.958,
+   "head": 6.5,
+   "usable_sec": 6.46,
+   "music_start": 100.0,
+   "music_sec": 11.0,
+   "seed": 8303,
+   "attempts": 2,
+   "gen_time_s": 345.4,
+   "quality": "fix",
+   "issues": [
+    "開頭約 6 秒畫面下緣還看得到窗戶與窗外招牌假字（SON/…），之後鏡頭上仰只剩天花板",
+    "OCR: SON, [2x] SON, [mirror] MOR, [mirror] 22"
+   ],
+   "note": "第 2 版（seed 8303）；剪接從 6.5 秒後取用（可用約 6.5 秒），或裁掉下緣 20% 放大；第 1 版有 EXIT 與霓虹字已作廢",
+   "frames": [
+    "head_a2_03_f0.jpg",
+    "head_a2_03_f1.jpg",
+    "head_a2_03_f2.jpg"
+   ]
+  },
+  {
+   "id": "piano_solo_01",
+   "file": "_render/clips/piano_solo_01.mp4",
+   "section": "piano_solo",
+   "section_zh": "鋼琴獨奏",
+   "desc": "Top-down view of piano keys, two hands playing slowly and softly, fingers moving across ivory and black keys, warm lamp light, only hands visible.",
+   "camera": "Slow glide along the keyboard.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 111.0,
+   "music_sec": 9.6,
+   "seed": 7401,
+   "attempts": 1,
+   "gen_time_s": 350.4,
+   "quality": "ok",
+   "issues": [
+    "黑白鍵排列不完全正確（AI 常見）"
+   ],
+   "note": "俯拍雙手，只見手與袖口；琴上金屬名牌是空白的；Haar 誤判",
+   "frames": [
+    "piano_solo_01_f0.jpg",
+    "piano_solo_01_f1.jpg",
+    "piano_solo_01_f2.jpg"
+   ]
+  },
+  {
+   "id": "piano_solo_02",
+   "file": "_render/clips/piano_solo_02.mp4",
+   "section": "piano_solo",
+   "section_zh": "鋼琴獨奏",
+   "desc": "Inside an open grand piano: felt hammers rising and striking the steel strings, brass tuning pins, the golden cast-iron frame, dim warm light.",
+   "camera": "Macro, very slow push along the hammers.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 120.6,
+   "music_sec": 9.6,
+   "seed": 7402,
+   "attempts": 1,
+   "gen_time_s": 390.4,
+   "quality": "ok",
+   "issues": [
+    "看不到琴槌，只有琴弦與鑄鐵框"
+   ],
+   "note": "琴內部慢推，暖金色",
+   "frames": [
+    "piano_solo_02_f0.jpg",
+    "piano_solo_02_f1.jpg",
+    "piano_solo_02_f2.jpg"
+   ]
+  },
+  {
+   "id": "piano_solo_03",
+   "file": "_render/clips/piano_solo_03.mp4",
+   "section": "piano_solo",
+   "section_zh": "鋼琴獨奏",
+   "desc": "Low angle along the keyboard from its end, fingers in soft focus pressing keys, the lamp glowing behind, smoke in the air.",
+   "camera": "Static, slow rack focus from keys to hands.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 130.2,
+   "music_sec": 9.6,
+   "seed": 7403,
+   "attempts": 1,
+   "gen_time_s": 340.3,
+   "quality": "ok",
+   "issues": [],
+   "note": "沿鍵盤低角度，手與袖口、檯燈；無臉",
+   "frames": [
+    "piano_solo_03_f0.jpg",
+    "piano_solo_03_f1.jpg",
+    "piano_solo_03_f2.jpg"
+   ]
+  },
+  {
+   "id": "piano_solo_04",
+   "file": "_render/clips/piano_solo_04.mp4",
+   "section": "piano_solo",
+   "section_zh": "鋼琴獨奏",
+   "desc": "Close-up of the brass sustain pedal of a grand piano and a dark leather shoe pressing it slowly, dark wooden floor.",
+   "camera": "Static.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 139.8,
+   "music_sec": 9.6,
+   "seed": 7404,
+   "attempts": 1,
+   "gen_time_s": 335.5,
+   "quality": "ok",
+   "issues": [],
+   "note": "皮鞋踩踏板，只見小腿以下",
+   "frames": [
+    "piano_solo_04_f0.jpg",
+    "piano_solo_04_f1.jpg",
+    "piano_solo_04_f2.jpg"
+   ]
+  },
+  {
+   "id": "piano_solo_05",
+   "file": "_render/clips/piano_solo_05.mp4",
+   "section": "piano_solo",
+   "section_zh": "鋼琴獨奏",
+   "desc": "Tight close-up of the glossy black lacquer fallboard of a piano, mirror-like, reflecting two slowly moving hands above the keys; only the black lacquer, keys and hands fill the frame, the room behind is pure black",
+   "camera": "Very slow drift.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 149.4,
+   "music_sec": 9.6,
+   "seed": 8405,
+   "attempts": 2,
+   "gen_time_s": 350.2,
+   "quality": "ok",
+   "issues": [
+    "上緣一點失焦綠光（不可讀）"
+   ],
+   "note": "第 2 版（seed 8405）：黑色琴身映出雙手、背景全黑；第 1 版後段出現兩張人臉已作廢",
+   "frames": [
+    "piano_solo_05_f0.jpg",
+    "piano_solo_05_f1.jpg",
+    "piano_solo_05_f2.jpg"
+   ]
+  },
+  {
+   "id": "theme2_01",
+   "file": "_render/clips/theme2_01.mp4",
+   "section": "theme2",
+   "section_zh": "小號第二主題（R49–R60 骨幹）",
+   "desc": "A single cold blue-white street lamp on a rainy night, seen from below beside a bare dark brick wall, rain streaking through the cone of light, a trembling puddle on the ground; no shops, no storefronts, no signs anywhere",
+   "camera": "Slow push-in down the street.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 159.0,
+   "music_sec": 9.6,
+   "seed": 8501,
+   "attempts": 2,
+   "gen_time_s": 350.3,
+   "quality": "ok",
+   "issues": [
+    "雨絲不太明顯"
+   ],
+   "note": "第 2 版（seed 8501，改成單支路燈＋磚牆、無店面）：冷藍、空、無字；第 1 版街景滿是店招假字已作廢",
+   "frames": [
+    "theme2_01_f0.jpg",
+    "theme2_01_f1.jpg",
+    "theme2_01_f2.jpg"
+   ]
+  },
+  {
+   "id": "theme2_02",
+   "file": "_render/clips/theme2_02.mp4",
+   "section": "theme2",
+   "section_zh": "小號第二主題（R49–R60 骨幹）",
+   "desc": "Close-up of trumpet valves and fingers pressing them slowly, lit only by cold blue light from a window, deep shadows, only the hand visible.",
+   "camera": "Static, slow focus pull.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 168.6,
+   "music_sec": 9.6,
+   "seed": 7502,
+   "attempts": 1,
+   "gen_time_s": 350.3,
+   "quality": "ok",
+   "issues": [
+    "手指與活塞結構有 AI 變形（近看才明顯）",
+    "OCR: ST, SINT"
+   ],
+   "note": "冷藍光下按小號活塞，只見手；OCR 的 ST/SINT 是活塞紋理誤讀",
+   "frames": [
+    "theme2_02_f0.jpg",
+    "theme2_02_f1.jpg",
+    "theme2_02_f2.jpg"
+   ]
+  },
+  {
+   "id": "theme2_03",
+   "file": "_render/clips/theme2_03.mp4",
+   "section": "theme2",
+   "section_zh": "小號第二主題（R49–R60 骨幹）",
+   "desc": "Far down a rainy street, the blurred silhouette of a lone figure with an umbrella walking away from camera under cold streetlights, back view only.",
+   "camera": "Static long lens.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 178.2,
+   "music_sec": 9.6,
+   "seed": 7503,
+   "attempts": 1,
+   "gen_time_s": 345.5,
+   "quality": "ok",
+   "issues": [
+    "右上角遠處一塊失焦紅色小招牌（不可讀）"
+   ],
+   "note": "撐傘背影走遠，無臉；Haar 誤判路燈",
+   "frames": [
+    "theme2_03_f0.jpg",
+    "theme2_03_f1.jpg",
+    "theme2_03_f2.jpg"
+   ]
+  },
+  {
+   "id": "theme2_04",
+   "file": "_render/clips/theme2_04.mp4",
+   "section": "theme2",
+   "section_zh": "小號第二主題（R49–R60 骨幹）",
+   "desc": "Close view along an empty wooden bar counter in cold blue light, a row of empty glasses, wet reflections on the wood, everything beyond the counter lost in darkness, no bottles with labels",
+   "camera": "Slow lateral dolly along the counter.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 187.8,
+   "music_sec": 9.6,
+   "seed": 7504,
+   "attempts": 1,
+   "gen_time_s": 345.3,
+   "quality": "ok",
+   "issues": [
+    "右側背景酒瓶有失焦標籤（不可讀）"
+   ],
+   "note": "冷藍吧台、空杯，寂寥感對",
+   "frames": [
+    "theme2_04_f0.jpg",
+    "theme2_04_f1.jpg",
+    "theme2_04_f2.jpg"
+   ]
+  },
+  {
+   "id": "theme2_05",
+   "file": "_render/clips/theme2_05.mp4",
+   "section": "theme2",
+   "section_zh": "小號第二主題（R49–R60 骨幹）",
+   "desc": "A cigarette resting on a glass ashtray in darkness, a thin line of smoke curling upward, cold blue backlight.",
+   "camera": "Static macro.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 197.4,
+   "music_sec": 9.6,
+   "seed": 7505,
+   "attempts": 1,
+   "gen_time_s": 345.2,
+   "quality": "ok",
+   "issues": [],
+   "note": "玻璃菸灰缸與菸、冷藍逆光；前段有煙，後段煙變淡",
+   "frames": [
+    "theme2_05_f0.jpg",
+    "theme2_05_f1.jpg",
+    "theme2_05_f2.jpg"
+   ]
+  },
+  {
+   "id": "return_01",
+   "file": "_render/clips/return_01.mp4",
+   "section": "return",
+   "section_zh": "回到主題",
+   "desc": "The brass trumpet lying on top of the closed grand piano beside a lamp, warm amber light returning, dust in the air.",
+   "camera": "Slow push-in.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 207.0,
+   "music_sec": 9.75,
+   "seed": 7601,
+   "attempts": 1,
+   "gen_time_s": 360.4,
+   "quality": "ok",
+   "issues": [
+    "小號造型大致合理但活塞數量怪",
+    "OCR: [2x] 770"
+   ],
+   "note": "琴蓋上的小號與檯燈，暖光回來；背景雨窗散景",
+   "frames": [
+    "return_01_f0.jpg",
+    "return_01_f1.jpg",
+    "return_01_f2.jpg"
+   ]
+  },
+  {
+   "id": "return_02",
+   "file": "_render/clips/return_02.mp4",
+   "section": "return",
+   "section_zh": "回到主題",
+   "desc": "Close-up of a hand sliding slowly along the neck of an upright double bass, warm amber light, only the hand visible.",
+   "camera": "Static, soft focus.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 216.75,
+   "music_sec": 9.75,
+   "seed": 7602,
+   "attempts": 1,
+   "gen_time_s": 345.3,
+   "quality": "ok",
+   "issues": [],
+   "note": "手滑過低音提琴琴頸，暖光；只見手與袖",
+   "frames": [
+    "return_02_f0.jpg",
+    "return_02_f1.jpg",
+    "return_02_f2.jpg"
+   ]
+  },
+  {
+   "id": "return_03",
+   "file": "_render/clips/return_03.mp4",
+   "section": "return",
+   "section_zh": "回到主題",
+   "desc": "Rain slowing down on the bar window, fewer droplets, warm interior lights reflected in the glass, blurred street outside.",
+   "camera": "Very slow rack focus.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 226.5,
+   "music_sec": 9.75,
+   "seed": 7603,
+   "attempts": 1,
+   "gen_time_s": 345.3,
+   "quality": "ok",
+   "issues": [],
+   "note": "雨窗 rack focus 到街景，店面無可讀字；Haar 誤判街燈",
+   "frames": [
+    "return_03_f0.jpg",
+    "return_03_f1.jpg",
+    "return_03_f2.jpg"
+   ]
+  },
+  {
+   "id": "return_04",
+   "file": "_render/clips/return_04.mp4",
+   "section": "return",
+   "section_zh": "回到主題",
+   "desc": "Medium shot of two small empty tables after hours, coats left on the chairs and half-finished drinks, heavy haze, warm lamp glow, the background dark and out of focus",
+   "camera": "Slow pull-back.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 236.25,
+   "music_sec": 9.75,
+   "seed": 7604,
+   "attempts": 1,
+   "gen_time_s": 345.3,
+   "quality": "ok",
+   "issues": [
+    "右上綠色緊急出口燈（箭頭＋小人圖示，無字母）、窗上空白紙張",
+    "OCR: [mirror] APD, [2x] YL, [2x] FNY"
+   ],
+   "note": "空桌、椅背外套、兩杯殘酒；可接受，若要更乾淨可 sign_fix 失焦出口燈",
+   "frames": [
+    "return_04_f0.jpg",
+    "return_04_f1.jpg",
+    "return_04_f2.jpg"
+   ]
+  },
+  {
+   "id": "coda_01",
+   "file": "_render/clips/coda_01.mp4",
+   "section": "coda",
+   "section_zh": "尾聲（漸慢）",
+   "desc": "Chairs turned upside down on small round tables, pale grey-blue dawn light falling across them from the side, dust floating in the light, the background soft and dark",
+   "camera": "Slow lateral dolly.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 246.0,
+   "music_sec": 9.0,
+   "seed": 7701,
+   "attempts": 1,
+   "gen_time_s": 345.4,
+   "quality": "ok",
+   "issues": [
+    "OCR: [mirror] WLNY"
+   ],
+   "note": "椅子倒放桌上、窗外黎明；OCR mirror 誤讀椅背",
+   "frames": [
+    "coda_01_f0.jpg",
+    "coda_01_f1.jpg",
+    "coda_01_f2.jpg"
+   ]
+  },
+  {
+   "id": "coda_02",
+   "file": "_render/clips/coda_02.mp4",
+   "section": "coda",
+   "section_zh": "尾聲（漸慢）",
+   "desc": "A grand piano with its lid and fallboard closed, an empty piano bench, grey dawn light on the black lacquer.",
+   "camera": "Very slow push-in.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 255.0,
+   "music_sec": 9.0,
+   "seed": 7702,
+   "attempts": 1,
+   "gen_time_s": 345.3,
+   "quality": "ok",
+   "issues": [
+    "琴蓋是打開的（提示詞寫關上）、琴腳結構略怪",
+    "窗外一塊空白招牌（無字）",
+    "OCR: [2x] Lyll"
+   ],
+   "note": "黎明窗前鋼琴剪影、空琴椅，情緒對",
+   "frames": [
+    "coda_02_f0.jpg",
+    "coda_02_f1.jpg",
+    "coda_02_f2.jpg"
+   ]
+  },
+  {
+   "id": "coda_03",
+   "file": "_render/clips/coda_03.mp4",
+   "section": "coda",
+   "section_zh": "尾聲（漸慢）",
+   "desc": "A trumpet lying in an open case lined with worn velvet, soft morning light falling across the brass.",
+   "camera": "Static top-down, slow drift.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 264.0,
+   "music_sec": 9.0,
+   "seed": 8703,
+   "attempts": 2,
+   "gen_time_s": 345.3,
+   "quality": "ok",
+   "issues": [
+    "小號比例偏長；不是俯拍而是斜角",
+    "OCR: [mirror] WL"
+   ],
+   "note": "第 2 版（seed 8703）：琴盒內小號，背景黎明的空咖啡座失焦；第 1 版琴盒蓋上的假花體字已消失",
+   "frames": [
+    "coda_03_f0.jpg",
+    "coda_03_f1.jpg",
+    "coda_03_f2.jpg"
+   ]
+  },
+  {
+   "id": "coda_04",
+   "file": "_render/clips/coda_04.mp4",
+   "section": "coda",
+   "section_zh": "尾聲（漸慢）",
+   "desc": "An empty city street just before dawn, wet asphalt, the streetlights switching off one by one, a pale sky, blank building facades with no shop signs, no people",
+   "camera": "Static wide.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 273.0,
+   "music_sec": 9.0,
+   "seed": 7704,
+   "attempts": 1,
+   "gen_time_s": 345.2,
+   "quality": "ok",
+   "issues": [
+    "路邊有蒸氣（提示詞沒要求）；遠處小招牌失焦不可讀"
+   ],
+   "note": "黎明前空街、濕柏油、路燈，遠處一輛車、無人",
+   "frames": [
+    "coda_04_f0.jpg",
+    "coda_04_f1.jpg",
+    "coda_04_f2.jpg"
+   ]
+  },
+  {
+   "id": "coda_05",
+   "file": "_render/clips/coda_05.mp4",
+   "section": "coda",
+   "section_zh": "尾聲（漸慢）",
+   "desc": "A quiet city skyline before sunrise in thin fog, low grey clouds, windows dark, the last street lamps fading, a faint pale glow on the horizon.",
+   "camera": "Very slow pull-back, fading toward white.",
+   "duration": 12.958,
+   "head": 2.5,
+   "usable_sec": 10.46,
+   "music_start": 282.0,
+   "music_sec": 9.0,
+   "seed": 7705,
+   "attempts": 1,
+   "gen_time_s": 345.3,
+   "quality": "ok",
+   "issues": [
+    "天際線偏紐約感；最後沒有淡到白",
+    "OCR: [2x] 10, [2x] at, [2x] Auim"
+   ],
+   "note": "黎明城市天際線、太陽升起、薄霧",
+   "frames": [
+    "coda_05_f0.jpg",
+    "coda_05_f1.jpg",
+    "coda_05_f2.jpg"
+   ]
+  }
+ ]
+}
