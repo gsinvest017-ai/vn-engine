@@ -41,3 +41,19 @@ def test_page_escapes_data(tmp_path, monkeypatch):
     html = rs.page()
     assert "</script><b>" not in html
     assert html.count("</script>") == 2
+
+
+def test_extra_files_only_by_index(tmp_path, monkeypatch):
+    monkeypatch.setattr(rs, "OUT", tmp_path / "out")
+    f = tmp_path / "jazz.mp4"
+    f.write_bytes(b"x")
+    pdf = tmp_path / "score.pdf"
+    pdf.write_bytes(b"%PDF")
+    monkeypatch.setattr(rs, "EXTRAS", [("jazz", f)])
+    monkeypatch.setattr(rs, "DOCS_EXTRA", [("總譜", pdf)])
+    assert rs.safe_file("extra/0.mp4") == f
+    assert rs.safe_file("doc/0.pdf") == pdf
+    assert rs.safe_file("extra/1.mp4") is None
+    assert rs.safe_file("extra/../jazz.mp4") is None
+    assert rs.safe_file(str(f)) is None
+    assert [d["path"] for d in rs.docs()] == ["doc/0.pdf"]

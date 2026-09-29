@@ -22,8 +22,11 @@ sys.path.insert(0, str(Path(__file__).parent))
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "video_out"
 DOCS = ROOT / "docs" / "remaster_v2"
-MIME = {".mp4": "video/mp4", ".mp3": "audio/mpeg", ".wav": "audio/wav",
+MIME = {".mp4": "video/mp4", ".mp3": "audio/mpeg", ".wav": "audio/wav", ".pdf": "application/pdf",
         ".png": "image/png", ".jpg": "image/jpeg", ".json": "application/json"}
+# 工作樹以外、明確指定才放行的檔案（--extra 影片、--doc 文件）：[(label, Path)]
+EXTRAS: list[tuple[str, Path]] = []
+DOCS_EXTRA: list[tuple[str, Path]] = []
 CHUNK = 1 << 20
 
 # 已知限制（hanzi id → 說明；手動維護，解掉就刪）。時間碼取 hanzi 報告的 final_sec
@@ -42,7 +45,14 @@ def versions() -> list[dict]:
     for f in sorted((OUT / "remaster_v2").glob("anqu_narrated_v2*.mp4")):
         tag = f.stem.removeprefix("anqu_narrated_").replace("_", ".")
         out.append({"label": tag, "path": f"remaster_v2/{f.name}"})
+    for i, (label, f) in enumerate(EXTRAS):
+        if f.exists():
+            out.append({"label": label, "path": f"extra/{i}{f.suffix}"})
     return out
+
+
+def docs() -> list[dict]:
+    return [{"label": label, "path": f"doc/{i}{f.suffix}"} for i, (label, f) in enumerate(DOCS_EXTRA) if f.exists()]
 
 
 def audio_ab() -> list[dict]:
@@ -96,6 +106,12 @@ def markers() -> list[dict]:
 
 def safe_file(rel: str) -> Path | None:
     rel = unquote(rel).lstrip("/")
+    m = re.fullmatch(r"(extra|doc)/(\d+)\.\w+", rel)
+    if m:  # 明確指定的外部檔案：只認清單索引，不接受任何路徑
+        pool = EXTRAS if m[1] == "extra" else DOCS_EXTRA
+        i = int(m[2])
+        f = pool[i][1] if i < len(pool) else None
+        return f if f and f.is_file() and f.suffix.lower() in MIME else None
     if not rel or ".." in Path(rel).parts:
         return None
     p = (OUT / rel).resolve()
@@ -120,7 +136,7 @@ def parse_range(header: str | None, size: int) -> tuple[int, int] | None:
 
 
 def page() -> str:
-    data = {"versions": versions(), "audio": audio_ab(), "markers": markers()}
+    data = {"versions": versions(), "audio": audio_ab(), "markers": markers(), "docs": docs()}
     # JSON 放進 <script type=application/json>：只要擋掉 "</"（JSON 允許 \/），不能做 HTML 跳脫
     blob = json.dumps(data, ensure_ascii=False).replace("</", r"<\/")
     return PAGE.replace("__DATA__", blob)
@@ -195,7 +211,8 @@ td.t{font-family:"JetBrains Mono",monospace;color:var(--gold);white-space:nowrap
 <main><section class="card"><div id="pair" class="pair">
 <div id="leftbox"><div class="lbl">v1 原版</div><video id="left" controls preload="metadata" muted></video></div>
 <div><div class="lbl" id="rlabel"></div><video id="right" controls preload="metadata"></video></div></div>
-<div class="card" style="margin-top:10px"><div class="lbl">試聽</div><div id="audio"></div></div></section>
+<div class="card" style="margin-top:10px"><div class="lbl">試聽</div><div id="audio"></div></div>
+<div class="card" style="margin-top:10px"><div class="lbl">文件／樂譜</div><div id="docs"></div></div></section>
 <section class="card"><div class="filters lbl">
 <label><input type="checkbox" data-k="限制" checked>限制</label><label><input type="checkbox" data-k="讀音" checked>讀音</label>
 <label><input type="checkbox" data-k="換字" checked>換字</label>（點時間碼跳轉；右欄可寫筆記，存在本機瀏覽器）</div>
@@ -215,6 +232,7 @@ R.addEventListener('play',()=>{if($('cmp').checked){L.currentTime=R.currentTime;
 R.addEventListener('pause',()=>L.pause());R.addEventListener('seeked',()=>{if($('cmp').checked)L.currentTime=R.currentTime});
 D.audio.forEach(a=>{const d=document.createElement('div');d.innerHTML='<div class="lbl"></div><audio controls preload="none"></audio>';
 d.querySelector('.lbl').textContent=a.label;d.querySelector('audio').src='files/'+a.path;$('audio').appendChild(d)});
+D.docs.forEach(x=>{const a=document.createElement('a');a.href='files/'+x.path;a.target='_blank';a.textContent=x.label;a.style.cssText='display:block;color:var(--gold);margin:2px 0';$('docs').appendChild(a)});
 function seek(t){R.currentTime=Math.max(0,t-1);if($('cmp').checked)L.currentTime=R.currentTime;R.play()}
 function render(){const on=[...document.querySelectorAll('.filters input')].filter(c=>c.checked).map(c=>c.dataset.k);const tb=$('marks');tb.innerHTML='';
 D.markers.filter(m=>on.includes(m.kind)).forEach(m=>{const tr=document.createElement('tr');const key='note:'+m.kind+':'+m.id+':'+m.t;
@@ -232,7 +250,12 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--host", default="127.0.0.1")
     ap.add_argument("--port", type=int, default=9201)
+    ap.add_argument("--extra", action="append", default=[], metavar="標籤=影片路徑", help="額外列入版本選單的影片")
+    ap.add_argument("--doc", action="append", default=[], metavar="標籤=檔案路徑", help="額外提供下載的 PDF／音檔")
     a = ap.parse_args()
+    for spec, pool in [(x, EXTRAS) for x in a.extra] + [(x, DOCS_EXTRA) for x in a.doc]:
+        label, _, path = spec.partition("=")
+        pool.append((label, Path(path)))
     srv = ThreadingHTTPServer((a.host, a.port), Handler)
     print(f"審片頁 → http://{a.host}:{a.port}/（Ctrl+C 停止）", flush=True)
     srv.serve_forever()
