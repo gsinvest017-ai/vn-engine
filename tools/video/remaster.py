@@ -437,8 +437,11 @@ def fade_gain(i: int, n: int, fade_in: bool, fade_out: bool, f: int = FADE_F) ->
     return g
 
 
-def render_video(pieces: list[Piece], dest: Path, work: Path, workers: int = 2) -> int:
-    """逐片補幀、調色、溶接、淡入淡出，raw 幀直接灌進一個只有影像的 x264 crf 10 中間檔。回傳總幀數。"""
+def render_video(pieces: list[Piece], dest: Path, work: Path, workers: int = 2, frame_fx=None) -> int:
+    """逐片補幀、調色、溶接、淡入淡出，raw 幀直接灌進一個只有影像的 x264 crf 10 中間檔。回傳總幀數。
+
+    frame_fx(pc, k, frame_float32_bgr) -> frame：選用的逐幀額外處理（在 apply_eq 之後、淡入淡出與溶接之前）；
+    預設 None＝行為與原本完全相同（musicvideo.py 用它做分段調色、局部失焦與片頭尾壓暗）。"""
     import cv2
     w, h = WORK_RES
     enc = subprocess.Popen(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24",
@@ -469,6 +472,8 @@ def render_video(pieces: list[Piece], dest: Path, work: Path, workers: int = 2) 
                 if pc.zoom:
                     fr = zoom_frame(fr, min(ZOOM_MAX, 1.0 + ZOOM_RATE * k))
                 fr = apply_eq(fr, *grade_at(pc, k)).astype(np.float32)
+                if frame_fx is not None:
+                    fr = np.asarray(frame_fx(pc, k, fr), dtype=np.float32)
                 g = fade_gain(k, pc.n, pc.fade_in, pc.fade_out)
                 if g < 1.0:
                     fr *= g
